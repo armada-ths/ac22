@@ -1,0 +1,14 @@
+.sidebarFlex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  height: 100%;
+} 
+
+
+.sidebar-icons{
+  height: 64px;
+  width: 64px;
+}

@@ -13,13 +13,19 @@ interface Props {
 const Sidebar: FC<Props> = () => {
 	return (
 		<nav className="sidebarFlex">
-			<img className="sidebar-icons" src={armada_logo} alt="Armada Logo" />
-			<Link to="/">
-				<img className="sidebar-icons" src={dashboard_grey} alt="dashboard" />
-			</Link>
-			<Link to="/events">
-				<img className="sidebar-icons" src={events_grey} alt="dashboard" />
-			</Link>
+			<img className="armada-icon" src={armada_logo} alt="Armada Logo" />
+			<div className="sidebar-icons-flex">
+				<div className="sidebar-LinkButton">
+					<Link to="/">
+						<img src={dashboard_grey} alt="dashboard" />
+					</Link>
+				</div>
+				<div className="sidebar-LinkButton">
+					<Link to="/events">
+						<img src={events_grey} alt="dashboard" />
+					</Link>
+				</div>
+			</div>
 		</nav>
 	);
 };

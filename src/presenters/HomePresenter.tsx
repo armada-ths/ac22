@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Sidebar from "../components/Sidebar";
 import HomeViewer from "../views/Home";
 
-import "./HomePresenter.css"
+import "./Presenter.css"
 
 interface Props {
 	placeholder?: string;

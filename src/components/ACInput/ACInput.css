@@ -1,0 +1,33 @@
+.ac-input{
+    width: 21rem;
+    height: 3.75rem;
+    background: #FFFFFF;
+    font-size: 20px;
+    color: #0F1322;
+    font-weight: 600;
+    text-indent: 1rem;
+    border: none;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 0 !important;
+    color: #0F1322;
+
+}
+
+.container{
+    border-radius: 4px;
+    border: 1px solid #CCCCCC;
+    max-width: 21rem;
+    max-height: 3.75rem;
+    display: grid;
+    place-items: center;
+}
+
+.ac-input:focus{
+    outline: none;
+}
+
+.container:focus-within {
+    border: 1px solid #2BDBA0;
+}
+

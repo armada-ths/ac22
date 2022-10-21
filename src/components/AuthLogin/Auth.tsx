@@ -82,11 +82,11 @@ const App = () => {
         <div className="App">
             <Login 
             email={email} 
-            setEmail={setEmail} 
-            setPassword={setPassword} 
+            setEmail={setEmail}
             password={password} 
+            setPassword={setPassword}
             handleLogin={handleLogin} 
-            handleSignup={handleSignUp}
+            handleSignUp={handleSignUp}
             hasAccount={hasAccount}
             setHasAccount={setHasAccount}
             emailError={emailError}
@@ -96,4 +96,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default App; 

@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import EventViewer from "../views/Events";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 import "./Presenter.css";
-
-
 
 interface Props {
 	placeholder?: string;

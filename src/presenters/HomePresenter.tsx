@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import HomeViewer from "../views/Home";
 
 import "./Presenter.css"

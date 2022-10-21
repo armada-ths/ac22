@@ -1,9 +1,10 @@
 
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import React, { useState, useEffect } from "react";
-import Login from "./LoginComp";
+import Login from "../../views/Login";
 //import "./App.css";
 import auth from "./fire";
+import Hero from "./HeroComp";
 
 
 
@@ -80,7 +81,10 @@ const App = () => {
 
     return (
         <div className="App">
-            <Login 
+            {user ? (
+                <Hero HandleLogout={handleLogout} />
+            ) : (
+                <Login 
             email={email} 
             setEmail={setEmail}
             password={password} 
@@ -92,6 +96,7 @@ const App = () => {
             emailError={emailError}
             passwordError={passwordError}
             />
+            )}
         </div>
     );
 };

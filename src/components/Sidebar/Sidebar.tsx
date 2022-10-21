@@ -13,10 +13,7 @@ interface Props {
 /*
  Dependencies: Armada Logo, Dashboard Icon, Events Icon
 	@returns: Sidebar component
-
 	This component is the sidebar navigation which is seen on the homepage and eventspage
-	
-	
 */
 
 const Sidebar: FC<Props> = () => {

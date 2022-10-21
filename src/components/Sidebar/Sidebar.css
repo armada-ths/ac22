@@ -9,14 +9,15 @@
   height: 100vh;
   background-color: white; 
   border: solid black;
-} 
+  width: 6%;
+}
 /*
   Help me center this shit 
 */
 
 .sidebar-icons-flex{
   background-color: white;
-  border:1px solid rgb(0, 0, 0);
+  border:1px solid rgb(209, 32, 32);
 }
 
 .button-link{
@@ -33,15 +34,13 @@
 }
 
 .sidebar-LinkButton{
-  border: 1px solid black;
+  border: 1px solid red;
   text-align: center;
   padding-top: 20%;
-  
 }
 
 .another-sidebar-LinkButton{
   margin-top: 30%;
-  
 }
 
 .navbar-icon{

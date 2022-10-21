@@ -1,17 +1,13 @@
 .armada-icon {
   height: 48px;
   width: 48px;
-  padding-bottom: 50px;
+  position: center;
 }
 
 .sidebarFlex{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 10px;
   height: 100vh;
-  background-color: white;
-  padding-right: 20px; 
+  background-color: white; 
   border: solid black;
 } 
 /*
@@ -19,17 +15,15 @@
 */
 
 .sidebar-icons-flex{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
   background-color: white;
   border:1px solid rgb(0, 0, 0);
 }
 
 .button-link{
-  height: 172px;
-  width: 172px;
+  height: 72px;
+  width: 72px;
+  display: inline-block;
+  text-align: center;
 }
 
 .button-active{
@@ -40,12 +34,20 @@
 
 .sidebar-LinkButton{
   border: 1px solid black;
+  text-align: center;
+  padding-top: 20%;
+  
+}
+
+.another-sidebar-LinkButton{
+  margin-top: 30%;
   
 }
 
 .navbar-icon{
   height: 24px;
   width: 24px;
+  padding-top: 0.5rem;
 }
 
 

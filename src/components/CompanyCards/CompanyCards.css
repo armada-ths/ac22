@@ -11,6 +11,6 @@
   top: 70%;
   /* White */
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
-  background-color: #FFFF;
+  background-color: var(--white);
   border-radius: 16px;
 }

@@ -15,32 +15,32 @@ interface Props {
 const CompanyInformation: FC<Props>= ({ coordinators, themes, extraInformation }) =>{
   return (
     <div className='company-info'>
-        <div className='company-info-'>
-            <div>EVENT COORDINATORS</div>
+        <div className='mini-flex'>
+            <div className='title'>EVENT COORDINATORS</div>
             {coordinators.map((coordinator) => {
                 return (
                     <div>
-                        <div>{coordinator.name}</div>
-                        <div>{coordinator.mail}</div>
+                        <div className='name'>{coordinator.name}</div>
+                        <div className='mail'>{coordinator.mail}</div>
                     </div>
                 )
             })}
         </div>
-        <div>
-            <div>THEMES AND TOPICS</div>
+        <div className='mini-flex'>
+            <div className='title'>THEMES AND TOPICS</div><div>
             {themes.map((theme) => {
                 return (
-                        <span className='company-info-span'>{theme}</span>
+                        <span className='theme'>{theme}</span>
                 )
-            })}
+            })}</div>
         </div>
-        <div>
-            <div>EXTRA INFORMATION</div>
+        <div className='mini-flex'>
+            <div className='title'>EXTRA INFORMATION</div><div>
             {extraInformation.map((information) => {
                 return (
-                        <span className='company-info-span'>{information}</span>
+                        <span className='theme'>{information}</span>
                 )
-            })}
+            })}</div>
         </div>
     </div>
   )

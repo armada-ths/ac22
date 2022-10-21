@@ -1,42 +1,51 @@
 .company-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    width: 20%;
-    height: auto;
-    background: #ffff;
-    box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    margin: 2%;
-    padding: 5%;
-    gap: 2%;
-    
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  align-items: left;
+  width: 20%;
+  height: auto;
+  background: var(--white);
+  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  margin: 2%;
+  padding: 2%;
+  gap: 2%;
 
-/*#1{font-family: inherit;}*/
+}
 
-  .company-info-span {
-    /* Futurism 
-    width: 60px;
-    height: 17px;*/
+.title {
+  color: var(--black-secondary);
+  font-weight: var(--subtitle-weight);
+  font-size: 0.5rem;
+  padding-bottom: 5%;
+}
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    /* identical to box height */
-    display: flex;
-    align-items: center;
+.theme {
+  color: var(--black-primary);
+  font-weight: var(--subtitle-weight);
+  border: 1px solid var(--black-primary);
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin: 1%;
+  border-radius: 100px;
+}
 
-    /* Black Primary */
-    color: #0F1322;
+.name {
+  color: var(--black-primary);
+  font-weight: var(--title-weight);
+}
 
+.mail {
+  color: var(--black-secondary);
+  font-weight: var(--bold-weight);
+}
 
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-  }
+.mini-flex {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+}

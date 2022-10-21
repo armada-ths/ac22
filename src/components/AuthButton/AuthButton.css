@@ -1,0 +1,21 @@
+.armada-button{
+    border: solid #2BDBA0;
+    border-radius: 4px;
+    background: #2BDBA0;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    width: 352px;
+    height: 46px;
+}
+
+.armada-button:disabled{
+    color: #CCCCCC;
+    background: #999999;
+    border-color: #999999;
+}
+
+.armada-button:hover{
+    cursor: pointer;
+}

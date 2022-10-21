@@ -1,22 +1,21 @@
-import React from 'react';
-import CompanyHeader from './components/CompanyHeader/CompanyHeader';
-import CompanyCards from './components/CompanyCards/CompanyCards';
-import './App.css';
-import CompanyInformation from './components/CompanyInformation/CompanyInformation';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import HomePresenter from "./presenters/HomePresenter";
+import EventsPresenter from "./presenters/EventsPresenter";
+import RegisterPresenter from "./presenters/RegisterPresenter";
 
 function App() {
-  return (
-    <div className="App">
-      Armada Competition 2022
-    
-    <CompanyHeader location={"Nymble"} language={"English"} tickets={5} onScan={() => {console.log("Working!")}}></CompanyHeader>
-   <div> <CompanyCards image= {"blä"} company={"Volvo"} text={" eufhore reirp ytj dgjgpgrstn rt nersoigerhpierg"} route={"volvo"}></CompanyCards></div>
-    <CompanyInformation 
-      coordinators={[{name: "Nina", mail: "nina@mail.se"}, {name: "Malin", mail: "malin@mail.se"}]}
-      themes={["Elictrics Vehicles", "Travel", "Futurism"]}
-      extraInformation={["Lunch Provided", "Waitlist Available"]}></CompanyInformation>
-  </div>
-  );
+	return (
+		<Router>
+			<Routes>
+				<Route path="/" element={<HomePresenter placeholder="home" />} />
+        		<Route path="/events" element={<EventsPresenter placeholder="events" />} />
+				<Route path="/register" element={<RegisterPresenter />} />
+			</Routes>
+		</Router>
+	);
 }
 
 export default App;

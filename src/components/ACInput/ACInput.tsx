@@ -7,33 +7,29 @@ interface Props {
 }
 
 const ACInput: FC<Props> = ({ type, placeholder }) => {
-  const [details, setDetails] = useState({
-    username: "",
-    error: false,
-  });
-
-  const handleUsernameChange = (e: any) => {
-    console.log("handleUsernameChange()");
-    const target = e.target;
-    setDetails({
-      username: target.value,
-      error: target.validationMessage,
-    });
-  };
-
   const [validInput, setValidInput] = useState<boolean>(true);
 
-  const emailPattern = "^[A-Za-z0-9._%+-]+@kth.se$";
-  const passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)[a-zA-Zd]{8,}$";
+  const isValidEmail = (input: any) => {
+    return /^\w+([-+.']\w+)*@?(kth.se)$/.test(input);
+  };
 
-  const handleEmailChange = (e: any) => {
-    if (e.target.validationMessage) {
-      console.log(
-        e.target.validationMessage === "Please match the requested format."
-      );
-      setValidInput(false);
+  const isValidPassword = (input: any) => {
+    return /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,64}$/.test(input);
+  };
+
+  const handleChange = (e: any) => {
+    if (type === "email") {
+      if (!isValidEmail(e.target.value)) {
+        setValidInput(false);
+      } else {
+        setValidInput(true);
+      }
     } else {
-      setValidInput(true);
+      if (!isValidPassword(e.target.value)) {
+        setValidInput(false);
+      } else {
+        setValidInput(true);
+      }
     }
   };
 
@@ -43,10 +39,8 @@ const ACInput: FC<Props> = ({ type, placeholder }) => {
         className="ac-input"
         placeholder={placeholder}
         type={type}
-        pattern={type == "email" ? emailPattern : passwordPattern}
-        onChange={handleEmailChange}
+        onChange={handleChange}
       />
-      <div className="invalid-feedback d-block">{details.error}</div>
     </div>
   );
 };

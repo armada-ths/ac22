@@ -1,0 +1,18 @@
+.header-box {
+    display: flex;
+    flex-direction: row;
+    padding: 5%;
+    color: var(--black-primary);
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    gap: 2%;
+    text-transform: capitalize;
+    position: absolute;
+    width: 94%; /*Needed to do it manually*/
+    height: 10%;
+    /* White */
+    background: var(--white);
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}

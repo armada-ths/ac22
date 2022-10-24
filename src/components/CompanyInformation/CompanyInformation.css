@@ -87,3 +87,7 @@
     color: var(--black-secondary);
     font-weight: var(--bold-weight);
   }
+
+.mini-flex2.no-border div span {
+  margin-top: 5%; /*How can I center in another way?*/
+}

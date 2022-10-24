@@ -1,4 +1,12 @@
-.box {
+.info-layout-box {
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    align-items: flex-start;
+    white-space: nowrap;
+}
+
+.info-layout-mini-box {
     display: flex;
     flex-direction: column;
 }

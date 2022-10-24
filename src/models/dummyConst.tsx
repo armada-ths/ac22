@@ -1,6 +1,9 @@
 import { DummyModel } from './DummyModel'
 import { Company } from './DummyModel'
 
+import lunch_img from '../assets/CompanyInformation/lunch-img.svg'
+import waitlist_img from '../assets/CompanyInformation/waitlist-img.svg'
+
 //Ta bort sen
 
 const dummyCompanies: Company[] = [
@@ -9,7 +12,7 @@ const dummyCompanies: Company[] = [
         coordinators: [{name: "Nina", mail: "nina@mail.se", img: "null"}, {name: "Malin", mail: "malin@mail.se", img: "null"}], 
         offerings: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"], 
         askAbout: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"],
-        extraInfo: [{info: "Lunch Provided", img: "null"}, {info: "Waitlist Available", img: "null"}],
+        extraInfo: [{info: "Lunch Provided", img: lunch_img}, {info: "Waitlist Available", img: waitlist_img}],
         location: "Nya Matsalen, Nymble",
         stall: 50,
         tickets: 30,
@@ -21,7 +24,7 @@ const dummyCompanies: Company[] = [
         coordinators: [{name: "Nina", mail: "nina@mail.se", img: "null"}, {name: "Malin", mail: "malin@mail.se", img: "null"}], 
         offerings: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"], 
         askAbout: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"],
-        extraInfo: [{info: "Lunch Provided", img: "null"}, {info: "Waitlist Available", img: "null"}],
+        extraInfo: [{info: "Lunch Provided", img: lunch_img}, {info: "Waitlist Available", img: waitlist_img}],
         location: "Nya Matsalen, Nymble",
         stall: 50,
         tickets: 30,
@@ -33,7 +36,7 @@ const dummyCompanies: Company[] = [
       coordinators: [{name: "Nina", mail: "nina@mail.se", img: "null"}, {name: "Malin", mail: "malin@mail.se", img: "null"}], 
       offerings: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"], 
       askAbout: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"],
-      extraInfo: [{info: "Lunch Provided", img: "null"}, {info: "Waitlist Available", img: "null"}],
+      extraInfo: [{info: "Lunch Provided", img: lunch_img}, {info: "Waitlist Available", img: waitlist_img}],
       location: "Nya Matsalen, Nymble",
       stall: 50,
       tickets: 30,
@@ -45,7 +48,7 @@ const dummyCompanies: Company[] = [
       coordinators: [{name: "Nina", mail: "nina@mail.se", img: "null"}, {name: "Malin", mail: "malin@mail.se", img: "null"}], 
       offerings: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"], 
       askAbout: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"],
-      extraInfo: [{info: "Lunch Provided", img: "null"}, {info: "Waitlist Available", img: "null"}],
+      extraInfo: [{info: "Lunch Provided", img: lunch_img}, {info: "Waitlist Available", img: waitlist_img}],
       location: "Nya Matsalen, Nymble",
       stall: 50,
       tickets: 30,

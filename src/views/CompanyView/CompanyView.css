@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    height: 60vh;
+    height: 65vh;
 
     /*background-color: orangered;*/
     background-image: url("./background-test.jpg");
@@ -110,6 +110,20 @@
     color: var(--black-primary);
 }
 
+.company-cards-header div {
+    display: flex;
+    flex-direction: row;
+    gap: 12%;
+    white-space: nowrap;
+}
+
+.company-cards-header div:hover {
+    /*font-size: 1.05rem;*/
+    transform: scale(1.08);
+    transition: 0.75s ease;
+    cursor: pointer;
+}
+
 .company-cards {
     display: flex;
     flex-direction: row;
@@ -117,3 +131,13 @@
     margin-left: 2%;
     overflow: hidden;
 }
+
+.company-card:hover{
+    /*
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    */
+    transform: scale(0.99); /*Gets a bit blurry*/
+    transition: 0.5s ease;
+    cursor: pointer;
+    }

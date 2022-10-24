@@ -1,18 +1,46 @@
 .header-box {
     display: flex;
     flex-direction: row;
-    padding: 5%;
+    /*padding: 5%;*/
     color: var(--black-primary);
     justify-content: space-between;
     align-items: center;
     padding: 1%;
-    gap: 2%;
+    padding-left: 4%;
+    padding-right: 4%;
     text-transform: capitalize;
     position: absolute;
-    width: 94%; /*Needed to do it manually*/
+    width: 88%; /*Needed to do it manually*/
     height: 10%;
     /* White */
     background: var(--white);
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
+
+/*Starred*//*
+.header-star-button {
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    background-color: var(--orange-secondary);
+    color: var(--orange-primary);
+    
+    padding-top: 1%;
+    padding-bottom: 1%;
+
+    width: 15vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 6%;
+    white-space: nowrap;
+}
+
+.header-star-button:hover {
+    cursor: pointer;
+    border: 1px solid var(--orange-primary);
+    transition: 2s ease;
+    background-color: var(--white);
+    transition: 1s ease;
+}*/

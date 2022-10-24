@@ -7,6 +7,9 @@ import CompanyInformation from '../../components/CompanyInformation/CompanyInfor
 import CompanyCard from '../../components/CompanyCard/CompanyCard';
 import { Company } from '../../models/DummyModel';
 
+import arrow_img from '../../assets/CompanyView/arrow-img.svg'
+import arrow_2_img from '../../assets/CompanyView/arrow-2-img.svg'
+
 interface Props {
     companies: Company[];
     company: Company;
@@ -19,7 +22,7 @@ const CompanyView: FC<Props>= ({ companies, company, setStar }) => {
 
       <div className='company-header1'>
         <div className='company-bar'>
-          <Link to={"/"}>Back to home</Link>
+          <Link to={"/"}><img src={arrow_img}></img></Link>
           <div className='company-right-bar'>
             <div>Tickets</div>
             <button>Profile</button>
@@ -57,12 +60,15 @@ const CompanyView: FC<Props>= ({ companies, company, setStar }) => {
       <div className='company-cards-body'>
         <div className='company-cards-header'>
           <span>Nearby Stalls</span>
-          <span>All Stalls</span>
+          <div>
+            <span>All Stalls</span>
+            <img src={arrow_2_img}></img>
+          </div>
         </div>
         <div className='company-cards'>
             {companies.map((company) => {
                     return (
-                      <div key={company.name}>
+                      <div key={company.name} className="company-card">
                         <CompanyCard
                           image={"grey"}
                           companyName={company.name}

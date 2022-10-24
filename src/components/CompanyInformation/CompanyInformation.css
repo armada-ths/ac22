@@ -1,0 +1,51 @@
+.company-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  align-items: left;
+  width: 20%;
+  height: auto;
+  background: var(--white);
+  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  margin: 2%;
+  padding: 2%;
+  gap: 2%;
+
+}
+
+.title {
+  color: var(--black-secondary);
+  font-weight: var(--subtitle-weight);
+  font-size: 0.5rem;
+  padding-bottom: 5%;
+}
+
+.theme {
+  color: var(--black-primary);
+  font-weight: var(--subtitle-weight);
+  border: 1px solid var(--black-primary);
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin: 1%;
+  border-radius: 100px;
+}
+
+.name {
+  color: var(--black-primary);
+  font-weight: var(--title-weight);
+}
+
+.mail {
+  color: var(--black-secondary);
+  font-weight: var(--bold-weight);
+}
+
+.mini-flex {
+  display: flex;
+  flex-direction: column;
+  margin: 5%;
+}

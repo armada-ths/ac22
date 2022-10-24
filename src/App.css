@@ -56,6 +56,18 @@
   color: #61dafb;
 }
 
+.button {
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  color: #FFFFFF;
+  text-decoration: none;
+  background: #2bdba0;
+  border-radius: 4px;
+  padding: 2%;
+  margin: 1%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

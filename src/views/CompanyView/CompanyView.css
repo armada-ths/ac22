@@ -1,6 +1,7 @@
 .company-container {
     display: flex;
     flex-direction: column;
+    background-color: var(--background);
 }
 
 .company-header1 {
@@ -10,8 +11,7 @@
 
     height: 65vh;
 
-    /*background-color: orangered;*/
-    background-image: url("./background-test.jpg");
+    background-image: url("./background-test.jpg"); /*Ta bort*/
 }
 
 .company-bar {
@@ -50,11 +50,7 @@
     text-transform: uppercase;
 }
 
-/*Lyckas ej få denna till 100%, får en horisontal scroll*/
 .company-header2 {
-    /*display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;*/
     margin-left: 2%;
     margin-right: 2%;
     margin-top: -2%;
@@ -106,8 +102,8 @@
     justify-content: space-between;
     margin: 2%;
     margin-top: 10%;
-    font-weight: var(--title-weight);
     color: var(--black-primary);
+    font-weight: var(--title-weight);
 }
 
 .company-cards-header div {
@@ -119,7 +115,7 @@
 
 .company-cards-header div:hover {
     /*font-size: 1.05rem;*/
-    transform: scale(1.08);
+    transform: scale(1.08); /*Gets a bit blurry*/
     transition: 0.75s ease;
     cursor: pointer;
 }
@@ -129,7 +125,7 @@
     flex-direction: row;
     gap: 3%;
     margin-left: 2%;
-    overflow: hidden;
+    overflow: hidden; /*Still painted by the browser? How do you prevent that?*/
 }
 
 .company-card:hover{

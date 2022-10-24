@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
 import './CompanyInformation.css'
 
+import CompanyInfo from '../CompanyInfo/CompanyInfo'
+
 import { Coordinator } from '../../models/DummyModel'
 import { ExtraInfo } from '../../models/DummyModel'
 
@@ -30,29 +32,11 @@ const CompanyInformation: FC<Props> = ({ coordinators, offerings, askAbout, extr
             })}
             </div>
         </div>
-        <div className='mini-flex'>
-            <div className='title'>COMPANY</div>
-            <div className='mini-flex2'>
-            {offerings.map((offer) => {
-                return (
-                        <span className='theme border' key={offer}>{offer}</span>
-                )
-            })}
-            </div>
-        </div>
-        <div className='mini-flex'>
-            <div className='title'>ASK ABOUT</div>
-            <div className='mini-flex2'>
-                {askAbout.map((theme) => {
-                    return (
-                            <span className='theme border' key={theme}>{theme}</span>
-                    )
-                })}
-            </div>
-        </div>
+        <CompanyInfo title="COMPANY" information={offerings}></CompanyInfo>
+        <CompanyInfo title="ASK ABOUT" information={askAbout}></CompanyInfo>
         <div className='mini-flex'>
             <div className='title'>EXTRA INFORMATION</div>
-            <div className='mini-flex2 no-border'>
+            <div className='mini-mini-flex no-border'>
                 {extraInfo.map((information) => {
                     return (
                         <div>

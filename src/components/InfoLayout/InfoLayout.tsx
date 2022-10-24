@@ -7,14 +7,15 @@ import stall_img from '../../assets/InfoLayout/stall-img.svg'
 interface Props {
     title: string;
     info: any;
-    icon: number; // Risky business
+    icon: number; // Risky business?
 }
 
 const InfoLayout: FC<Props> = ({ title, info, icon }) => {
+    const source = icon == 1 ? location_img : ( icon == 2 ? stall_img : "")
     return (
-        <div className='info-layout-box'>
-            {icon == 1 && <img src={location_img}></img> || icon == 2 && <img src={stall_img}></img> || icon == 3}
-            <div className='info-layout-mini-box'>
+        <div className='header-info-box'>
+            <img src={source}></img>
+            <div className='header-info-mini-box'>
                 <div className='title'>{title}</div>
                 <div className='info'>{info}</div>
             </div>

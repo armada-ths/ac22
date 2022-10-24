@@ -1,0 +1,37 @@
+.star-button {
+    border-radius: 5px;
+    color: var(--orange-primary);
+
+    border: 1px solid var(--white);
+    background-color: var(--orange-secondary);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 6%;
+    white-space: nowrap;
+}
+
+.star-button:hover {
+    cursor: pointer;
+    transition: 1s ease;
+
+    border: 1px solid var(--orange-primary);
+    background-color: var(--white);
+}
+
+.star-button.header {
+    width: 15vw;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.star-button.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /*Fine that I use px?*/
+    height: 50px;
+    margin-top: 5%;
+}

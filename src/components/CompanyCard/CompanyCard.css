@@ -1,31 +1,29 @@
 .card-box {
   display: flex;
   flex-direction: column;
-  width: 24vw;
+  width: 24vw;  /*Fixed size of card*/
   max-height: 50vh;
   min-height: 50vh;
-
-  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
-  background-color: var(--white);
-  border-radius: 16px; /*Should I change to %*/
   margin-bottom: 10%;
+
+  background-color: var(--white);
+  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 16px; /*Should I change to %*/
 }
 
-.card-header-background {
+.card-background-image {
   min-height: 25vh;
   max-height: 25vh;
   border-top-left-radius: 16px; /*Did not inherit from card-box for some reason*/
   border-top-right-radius: 16px;
-
-  /*background-image: url("../../views/CompanyView/background-test.jpg");*/
 }
 
 .card-body {
-  min-height: 25vh; /*To make the space-between apply*/
-  max-height: 25vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 25vh; /*To make the space-between apply*/
+  max-height: 25vh;
 }
 
 .card-header {
@@ -56,10 +54,9 @@
   justify-content: space-between;
 
   padding: 6%;
-  margin-top: -5%;
   margin-bottom: 6%;
 }
 
-.card-star {
+.card-star-button {
   margin-top: 25%;
 }

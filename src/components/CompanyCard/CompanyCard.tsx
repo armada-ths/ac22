@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import "./CompanyCard.css";
 
+import CardStarButton from '../StarButton/CardStarButton'
+
 interface Props {
   image: string;
   companyName: string;
@@ -8,11 +10,11 @@ interface Props {
   onStar: () => void;
 }
 
-const CompanyCards: FC<Props> = ({ image, companyName, starred, onStar }) => {
-  const [star, setStar] = React.useState(starred);
+/*Having trouble setting the backgroundImage*/
+const CompanyCard: FC<Props> = ({ image, companyName, starred, onStar }) => {
   return (
     <div className="card-box">
-        <div className="card-header-background" style={{backgroundColor: image}}></div>
+        <div className="card-background-image" style={{backgroundColor: image}}></div>
         <div className="card-body">
           <div className="card-header">
             <div>
@@ -20,9 +22,7 @@ const CompanyCards: FC<Props> = ({ image, companyName, starred, onStar }) => {
               <h2>Tags</h2>
             </div>
             <div>
-              <button className="card-star" onClick={() => {
-                    onStar()
-                    setStar(!star)}}>{star ? "Unstar" : "Star"}</button>
+              <CardStarButton starred={starred} onStar={() => onStar()}></CardStarButton>
             </div>
           </div>
 
@@ -35,4 +35,4 @@ const CompanyCards: FC<Props> = ({ image, companyName, starred, onStar }) => {
   );
 };
 
-export default CompanyCards;
+export default CompanyCard;

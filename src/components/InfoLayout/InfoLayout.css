@@ -1,4 +1,4 @@
-.info-layout-box {
+.header-info-box {
     display: flex;
     flex-direction: row;
     gap: 5%;
@@ -6,7 +6,7 @@
     white-space: nowrap;
 }
 
-.info-layout-mini-box {
+.header-info-mini-box {
     display: flex;
     flex-direction: column;
 }
@@ -18,7 +18,7 @@
 }
 
 .info {
-    flex:2;
+    flex: 2;
     font-weight: var(--title-weight);
     color: var(--black-primary);
 }

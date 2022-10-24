@@ -1,93 +1,89 @@
 .company-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    text-align: left;
-    align-items: left;
-    width: 22%;
-    height: auto;
-    background: var(--white);
-    box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    padding: 2%;
-    gap: 2%;
-    flex: 0 0 auto;
-  }
-  
-  .mini-flex {
-    display: flex;
-    flex-direction: column;
-    margin: 3%;
-  }
-  
-  .company-coordinator-box {
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  align-items: left;
+  gap: 2%;
+  flex: 0 0 auto;
+  width: 22%;
+  height: auto;
+  background: var(--white);
+  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2%;
+}
 
-  .company-coordinator {
-    display: flex;
-    flex-direction: row;
-    gap: 4%;
-  }
-  
-  .mini-flex2 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .mini-flex2 div {
-    display: flex;
-    flex-direction: row;
-    gap: 4%;
-  }
-  
-  .mini-flex2 div span {
-    white-space: nowrap;
-  }
-  
-  .mini-flex2.no-border {
-    gap: 6%;
-    margin-bottom: 6%;
-  }
-  
-  .title {
-    color: var(--black-secondary);
-    font-weight: var(--subtitle-weight);
-    font-size: 0.5rem;
-    padding-bottom: 5%;
-  }
-  
-  .theme {
-    color: var(--black-primary);
-    font-weight: var(--subtitle-weight);
-    margin: 1%;
-  
-    font-size: 0.75rem;
-  }
-  
-  .theme.border {
-    border: 1px solid var(--black-primary);
-    border-radius: 100px;
-  
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
-  
-  .name {
-    color: var(--black-primary);
-    font-weight: var(--title-weight);
-  }
-  
-  .mail {
-    color: var(--black-secondary);
-    font-weight: var(--bold-weight);
-  }
+.mini-flex {
+  display: flex;
+  flex-direction: column;
+  margin: 3%;
+}
 
-.mini-flex2.no-border div span {
+.company-coordinator-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.company-coordinator {
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+}
+
+.mini-mini-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.mini-mini-flex div {
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+}
+
+.mini-mini-flex.no-border {
+  gap: 6%;
+  margin-bottom: 6%;
+  white-space: nowrap;
+}
+
+.title {
+  color: var(--black-secondary);
+  font-weight: var(--subtitle-weight);
+  font-size: 0.5rem;
+  padding-bottom: 5%;
+}
+
+.theme {
+  color: var(--black-primary);
+  font-weight: var(--subtitle-weight);
+  font-size: 0.75rem;
+  margin: 1%;
+}
+
+.theme.border {
+  border: 1px solid var(--black-primary);
+  border-radius: 100px;
+
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.name {
+  color: var(--black-primary);
+  font-weight: var(--title-weight);
+}
+
+.mail {
+  color: var(--black-secondary);
+  font-weight: var(--bold-weight);
+}
+
+.mini-mini-flex.no-border div span {
   margin-top: 5%; /*How can I center in another way?*/
 }

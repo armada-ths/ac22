@@ -21,9 +21,9 @@ const CompanyInformation: FC<Props> = ({ coordinators, offerings, askAbout, extr
             <div className='company-coordinator-box'>
             {coordinators.map((coordinator) => {
                 return (
-                    <div className='company-coordinator'>
+                    <div className='company-coordinator' key={coordinator.name}>
                         <img src={coordinator.img}></img>
-                        <div key={coordinator.name}>
+                        <div>
                             <div className='name'>{coordinator.name}</div>
                             <div className='mail'>{coordinator.mail}</div>
                         </div>
@@ -39,9 +39,9 @@ const CompanyInformation: FC<Props> = ({ coordinators, offerings, askAbout, extr
             <div className='mini-mini-flex no-border'>
                 {extraInfo.map((information) => {
                     return (
-                        <div>
+                        <div key={information.info}>
                             <img src={information.img}></img>
-                            <span className='theme' key={information.info}>{information.info}</span>
+                            <span className='theme'>{information.info}</span>
                         </div>
                     )
                 })}

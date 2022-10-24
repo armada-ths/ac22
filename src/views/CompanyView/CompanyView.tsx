@@ -5,18 +5,19 @@ import './CompanyView.css'
 import CompanyHeader from '../../components/CompanyHeader/CompanyHeader';
 import CompanyInformation from '../../components/CompanyInformation/CompanyInformation';
 import CompanyCard from '../../components/CompanyCard/CompanyCard';
-import { Company } from '../../models/DummyModel';
+import { Company, Tickets } from '../../models/DummyModel';
 
 import arrow_img from '../../assets/CompanyView/arrow-img.svg'
 import arrow_2_img from '../../assets/CompanyView/arrow-2-img.svg'
 
 interface Props {
     companies: Company[];
-    company: Company;
+    company: Company; /*Change to currentCompany?*/
     setStar: () => void;
+    availableTickets: Tickets[];
 }
 
-const CompanyView: FC<Props>= ({ companies, company, setStar }) => {
+const CompanyView: FC<Props>= ({ companies, company, setStar, availableTickets }) => {
   return (
     <div className='company-container'>
 
@@ -65,15 +66,19 @@ const CompanyView: FC<Props>= ({ companies, company, setStar }) => {
             <img src={arrow_2_img}></img>
           </div>
         </div>
-        <div className='company-cards'>
+          <div className='company-cards'>
             {companies.map((company) => {
+                    let ticketState = company.collectedTickets > 0 ? 3 : availableTickets[company.id].nrOfTickets > 0 ? 1 : 2;
+                    console.log("Ticket state: %d", ticketState)
                     return (
                       <div key={company.name} className="company-card">
                         <CompanyCard
                           image={"grey"}
                           companyName={company.name}
                           starred={company.starred}
-                          onStar={() => setStar()}></CompanyCard>
+                          onStar={() => setStar()}
+                          ticketState={ticketState}
+                          receivedTickets={company.collectedTickets}></CompanyCard>
                       </div>
                     )
                 })}

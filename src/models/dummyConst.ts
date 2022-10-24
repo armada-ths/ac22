@@ -1,4 +1,4 @@
-import { DummyModel } from './DummyModel'
+import { DummyModel, TicketsModel } from './DummyModel'
 import { Company } from './DummyModel'
 
 import lunch_img from '../assets/CompanyInformation/lunch-img.svg'
@@ -19,7 +19,7 @@ const dummyCompanies: Company[] = [
         stall: 50,
         tickets: 30,
         starred: true,
-        collectedTickets: 10,
+        collectedTickets: 0,
         aboutUs: "Are you worried about getting stuck in the “I need experience to get a job but to get a job I need experience” paradox? Don’t worry! With foodora's Aspiring Leadership Program you will get a flexible part time job, valuable knowledge in leadership/management and hands on leadership experience! This is the perfect opportunity if you want to boost your resumé and at the same time earn some extra money! Who are we?: We’re foodorians, a driven and happy gang of food lovers eager to create the last mile delivery service of the future! Our core values help concretize what we’re aiming for: We dare, We get it done & We’re equally pink. We’re people from all backgrounds, with different experiences, opinions and ideas. This is something we value highly, since we fully believe that diversity is what builds our culture and success."
     },
     {
@@ -49,7 +49,7 @@ const dummyCompanies: Company[] = [
       stall: 50,
       tickets: 30,
       starred: true,
-      collectedTickets: 10,
+      collectedTickets: 0,
       aboutUs: "Are you worried about getting stuck in the “I need experience to get a job but to get a job I need experience” paradox? Don’t worry! With foodora's Aspiring Leadership Program you will get a flexible part time job, valuable knowledge in leadership/management and hands on leadership experience! This is the perfect opportunity if you want to boost your resumé and at the same time earn some extra money! Who are we?: We’re foodorians, a driven and happy gang of food lovers eager to create the last mile delivery service of the future! Our core values help concretize what we’re aiming for: We dare, We get it done & We’re equally pink. We’re people from all backgrounds, with different experiences, opinions and ideas. This is something we value highly, since we fully believe that diversity is what builds our culture and success."
   },
   {
@@ -64,7 +64,7 @@ const dummyCompanies: Company[] = [
       stall: 50,
       tickets: 30,
       starred: true,
-      collectedTickets: 10,
+      collectedTickets: 0,
       aboutUs: "Are you worried about getting stuck in the “I need experience to get a job but to get a job I need experience” paradox? Don’t worry! With foodora's Aspiring Leadership Program you will get a flexible part time job, valuable knowledge in leadership/management and hands on leadership experience! This is the perfect opportunity if you want to boost your resumé and at the same time earn some extra money! Who are we?: We’re foodorians, a driven and happy gang of food lovers eager to create the last mile delivery service of the future! Our core values help concretize what we’re aiming for: We dare, We get it done & We’re equally pink. We’re people from all backgrounds, with different experiences, opinions and ideas. This is something we value highly, since we fully believe that diversity is what builds our culture and success."
   }
   ]
@@ -73,4 +73,6 @@ const dummyCompanies: Company[] = [
   
   const dummyModel = new DummyModel(dummyCompanies, dummyCurrentCompany);
 
-  export {dummyModel}
+  const dummyTickets = new TicketsModel([{companyId: 0, nrOfTickets: 1}, {companyId: 0, nrOfTickets: 1}, {companyId: 0, nrOfTickets: 0}, {companyId: 0, nrOfTickets: 1}])
+
+  export {dummyModel, dummyTickets}

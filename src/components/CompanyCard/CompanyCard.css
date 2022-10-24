@@ -48,15 +48,6 @@
   margin-top: -4%;
 }
 
-.card-tickets {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  padding: 6%;
-  margin-bottom: 6%;
-}
-
 .card-star-button {
   margin-top: 25%;
 }

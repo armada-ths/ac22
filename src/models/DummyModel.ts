@@ -25,7 +25,7 @@ export interface Company {
     //Company header
     location: string;
     stall: number;
-    tickets: number;
+    tickets: number; // Ta bort this will not be included in the finished model
     starred: boolean; // User specific
 
     collectedTickets: number; // User specific
@@ -60,7 +60,7 @@ export class DummyModel {
     }
 }
 
-interface Tickets {
+export interface Tickets {
     companyId: number;
     nrOfTickets: number;
 }

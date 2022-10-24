@@ -2,16 +2,19 @@ import React, { FC } from "react";
 import "./CompanyCard.css";
 
 import CardStarButton from '../StarButton/CardStarButton'
+import TicketState from '../TicketsState/TicketState'
 
-interface Props {
+interface Props { // Too many arguments?
   image: string;
   companyName: string;
   starred: boolean;
   onStar: () => void;
+  ticketState: number; // Is this really the smartest way?
+  receivedTickets: number;
 }
 
 /*Having trouble setting the backgroundImage*/
-const CompanyCard: FC<Props> = ({ image, companyName, starred, onStar }) => {
+const CompanyCard: FC<Props> = ({ image, companyName, starred, onStar, ticketState, receivedTickets }) => {
   return (
     <div className="card-box">
         <div className="card-background-image" style={{backgroundColor: image}}></div>
@@ -26,10 +29,7 @@ const CompanyCard: FC<Props> = ({ image, companyName, starred, onStar }) => {
             </div>
           </div>
 
-          <div className="card-tickets">
-            <div>SUPER TICKETS</div>
-            <div>AVAILABLE</div>
-          </div>
+          <TicketState ticketState={ticketState} receivedTickets={receivedTickets}></TicketState>
         </div>
     </div>
   );

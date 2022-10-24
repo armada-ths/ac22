@@ -6,14 +6,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePresenter from "./presenters/HomePresenter";
 import CompanyPresenter from "./presenters/CompanyPresenter";
 
-import { dummyModel } from './models/dummyConst'
+import { dummyModel, dummyTickets } from './models/dummyConst'
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePresenter placeholder="home"/>}/>
-        <Route path="/company" element={<CompanyPresenter model={dummyModel}/>}/>
+        <Route path="/company" element={<CompanyPresenter model={dummyModel} ticketsModel={dummyTickets}/>}/>
       </Routes>
     </Router>
   );

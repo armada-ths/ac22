@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import "./ACInput.css";
+import { InvalidEmail } from "../../assets/InvalidEmail";
 
 interface Props {
   type: string;
@@ -44,6 +45,14 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
         style={{ color: validInput && !active ? "#0F1322" : "" }}
       >
         {active ? placeholder : ""}
+        {active && !validInput ? (
+          <div className="InvalidEmail">
+            <InvalidEmail />
+            <text style={{ marginLeft: "4px" }}>Invalid Email</text>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <div
         className={validInput ? "container" : "incorrect-container"}

@@ -11,7 +11,7 @@ interface Props {
 const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
-  const [place, setPlace] = useState("");
+  const [place, setPlace] = useState(placeholder);
 
   const isValidEmail = (input: any) => {
     return /^\w+([-+.']\w+)*@?(kth.se)$/.test(input);
@@ -39,12 +39,15 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
 
   return (
     <div>
-      <div className={validInput ? "InputHeader" : "InputHeaderWrong"}>
+      <div
+        className={validInput ? "InputHeader" : "InputHeaderWrong"}
+        style={{ color: validInput && !active ? "#0F1322" : "" }}
+      >
         {active ? placeholder : ""}
       </div>
       <div
         className={validInput ? "container" : "incorrect-container"}
-        style={{ border: validInput && !active ? "1px solid #0F1322" : "" }}
+        style={{ border: validInput && !active ? "1.5px solid #0F1322" : "" }}
       >
         <input
           className="ac-input"
@@ -68,6 +71,13 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
           }}
         />
       </div>
+      {type === "password" ? (
+        <a className="ForgotPassword" href="/">
+          Forgot password?
+        </a>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

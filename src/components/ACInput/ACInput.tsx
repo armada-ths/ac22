@@ -42,12 +42,18 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
       <div className={validInput ? "InputHeader" : "InputHeaderWrong"}>
         {active ? placeholder : ""}
       </div>
-      <div className={validInput ? "container" : "incorrect-container"}>
+      <div
+        className={validInput ? "container" : "incorrect-container"}
+        style={{ border: validInput && !active ? "1px solid #0F1322" : "" }}
+      >
         <input
           className="ac-input"
           placeholder={place}
           type={type}
           value={value}
+          style={{
+            backgroundColor: !validInput && !active ? "#FFE6E6" : "",
+          }}
           onChange={(text) => {
             handleChange(text);
             onChange(text.target.value);

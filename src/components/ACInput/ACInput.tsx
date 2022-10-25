@@ -5,11 +5,13 @@ interface Props {
   type: string;
   placeholder: string;
   value: string;
-  onChange: any;
+  onChange: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
+  const [active, setActive] = useState<boolean>(false);
+  const [place, setPlace] = useState("");
 
   const isValidEmail = (input: any) => {
     return /^\w+([-+.']\w+)*@?(kth.se)$/.test(input);
@@ -36,19 +38,30 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   };
 
   return (
-    <div className={validInput ? "container" : "incorrect-container"}>
-      <input
-        className="ac-input"
-        placeholder={placeholder}
-        type={type}
-        value={value}
-        onChange={(text) => {
-          handleChange(text);
-          if (validInput) {
-            onChange(text);
-          }
-        }}
-      />
+    <div>
+      <div className={validInput ? "InputHeader" : "InputHeaderWrong"}>
+        {active ? placeholder : ""}
+      </div>
+      <div className={validInput ? "container" : "incorrect-container"}>
+        <input
+          className="ac-input"
+          placeholder={place}
+          type={type}
+          value={value}
+          onChange={(text) => {
+            handleChange(text);
+            onChange(text.target.value);
+          }}
+          onFocus={() => {
+            setActive(true);
+            setPlace("");
+          }}
+          onBlur={() => {
+            setActive(false);
+            setPlace(placeholder);
+          }}
+        />
+      </div>
     </div>
   );
 };

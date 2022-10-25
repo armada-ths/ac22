@@ -35,3 +35,15 @@
     border: 1.5px solid #2BDBA0;
 }
 
+.InputHeader{
+    display: flex;
+    margin-bottom: 8px;
+    color: #2BDBA0;
+}
+
+.InputHeaderWrong {
+    display: flex;
+    margin-bottom: 8px;
+    color: red;
+}
+

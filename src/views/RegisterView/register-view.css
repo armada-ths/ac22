@@ -1,0 +1,14 @@
+.Card{
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
+}
+
+.wide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}

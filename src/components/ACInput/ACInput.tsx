@@ -4,9 +4,11 @@ import "./ACInput.css";
 interface Props {
   type: string;
   placeholder: string;
+  value: string;
+  onChange: any;
 }
 
-const ACInput: FC<Props> = ({ type, placeholder }) => {
+const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
 
   const isValidEmail = (input: any) => {
@@ -39,7 +41,13 @@ const ACInput: FC<Props> = ({ type, placeholder }) => {
         className="ac-input"
         placeholder={placeholder}
         type={type}
-        onChange={handleChange}
+        value={value}
+        onChange={(text) => {
+          handleChange(text);
+          if (validInput) {
+            onChange(text);
+          }
+        }}
       />
     </div>
   );

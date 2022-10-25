@@ -8,12 +8,20 @@ interface Props {
 }
 
 const RegisterView: FC<Props> = ({ title }) => {
+  // const [value, onChangeText] = React.useState();
+  const [username, SetUsername] = React.useState("");
+
   return (
     <div>
       <AuthHeading title={title} />
       <AuthButton buttonText="Register" buttonType="submit" active={true} />
-      <ACInput type="email" placeholder="Email address" />
-      <ACInput type="password" placeholder="Password" />
+      <ACInput
+        type="email"
+        placeholder="Email address"
+        value={username}
+        onChange={SetUsername}
+      />
+      {/* <ACInput type="password" placeholder="Password" /> */}
     </div>
   );
 };

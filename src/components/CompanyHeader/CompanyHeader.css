@@ -35,17 +35,17 @@
 
 /*The margins will be adjusted for the icons when displayed in the view*/
 .icon-box.location img {
-    margin-top: -8%;
+    margin-top: -13%;
     margin-right: 2%;
 }
 
 .icon-box.stall img {
-    margin-top: -25%;
-    margin-right: 8%;
+    margin-top: -45%;
+    margin-right: 10%;
 }
 
 .icon-box.ticket img {
-    margin-top: 23%;
+    margin-top: 30%;
     margin-right: 0%;
 }
 

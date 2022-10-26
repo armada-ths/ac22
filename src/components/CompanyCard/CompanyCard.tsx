@@ -39,9 +39,9 @@ const CompanyCard: FC<Props> = ({ image, companyName, tags, starred, onStar, tic
               <h1>{companyName}</h1>
               <h2>{tags.map(tag => {
                 if (tag == tags.at(-1)) // If it is the last element
-                  return <span>{tag}</span>
+                  return <span key={tag}>{tag}</span>
                 else
-                  return <span>{new String(tag).concat(" · ")}</span>})}</h2>
+                  return <span key={tag}>{new String(tag).concat(" · ")}</span>})}</h2>
             </div>
             <div>
               <StarButtonCard starred={starred} onStar={() => onStar()}></StarButtonCard>

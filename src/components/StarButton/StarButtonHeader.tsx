@@ -17,14 +17,14 @@ const StarButtonHeader: FC<Props> = ({ starred, onStar, }) => {
     <div>
         {starred &&
         <div className="star-button header starred" onClick={() => onStar()}>
-            <img src={star_img}></img>
+            <img src={star_img} alt={"star header starred"}></img>
             <span>{starred ? "Unstar Company" : "Star Company"}</span>
         </div>
         
         ||
         
         <div className="star-button header unstarred" onClick={() => onStar()}>
-            <img src={star_img}></img>
+            <img src={star_img} alt={"star header unstarred"}></img>
             <span>{starred ? "Unstar Company" : "Star Company"}</span>
         </div>}
     </div>

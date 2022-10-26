@@ -17,13 +17,13 @@ const StarButtonCard: FC<Props> = ({ starred, onStar, }) => {
     <div>
         {starred &&
         <div className="star-button card starred" onClick={() => onStar()}>
-            <img src={star_img} width={24} height={24}></img>
+            <img src={star_img} alt={"star card starred"} width={24} height={24}></img>
         </div>
 
         ||
 
         <div className="star-button card unstarred" onClick={() => onStar()}>
-            <img src={star_img} width={24} height={24}></img>
+            <img src={star_img} alt={"star card unstarred"} width={24} height={24}></img>
         </div>}
     </div>
   )

@@ -23,8 +23,8 @@ const TicketState: FC<Props> = ({ ticketState, receivedTickets }) => {
       <div className="ticket-container">
         <div className='ticket-left'>
           <div className='ticket-logo'>
-            <img src={ticket_img}></img>
-            <img className='ticket-plus-sign' src={plus_sign_img}></img>
+            <img src={ticket_img} alt={"ticket"}></img>
+            <img className='ticket-plus-sign' src={plus_sign_img} alt={"plus sign"}></img>
           </div>
           <span className='super-tickets'>SUPER TICKETS</span>
         </div>
@@ -38,8 +38,8 @@ const TicketState: FC<Props> = ({ ticketState, receivedTickets }) => {
       <div className="ticket-container">
         <div className='ticket-left'>
           <div className='ticket-logo'>
-            <img src={ticket_grey_img}></img>
-            <img className='ticket-plus-sign' src={plus_sign_grey_img}></img>
+            <img src={ticket_grey_img}alt={"ticket grey"}></img>
+            <img className='ticket-plus-sign' src={plus_sign_grey_img} alt={"plus sign grey"}></img>
           </div>
           <span className='super-tickets'>SUPER TICKETS</span>
         </div>

@@ -1,21 +1,55 @@
-
-
-.header-box{
+.header-box {
     display: flex;
     flex-direction: row;
-    padding: 5%;
-    color: var(--black-primary);
     justify-content: space-between;
     align-items: center;
-    padding: 1%;
-    gap: 2%;
+
+    color: var(--black-primary);
     text-transform: capitalize;
-    position: absolute;
-    width: 90%;
+    text-transform: capitalize;
+
+    padding: 1%;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 88%;
     height: 10%;
-    top: 50%;
-    /* White */
+    position: absolute;
+    
     background: var(--white);
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: row;
+
+    white-space: nowrap;
+}
+
+.line {
+    width: 1px;
+    height: 6vh;
+    background-color: var(--black-secondary);
+}
+
+/*The margins will be adjusted for the icons when displayed in the view*/
+.icon-box.location img {
+    margin-top: -8%;
+    margin-right: 2%;
+}
+
+.icon-box.stall img {
+    margin-top: -25%;
+    margin-right: 8%;
+}
+
+.icon-box.ticket img {
+    margin-top: 23%;
+    margin-right: 0%;
+}
+
+.ticket-plus-sign { /*Can't get rid of the red background*/
+    margin-left: -34.5%;
+    margin-bottom: 5%;
 }

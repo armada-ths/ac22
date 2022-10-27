@@ -15,8 +15,8 @@
     flex-direction: column;
     background-color: var(--background);
 
-    min-width: 93.7vw; /*Could not make it work any other way*/
-    max-width: 93.7vw;
+    min-width: 93.71vw; /*Could not make it work any other way*/
+    max-width: 93.71vw;
 }
 
 .dashboard-header {

@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import RegisterView from "../views/RegisterView";
+import RegisterView from "../views/RegisterView/RegisterView";
 
 const RegisterPresenter: FC = () => {
-    return <RegisterView title="Register" />  
-}
+  return <RegisterView title="Register" />;
+};
 
 export default RegisterPresenter;

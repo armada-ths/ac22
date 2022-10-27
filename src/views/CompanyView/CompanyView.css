@@ -118,17 +118,3 @@
     transition: 0.75s ease;
     cursor: pointer;
 }
-
-.company-cards {
-    display: flex;
-    flex-direction: row;
-    gap: 3%;
-    margin-left: 2%;
-    overflow: hidden;
-}
-
-.company-card:hover {
-    transform: scale(0.99); /*Gets a bit blurry*/
-    transition: 0.5s ease;
-    cursor: pointer;
-}

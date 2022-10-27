@@ -45,7 +45,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
         style={{ color: validInput && !active ? "#0F1322" : "" }}
       >
         {active ? placeholder : ""}
-        {active && !validInput ? (
+        {active && !validInput && type === "email" ? (
           <div className="InvalidEmail">
             <InvalidEmail />
             <text style={{ marginLeft: "4px" }}>Invalid Email</text>
@@ -80,13 +80,6 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
           }}
         />
       </div>
-      {type === "password" ? (
-        <a className="ForgotPassword" href="/">
-          Forgot password?
-        </a>
-      ) : (
-        ""
-      )}
     </div>
   );
 };

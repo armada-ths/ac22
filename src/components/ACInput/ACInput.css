@@ -47,15 +47,6 @@
     color: red;
 }
 
-.ForgotPassword{
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 8px;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 140%;
-}
-
 .InvalidEmail{
     margin-left: 8rem;
 }

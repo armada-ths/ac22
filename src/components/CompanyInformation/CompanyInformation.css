@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  gap: 6vh;
+  gap: 5vh;
   flex: 0 0 auto;
   width: 25%;
   height: auto;
@@ -15,7 +15,7 @@
 .mini-flex {
   display: flex;
   flex-direction: column;
-  gap: 3vh;
+  gap: 2.5vh;
 }
 
 .company-coordinator-box {
@@ -64,10 +64,10 @@
   border: 1px solid var(--black-primary);
   border-radius: 100px;
 
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .name {

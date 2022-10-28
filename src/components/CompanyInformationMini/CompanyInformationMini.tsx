@@ -5,7 +5,7 @@ interface Props {
     information: string[];
 }
 
-const CompanyInformationMini: FC<Props> = ({ title, information }) => {
+export const CompanyInformationMini: FC<Props> = ({ title, information }) => {
     return (
     <div className='mini-flex'>
         <div className='title'>{title}</div>

@@ -1,0 +1,38 @@
+.LoginCard{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 24px;
+    gap: 24px;
+    border-radius: 16px;
+}
+
+.screen{
+    background-color: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.RegisterText{
+    margin-top: 40px;
+    font-size: 14px;
+    color: #999999;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+a {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--armada-green);
+}
+

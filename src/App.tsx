@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePresenter from "./presenters/HomePresenter";
 import EventsPresenter from "./presenters/EventsPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
+import LoginPresenter from "./presenters/LoginPresenter";
+
 
  /**REMOVE FROM HERE*/
  import CompanyInformation from "./components/CompanyInformation/CompanyInformation";
@@ -40,6 +42,7 @@ function App() {
 					offerings={offerings}
 					askAbout={askAbout}
 					extraInfo={extraInfo} />} />
+        <Route path="/login" element={<LoginPresenter />} />
 			</Routes>
 		</Router>
 	);

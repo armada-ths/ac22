@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import './CompanyInformation.css'
 
-import CompanyInformationMini from '../CompanyInformationMini/CompanyInformationMini'
+import {CompanyInformationMini} from '../CompanyInformationMini/CompanyInformationMini'
 
 import { Coordinator, ExtraInfo } from '../../models/DummyModel'
 
@@ -29,7 +29,7 @@ const CompanyInformation: FC<Props> = ({ coordinators, offerings, askAbout, extr
             {coordinators.map((coordinator) => {
                 return (
                     <div className='company-coordinator' key={coordinator.name}>
-                        <img src={coordinator.img}></img>
+                        <img src={coordinator.img} alt={coordinator.name}></img>
                         <div>
                             <div className='name'>{coordinator.name}</div>
                             <div className='mail'>{coordinator.mail}</div>
@@ -50,7 +50,7 @@ const CompanyInformation: FC<Props> = ({ coordinators, offerings, askAbout, extr
                 {extraInfo.map((information) => {
                     return (
                         <div key={information.info}>
-                            <img src={information.img}></img>
+                            <img src={information.img} alt={information.info}></img>
                             <span className='theme'>{information.info}</span>
                         </div>
                     )

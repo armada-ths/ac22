@@ -12,6 +12,11 @@ const RegisterView: FC<Props> = ({ title }) => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  // You can use this function to send username and password to the backend
+  function LoginUser(): any {
+    console.log("hey in here");
+  }
+
   return (
     <div className="screen">
       <div className="LoginCard">
@@ -28,7 +33,12 @@ const RegisterView: FC<Props> = ({ title }) => {
           value={password}
           onChange={setPassword}
         />
-        <AuthButton buttonText="Login" buttonType="submit" active={true} />
+        <AuthButton
+          buttonText="Login"
+          buttonType="submit"
+          active={true}
+          onButtonClick={LoginUser}
+        />
       </div>
       <div className="RegisterText">
         Don't have an account? <a href="/Register">Register</a>

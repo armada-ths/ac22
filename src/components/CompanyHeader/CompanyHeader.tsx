@@ -35,7 +35,7 @@ const CompanyHeader: FC<Props> = ({ location, stall, tickets, starred, onStar })
         <div className='line'></div>
         <div className='icon-box stall'>
             <img src={stall_img} alt="stall icon"></img>
-            <InfoLayout title="STALL" info={stall}/>
+            <InfoLayout title="STALL" info={"#" + stall}/>
         </div>
         <div className='line'></div>
         <div className='icon-box ticket'>
@@ -43,7 +43,7 @@ const CompanyHeader: FC<Props> = ({ location, stall, tickets, starred, onStar })
                 <img src={ticket_img} width={32} height={32}></img>
                 <img className='ticket-plus-sign' src={plus_sign_img} width={20} height={20}></img>
             </div>
-            <InfoLayout title="SUPER TICKETS" info={"#" + tickets}/>
+            <InfoLayout title="SUPER TICKETS" info={tickets + " Left"}/>
         </div>
         <div className='line'></div>
         <StarButtonHeader starred={starred} onStar={() => onStar()}></StarButtonHeader>

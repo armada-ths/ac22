@@ -11,12 +11,14 @@ interface Props {
   active: boolean;
 }
 
-const AuthButton: FC<Props> = ({ buttonType, buttonText, active }) => {
+const AuthButton: FC<Props> = ({ buttonType, buttonText, active}) => {
   return (
-    <button disabled={!active} type={buttonType} className="armada-button">
+    <button disabled={!active} type={buttonType} className="armada-button" onClick={}>
       {buttonText}
     </button>
   );
 };
+
+const LoginButton: FC<Props> = ( )
 
 export default AuthButton;

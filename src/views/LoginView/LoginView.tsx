@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import AuthHeading from "../../components/AuthHeading/AuthHeading";
 import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
+import auth from "../../components/Auth/Firebase";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import "./login-view.css";
 
 interface Props {
@@ -11,6 +13,8 @@ interface Props {
 const RegisterView: FC<Props> = ({ title }) => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const user = {email: username, password: password};
+
 
   return (
     <div className="screen">
@@ -28,7 +32,8 @@ const RegisterView: FC<Props> = ({ title }) => {
           value={password}
           onChange={setPassword}
         />
-        <AuthButton buttonText="Login" buttonType="submit" active={true} />
+        <button  onClick={() => createUserWithEmailAndPassword(auth, username, password)} ></button>
+        
       </div>
       <div className="RegisterText">
         Don't have an account? <a href="/Register">Register</a>

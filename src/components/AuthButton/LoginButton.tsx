@@ -50,10 +50,12 @@ const LoginButton: FC<Props> = ({ buttonType, buttonText, active}) => {
           placeholder="Password"
           value={password}
           onChange={setPassword} 
-        /> 
+        />
+        
     <button disabled={!active} type={buttonType} className="armada-button" onClick={handleLogin} >
       {buttonText}
     </button>
+    
     </div>
   );
 };

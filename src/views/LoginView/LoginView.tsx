@@ -7,7 +7,7 @@ interface Props {
   title: string;
 }
 
-const RegisterView: FC<Props> = ({ title }) => {
+const LoginView: FC<Props> = ({ title }) => {
   return (
     <div className="screen">
       <div className="LoginCard">
@@ -21,4 +21,4 @@ const RegisterView: FC<Props> = ({ title }) => {
   );
 };
 
-export default RegisterView;
+export default LoginView;

@@ -6,11 +6,25 @@ import "./login-view.css";
 
 interface Props {
   title: string;
+  login: any;
+  username: string;
+  password: string;
+  usernameOnChange: any;
+  passwordOnChange: any;
 }
 
-const RegisterView: FC<Props> = ({ title }) => {
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
+const RegisterView: FC<Props> = ({
+  title,
+  login,
+  username,
+  password,
+  usernameOnChange,
+  passwordOnChange,
+}) => {
+  // You can use this function to send username and password to the backend
+  // function LoginUser(): any {
+  //   console.log("hey in here");
+  // }
 
   return (
     <div className="screen">
@@ -20,15 +34,20 @@ const RegisterView: FC<Props> = ({ title }) => {
           type="email"
           placeholder="Email address"
           value={username}
-          onChange={setUsername}
+          onChange={usernameOnChange}
         />
         <ACInput
           type="password"
           placeholder="Password"
           value={password}
-          onChange={setPassword}
+          onChange={passwordOnChange}
         />
-        <AuthButton buttonText="Login" buttonType="submit" active={true} />
+        <AuthButton
+          buttonText="Login"
+          buttonType="submit"
+          active={true}
+          onButtonClick={login}
+        />
       </div>
       <div className="RegisterText">
         Don't have an account? <a href="/Register">Register</a>

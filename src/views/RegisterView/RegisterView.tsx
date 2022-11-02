@@ -12,11 +12,21 @@ const RegisterView: FC<Props> = ({ title }) => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  // You can use this function to send user registration data to the backend
+  function RegisterUser() {
+    console.log("hey in here");
+  }
+
   return (
     <div className="wide">
       <div className="Card">
         <AuthHeading title={title} />
-        <AuthButton buttonText="Register" buttonType="submit" active={true} />
+        <AuthButton
+          buttonText="Register"
+          buttonType="submit"
+          active={true}
+          onButtonClick={RegisterUser}
+        />
         <ACInput
           type="email"
           placeholder="Email address"

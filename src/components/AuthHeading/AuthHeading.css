@@ -1,0 +1,19 @@
+.heading-container{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: fit-content;
+    align-items: center;
+}
+
+.heading-icon{
+    width: 64px;
+    height: 64px;
+}
+
+.heading-title{
+    font-size: 3em;
+    font-weight: var(--subtitle-weight);
+}
+
+

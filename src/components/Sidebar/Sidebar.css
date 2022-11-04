@@ -1,66 +1,61 @@
-.armada-icon {
-  height: 48px;
-  width: 48px;
-  position: center;
-}
-
-.sidebarFlex{
-  gap: 10px;
-  height: 100vh;
-  background-color: white; 
-  border: solid black;
-  width: 6%;
+.sidebar-container{
   display: flex;
-  min-width: 50px;
   flex-direction: column;
-}
-/*
-  Help me center this shit 
-*/
-
-.sidebar-icons-flex{
-  background-color: white;
-  border:1px solid rgb(209, 32, 32);
+  justify-content: center;
+  align-items: center;
+  width: 104px;
+  height: auto;
+  background-color: #ffff;
 }
 
-.button-link{
-  height: 72px;
+
+.armada-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 72px;
-  display: inline-block;
-  text-align: center;
+  height: 72px;
+  border-radius: 8px;
 }
 
-.button-active{
-  width: 100px;
-  height: 100px;
-  background-color: green
+.armada-logo-img {
+  width: 48px;
+  height: 48px;
 }
 
-.sidebar-LinkButton{
-  border: 1px solid red;
-  text-align: center;
-  padding-top: 20%;
+.sidebar-dashboard, .sidebar-dashboard-inactive, .sidebar-events {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  background-color: var(--armada-green);
+  border-radius: 8px;
 }
 
-.another-sidebar-LinkButton{
+.sidebar-dashboard-inactive {
+  background-color: white;
+}
+
+.sidebar-events {
+  margin-top: 10px;
+}
+
+/*Nina */
+.sidebar-button-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 30%;
+  gap: 12px;
 }
 
-.another-sidebar-LinkButton:active{
-  border-radius:15px;
-  border-width: 0px;
-  background-color: blue;
-}
-svg{
-  height: 24px;
-  width: 24px;
-  padding-top: 0.5rem;
-  fill: none;
-  stroke: #CCCCCC;
-}
-svg:active{
-fill:white;
-stroke:white;
-}
+
+
+
+
 
 

@@ -1,9 +1,7 @@
-import React, { FC, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { FC, useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import armada_logo from "../../Assets/Sidebar-pics/armada-logo.svg";
-import dashboard_grey from "../../Assets/Sidebar-pics/dashboard-grey.svg";
-import events_grey from "../../Assets/Sidebar-pics/events-grey.svg";
 import "./Sidebar.css";
 
 interface Props {
@@ -16,15 +14,25 @@ interface Props {
 	This component is the sidebar navigation which is seen on the homepage and eventspage
 */
 
+
+
 const Sidebar: FC<Props> = () => {
+	const location = useLocation();
+	const [active, setActive] = useState<string>(location.pathname);
+	
+	useEffect(() => {
+		setActive(location.pathname);
+		console.log(location.pathname);
+	}, [location.pathname]);
+	
 	return (
-		<div className="sidebarFlex">
-			<div className="sidebar-LinkButton">
-				<img className="armada-icon" src={armada_logo} alt="Armada Logo" />
+		<div className="sidebar-container">
+			<div className="armada-logo">
+				<img className="armada-logo-img" src={armada_logo} alt="Armada Logo" />
 			</div>
-			<div className="sidebar-icons-flex">
-				<div className="sidebar-LinkButton another-sidebar-LinkButton">
-					<Link to="/" className="button-link">
+			<div className="sidebar-button-container">
+				<div className={active !== "/events" ? "sidebar-dashboard" : "sidebar-dashboard-inactive"}>
+					<Link to="/">
 						<svg
 							width="24"
 							height="24"
@@ -37,13 +45,14 @@ const Sidebar: FC<Props> = () => {
 						</svg>
 					</Link>
 				</div>
-
-				<div className="sidebar-LinkButton another-sidebar-LinkButton">
-					<Link to="/events" className={"button-link"}>
+				<div className={active == "/events" ? "sidebar-events" : "sidebar-dashboard-inactive"}>
+					<Link to="/events">
 						<svg
 							width="24"
 							height="24"
 							viewBox="0 0 24 24"
+							fill="none"
+							stroke="#CCCCCC"
 							xmlns="http://www.w3.org/2000/svg"
 						>
 							<path d="M6.496 13.994C6.89303 13.994 7.2738 13.8363 7.55454 13.5555C7.83528 13.2748 7.993 12.894 7.993 12.497C7.993 12.1 7.83528 11.7192 7.55454 11.4385C7.2738 11.1577 6.89303 11 6.496 11C6.09897 11 5.7182 11.1577 5.43746 11.4385C5.15672 11.7192 4.999 12.1 4.999 12.497C4.999 12.894 5.15672 13.2748 5.43746 13.5555C5.7182 13.8363 6.09897 13.994 6.496 13.994ZM7.994 17.498C7.994 17.895 7.83628 18.2758 7.55554 18.5565C7.2748 18.8373 6.89403 18.995 6.497 18.995C6.09997 18.995 5.7192 18.8373 5.43846 18.5565C5.15772 18.2758 5 17.895 5 17.498C5 17.101 5.15772 16.7202 5.43846 16.4395C5.7192 16.1587 6.09997 16.001 6.497 16.001C6.89403 16.001 7.2748 16.1587 7.55554 16.4395C7.83628 16.7202 7.994 17.101 7.994 17.498ZM12 13.992C12.3968 13.992 12.7773 13.8344 13.0578 13.5538C13.3384 13.2733 13.496 12.8928 13.496 12.496C13.496 12.0992 13.3384 11.7187 13.0578 11.4382C12.7773 11.1576 12.3968 11 12 11C11.603 11 11.2222 11.1577 10.9415 11.4385C10.6607 11.7192 10.503 12.1 10.503 12.497C10.503 12.894 10.6607 13.2748 10.9415 13.5555C11.2222 13.8363 11.603 13.994 12 13.994V13.992ZM13.498 17.496C13.498 17.893 13.3403 18.2738 13.0595 18.5545C12.7788 18.8353 12.398 18.993 12.001 18.993C11.604 18.993 11.2232 18.8353 10.9425 18.5545C10.6617 18.2738 10.504 17.893 10.504 17.496C10.504 17.099 10.6617 16.7182 10.9425 16.4375C11.2232 16.1567 11.604 15.999 12.001 15.999C12.398 15.999 12.7788 16.1567 13.0595 16.4375C13.3403 16.7182 13.498 17.099 13.498 17.496ZM17.498 13.992C17.895 13.992 18.2758 13.8343 18.5565 13.5535C18.8373 13.2728 18.995 12.892 18.995 12.495C18.995 12.098 18.8373 11.7172 18.5565 11.4365C18.2758 11.1557 17.895 10.998 17.498 10.998C17.101 10.998 16.7202 11.1557 16.4395 11.4365C16.1587 11.7172 16.001 12.098 16.001 12.495C16.001 12.892 16.1587 13.2728 16.4395 13.5535C16.7202 13.8343 17.101 13.992 17.498 13.992ZM24 5C24 3.67392 23.4732 2.40215 22.5355 1.46447C21.5979 0.526784 20.3261 0 19 0H5C3.67392 0 2.40215 0.526784 1.46447 1.46447C0.526784 2.40215 0 3.67392 0 5V19C0 20.3261 0.526784 21.5979 1.46447 22.5355C2.40215 23.4732 3.67392 24 5 24H19C20.3261 24 21.5979 23.4732 22.5355 22.5355C23.4732 21.5979 24 20.3261 24 19V5ZM2 8H22V19C22 19.7956 21.6839 20.5587 21.1213 21.1213C20.5587 21.6839 19.7956 22 19 22H5C4.20435 22 3.44129 21.6839 2.87868 21.1213C2.31607 20.5587 2 19.7956 2 19V8ZM5 2H19C19.7956 2 20.5587 2.31607 21.1213 2.87868C21.6839 3.44129 22 4.20435 22 5V6H2V5C2 4.20435 2.31607 3.44129 2.87868 2.87868C3.44129 2.31607 4.20435 2 5 2Z" />

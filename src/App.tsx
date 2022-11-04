@@ -11,7 +11,7 @@ function App() {
 		<Router>
 			<Routes>
 				<Route path="/" element={<HomePresenter placeholder="home" />} />
-        <Route path="/events" element={<EventsPresenter placeholder="events" />} />
+        		<Route path="/events" element={<EventsPresenter placeholder="events" />} />
 			</Routes>
 		</Router>
 	);

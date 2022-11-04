@@ -1,20 +1,12 @@
 import React, { FC } from "react";
-import Sidebar from "../components/Sidebar/Sidebar";
 import HomeViewer from "../views/Home";
-
-import "./Presenter.css"
 
 interface Props {
 	placeholder?: string;
 }
 
 const HomePresenter: FC<Props> = () => {
-	return (
-		<div className="mainFlex">
-      <Sidebar/>
-			<HomeViewer />
-		</div>
-	);
+	return <HomeViewer/>;
 };
 
 export default HomePresenter;

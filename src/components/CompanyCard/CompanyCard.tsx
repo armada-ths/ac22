@@ -4,6 +4,7 @@ import "./CompanyCard.css";
 import StarButtonCard from '../StarButton/StarButtonCard'
 import TicketState from '../TicketState/TicketState'
 
+
 /**
  * image:           the image that will be displayed
  * companyName:     the company name
@@ -29,12 +30,15 @@ interface Props {
  * I am having trouble setting the backgroundImage attribute
  * therefore I am just using backgroundColor for now
  */
+
 const CompanyCard: FC<Props> = ({ image, companyName, tags, starred, onStar, ticketState, receivedTickets }) => {
+
   return (
     <div className="card-box">
         <div className="card-background-image" style={{backgroundColor: image}}></div>
         <div className="card-body">
           <div className="card-header">
+
             <div>
               <h1>{companyName}</h1>
               <h2>{tags.map(tag => {

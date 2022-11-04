@@ -22,8 +22,12 @@
   --subtitle-weight:600;
   --bold-weight:500;
 }
+
 *{
   font-family: 'Inter', sans-serif;
+}
+body{
+  background-color: var(--background);
 }
 
 .App {

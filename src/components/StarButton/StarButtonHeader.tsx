@@ -15,16 +15,16 @@ interface Props {
 const StarButtonHeader: FC<Props> = ({ starred, onStar, }) => {
   return (
     <div>
-        {starred &&
+        {(starred &&
         <div className="star-button header starred" onClick={() => onStar()}>
-            <img src={star_img} alt={"star header starred"}></img>
+            <img src={star_img} alt={"star button header starred"}></img>
             <span>{starred ? "Unstar Company" : "Star Company"}</span>
-        </div>
+        </div>)
         
         ||
         
         <div className="star-button header unstarred" onClick={() => onStar()}>
-            <img src={star_img} alt={"star header unstarred"}></img>
+            <img src={star_img} alt={"star button header unstarred"}></img>
             <span>{starred ? "Unstar Company" : "Star Company"}</span>
         </div>}
     </div>

@@ -3,6 +3,8 @@ import AuthHeading from "../../components/AuthHeading/AuthHeading";
 import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
 import "./register-view.css";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import auth from "../../components/Firebase/Firebase";
 
 interface Props {
   title: string;
@@ -14,19 +16,13 @@ const RegisterView: FC<Props> = ({ title }) => {
 
   // You can use this function to send user registration data to the backend
   function RegisterUser() {
-    console.log("hey in here");
+    createUserWithEmailAndPassword(auth, username, password);
   }
 
   return (
     <div className="wide">
       <div className="Card">
         <AuthHeading title={title} />
-        <AuthButton
-          buttonText="Register"
-          buttonType="submit"
-          active={true}
-          onButtonClick={RegisterUser}
-        />
         <ACInput
           type="email"
           placeholder="Email address"
@@ -38,6 +34,12 @@ const RegisterView: FC<Props> = ({ title }) => {
           placeholder="Password"
           value={password}
           onChange={setPassword}
+        />
+        <AuthButton
+          buttonText="Register"
+          buttonType="submit"
+          active={true}
+          onButtonClick={RegisterUser}
         />
       </div>
     </div>

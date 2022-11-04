@@ -5,19 +5,17 @@ import ACInput from "../../components/ACInput/ACInput";
 import "./register-view.css";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import auth from "../../components/Firebase/Firebase";
+import { isPropertySignature } from "typescript";
 
 interface Props {
   title: string;
+  setUsername: (username: string) => void;
+  setPassword: (password: string) => void; 
+  // username:(username:string ) 
+  // password:(password:string )
 }
 
-const RegisterView: FC<Props> = ({ title }) => {
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
-
-  // You can use this function to send user registration data to the backend
-  function RegisterUser() {
-    createUserWithEmailAndPassword(auth, username, password);
-  }
+const RegisterView: FC<Props> = (props, {title}) => {
 
   return (
     <div className="wide">
@@ -26,13 +24,14 @@ const RegisterView: FC<Props> = ({ title }) => {
         <ACInput
           type="email"
           placeholder="Email address"
-          value={username}
-          onChange={setUsername}
+          // value={}
+          onChange={(e) => {props.setUsername()}}
         />
+  
         <ACInput
           type="password"
           placeholder="Password"
-          value={password}
+          // value={password}
           onChange={setPassword}
         />
         <AuthButton

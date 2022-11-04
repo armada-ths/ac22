@@ -5,11 +5,12 @@ import { InvalidEmail } from "../../assets/InvalidEmail";
 interface Props {
   type: string;
   placeholder: string;
-  value: string;
+  // value: string;
   onChange: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
+const ACInput: FC<Props> = ({ type, placeholder, onChange }) => {
+  // const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState(placeholder);
@@ -21,6 +22,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const isValidPassword = (input: any) => {
     return /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,64}$/.test(input);
   };
+
 
   const handleChange = (e: any) => {
     if (type === "email") {

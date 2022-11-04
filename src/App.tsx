@@ -6,29 +6,23 @@ import HomePresenter from "./presenters/HomePresenter";
 import EventsPresenter from "./presenters/EventsPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
 import LoginPresenter from "./presenters/LoginPresenter";
+import TutorialPresenter from "./presenters/TutorialPresenter";
 
-import AllCards from './components/AllCards' // Remove
-
-/**
- * You can use the code below to test the cards
- * 
- * Remove this comment before merging (if merging) to main
- * and also remove the import of AllCards
- * and the file src/components/AllCards.tsx
- * and the path "cards"
- * these were only set up to try out the component
- */
 function App() {
-	return (
-		<Router>
-			<Routes>
-				<Route path="/" element={<HomePresenter placeholder="home" />} />
-        		<Route path="/events" element={<EventsPresenter placeholder="events" />} />
-				<Route path="/register" element={<RegisterPresenter />} />
-				<Route path="/cards" element={<AllCards placeholder="" />} />
-			</Routes>
-		</Router>
-	);
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePresenter placeholder="home" />} />
+        <Route
+          path="/events"
+          element={<EventsPresenter placeholder="events" />}
+        />
+        <Route path="/register" element={<RegisterPresenter />} />
+        <Route path="/login" element={<LoginPresenter />} />
+        <Route path="/tutorial" element={<TutorialPresenter />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

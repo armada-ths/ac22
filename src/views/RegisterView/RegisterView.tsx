@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import AuthHeading from "../../components/AuthHeading/AuthHeading";
 import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
+import MultiStepForm from "../../components/MultiStepForm/MultiStepForm";
 import "./register-view.css";
 
 interface Props {
@@ -18,7 +19,9 @@ const RegisterView: FC<Props> = ({ title }) => {
   }
 
   return (
-    <div className="wide">
+    
+  <div>
+    {/*<div className="wide">
       <div className="Card">
         <AuthHeading title={title} />
         <AuthButton
@@ -40,7 +43,9 @@ const RegisterView: FC<Props> = ({ title }) => {
           onChange={setPassword}
         />
       </div>
-    </div>
+  </div>*/}
+    hej
+  </div>
   );
 };
 

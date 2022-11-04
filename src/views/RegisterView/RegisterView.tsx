@@ -19,10 +19,6 @@ const RegisterView: FC<Props> = ({ title }) => {
     console.log("handlechange: " + selectedItems);
   };
 
-  const handleChange2 = () => {
-    console.log("handlechange: " + selectedItems);
-  };
-
   return (
     <div className="wide">
       <div className="Card">

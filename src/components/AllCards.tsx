@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import {CompanyCard} from './CompanyCard/CompanyCard'
+import CompanyCard from './CompanyCard/CompanyCard'
 
 interface Props {
     placeholder: string;

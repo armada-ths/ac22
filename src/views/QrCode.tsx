@@ -1,37 +1,70 @@
-import React, { FC } from "react";
-import { addToDatabase, fetchFromDatabase } from "../components/FirebaseModel"; //Temporary, this is not following MVP structure
+import React, { FC, useEffect } from "react";
+import QRCode from "react-qr-code";
+
 interface Props {
-	setQrCode: (qrCode: string) => void;
+	setCompany: (company: string) => void;
+	setTicketType: (ticketType: string) => void;
+	setTicketPoints: (ticketPoints: string) => void;
+	setTicketNr: (ticketNr: number) => void;
+	company: string;
+	ticketType: string;
+	ticketPoints: string;
+	ticketNr: number;
+	generateURL: () => string;
 }
 
-var tempQrCode: string; // Temporary variable, not following MVP structure
-
 const QrCodeView: FC<Props> = (props) => {
+	useEffect(() => {
+		document.getElementById("generateTicket")?.setAttribute("disabled", "true");
+	}, []);
+
+	function checkCompanyName(params: string) {
+		if (params.length > 0) {
+			props.setCompany(params.toLocaleLowerCase());
+			document.getElementById("generateTicket")?.removeAttribute("disabled");
+		} else {
+			document
+				.getElementById("generateTicket")
+				?.setAttribute("disabled", "true");
+		}
+	}
+
 	return (
 		<section>
-			<div>FireBase Test</div>
+			<div>Generate QRCode</div>
 			<input
 				type="text"
-				placeholder="Insert QrCode"
+				placeholder="Company Name"
 				onChange={(e) => {
-					props.setQrCode(e.target.value);
-					tempQrCode = e.target.value; //Temporary, this is not following MVP structure
-					console.log("TempQrCode: " + tempQrCode); //Temporary, this is not following MVP structure
+					checkCompanyName(e.target.value);
 				}}></input>
-			<button
-				onClick={() => {
-					addToDatabase(tempQrCode); //Temporary, this is not following MVP structure
-					console.log("QrCode " + tempQrCode + " adding to database");
+			<select
+				name="tickettype"
+				onChange={(e) => {
+					props.setTicketType(e.target.value);
 				}}>
-				Add
+				<option value="standardticket">Standard Ticket</option>
+				<option value="superticket">Super Ticket</option>
+			</select>
+			<select
+				name="ticketpoints"
+				onChange={(e) => {
+					props.setTicketPoints(e.target.value);
+				}}>
+				<option value="3">3 points</option>
+				<option value="5">5 points</option>
+				<option value="10">10 points</option>
+			</select>
+			<button
+				id="generateTicket"
+				onClick={() => {
+					console.log("http://localhost:3000/qrcode#" + props.generateURL());
+					props.setTicketNr(props.ticketNr + 1);
+				}}>
+				Create Ticket
 			</button>
 
-			<button
-				onClick={() => {
-					fetchFromDatabase("users"); //Temporary, this is not following MVP structure
-				}}>
-				Console Log Database
-			</button>
+			<div id="qrCodeContainer"></div>
 		</section>
 	);
 };

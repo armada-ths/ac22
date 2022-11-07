@@ -6,8 +6,8 @@
     text-transform: uppercase;
     font-weight: var(--title-weight);
     font-size: 16px;
-    width: 352px;
-    height: 46px;
+    width: 21rem;
+    height: 2.875rem;
 }
 
 .armada-button:disabled{

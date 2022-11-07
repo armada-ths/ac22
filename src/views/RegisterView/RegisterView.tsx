@@ -44,7 +44,7 @@ const RegisterView: FC<Props> = ({ title }) => {
         />
       </div>
   </div>*/}
-    hej
+    <MultiStepForm />
   </div>
   );
 };

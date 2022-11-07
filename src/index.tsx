@@ -8,7 +8,8 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
+  //React.StrictMode triggering useEffect twice
+  <React.StrictMode> 
     <App />
   </React.StrictMode>
 );

@@ -1,13 +1,30 @@
-import { collection, addDoc, doc, getDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import { database } from "./FirebaseConfig";
 
-export async function addToDatabase(qrCode: any) {
+export async function addToCompanyDatabase(company: string, ticketType: any) {
+	const document = doc(database, "companies", company);
+
 	try {
-		const docRef = await addDoc(collection(database, "users"), {
-			User: "John" + "Doe",
-			QRCode: qrCode,
+		const docRef = await setDoc(document, {
+			name: company,
+			id: company,
+			ticketType: ticketType,
 		});
-		console.log("Document written with ID: ", docRef.id);
+	} catch (e) {
+		console.error("Error adding document: ", e);
+	}
+}
+
+export async function addToUserDatabase(user: string, starredCompanies: any, collectedTickets: any) {
+	const document = doc(database, "users", user);
+
+	try {
+		const docRef = await setDoc(document, {
+			name: user,
+			id: user,
+			starredCompanies: starredCompanies,
+			collectedTickets: collectedTickets,
+		});
 	} catch (e) {
 		console.error("Error adding document: ", e);
 	}

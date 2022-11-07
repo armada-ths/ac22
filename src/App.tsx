@@ -6,7 +6,8 @@ import HomePresenter from "./presenters/HomePresenter";
 import EventsPresenter from "./presenters/EventsPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
 import Login from "./views/Login";
-import QrCodePresenter from "./presenters/QrCodePresenter";
+import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
+import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 
 function App() {
 	return (
@@ -20,9 +21,15 @@ function App() {
 				<Route path="/register" element={<RegisterPresenter />} />
 				<Route path="/login" element={<Login />} />
 				<Route
-					path="/qrcode"
+					path="/createqrcode"
 					element={
-						<QrCodePresenter />
+						<CreateQrCodePresenter />
+					}
+				/>
+				<Route
+					path="/scanqrcode"
+					element={
+						<ScanQrCodePresenter />
 					}
 				/>
 			</Routes>

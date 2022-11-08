@@ -1,11 +1,10 @@
 .sidebar-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 104px;
-  height: auto;
   background-color: #ffff;
+  height: 100vh;
 }
 
 
@@ -51,6 +50,7 @@
   align-items: center;
   margin-top: 30%;
   gap: 12px;
+
 }
 
 

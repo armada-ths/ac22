@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import armada_logo from "../../Assets/Sidebar-pics/armada-logo.svg";
+import armada_logo from "../../assets/Sidebar-pics/armada-logo.svg";
 import "./Sidebar.css";
 
 interface Props {

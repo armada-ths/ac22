@@ -4,17 +4,18 @@ import QRCode from "react-qr-code";
 interface Props {
 	setCompany: (company: string) => void;
 	setTicketType: (ticketType: string) => void;
-	setTicketPoints: (ticketPoints: string) => void;
+	setTicketPoints: (ticketPoints: number) => void;
 	setTicketNr: (ticketNr: number) => void;
 	setIsShown: (isShown: boolean) => void;
 	setQrCode: (qrCode: string) => void;
 	company: string;
 	ticketType: string;
-	ticketPoints: string;
+	ticketPoints: number;
 	ticketNr: number;
 	isShown: boolean;
 	qrCode: string;
 	generateURL: () => void;
+	addTicketToDatabase: () => void;
 }
 
 const CreateQrCodeView: FC<Props> = (props) => {
@@ -36,6 +37,8 @@ const CreateQrCodeView: FC<Props> = (props) => {
 	const handleClick = () => {
 		props.setIsShown(true);
 		props.generateURL();
+		props.addTicketToDatabase();
+		console.log("handleClick");
 	};
 
 	return (
@@ -58,7 +61,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
 			<select
 				name="ticketpoints"
 				onChange={(e) => {
-					props.setTicketPoints(e.target.value);
+					props.setTicketPoints(Number(e.target.value));
 				}}>
 				<option value="3">3 points</option>
 				<option value="5">5 points</option>

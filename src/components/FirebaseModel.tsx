@@ -1,21 +1,77 @@
-import { collection, addDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
+import {
+	collection,
+	doc,
+	getDoc,
+	getDocs,
+	setDoc,
+	increment,
+	updateDoc,
+	arrayUnion,
+} from "firebase/firestore";
 import { database } from "./FirebaseConfig";
 
-export async function addToCompanyDatabase(company: string, ticketType: any) {
-	const document = doc(database, "companies", company);
+export async function addToDB(
+	collectionName: string,
+	documentID: any,
+	data: any
+) {
+	const document = doc(database, collectionName, documentID);
+	if ((await getDoc(document)).exists()) {
+		console.log("Document already found!");
+		switch (collectionName) {
+			case "users":
+				//Add to users
+				break;
 
-	try {
-		const docRef = await setDoc(document, {
-			name: company,
-			id: company,
-			ticketType: ticketType,
-		});
-	} catch (e) {
-		console.error("Error adding document: ", e);
+			case "companies":
+				addToCompanyDatabase(
+					documentID,
+					data.ticketType,
+					data.ticketNr,
+					data.ticketPoints
+				);
+				break;
+		}
+	} else {
+		console.log("No such document! CREATING NEW DOCUMENT");
+		try {
+			await setDoc(document, {
+				standardticket: {},
+				superticket: {},
+				TotalTickets: 0,
+			});
+		} catch (e) {
+			console.error("Error adding document: ", e);
+		}
+		addToDB(collectionName, documentID, data);
 	}
 }
 
-export async function addToUserDatabase(user: string, starredCompanies: any, collectedTickets: any) {
+export async function addToCompanyDatabase(
+	company: string,
+	ticketType: string,
+	ticketNr: number,
+	ticketPoints: number
+) {
+	const document = doc(database, "companies", company);
+	console.log("Adding to company database");
+	const ticket = "Ticket " + ticketNr;
+	await updateDoc(document, {
+		TotalTickets: increment(1),
+		[ticketType]: arrayUnion({
+			[ticket]: {
+				points: ticketPoints,
+				available: true,
+			},
+		}),
+	});
+}
+
+export async function addToUserDatabase(
+	user: string,
+	starredCompanies: any,
+	collectedTickets: any
+) {
 	const document = doc(database, "users", user);
 
 	try {

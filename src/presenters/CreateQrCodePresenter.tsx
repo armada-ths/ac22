@@ -1,31 +1,34 @@
 import React, { FC, useEffect } from "react";
 import QrCodeView from "../views/CreateQrCodeView";
-import { addToCompanyDatabase, fetchFromDatabase } from "../components/FirebaseModel";
+import {
+	addToCompanyDatabase,
+	fetchFromDatabase,
+	addToDB
+} from "../components/FirebaseModel";
 const CryptoJS = require("crypto-js");
 
 // To be used by Companies to create QR codes for their tickets
 
 const QrCodePresenter: FC = (props) => {
-
 	const redirectURL = "localhost:3000/scanqrcode";
 
-	const [company, setCompany] = React.useState(""); 
-	const [ticketType, setTicketType] = React.useState("standardticket"); 
-	const [ticketPoints, setTicketPoints] = React.useState("3"); 
-	const [ticketNr, setTicketNr] = React.useState(0); 
-	const [isShown, setIsShown] = React.useState(false); 
-	const [qrCode, setQrCode] = React.useState(window.location.href); 
+	const [company, setCompany] = React.useState("");
+	const [ticketType, setTicketType] = React.useState("standardticket");
+	const [ticketPoints, setTicketPoints] = React.useState(3);
+	const [ticketNr, setTicketNr] = React.useState(1);
+	const [isShown, setIsShown] = React.useState(false);
+	const [qrCode, setQrCode] = React.useState(window.location.href);
 
-	const encryptWithAES = (qrCode: string) => { 
+	const encryptWithAES = (qrCode: string) => {
 		const passphrase = "testphrase"; // Needs to be kept secret and changed somewhere else before production
 		return CryptoJS.AES.encrypt(qrCode, passphrase).toString();
 	};
 
-	function generateURL() { 
+	function generateURL() {
 		const urlSearchParams = new URLSearchParams();
 		urlSearchParams.append("companyName", company);
 		urlSearchParams.append("ticketType", ticketType);
-		urlSearchParams.append("ticketPoints", ticketPoints);
+		urlSearchParams.append("ticketPoints", ticketPoints.toString());
 		urlSearchParams.append("ticketNr", ticketNr.toString());
 		setTicketNr(ticketNr + 1);
 		const encoded = encryptWithAES(urlSearchParams.toString());
@@ -33,21 +36,27 @@ const QrCodePresenter: FC = (props) => {
 		console.log("Generated URL: " + redirectURL + "#" + encoded);
 	}
 
+	function addTicketToDatabase() {
+		console.log("addTicketToDatabase");
+		addToDB("companies",company, {ticketType, ticketNr, ticketPoints})
+	}
+
 	return (
 		<QrCodeView
-			setCompany={setCompany} 
-			setTicketType={setTicketType} 
-			setTicketPoints={setTicketPoints} 
-			setTicketNr={setTicketNr} 
-			company={company} 
-			ticketType={ticketType} 
-			ticketPoints={ticketPoints} 
-			ticketNr={ticketNr} 
-			generateURL={generateURL} 
-			isShown={isShown} 
-			setIsShown={setIsShown} 
-			qrCode={qrCode} 
-			setQrCode={setQrCode} 
+			setCompany={setCompany}
+			setTicketType={setTicketType}
+			setTicketPoints={setTicketPoints}
+			setTicketNr={setTicketNr}
+			company={company}
+			ticketType={ticketType}
+			ticketPoints={ticketPoints}
+			ticketNr={ticketNr}
+			generateURL={generateURL}
+			isShown={isShown}
+			setIsShown={setIsShown}
+			qrCode={qrCode}
+			setQrCode={setQrCode}
+			addTicketToDatabase={addTicketToDatabase}
 		/>
 	);
 };

@@ -1,12 +1,14 @@
 import React, { FC } from "react";
-import Countdown from "../components/Countdown/Countdown";
+import RaffleCountdown from "../components/RaffleCountdown/RaffleCountdown";
+import TicketCounter from "../components/TicketCounter/TicketCounter";
 interface Props {
 }
 
 const HomeViewer: FC<Props> = () => {
 	return <div>Home page
 		<div>
-			<Countdown today={Date.now()}/>
+			<RaffleCountdown/>
+			<TicketCounter tickets={50}/>
 		</div>
 	</div>;
 };

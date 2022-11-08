@@ -1,21 +1,16 @@
 import React, { FC } from "react";
-
+import "./FormStepCounter.css";
 interface Props {
   currentStep: number;
   steps: number;
 }
 
 const FormStepCounter: FC<Props> = ({ currentStep, steps }) => {
-  const stepArray = new Array(steps).fill(null).map((_, i) => i + 1);
 
   return (
-    <div>
-        {stepArray.map((step, i) => {
-            return (
-                <div key={i} className={`step ${currentStep === i ? 'active' : ''}`}>
-                    {step}
-                </div>
-            ))}}
+    <div className="step-container">
+        <div className={currentStep === 1 ? "current-step" : "prev-step"}>1</div>
+        <div className={currentStep === 2 ? "current-step" : "next-step"}>2</div>
     </div>
 );
 };

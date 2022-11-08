@@ -35,3 +35,16 @@
     align-items: center;
     gap: 24px;
 }
+
+.steps{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.login-link{
+    color: var(--black-secondary);
+    margin-top: 40px;
+}

@@ -1,11 +1,10 @@
 import React, { FC, FormEvent, useState } from "react";
 import AccountForm from "./Forms/AccountForm";
 import StudyForm from "./Forms/StudyForm";
-import JobPreference from "./Forms/JobPreference";
 import "./MultiStepForm.css";
 import { useMultiStepForm } from "./MultiStepHook/useMultiStepForm";
 import AuthButton from "../AuthButton/AuthButton";
-
+import FormStepCounter from "../FormStepCounter/FormStepCounter";
 interface FormData {
   email: string;
   password: string;
@@ -13,7 +12,6 @@ interface FormData {
   gender: string;
   yearOfStudy: string;
   completionYear: string;
-  positionInterests: string;
 };
 
 const START_DATA: FormData = {
@@ -23,7 +21,6 @@ const START_DATA: FormData = {
   gender: "",
   yearOfStudy: "",
   completionYear: "",
-  positionInterests: "",
 };
 
 interface Props {}
@@ -41,7 +38,7 @@ const MultiStepForm: FC<Props> = () => {
     useMultiStepForm([
       <AccountForm {...formData} updateField={updateFields} />,
       <StudyForm {...formData} updateField={updateFields} />,
-      <JobPreference {...formData} updateField={updateFields} />,
+      /*<JobPreference {...formData} updateField={updateFields} />,*/
     ]);
 
   const onSubmit = (e: FormEvent) => {
@@ -54,8 +51,8 @@ const MultiStepForm: FC<Props> = () => {
     <div className="screen">
       <div className="form-container">
         <form onSubmit={onSubmit} className="form-content">
-          <div>
-            {currentStep + 1} / {steps.length}
+          <div className="steps">
+            <FormStepCounter currentStep={currentStep + 1} steps={steps.length} />
           </div>
           {step}
           <div className="button-container">
@@ -77,6 +74,8 @@ const MultiStepForm: FC<Props> = () => {
           </div>
         </form>
       </div>
+
+      {isFirst && <div className="login-link">Already have an account? <a href="/Login">Login</a></div>}
     </div>
   );
 };

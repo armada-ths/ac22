@@ -1,72 +1,66 @@
 .ticket-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  
-    padding: 6%;
-    margin-bottom: 2%;
-  
-    font-weight: var(--subtitle-weight);
-    font-size: 0.75rem;
-  }
-  
-  .ticket-left {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .ticket-logo {
-    margin-top: -5%;
-  }
-  
-  .ticket-plus-sign { /*Can't get rid of the red background*/
-    margin-left: -34.5%;
-    margin-bottom: 5%;
-  }
-  
-  .super-tickets {
-    color: var(--black-secondary);
-    margin-left: -5%;
-  }
-  
-  .ticket-available {
-    color: var(--armada-green);
-  }
-  
-  .ticket-none-available {
-    color: var(--red-primary);
-  }
-  
-  .ticket-received-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  
-    padding: 6%;
-    margin-bottom: 6%;
-  
-    font-weight: var(--subtitle-weight);
-    font-size: 0.75rem;
-  }
-  
-  .ticket-received-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: var(--orange-secondary);
-    width: 22vw;
-    height: 8vh;
-    margin-top: -4%;
-  
-    border-radius: 32px;
-  }
-  
-  .ticket-logo.received {
-    margin-top: 3%;
-  }
-  
-  .ticket-received {
-    margin-top: 6%;
-    margin-left: -2%;
-    color: var(--orange-primary);
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 22vw;
+  height: 8vh;
+
+  font-weight: var(--subtitle-weight);
+}
+
+.ticket-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;  
+}
+
+.ticket-plus-sign { /*Can't get rid of the red background*/
+  margin-left: -34.5%;
+  margin-bottom: 5%;
+}
+
+.super-tickets {
+  color: var(--black-secondary);
+  font-size: 0.875rem;
+  margin-left: -5%;
+}
+
+.ticket-available {
+  color: var(--armada-green);
+  font-size: 0.875rem;
+}
+
+.ticket-none-available {
+  color: var(--red-primary);
+  font-size: 0.875rem;
+}
+
+.ticket-received-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-weight: var(--subtitle-weight);
+  font-size: 0.75rem;
+}
+
+.ticket-received-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 22vw;
+  height: 8vh;
+
+  background-color: var(--orange-secondary);
+
+  border-radius: 32px;
+}
+
+.ticket-received {
+  color: var(--orange-primary);
+}

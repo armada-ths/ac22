@@ -12,11 +12,11 @@ interface Props {
 }
 
 const RegisterView: FC<Props> = ({ title }) => {
-  const [selectedItems, setSelectedItems] = useState<DropdownItem[] | DropdownItem>([]);
+  const [selectedItem, setSelectedItems] = useState<string>("");
 
-  const handleChange = (selectedOption: DropdownItem[] | DropdownItem) => {
-    setSelectedItems(selectedOption);
-    console.log("handlechange: " + selectedItems);
+  const handleChange = (selectedOption: DropdownItem) => {
+    setSelectedItems(selectedOption.value);
+    console.log("handlechange: " + selectedItem);
   };
 
   return (
@@ -24,7 +24,7 @@ const RegisterView: FC<Props> = ({ title }) => {
       <div className="Card">
         <AuthHeading title={title} />
         <AuthButton buttonText="Register" buttonType="submit" active={true} />
-        <DropdownMenu title={"Gender"} items={Genders} multiSelect={true} onChange={handleChange} selectedItems={selectedItems}/>
+        <DropdownMenu title={"Gender"} items={Genders} onChange={handleChange} selectedItem={selectedItem}/>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import { DropdownItem } from "./DropdownItem";
 
 export const Genders: DropdownItem[] = [
-    { value: "male", label: "Male" },
-    { value: "female", label: "Female" },
-    { value: "other", label: "Other" },
-    { value: "not-say", label: "Prefer not to say" },
+    { value: "Male", label: "Male" },
+    { value: "Female", label: "Female" },
+    { value: "Other", label: "Other" },
+    { value: "Prefer not to say", label: "Prefer not to say" },
 ];
 
 export const CompletionYear: DropdownItem[] = [

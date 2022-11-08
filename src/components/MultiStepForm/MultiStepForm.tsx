@@ -1,57 +1,53 @@
 import React, { FC, FormEvent, useState } from "react";
 import AccountForm from "./Forms/AccountForm";
 import StudyForm from "./Forms/StudyForm";
+import JobPreference from "./Forms/JobPreference";
 import "./MultiStepForm.css";
 import { useMultiStepForm } from "./MultiStepHook/useMultiStepForm";
 import AuthButton from "../AuthButton/AuthButton";
 
-type FormData = {
-  email: string,
-  password: string,
-  studyProgram: string,
-  gender: string,
-  year: string,
-  completionYear: string,
-  positionInterests: string,
-}
+interface FormData {
+  email: string;
+  password: string;
+  studyProgramme: string;
+  gender: string;
+  yearOfStudy: string;
+  completionYear: string;
+  positionInterests: string;
+};
 
 const START_DATA: FormData = {
   email: "",
   password: "",
-  studyProgram: "",
+  studyProgramme: "",
   gender: "",
-  year: "",
+  yearOfStudy: "",
   completionYear: "",
-  positionInterests: ""
-}
+  positionInterests: "",
+};
 
 interface Props {}
 
 const MultiStepForm: FC<Props> = () => {
-  const [formData, setFormData] = useState<FormData>(START_DATA);
+  const [formData, setFormData] = useState(START_DATA);
 
   const updateFields = (data: Partial<FormData>) => {
-    setFormData(old => {
-      return {...old, ...data}
+    setFormData((old) => {
+      return { ...old, ...data };
     });
-  }
+  };
 
-  const { 
-    steps, 
-    currentStep, 
-    step, 
-    isFirst, 
-    prevStep, 
-    nextStep, 
-    isLast } = 
-      useMultiStepForm([
-        <AccountForm email="" data={formData} updateFields={updateFields}/>,
-        <StudyForm data={formData} updateFields={updateFields}/>
-  ]);
+  const { steps, currentStep, step, isFirst, prevStep, nextStep, isLast } =
+    useMultiStepForm([
+      <AccountForm {...formData} updateField={updateFields} />,
+      <StudyForm {...formData} updateField={updateFields} />,
+      <JobPreference {...formData} updateField={updateFields} />,
+    ]);
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    nextStep();
+    if(!isLast) return nextStep();
+    console.log(formData);
   };
 
   return (
@@ -62,16 +58,22 @@ const MultiStepForm: FC<Props> = () => {
             {currentStep + 1} / {steps.length}
           </div>
           {step}
-          <div>
+          <div className="button-container">
             {!isFirst && (
-              <button onClick={prevStep} type="button">
-                {" "}
-                Back{" "}
-              </button>
+              <AuthButton
+                onButtonClick={prevStep}
+                buttonText="Back"
+                active={true}
+                buttonType="button"
+              />
             )}
-            
-            <AuthButton buttonText={isLast ? "Complete Registration" : "Next"} buttonType="submit" active={true} onButtonClick={() => {}}/>
 
+            <AuthButton
+              buttonText={isLast ? "Complete Registration" : "Next"}
+              buttonType="submit"
+              active={true}
+              onButtonClick={() => {}}
+            />
           </div>
         </form>
       </div>

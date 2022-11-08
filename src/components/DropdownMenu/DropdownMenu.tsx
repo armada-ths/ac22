@@ -6,24 +6,27 @@ interface Props {
   items: any,
   selectedItem: string,
   onChange: (selected: DropdownItem) => (void),
+  title: string
+  width: string
 }
 
 const DropdownMenu: FC<Props> = ({
   items,
   onChange,
-  selectedItem,
+  title,
+  width,
 }) => {
   const styling = {
-    control: (styles: any) => ({...styles, borderColor: "#2BDBA0", borderRadius: "0.5rem", backgroundColor: "#2BDBA0", color: "white", width: "100%", height: "3rem", fontSize: "1.5rem", fontWeight: "bold", display: "flex", alignItems: ""}),
+    control: (styles: any) => ({...styles, color: "white", width: {width}, height: "3rem", fontSize: "1rem", display: "flex", textAlign: "left", paddingLeft: "0.8rem"}),
   }
  
   return (
     <div className="dropdown-container">
         <Select
           options={items}
-          onChange={(e) => onChange(e)}  
-          value={selectedItem}
+          onChange={(selectedOption: any) => onChange(selectedOption)} 
           styles={styling}
+          placeholder={title}
         />
     </div>
   );

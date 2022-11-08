@@ -24,7 +24,7 @@ const RegisterView: FC<Props> = ({ title }) => {
       <div className="Card">
         <AuthHeading title={title} />
         <AuthButton buttonText="Register" buttonType="submit" active={true} />
-        <DropdownMenu title={"Gender"} items={Genders} onChange={handleChange} selectedItem={selectedItem}/>
+        <DropdownMenu width="100%" title="test" items={Genders} onChange={handleChange} selectedItem={selectedItem}/>
       </div>
     </div>
   );

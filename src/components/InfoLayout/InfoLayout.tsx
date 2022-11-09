@@ -3,11 +3,11 @@ import './InfoLayout.css'
 
 interface Props{
     title: string;
-    info: any;
+    info: string;
 }
 const InfoLayout: FC<Props> = ({ title, info }) => {
     return (
-        <div className='box'>
+        <div className='info-layout-box'>
             <div className='title'>{title}</div>
             <div className='info'>{info}</div>
         </div>

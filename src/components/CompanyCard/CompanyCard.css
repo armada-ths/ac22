@@ -1,10 +1,10 @@
 .card-box {
   display: flex;
   flex-direction: column;
-  width: 24vw;
-  max-height: 50vh;
-  min-height: 50vh;
-  margin-bottom: 10%;
+  width: 25vw;
+  height: 25vw;
+
+  margin-bottom: 10%; /*Remove later*/
 
   background-color: var(--white);
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
@@ -22,34 +22,34 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 2vh;
 
-  min-height: 25vh;
-  max-height: 25vh;
+  height: 25vh;
+  padding: 6%;
 }
 
 .card-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 6%;
-  padding-right: 6%;
-  padding-top: 2%;
 }
 
-.card-header div h1 {
-  font-size: 1.2rem;
+.card-header-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
 }
 
-.card-header div h2 {
+.card-header div .h1 {
+  color: var(--black-primaryy);
+  font-weight: var(--title-weight);
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card-header div .h2 {
   color: var(--black-secondary);
   font-weight: var(--bold-weight);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
-
-  margin-top: -4%;
-}
-
-.card-star-button {
-  margin-top: 25%;
-
 }

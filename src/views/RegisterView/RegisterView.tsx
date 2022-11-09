@@ -15,6 +15,8 @@ interface Props {
 
 const RegisterView: FC<Props> = ({ title }) => {
   const [selectedItem, setSelectedItems] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleChange = (selectedOption: DropdownItem) => {
     setSelectedItems(selectedOption.value);

@@ -39,3 +39,11 @@ export const PositionInterest: DropdownItem[] = [
     { value: "Summer Job", label: "Summer Job" },
 ];
 
+export const StudyProgramme: DropdownItem[] = [
+    { value: "Bachelor of Science in Computer Science", label: "Bachelor of Science in Computer Science" },
+    { value: "Bachelor of Science in Computer Science and Engineering", label: "Bachelor of Science in Computer Science and Engineering" },
+    { value: "Bachelor of Science in Computer Science and Business", label: "Bachelor of Science in Computer Science and Business" },
+    { value: "Bachelor of Science in Computer Science and Engineering and Business", label: "Bachelor of Science in Computer Science and Engineering and Business" },
+    { value: "Bachelor of Science in Computer Science and Engineering and Business", label: "Bachelor of Science in Computer Science and Engineering and Business" },
+    { value: "Bachelor of Science in Computer Science and Engineering and Business", label: "Bachelor of Science in Computer Science and Engineering and Business" },
+];

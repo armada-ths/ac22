@@ -4,7 +4,7 @@ import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
 import "./register-view.css";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-import auth from "../../components/Firebase/Firebase";
+import { auth } from "../../models/Firebase/firebaseConfig";
 
 interface Props {
   title: string;

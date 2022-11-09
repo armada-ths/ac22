@@ -1,16 +1,18 @@
-.box{
-display: flex;
-flex-direction: column;
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5vh;
 }
-.title{
- flex: 1;
- font-weight: var(--subtitle-weight);
- color: var(--black-secondary);
-}
-.info
-{
-flex:2;
-font-weight: var(--title-weight);
-color: var(--black-primary);
 
+.title {
+    font-weight: var(--subtitle-weight);
+    color: var(--black-secondary);
+    font-size: 0.875rem;
+}
+
+.info {
+    font-weight: var(--title-weight);
+    color: var(--black-primary);
+    font-size: 1.5rem;
 }

@@ -1,51 +1,89 @@
 .company-info {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  text-align: left;
   align-items: left;
-  width: 20%;
+  gap: 5vh;
+  flex: 0 0 auto;
+  width: 25%;
   height: auto;
   background: var(--white);
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  margin: 2%;
-  padding: 2%;
-  gap: 2%;
+  padding: 3%;
+}
 
+.theme-flex.no-border div span {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vh;
+}
+
+.company-coordinator-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.company-coordinator {
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+}
+
+.theme-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.theme-flex div {
+  display: flex;
+  flex-direction: row;
+  gap: 4%;
+}
+
+.theme-flex.no-border {
+  gap: 6%;
+  white-space: nowrap;
 }
 
 .title {
   color: var(--black-secondary);
   font-weight: var(--subtitle-weight);
-  font-size: 0.5rem;
-  padding-bottom: 5%;
+  font-size: 0.875rem; /*14px*/
 }
 
 .theme {
   color: var(--black-primary);
   font-weight: var(--subtitle-weight);
-  border: 1px solid var(--black-primary);
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  font-size: 0.875rem; /*14px*/
   margin: 1%;
+}
+
+.theme.border {
+  border: 1px solid var(--black-primary);
   border-radius: 100px;
+
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .name {
   color: var(--black-primary);
   font-weight: var(--title-weight);
+  font-size: 1.25rem; /*20px*/
 }
 
 .mail {
   color: var(--black-secondary);
   font-weight: var(--bold-weight);
+  font-size: 1rem; /*16px*/
 }
 
-.mini-flex {
+.theme-flex.no-border div span {
   display: flex;
   flex-direction: column;
-  margin: 5%;
+  justify-content: center;
 }

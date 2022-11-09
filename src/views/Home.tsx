@@ -13,8 +13,6 @@ const HomeViewer: FC<Props> = ({model}) => {
 			<button onClick={() => {model?.addCompany("Ninas Company")}}>Star</button>
 			<button onClick={() => {model?.removeCompany("Ninas Company")}}>Unstar</button>
 			<button onClick={() => {model?.toggleStar("Ninas Company")}}>Toggle Star</button>
-			<button>Add Ticket</button>
-			<button>Add Super Ticket</button>
 		</div>);
 };
 

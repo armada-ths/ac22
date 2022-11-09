@@ -43,9 +43,9 @@ export const CompanyCard: FC<Props> = ({ image, companyName, tags, starred, onSt
                  * or stick to only two tags being printed for each company?
                  */
                 if (tag == tags.at(-1))
-                  return <span>{tag}</span>
+                  return <span key={tag}>{tag}</span>
                 else
-                  return <span>{tag + " · "}</span>})}</span>
+                  return <span key={tag}>{tag + " · "}</span>})}</span>
             </div>
             <StarButtonCard starred={starred} onStar={() => onStar()}></StarButtonCard>
           </div>

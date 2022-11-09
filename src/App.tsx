@@ -7,6 +7,7 @@ import EventsPresenter from "./presenters/EventsPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
 import CompanyView from "./views/CompanyView/CompanyView"; // Remove
 import TutorialPresenter from "./presenters/TutorialPresenter";
+import LoginPresenter from "./presenters/LoginPresenter";
 
 import { dummyCompanies, dummyTickets } from './models/dummyConstant' // Remove
 
@@ -33,6 +34,7 @@ function App() {
 					onStar={() => console.log("on-star")}
 					availableTickets={dummyTickets} />} />
 				<Route path="/tutorial" element={<TutorialPresenter />} />
+				<Route path="/login" element={<LoginPresenter />} />
 			</Routes>
 		</Router>
 	);

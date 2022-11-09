@@ -1,4 +1,4 @@
-.header-box {
+.header-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -7,12 +7,7 @@
     color: var(--black-primary);
     text-transform: capitalize;
 
-    width: 92%;
-    height: 12%;
-    position: absolute;
-    padding: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
+    padding: 2%;
     
     background: var(--white);
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
@@ -44,11 +39,6 @@
 }
 
 .icon-box.ticket img {
-    margin-top: 20%;
-    margin-right: 0%;
-}
-
-.ticket-plus-sign { /*Can't get rid of the red background*/
-    margin-left: -34.5%;
-    margin-bottom: 5%;
+    margin-top: -4%;
+    margin-right: 2%;
 }

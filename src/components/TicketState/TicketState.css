@@ -10,7 +10,7 @@
   font-weight: var(--subtitle-weight);
 }
 
-.ticket-left {
+.left-box {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

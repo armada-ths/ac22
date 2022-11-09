@@ -39,12 +39,12 @@ const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTic
           </div>
         </div>
         <div className='company-title'>
-          <h1>{company.name}</h1>
-          <h2>{company.tags.map(tag => {
+          <span className='h1'>{company.name}</span>
+          <span className='h2'>{company.tags.map(tag => {
                 if (tag == company.tags.at(-1)) // If it is the last element
                   return <span key={tag}>{tag}</span>
                 else
-                  return <span key={tag}>{new String(tag).concat(" · ")}</span>})}</h2>
+                  return <span key={tag}>{tag + " · "}</span>})}</span>
         </div>
       </div>
 
@@ -61,7 +61,7 @@ const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTic
         <div className='company-information'>
           <div>
             <div className='company-about'>
-              <h1>About {company.name}</h1>
+              <span className='h1'>About {company.name}</span>
               <span>{company.aboutUs}</span>
             </div>
           </div>

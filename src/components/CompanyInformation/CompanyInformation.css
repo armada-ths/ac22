@@ -37,7 +37,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
+ /*no-border*/
 .theme-flex div {
   display: flex;
   flex-direction: row;
@@ -73,6 +73,12 @@
   padding-bottom: 2%;
 }
 
+.theme.no-border {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .name {
   color: var(--black-primary);
   font-weight: var(--title-weight);
@@ -83,10 +89,4 @@
   color: var(--black-secondary);
   font-weight: var(--bold-weight);
   font-size: 1rem; /*16px*/
-}
-
-.theme-flex.no-border div span {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }

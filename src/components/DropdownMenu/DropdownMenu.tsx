@@ -4,7 +4,7 @@ import "./DropdownMenu.css";
 import { DropdownItem } from "./DropdownItem";
 
 interface Props {
-  items: DropdownItem[],
+  items: any,
   selectedItem: string,
   onChange: (selected: DropdownItem) => (void),
   title: string

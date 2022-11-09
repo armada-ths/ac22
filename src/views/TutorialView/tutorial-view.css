@@ -47,9 +47,8 @@ li {
     background-color: var(--black-tetriary);
 }
 
-.box {
+.tutorialbox {
     padding: 2%;
-    border-radius: 16px;
     background-color: var(--white);
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
     border-radius: 8px;

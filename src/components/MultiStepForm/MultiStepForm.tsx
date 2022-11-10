@@ -56,14 +56,14 @@ const MultiStepForm: FC<Props> = () => {
           </div>
           {step}
           <div className="button-container">
-            {!isFirst && (
+            {/*!isFirst && (
               <AuthButton
                 onButtonClick={prevStep}
                 buttonText="Back"
                 active={true}
                 buttonType="button"
               />
-            )}
+            )*/}
 
             <AuthButton
               buttonText={isLast ? "Complete Registration" : "Next"}

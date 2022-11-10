@@ -1,8 +1,9 @@
 .form-content{
-    display: "flex";
-    justify-content: "center";
-    align-items: "center";
-    gap: "1rem";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .ac-input{
@@ -56,4 +57,34 @@
 
 .InvalidEmail {
     margin-left: 8rem;
+}
+
+.select-option, .select-option1{
+    width: 21rem;
+    height: 3rem;
+    color: var(--grey-primary);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 4px;
+}
+
+.select-option1{
+    width: 9.5rem;
+}
+
+.option-text{
+    font-size: 14px;
+    color: var(--black-secondary);
+    font-style: normal;
+}
+
+.double-select{
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+}
+
+.dash{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }

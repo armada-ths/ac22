@@ -3,20 +3,43 @@ import AuthHeading from "../../components/AuthHeading/AuthHeading";
 import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
 import "./register-view.css";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-import { auth } from "../../models/Firebase/firebaseConfig";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from "firebase/auth";
+import { collection, doc, setDoc } from "firebase/firestore"; 
+import { auth, database } from "../../models/Firebase/firebaseConfig";
 
 interface Props {
   title: string;
 }
+
+async function CreateDoc(user: User) {
+  if(user) {
+    const docRef = doc(collection(database, "users"), user.uid)
+    try {
+      await setDoc(docRef, {
+        collectedTickets: {
+          nrOfTickets: 0,
+          nrOfSuperTickets: 0
+        },
+        currentCompany: -1,
+        starredCompanies: []
+      })
+    }
+    catch(e) {
+      console.error("Error setting document:\n", e)
+    }
+  }
+}
+
 
 const RegisterView: FC<Props> = ({ title }) => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   // You can use this function to send user registration data to the backend
-  function RegisterUser() {
-    createUserWithEmailAndPassword(auth, username, password);
+  async function RegisterUser() {
+    await createUserWithEmailAndPassword(auth, username, password);
+    if(auth.currentUser)
+      CreateDoc(auth.currentUser);
   }
 
   return (

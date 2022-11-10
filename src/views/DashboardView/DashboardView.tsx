@@ -50,7 +50,6 @@ const DashboardView: FC<Props>= ({ companies, onStar, availableTickets }) =>{
         <div className='fair-info'>
             <div className='your-tickets'></div>
             <div className='raffle'></div>
-            <div className='event'></div>
         </div>
 
         <div className='company-cards-body'>

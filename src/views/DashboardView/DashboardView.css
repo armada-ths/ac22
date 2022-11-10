@@ -107,14 +107,15 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    column-gap: 7vw;
 
     margin-left: 0%;
     margin-right: 0%;
 }
 
-.your-tickets, .raffle, .event {
+.your-tickets, .raffle{
     background-color: rgb(18, 18, 71); /*Change later*/
-    width: 28vw;
+    width: 40vw;
     height: 28vh;
 
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
@@ -124,7 +125,6 @@
 .company-cards-body {
     display: flex;
     flex-direction: column;
-
     margin-top: -5%;
 }
 

@@ -1,0 +1,16 @@
+.success-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-title{
+    margin-top: 1.2em;
+}
+
+.success-text{
+    font-size: 1em;
+    color: var(--black-secondary);
+    width: 60%;;
+}

@@ -7,6 +7,8 @@ import {
 	increment,
 	updateDoc,
 	arrayUnion,
+	query,
+	where,
 } from "firebase/firestore";
 import { database } from "./FirebaseConfig";
 
@@ -36,8 +38,6 @@ export async function addToDB(
 		console.log("No such document! CREATING NEW DOCUMENT");
 		try {
 			await setDoc(document, {
-				standardticket: {},
-				superticket: {},
 				TotalTickets: 0,
 			});
 		} catch (e) {
@@ -58,13 +58,31 @@ export async function addToCompanyDatabase(
 	const ticket = "Ticket " + ticketNr;
 	await updateDoc(document, {
 		TotalTickets: increment(1),
-		[ticketType]: arrayUnion({
-			[ticket]: {
-				points: ticketPoints,
-				available: true,
-			},
-		}),
+		[ticket]:{
+			points: ticketPoints,
+			ticketType: ticketType,
+			available: true
+		}
 	});
+}
+
+export async function claimTicket(
+	company: string,
+	ticketType: string,
+	ticketPoints: string,
+	ticketNr: number
+) {
+	const ticket = "Ticket " + ticketNr;
+	const document = doc(database, "companies", company);
+	console.log("editing ticket: " + company + " " + ticketType + " " + ticket);
+	await updateDoc(document, {
+		[ticket]:{ //Perhaps find better way to only change available instead of rewriting the whole object
+			points: ticketPoints,
+			ticketType: ticketType,
+			available: false
+		}
+	});
+	console.log("Ticket claimed!");
 }
 
 export async function addToUserDatabase(

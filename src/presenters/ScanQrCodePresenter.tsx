@@ -5,9 +5,7 @@ const CryptoJS = require("crypto-js");
 
 const QrCodePresenter: FC = (props) => {
 	const [company, setCompany] = React.useState("");
-	const [ticketType, setTicketType] = React.useState("");
 	const [ticketPoints, setTicketPoints] = React.useState("");
-	const [ticketNr, setTicketNr] = React.useState(0);
 
 	useEffect(() => {
 		checkURL();
@@ -21,6 +19,7 @@ const QrCodePresenter: FC = (props) => {
 	};
 
 	async function checkURL() {
+		//Async await not working atm
 		const url = window.location.href;
 		if (url.includes("#")) {
 			await fetchFromURL(url);
@@ -34,20 +33,20 @@ const QrCodePresenter: FC = (props) => {
 			const decoded = decryptWithAES(hash);
 			const urlSearchParams = new URLSearchParams(decoded);
 			setCompany(urlSearchParams.get("companyName")?.toString() ?? "");
-			setTicketType(urlSearchParams.get("ticketType")?.toString() ?? "");
 			setTicketPoints(urlSearchParams.get("ticketPoints")?.toString() ?? "");
-			setTicketNr(parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "0"));
 			claimTicket(
 				urlSearchParams.get("companyName")?.toString() ?? "",
-				urlSearchParams.get("ticketType")?.toString() ?? "",
-				urlSearchParams.get("ticketPoints")?.toString() ?? "",
-				parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "0")
+				parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "1")
 			); //Ugly fix as the state is not updated in time
 			resolve();
 		});
 	}
 
-	return <ScanQrCodeView company={company} ticketPoints={ticketPoints} />;
+	function capitalizeFirstLetter(string: string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	return <ScanQrCodeView company={capitalizeFirstLetter(company)} ticketPoints={ticketPoints} />;
 };
 
 export default QrCodePresenter;

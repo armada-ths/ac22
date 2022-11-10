@@ -6,10 +6,9 @@ import {
 	setDoc,
 	increment,
 	updateDoc,
-	arrayUnion,
-	query,
-	where,
+	deleteField,
 } from "firebase/firestore";
+import { stringify } from "querystring";
 import { database } from "./FirebaseConfig";
 
 export async function addToDB(
@@ -17,8 +16,8 @@ export async function addToDB(
 	documentID: any,
 	data: any
 ) {
-	const document = doc(database, collectionName, documentID);
-	if ((await getDoc(document)).exists()) {
+	const docRef = doc(database, collectionName, documentID);
+	if ((await getDoc(docRef)).exists()) {
 		console.log("Document already found!");
 		switch (collectionName) {
 			case "users":
@@ -37,8 +36,9 @@ export async function addToDB(
 	} else {
 		console.log("No such document! CREATING NEW DOCUMENT");
 		try {
-			await setDoc(document, {
+			await setDoc(docRef, {
 				TotalTickets: 0,
+				TotalTicketsLeft: 0,
 			});
 		} catch (e) {
 			console.error("Error adding document: ", e);
@@ -53,36 +53,42 @@ export async function addToCompanyDatabase(
 	ticketNr: number,
 	ticketPoints: number
 ) {
-	const document = doc(database, "companies", company);
+	const docRef = doc(database, "companies", company);
 	console.log("Adding to company database");
 	const ticket = "Ticket " + ticketNr;
-	await updateDoc(document, {
+	await updateDoc(docRef, {
 		TotalTickets: increment(1),
-		[ticket]:{
+		TotalTicketsLeft: increment(1),
+		[ticket]: {
 			points: ticketPoints,
 			ticketType: ticketType,
-			available: true
-		}
+			available: true,
+		},
 	});
 }
 
-export async function claimTicket(
-	company: string,
-	ticketType: string,
-	ticketPoints: string,
-	ticketNr: number
-) {
+export async function claimTicket(company: string, ticketNr: number) {
 	const ticket = "Ticket " + ticketNr;
-	const document = doc(database, "companies", company);
-	console.log("editing ticket: " + company + " " + ticketType + " " + ticket);
-	await updateDoc(document, {
-		[ticket]:{ //Perhaps find better way to only change available instead of rewriting the whole object
-			points: ticketPoints,
-			ticketType: ticketType,
-			available: false
+	const docRef = doc(database, "companies", company);
+	const docSnap = await getDoc(docRef);
+	if (docSnap.exists()) {
+		const data = docSnap.data();
+		if (data[ticket].available) {
+			await setDoc(
+				docRef,
+				{
+					[ticket]: {
+						available: false,
+					},
+					TotalTicketsLeft: increment(-1),
+				},
+				{ merge: true }
+			);
+			console.log("Ticket claimed!");
+		} else {
+			console.log("Ticket already claimed");
 		}
-	});
-	console.log("Ticket claimed!");
+	}
 }
 
 export async function addToUserDatabase(
@@ -90,17 +96,46 @@ export async function addToUserDatabase(
 	starredCompanies: any,
 	collectedTickets: any
 ) {
-	const document = doc(database, "users", user);
+	const docRef = doc(database, "users", user);
 
 	try {
-		const docRef = await setDoc(document, {
-			name: user,
-			id: user,
+		await setDoc(docRef, {
 			starredCompanies: starredCompanies,
 			collectedTickets: collectedTickets,
 		});
 	} catch (e) {
 		console.error("Error adding document: ", e);
+	}
+}
+
+export async function getCompanyData(company: string) {
+	const docRef = doc(database, "companies", company);
+	const docSnap = await getDoc(docRef);
+	if (docSnap.exists()) {
+		console.log("Document data:", docSnap.data());
+		return docSnap.data();
+	} else {
+		console.log("No such document!");
+	}
+}
+
+export async function removeFromDB(
+	collectionName: string,
+	documentID: any,
+	data: any
+) {
+	const docRef = doc(database, collectionName, documentID);
+	try {
+		if (collectionName === "companies" && data.includes("Ticket")) {
+			await updateDoc(docRef, {
+				[data]: deleteField(),
+				TotalTickets: increment(-1),
+				TotalTicketsLeft: increment(-1),
+			});
+		}
+		console.log("Document with data: " + data + "successfully deleted!");
+	} catch (e) {
+		console.error("Error removing document: ", e);
 	}
 }
 

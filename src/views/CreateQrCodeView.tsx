@@ -2,58 +2,33 @@ import { FC, useEffect } from "react";
 import QRCode from "react-qr-code";
 
 interface Props {
-	setCompany: (company: string) => void;
 	setTicketType: (ticketType: string) => void;
 	setTicketPoints: (ticketPoints: number) => void;
-	setTicketNr: (ticketNr: number) => void;
 	setIsShown: (isShown: boolean) => void;
 	setQrCode: (qrCode: string) => void;
 	company: string;
 	ticketType: string;
 	ticketPoints: number;
-	ticketNr: number;
 	isShown: boolean;
 	qrCode: string;
 	generateURL: () => void;
-	addTicketToDatabase: () => void;
+	removePreviousQrCode: () => void;
 }
 
 const CreateQrCodeView: FC<Props> = (props) => {
-	useEffect(() => {
-		document.getElementById("generateTicket")?.setAttribute("disabled", "true");
-	}, []);
-
-	function checkCompanyName(params: string) {
-		if (params.length > 0) {
-			props.setCompany(params.toLocaleLowerCase());
-			document.getElementById("generateTicket")?.removeAttribute("disabled");
-		} else {
-			document
-				.getElementById("generateTicket")
-				?.setAttribute("disabled", "true");
-		}
-	}
-
 	const handleClick = () => {
 		props.setIsShown(true);
 		props.generateURL();
-		props.addTicketToDatabase();
-		console.log("handleClick");
 	};
 
 	return (
 		<section>
-			<div>Generate QRCode</div>
-			<input
-				type="text"
-				placeholder="Company Name"
-				onChange={(e) => {
-					checkCompanyName(e.target.value);
-				}}></input>
+			<div>Generate QRCode for {props.company}</div>
 			<select
 				name="tickettype"
 				onChange={(e) => {
 					props.setTicketType(e.target.value);
+					props.setIsShown(false);
 				}}>
 				<option value="standardticket">Standard Ticket</option>
 				<option value="superticket">Super Ticket</option>
@@ -62,14 +37,13 @@ const CreateQrCodeView: FC<Props> = (props) => {
 				name="ticketpoints"
 				onChange={(e) => {
 					props.setTicketPoints(Number(e.target.value));
+					props.setIsShown(false);
 				}}>
 				<option value="3">3 points</option>
 				<option value="5">5 points</option>
 				<option value="10">10 points</option>
 			</select>
-			<button id="generateTicket" onClick={handleClick}>
-				Create Ticket
-			</button>
+			<button onClick={handleClick}>Create Ticket</button>
 
 			<div id="qrCodeContainer">
 				{props.isShown && (
@@ -86,6 +60,21 @@ const CreateQrCodeView: FC<Props> = (props) => {
 							value={props.qrCode}
 							viewBox={`0 0 256 256`}
 						/>
+
+						<h3>
+							{props.ticketType} worth {props.ticketPoints} points
+						</h3>
+
+						<div>
+							<button
+								onClick={() => {
+									props.removePreviousQrCode();
+									props.setIsShown(false);
+								}}>
+								Remove This QRCode
+							</button>
+							<h5>Only use this if ticket has not yet been scanned!</h5>
+						</div>
 					</div>
 				)}
 			</div>

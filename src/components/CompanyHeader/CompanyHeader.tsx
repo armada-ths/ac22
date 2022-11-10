@@ -1,14 +1,12 @@
 import React, { FC } from 'react'
 import './CompanyHeader.css'
 
-import InfoLayout from '../InfoLayout/InfoLayout'
 import StarButtonHeader from '../StarButton/StarButtonHeader'
+import CompanyHeaderBox from '../CompanyHeaderBox/CompanyHeaderBox'
 
 import location_img from '../../assets/CompanyHeader/location-img.svg'
 import stall_img from '../../assets/CompanyHeader/stall-img.svg'
-import ticket_img from '../../assets/TicketState/ticket-img.svg'
-import plus_sign_img from '../../assets/TicketState/plus-sign-img.svg'
-
+import ticket_img from '../../assets/CompanyHeader/ticket-img.svg'
 
 /**
  * location:    location of stall
@@ -27,25 +25,14 @@ interface Props {
 
 const CompanyHeader: FC<Props> = ({ location, stall, tickets, starred, onStar }) => {
   return (
-    <div className='header-box'>
-        <div className='icon-box location'>
-            <img src={location_img} alt="location icon"></img>
-            <InfoLayout title="LOCATION" info={location}/>
-        </div>
+    <div className='header-container'>
+        <CompanyHeaderBox img={location_img} icon="location" title="LOCATION" info={location}></CompanyHeaderBox>
         <div className='line'></div>
-        <div className='icon-box stall'>
-            <img src={stall_img} alt="stall icon"></img>
-            <InfoLayout title="STALL" info={"#" + stall}/>
-        </div>
+        <CompanyHeaderBox img={stall_img} icon="stall" title="STALL" info={"#" + stall}></CompanyHeaderBox>
         <div className='line'></div>
-        <div className='icon-box ticket'>
-            <div className='ticket-logo'>
-                <img src={ticket_img} width={32} height={32}></img>
-                <img className='ticket-plus-sign' src={plus_sign_img} width={20} height={20}></img>
-            </div>
-            <InfoLayout title="SUPER TICKETS" info={tickets + " Left"}/>
-        </div>
+        <CompanyHeaderBox img={ticket_img} icon="ticket" title="SUPER TICKETS" info={tickets + " Left"}></CompanyHeaderBox>
         <div className='line'></div>
+        
         <StarButtonHeader starred={starred} onStar={() => onStar()}></StarButtonHeader>
     </div>
   )

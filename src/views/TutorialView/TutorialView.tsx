@@ -8,7 +8,7 @@ const TutorialView: FC<Props> = () => {
         <div className="flex-bx">
             <AuthHeading title="Tutorial" />
             <div className="subtitles">How to Play</div>
-            <div className="text-img box">
+            <div className="text-img tutorialbox">
                 <p> <strong>Goal:</strong> Win the prises at the raffle a week after armada!
                     How to win: Collect as many super tickets for the raffle as possible to increase your chance to win!
                     To get tickets, talk to the different booths at the armada fair and be rewarded tickets when completing their tasks.
@@ -29,7 +29,7 @@ const TutorialView: FC<Props> = () => {
                 How to Use the App
             </div>
 
-            <div className="box">
+            <div className="tutorialbox">
 
                 <div className="subsubtitles">Navigation bar</div>
                 <div className="text-img">

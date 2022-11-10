@@ -12,18 +12,25 @@ interface Props {
     onStar: () => void;
 }
 
-const StarButtonCard: FC<Props> = ({ starred, onStar, }) => {
+const StarButtonCard: FC<Props> = ({ starred, onStar }) => {
+  const [star, setStar] = React.useState(starred);
+
+  function onClick() {
+    onStar()
+    setStar(!star)
+  }
+
   return (
     <div>
-        {starred &&
-        <div className="star-button card starred" onClick={() => onStar()}>
-            <img src={star_img} alt={"star card starred"} width={24} height={24}></img>
-        </div>
+        {(star &&
+        <div className="star-button card starred" onClick={() => onClick()}>
+            <img src={star_img} alt={"star button card starred"} width={24} height={24}></img>
+        </div>)
 
         ||
 
-        <div className="star-button card unstarred" onClick={() => onStar()}>
-            <img src={star_img} alt={"star card unstarred"} width={24} height={24}></img>
+        <div className="star-button card unstarred" onClick={() => onClick()}>
+            <img src={star_img} alt={"star button card unstarred"} width={24} height={24}></img>
         </div>}
     </div>
   )

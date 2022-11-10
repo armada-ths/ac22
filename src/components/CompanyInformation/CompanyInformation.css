@@ -1,23 +1,23 @@
 .company-info {
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  text-align: left;
-  align-items: left;
-  gap: 2%;
+  justify-content: flex-start;
   flex: 0 0 auto;
-  width: 22%;
+  gap: 5vh;
+
+  width: 25%;
   height: auto;
+  padding: 3%;
+
   background: var(--white);
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  padding: 2%;
 }
 
 .mini-flex {
   display: flex;
   flex-direction: column;
-  margin: 3%;
+  gap: 2.5vh;
 }
 
 .company-coordinator-box {
@@ -37,7 +37,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
+ /*no-border*/
 .theme-flex div {
   display: flex;
   flex-direction: row;
@@ -46,46 +46,47 @@
 
 .theme-flex.no-border {
   gap: 6%;
-  margin-bottom: 6%;
   white-space: nowrap;
 }
 
 .title {
   color: var(--black-secondary);
   font-weight: var(--subtitle-weight);
-  font-size: 0.5rem;
-  padding-bottom: 5%;
+  font-size: 0.875rem; /*14px*/
 }
 
 .theme {
   color: var(--black-primary);
   font-weight: var(--subtitle-weight);
-  font-size: 0.75rem;
-  margin: 1%;
+  font-size: 0.875rem; /*14px*/
+  margin-right: 2%;
+  margin-bottom: 2%;
 }
 
 .theme.border {
   border: 1px solid var(--black-primary);
   border-radius: 100px;
 
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.theme.no-border {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .name {
   color: var(--black-primary);
   font-weight: var(--title-weight);
+  font-size: 1.25rem; /*20px*/
 }
 
 .mail {
   color: var(--black-secondary);
   font-weight: var(--bold-weight);
-}
-
-.theme-flex.no-border div span {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  font-size: 1rem; /*16px*/
 }

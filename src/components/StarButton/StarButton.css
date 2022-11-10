@@ -6,8 +6,9 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 6%;
     white-space: nowrap;
+
+    font-size: 1rem;
 }
 
 .star-button:hover {
@@ -27,13 +28,14 @@
 }
 
 .star-button.header {
-    width: 15vw;
-    height: 7.5vh;
+    gap: 10%;
+    width: 197px;
+    height: 56px;
     padding-top: 1%;
     padding-bottom: 1%;
 }
 
 .star-button.card {
-    width: 50px; /*OK to use px?*/
+    width: 50px;
     height: 50px;
 }

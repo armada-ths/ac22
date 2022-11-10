@@ -1,0 +1,53 @@
+.timerbox {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    background: linear-gradient(0deg, #E0CA0A, #F9A444), url('../../assets/Countdown/countdown_img.svg');
+    background-blend-mode: color, normal;
+    border-radius: 8px;
+    padding: 2%;
+    margin: 2%;
+}
+
+.title{
+    font-size: 1vw;
+    text-align: left;
+    color: var(--white);
+    font-weight: var(--title-weight);
+}
+.exposition{
+    font-size: 1vw;
+    text-align: left;
+    color: var(--white);
+    font-weight: var(--subsubtitle-weight);
+    padding-top: 5%;
+    opacity: 70%;
+}
+
+.counter {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1%;
+    text-align: center;
+    justify-content: center;
+}
+
+.numb {
+    font-size: 4.5vw;
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    font-weight: var(--title-weight);
+}
+
+.mini{
+    font-size: 0.2em;
+}
+
+.raffled {
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    font-weight: var(--title-weight);
+}

@@ -19,46 +19,46 @@ interface Props {
 const TicketState: FC<Props> = ({ ticketState, receivedTickets }) => {
   return (
     <div>
-      {ticketState == "available" &&
+      {(ticketState == "available" &&
       <div className="ticket-container">
-        <div className='ticket-left'>
+        <div className='left-box'>
           <div className='ticket-logo'>
-            <img src={ticket_img} alt={"ticket"}></img>
-            <img className='ticket-plus-sign' src={plus_sign_img} alt={"plus sign"}></img>
+            <img src={ticket_img} alt={"ticket available"}></img>
+            <img className='ticket-plus-sign' src={plus_sign_img} alt={"plus sign available"}></img>
           </div>
           <span className='super-tickets'>SUPER TICKETS</span>
         </div>
 
         <span className='ticket-available'>AVAILABLE</span>
-      </div>
+      </div>)
       
       ||
       
-      ticketState == "none available" &&
+      (ticketState == "none available" &&
       <div className="ticket-container">
-        <div className='ticket-left'>
+        <div className='left-box'>
           <div className='ticket-logo'>
-            <img src={ticket_grey_img}alt={"ticket grey"}></img>
-            <img className='ticket-plus-sign' src={plus_sign_grey_img} alt={"plus sign grey"}></img>
+            <img src={ticket_grey_img} alt={"ticket none available"}></img>
+            <img className='ticket-plus-sign' src={plus_sign_grey_img} alt={"plus sign none available"}></img>
           </div>
           <span className='super-tickets'>SUPER TICKETS</span>
         </div>
 
         <span className='ticket-none-available'>NONE LEFT</span>
-      </div>
+      </div>)
       
       ||
       
-      ticketState == "received" &&
+      (ticketState == "received" &&
       <div className="ticket-received-container">
         <div className='ticket-received-box'>
           <div className='ticket-logo received'>
-            <img src={ticket_img}></img>
-            <img className='ticket-plus-sign' src={plus_sign_img}></img>
+            <img src={ticket_img} alt={"ticket received"}></img>
+            <img className='ticket-plus-sign' src={plus_sign_img} alt={"plus sign received"}></img>
           </div>
           <span className='ticket-received'>x{receivedTickets} RECEIVED!</span>
         </div>
-      </div>}
+      </div>)}
     </div>
     )
 }

@@ -1,16 +1,18 @@
-.box {
+.info-layout-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 8vh;
+    gap: 0.5vh;
 }
 
 .title {
     font-weight: var(--subtitle-weight);
     color: var(--black-secondary);
+    font-size: 0.875rem;
 }
 
 .info {
     font-weight: var(--title-weight);
     color: var(--black-primary);
+    font-size: 1.5rem;
 }

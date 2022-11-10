@@ -1,4 +1,4 @@
-.header-box {
+.header-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -6,14 +6,8 @@
 
     color: var(--black-primary);
     text-transform: capitalize;
-    text-transform: capitalize;
 
-    padding: 1%;
-    padding-left: 4%;
-    padding-right: 4%;
-    width: 88%;
-    height: 10%;
-    position: absolute;
+    padding: 2%;
     
     background: var(--white);
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
@@ -33,23 +27,18 @@
     background-color: var(--black-secondary);
 }
 
-/*The margins will be adjusted for the icons when displayed in the view*/
+/*The margins might need to be adjusted for the icons when displayed in the view*/
 .icon-box.location img {
-    margin-top: -13%;
+    margin-top: -10%;
     margin-right: 2%;
 }
 
 .icon-box.stall img {
-    margin-top: -45%;
-    margin-right: 10%;
+    margin-top: -40%;
+    margin-right: 8%;
 }
 
 .icon-box.ticket img {
-    margin-top: 30%;
-    margin-right: 0%;
-}
-
-.ticket-plus-sign { /*Can't get rid of the red background*/
-    margin-left: -34.5%;
-    margin-bottom: 5%;
+    margin-top: -4%;
+    margin-right: 2%;
 }

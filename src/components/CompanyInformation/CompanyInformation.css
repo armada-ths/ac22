@@ -12,7 +12,7 @@
   padding: 3%;
 }
 
-.mini-flex {
+.theme-flex.no-border div span {
   display: flex;
   flex-direction: column;
   gap: 2.5vh;

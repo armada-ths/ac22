@@ -2,8 +2,8 @@ import React, { FC } from 'react'
 import './InfoLayout.css'
 
 interface Props{
-title: string;
-info: any;
+    title: string;
+    info: any;
 }
 const InfoLayout: FC<Props> = ({ title, info }) => {
     return (

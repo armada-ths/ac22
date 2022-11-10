@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import './CompanyInformation.css'
 
-import CompanyInformationMini from '../CompanyInformationMini/CompanyInformationMini'
+import {CompanyInformationMini} from '../CompanyInformationMini/CompanyInformationMini'
 
 import { Coordinator, ExtraInfo } from '../../models/DummyModel'
 

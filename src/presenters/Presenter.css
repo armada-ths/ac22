@@ -2,4 +2,9 @@
   display: flex;
   flex-direction: row;
   width: 100vh;
+  height: 100vh;
+}
+
+.sidebarPage{
+  padding-right: 10px;
 }

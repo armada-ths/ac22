@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import './CompanyInformation.css'
 
-import {CompanyInformationMini} from '../CompanyInformationMini/CompanyInformationMini'
+import {CompanyInformationMini} from '../CompanyInformationBox/CompanyInformationBox'
 
 import { Coordinator, ExtraInfo } from '../../models/DummyModel'
 
@@ -51,7 +51,7 @@ const CompanyInformation: FC<Props> = ({ coordinators, offerings, askAbout, extr
                     return (
                         <div key={information.info}>
                             <img src={information.img} alt={information.info}></img>
-                            <span className='theme'>{information.info}</span>
+                            <span className='theme no-border'>{information.info}</span>
                         </div>
                     )
                 })}

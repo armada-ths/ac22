@@ -21,7 +21,7 @@ const TicketState: FC<Props> = ({ ticketState, receivedTickets }) => {
     <div>
       {(ticketState == "available" &&
       <div className="ticket-container">
-        <div className='ticket-left'>
+        <div className='left-box'>
           <div className='ticket-logo'>
             <img src={ticket_img} alt={"ticket available"}></img>
             <img className='ticket-plus-sign' src={plus_sign_img} alt={"plus sign available"}></img>
@@ -36,7 +36,7 @@ const TicketState: FC<Props> = ({ ticketState, receivedTickets }) => {
       
       (ticketState == "none available" &&
       <div className="ticket-container">
-        <div className='ticket-left'>
+        <div className='left-box'>
           <div className='ticket-logo'>
             <img src={ticket_grey_img} alt={"ticket none available"}></img>
             <img className='ticket-plus-sign' src={plus_sign_grey_img} alt={"plus sign none available"}></img>

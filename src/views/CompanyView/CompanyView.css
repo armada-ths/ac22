@@ -1,0 +1,146 @@
+.company-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+.company-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 65vh;
+
+    background-color: rgb(18, 18, 71); /*Fix logic later*/
+}
+
+.company-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.company-right-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    gap: 35%
+}
+
+.company-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    margin-left: 2%;
+    margin-bottom: 4%;
+}
+
+.company-title .h1 {
+    color: var(--white);
+    font-weight: var(--title-weight);
+    font-size: 2.5rem;
+}
+
+.company-title .h2 {
+    color: var(--black-secondary);
+    font-weight: var(--bold-weight);
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.company-header-component {
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: -2%;
+}
+
+.company-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3%;
+
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 8%;
+}
+
+.company-about {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    
+    background: var(--white);
+    box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+
+    padding: 4%;
+}
+
+.company-about .h1 {
+    color: var(--black-primary);
+    font-weight: var(--title-weight);
+    font-size: 1.25rem;
+}
+
+.company-about span {
+    color: var(--black-secondary);
+    font-size: 1rem;
+}
+
+.company-cards-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-cards-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 2%;
+    margin-top: 10%;
+
+    color: var(--black-primary);
+    font-weight: var(--title-weight);
+}
+
+.company-cards-header div {
+    display: flex;
+    flex-direction: row;
+    gap: 12%;
+
+    white-space: nowrap;
+}
+
+.company-cards-header div:hover {
+    transform: scale(1.08); /*Gets a bit blurry*/
+    transition: 0.75s ease;
+    cursor: pointer;
+}
+
+.company-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+
+    margin-left: 2%;
+
+    overflow: hidden;
+}
+
+.company-card:hover {
+    transform: scale(0.99); /*Gets a bit blurry*/
+    transition: 0.5s ease;
+    cursor: pointer;
+}

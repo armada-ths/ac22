@@ -53,6 +53,17 @@
 
 }
 
+.logout{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+}
+
 
 
 

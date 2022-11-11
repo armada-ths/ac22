@@ -11,7 +11,7 @@ const TicketCounter: FC<Props> = ({ tickets }) => {
         <div className="counterbox">
             <div className='title'>YOUR TICKETS</div>
             <div className='ticket-flex'>
-                <img src={ticket_img}/>
+                <img src={ticket_img}/ >
                 <div className='tickets'>{tickets}</div>
 
             </div>

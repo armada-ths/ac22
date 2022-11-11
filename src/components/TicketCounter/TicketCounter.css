@@ -1,0 +1,45 @@
+.counterbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    padding: 2%;
+    width: 30%;
+    background: linear-gradient(0deg, rgb(102	0	174	), rgb(40	74	213	)), url('../../assets/Countdown/countdown_img.svg');
+    background-blend-mode: color, normal;
+    border-radius: 8px;
+    margin: 2%;
+}
+.title{
+    font-size: 1vw;
+    text-align: left;
+    color: var(--white);
+    font-weight: var(--title-weight);
+}
+.exposition{
+    font-size: 1vw;
+    text-align: left;
+    color: var(--white);
+    font-weight: var(--subsubtitle-weight);
+    padding-top: 5%;
+    opacity: 70%;
+}
+.ticket-flex {
+    display: flex;
+    flex-direction: row;
+    padding-left: 9.9vw;  /* do not change centering is based on box sixe, the box total is 30vw img and text is 4.5vw each with paddinf of 2%of 30 thus padding 9.9*/
+    padding-right: 9.9vw;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+.ticket-flex, img{
+    width: 40%;
+    }
+
+.tickets{
+    font-size: 4.5vw;
+    font-weight: var(--title-weight);
+    color: var(--white);
+}

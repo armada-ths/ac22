@@ -1,0 +1,66 @@
+.ticket-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 22vw;
+  height: 8vh;
+
+  font-weight: var(--subtitle-weight);
+}
+
+.left-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;  
+}
+
+.ticket-plus-sign { /*Can't get rid of the red background*/
+  margin-left: -34.5%;
+  margin-bottom: 5%;
+}
+
+.super-tickets {
+  color: var(--black-secondary);
+  font-size: 0.875rem;
+  margin-left: -5%;
+}
+
+.ticket-available {
+  color: var(--armada-green);
+  font-size: 0.875rem;
+}
+
+.ticket-none-available {
+  color: var(--red-primary);
+  font-size: 0.875rem;
+}
+
+.ticket-received-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-weight: var(--subtitle-weight);
+  font-size: 0.75rem;
+}
+
+.ticket-received-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 22vw;
+  height: 8vh;
+
+  background-color: var(--orange-secondary);
+
+  border-radius: 32px;
+}
+
+.ticket-received {
+  color: var(--orange-primary);
+}

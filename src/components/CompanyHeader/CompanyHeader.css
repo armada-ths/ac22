@@ -1,0 +1,44 @@
+.header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--black-primary);
+    text-transform: capitalize;
+
+    padding: 2%;
+    
+    background: var(--white);
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: row;
+
+    white-space: nowrap;
+}
+
+.line {
+    width: 1px;
+    height: 6vh;
+    background-color: var(--black-secondary);
+}
+
+/*The margins might need to be adjusted for the icons when displayed in the view*/
+.icon-box.location img {
+    margin-top: -10%;
+    margin-right: 2%;
+}
+
+.icon-box.stall img {
+    margin-top: -40%;
+    margin-right: 8%;
+}
+
+.icon-box.ticket img {
+    margin-top: -4%;
+    margin-right: 2%;
+}

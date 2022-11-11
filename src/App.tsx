@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -8,19 +8,24 @@ import RegisterPresenter from "./presenters/RegisterPresenter";
 import Login from "./views/Login";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
+import TutorialPresenter from "./presenters/TutorialPresenter";
 
-function App() {
+import CompanyView from "./views/CompanyView/CompanyView";
+import { dummyCompanies, dummyTickets } from './models/dummyConstant'
+import { UserModel } from "./models/UserModel";
+
+interface Props {
+	userModel: UserModel;
+}
+
+const App: FC<Props> = ({userModel}) => {
 	return (
-		<Router>
-			<Routes>
-				<Route path="/" element={<HomePresenter placeholder="home" />} />
-				<Route
-					path="/events"
-					element={<EventsPresenter placeholder="events" />}
-				/>
-				<Route path="/register" element={<RegisterPresenter />} />
-				<Route path="/login" element={<Login />} />
-				<Route
+	  <Router>
+		<Routes>
+		  <Route path="/" element={<HomePresenter placeholder="home" model={userModel} />} />
+		  <Route path="/events" element={<EventsPresenter placeholder="events" />} />
+		  <Route path="/tutorial" element={<TutorialPresenter />} />
+			<Route
 					path="/createqrcode"
 					element={
 						<CreateQrCodePresenter />
@@ -32,8 +37,13 @@ function App() {
 						<ScanQrCodePresenter />
 					}
 				/>
-			</Routes>
-		</Router>
+		  <Route path="/company" element={<CompanyView
+					companies={dummyCompanies}
+					currentCompany={0}
+					onStar={() => console.log("on-star")}
+					availableTickets={dummyTickets} />} />
+		</Routes>
+	  </Router>
 	);
 }
 

@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePresenter from "./presenters/HomePresenter";
 import EventsPresenter from "./presenters/EventsPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
-import DashboardView from "./views/DashboardView/DashboardView"; // Remove
+
+import Login from "./views/Login";
+import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
+import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
 
 
@@ -24,6 +27,18 @@ const App: FC<Props> = ({userModel}) => {
 		  <Route path="/" element={<HomePresenter placeholder="home" model={userModel} />} />
 		  <Route path="/events" element={<EventsPresenter placeholder="events" />} />
 		  <Route path="/tutorial" element={<TutorialPresenter />} />
+			<Route
+					path="/createqrcode"
+					element={
+						<CreateQrCodePresenter />
+					}
+				/>
+				<Route
+					path="/scanqrcode"
+					element={
+						<ScanQrCodePresenter />
+					}
+				/>
 		  <Route path="/register" element={<RegisterPresenter />} />
 				<Route path="/dashboard" element={<DashboardView
 					companies={dummyCompanies}

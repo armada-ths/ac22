@@ -1,11 +1,10 @@
 import React, { FC, useEffect } from "react";
-import ScanQrCodeView from "../views/ScanQrCodeView";
-import { claimTicket } from "../components/FirebaseModel";
+import ScanQrCodeView from "../views/QrCodeView/ScanQrCodeView";
+import { claimTicket } from "../models/Firebase/FirebaseModel";
 const CryptoJS = require("crypto-js");
 
 const QrCodePresenter: FC = (props) => {
 	const [company, setCompany] = React.useState("");
-	const [ticketPoints, setTicketPoints] = React.useState("");
 
 	useEffect(() => {
 		checkURL();
@@ -33,7 +32,6 @@ const QrCodePresenter: FC = (props) => {
 			const decoded = decryptWithAES(hash);
 			const urlSearchParams = new URLSearchParams(decoded);
 			setCompany(urlSearchParams.get("companyName")?.toString() ?? "");
-			setTicketPoints(urlSearchParams.get("ticketPoints")?.toString() ?? "");
 			claimTicket(
 				urlSearchParams.get("companyName")?.toString() ?? "",
 				parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "1")
@@ -46,7 +44,7 @@ const QrCodePresenter: FC = (props) => {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
-	return <ScanQrCodeView company={capitalizeFirstLetter(company)} ticketPoints={ticketPoints} />;
+	return <ScanQrCodeView company={capitalizeFirstLetter(company)} />;
 };
 
 export default QrCodePresenter;

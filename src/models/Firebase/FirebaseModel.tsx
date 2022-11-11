@@ -8,8 +8,7 @@ import {
 	updateDoc,
 	deleteField,
 } from "firebase/firestore";
-import { stringify } from "querystring";
-import { database } from "./FirebaseConfig";
+import { database } from "./firebaseConfig";
 
 export async function addToDB(
 	collectionName: string,
@@ -29,7 +28,6 @@ export async function addToDB(
 					documentID,
 					data.ticketType,
 					data.ticketNr,
-					data.ticketPoints
 				);
 				break;
 		}
@@ -51,7 +49,6 @@ export async function addToCompanyDatabase(
 	company: string,
 	ticketType: string,
 	ticketNr: number,
-	ticketPoints: number
 ) {
 	const docRef = doc(database, "companies", company);
 	console.log("Adding to company database");
@@ -60,7 +57,6 @@ export async function addToCompanyDatabase(
 		TotalTickets: increment(1),
 		TotalTicketsLeft: increment(1),
 		[ticket]: {
-			points: ticketPoints,
 			ticketType: ticketType,
 			available: true,
 		},

@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import React, { useState, useEffect } from "react";
 import Login from "../../views/Login";
 //import "./App.css";
-import {auth} from "../FirebaseConfig";
+import {auth} from "../../models/Firebase/firebaseConfig";
 import Hero from "./HeroComp";
 
 

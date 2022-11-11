@@ -4,17 +4,17 @@ import EventViewer from "../views/Events";
 import "./Presenter.css";
 import Sidebar from "../components/Sidebar/Sidebar";
 
-
-
-
 interface Props {
 	placeholder?: string;
 }
 
 const EventsPresenter: FC<Props> = () => {
-	return(
+	return (
 		<div className="mainFlex">
-			<Sidebar/>
+			<div className="sidebarPage">
+				<Sidebar />
+			</div>
+			Make the page here
 		</div>
 	);
 };

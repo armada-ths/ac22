@@ -11,7 +11,9 @@ interface Props {
 const HomePresenter: FC<Props> = () => {
 	return (
 		<div className="mainFlex">
-			<Sidebar />
+			<div className="sidebarPage">
+				<Sidebar />
+			</div>
 			<HomeViewer />
 		</div>
 	);

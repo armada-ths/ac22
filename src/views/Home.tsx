@@ -1,16 +1,17 @@
 import React, { FC } from "react";
 import RaffleCountdown from "../components/RaffleCountdown/RaffleCountdown";
 import TicketCounter from "../components/TicketCounter/TicketCounter";
-interface Props {
-}
+interface Props {}
 
 const HomeViewer: FC<Props> = () => {
-	return <div>Home page
+	return (
 		<div>
-			<RaffleCountdown/>
-			<TicketCounter tickets={50}/>
+			<div>
+				<RaffleCountdown />
+				<TicketCounter tickets={50} />
+			</div>
 		</div>
-	</div>;
+	);
 };
 
 export default HomeViewer;

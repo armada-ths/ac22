@@ -1,0 +1,30 @@
+.step-container{
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    width: fit-content;
+}
+
+.current-step, .prev-step, .next-step{
+    font-weight: var(--title-weight);
+    font-size: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    line-height: 32px;
+}
+
+.current-step{
+    background-color: var(--armada-secondary);
+    color: var(--armada-green);
+}
+
+.prev-step{
+    background-color: var(--armada-green);
+    color: var(--white);
+}
+
+.next-step{
+    background-color: var(--grey-secondary);
+    color: var(--black-secondary);
+}

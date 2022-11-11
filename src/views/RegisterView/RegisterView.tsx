@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import AuthHeading from "../../components/AuthHeading/AuthHeading";
 import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
+import MultiStepForm from "../../components/MultiStepForm/MultiStepForm";
 import "./register-view.css";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import auth from "../../components/Firebase/Firebase";
@@ -29,7 +30,9 @@ const RegisterView: FC<Props> = ({ title }) => {
   };
 
   return (
-    <div className="wide">
+    
+  <div>
+    {/*<div className="wide">
       <div className="Card">
         <AuthHeading title={title} />
         <ACInput
@@ -53,7 +56,9 @@ const RegisterView: FC<Props> = ({ title }) => {
 
         <DropdownMenu items={Genders} title="Gender..." onChange={handleChange} width="100%" selectedItem={selectedItem} />
       </div>
-    </div>
+  </div>*/}
+    <MultiStepForm />
+  </div>
   );
 };
 

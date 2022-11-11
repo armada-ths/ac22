@@ -6,7 +6,7 @@ interface Props {
   type: string;
   placeholder: string;
   value: string;
-  onChange: React.Dispatch<React.SetStateAction<string>>;
+  onChange: React.Dispatch<React.SetStateAction<any>>;
 }
 
 const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {

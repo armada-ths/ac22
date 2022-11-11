@@ -1,0 +1,90 @@
+.form-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ac-input{
+    width: 21rem;
+    height: 3.75rem;
+    background: #FFFFFF;
+    font-size: 20px;
+    color: #0F1322;
+    font-weight: 600;
+    text-indent: 1rem;
+    border: none;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 0 !important;
+    color: #0F1322;
+}
+.container,
+.incorrect-container {
+    border-radius: 4px;
+    border: 1.5px solid #CCCCCC;
+    max-width: 21rem;
+    max-height: 3.75rem;
+    display: grid;
+    place-items: center;
+}
+
+
+.incorrect-container {
+    border: 1.5px solid red;
+}
+
+.ac-input:focus {
+    outline: none;
+}
+
+.container:focus-within {
+    border: 1.5px solid #2BDBA0;
+}
+
+.InputHeader {
+    display: flex;
+    margin-bottom: 8px;
+    color: #2BDBA0;
+}
+
+.InputHeaderWrong {
+    display: flex;
+    margin-bottom: 8px;
+    color: red;
+}
+
+.InvalidEmail {
+    margin-left: 8rem;
+}
+
+.select-option, .select-option1{
+    width: 21rem;
+    height: 3rem;
+    color: var(--grey-primary);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 4px;
+}
+
+.select-option1{
+    width: 9.5rem;
+}
+
+.option-text{
+    font-size: 14px;
+    color: var(--black-secondary);
+    font-style: normal;
+}
+
+.double-select{
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+}
+
+.dash{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}

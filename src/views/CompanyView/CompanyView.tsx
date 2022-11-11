@@ -24,7 +24,6 @@ interface Props {
     currentCompany: number;
     onStar: () => void;
     availableTickets: Tickets[];
-    a:number;
 }
 
 const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTickets}) => {

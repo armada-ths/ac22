@@ -64,3 +64,7 @@
 .ticket-received {
   color: var(--orange-primary);
 }
+
+.tckt-img{
+  width: 2.5vw;
+}

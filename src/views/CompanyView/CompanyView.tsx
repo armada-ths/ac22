@@ -24,9 +24,10 @@ interface Props {
     currentCompany: number;
     onStar: () => void;
     availableTickets: Tickets[];
+    a:number;
 }
 
-const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTickets }) => {
+const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTickets}) => {
     const company = companies[currentCompany];
     return (
     <div className='company-container'>
@@ -81,7 +82,7 @@ const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTic
             <img src={arrow_right_img} alt={"arrow right company page"}></img>
           </div>
         </div>
-        <CompanyCardsRow companies={companies} availableTickets={availableTickets} onStar={() => onStar()}></CompanyCardsRow>
+        <CompanyCardsRow companies={companies} availableTickets={availableTickets} onStar={() => onStar() } a={0}></CompanyCardsRow>
       </div>
     </div>
   )

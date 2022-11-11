@@ -1,7 +1,7 @@
 .card-box {
   display: flex;
   flex-direction: column;
-  width: 25vw;
+  width: 28vw;
   /*margin-bottom: 10%; Remove later*/
   background-color: var(--white);
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);

@@ -16,15 +16,10 @@ function App() {
 				<Route path="/" element={<HomePresenter placeholder="home" />} />
         		<Route path="/events" element={<EventsPresenter placeholder="events" />} />
 				<Route path="/register" element={<RegisterPresenter />} />
-				<Route path="/company" element={<CompanyView
-					companies={dummyCompanies}
-					currentCompany={0}
-					onStar={() => console.log("on-star")}
-					availableTickets={dummyTickets} />} />
 				<Route path="/dashboard" element={<DashboardView
 					companies={dummyCompanies}
 					onStar={() => console.log("on-star")}
-					availableTickets={dummyTickets} />} />
+					availableTickets={dummyTickets}  />} />
 			</Routes>
 		</Router>
 	);

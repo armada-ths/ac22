@@ -7,6 +7,7 @@ import EventsPresenter from "./presenters/EventsPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
 import CompanyView from "./views/CompanyView/CompanyView"; // Remove
 import DashboardView from "./views/DashboardView/DashboardView"; // Remove
+import {dummyCompanies, dummyTickets} from "./models/dummyConstant"
 
 function App() {
 	return (

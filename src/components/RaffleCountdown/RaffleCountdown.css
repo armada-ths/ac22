@@ -2,10 +2,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 30%;
+    width: 50%;
     background: linear-gradient(0deg, #E0CA0A, #F9A444), url('../../assets/Countdown/countdown_img.svg');
     background-blend-mode: color, normal;
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 2%;
     margin: 2%;
 }

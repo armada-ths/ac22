@@ -5,6 +5,9 @@ import arrow_left from '../../assets/DashboardView/arrow-left.svg'
 import arrow_right from '../../assets/DashboardView/arrow-right.svg'
 import arrow_left_white from '../../assets/DashboardView/arrow-left-white.svg'
 import arrow_right_white from '../../assets/DashboardView/arrow-right-white.svg'
+import TicketCounter from '../../components/TicketCounter/TicketCounter';
+import RaffleCountdown from '../../components/RaffleCountdown/RaffleCountdown';
+
 
 import { Company, Tickets } from '../../models/DummyModel'
 
@@ -48,8 +51,8 @@ const DashboardView: FC<Props>= ({ companies, onStar, availableTickets }) =>{
         </div>
 
         <div className='fair-info'>
-            <div className='your-tickets'></div>
-            <div className='raffle'></div>
+            <TicketCounter tickets={30}/>
+            <RaffleCountdown/>
         </div>
 
         <div className='company-cards-body'>

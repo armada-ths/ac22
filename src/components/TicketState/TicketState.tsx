@@ -23,7 +23,7 @@ const TicketState: FC<Props> = ({ ticketState, receivedTickets }) => {
       <div className="ticket-container">
         <div className='left-box'>
           <div className='ticket-logo'>
-            <img src={ticket_img} alt={"ticket available"}></img>
+            <img className="tckt-img" src={ticket_img} alt={"ticket available"}></img>
             <img className='ticket-plus-sign' src={plus_sign_img} alt={"plus sign available"}></img>
           </div>
           <span className='super-tickets'>SUPER TICKETS</span>
@@ -38,7 +38,7 @@ const TicketState: FC<Props> = ({ ticketState, receivedTickets }) => {
       <div className="ticket-container">
         <div className='left-box'>
           <div className='ticket-logo'>
-            <img src={ticket_grey_img} alt={"ticket none available"}></img>
+            <img className="tckt-img" src={ticket_grey_img} alt={"ticket none available"}></img>
             <img className='ticket-plus-sign' src={plus_sign_grey_img} alt={"plus sign none available"}></img>
           </div>
           <span className='super-tickets'>SUPER TICKETS</span>
@@ -53,7 +53,7 @@ const TicketState: FC<Props> = ({ ticketState, receivedTickets }) => {
       <div className="ticket-received-container">
         <div className='ticket-received-box'>
           <div className='ticket-logo received'>
-            <img src={ticket_img} alt={"ticket received"}></img>
+            <img className="tckt-img" src={ticket_img} alt={"ticket received"}></img>
             <img className='ticket-plus-sign' src={plus_sign_img} alt={"plus sign received"}></img>
           </div>
           <span className='ticket-received'>x{receivedTickets} RECEIVED!</span>

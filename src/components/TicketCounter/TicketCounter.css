@@ -4,12 +4,13 @@
     justify-content: center;
     
     padding: 2%;
-    width: 30%;
+    width: 50%;
     background: linear-gradient(0deg, rgb(102	0	174	), rgb(40	74	213	)), url('../../assets/Countdown/countdown_img.svg');
     background-blend-mode: color, normal;
-    border-radius: 8px;
+    border-radius: 16px;
     margin: 2%;
 }
+
 .title{
     font-size: 1vw;
     text-align: left;

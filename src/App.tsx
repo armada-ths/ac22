@@ -5,10 +5,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePresenter from "./presenters/HomePresenter";
 import EventsPresenter from "./presenters/EventsPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
+
 import Login from "./views/Login";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
+
 
 import CompanyView from "./views/CompanyView/CompanyView";
 import { dummyCompanies, dummyTickets } from './models/dummyConstant'
@@ -37,6 +39,11 @@ const App: FC<Props> = ({userModel}) => {
 						<ScanQrCodePresenter />
 					}
 				/>
+		  <Route path="/register" element={<RegisterPresenter />} />
+				<Route path="/dashboard" element={<DashboardView
+					companies={dummyCompanies}
+					onStar={() => console.log("on-star")}
+					availableTickets={dummyTickets}  />} />
 		  <Route path="/company" element={<CompanyView
 					companies={dummyCompanies}
 					currentCompany={0}

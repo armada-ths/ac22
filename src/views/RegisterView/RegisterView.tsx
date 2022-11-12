@@ -56,7 +56,7 @@ const RegisterView: FC = () => {
 
     } catch (error : any) {
       if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-        alert("Email is already in use, please provide with another valid KTH email")
+        alert("Email is already in use, please provide another valid KTH email")
       }
       else{
         alert("Something went wrong, please try again")

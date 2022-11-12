@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from "react";
 
 import "./Profile.css";
+import armada_logo from "../../assets/Profile/armada.png";
 
 interface Props {
 	placeholder: string;
@@ -16,17 +17,17 @@ const ProfileView: FC<Props> = () => {
 				<div className="Settings-header">
 					<h2
 						onClick={() => {
-							console.log("Settings:pressed");
+							setSettings(true);
 						}}
 						className={setings ? "active-header" : "inactive-header"}
 					>
 						Settings
 					</h2>
 				</div>
-				<div>
+				<div className="pointer">
 					<h2
 						onClick={() => {
-							console.log("Tickets:pressed");
+							setSettings(false);
 						}}
 						className={!setings ? "active-header" : "inactive-header"}
 					>
@@ -36,9 +37,19 @@ const ProfileView: FC<Props> = () => {
 			</span>
 			<div className="profile-content-container">
 				{setings ? (
-					<div>Hello I hope this works</div>
+					/*This is the content of the pages*/ <div className="personalInfo-container">
+						<h3>Personal details</h3>
+						<div className="personal-details-container">
+							<div>
+								<img alt="armada-logo" src={armada_logo} className="roundCircle"></img>
+							</div>
+							
+						</div>
+					</div>
 				) : (
-					<div>This probably won't work but worth a try right?</div>
+					<div className="tickethistory-container">
+						This page has not yet been added but is on it's way
+					</div>
 				)}
 			</div>
 		</div>

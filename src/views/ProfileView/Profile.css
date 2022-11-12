@@ -26,3 +26,44 @@
  margin-right: 10vh;
  cursor: pointer;
 }
+
+.pointer{
+  cursor: pointer;
+}
+
+.personalInfo-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2%;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+}
+
+.tickethistory-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2%;
+  min-height: 50vh;
+  max-height: 50vh;
+}
+
+.personal-details-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
+  min-height: 50vh;
+  max-height: 50vh;
+}
+
+.roundCircle{
+  height: 100px;
+  width: 100px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+

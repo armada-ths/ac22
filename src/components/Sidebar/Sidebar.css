@@ -30,7 +30,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-    width: 6vw;
+  width: 6vw;
   height: 72px;
   background-color: var(--armada-green);
   border-radius: 8px;

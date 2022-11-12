@@ -1,0 +1,28 @@
+.Profile-Container{
+  display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    width: 90vw;
+    width: 90vw;
+    margin-left: 7%;
+    margin-right: 2%;
+    margin-top: 5%; /* extra space for top nav bar*/
+  background-color: #F5F7FB;
+}
+.Profile-header-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.active-header{
+  color: black;
+}
+
+.inactive-header{
+  color: var(--black-secondary)
+}
+
+.Settings-header{
+ margin-right: 10vh;
+ cursor: pointer;
+}

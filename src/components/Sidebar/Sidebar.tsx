@@ -25,6 +25,7 @@ const Sidebar: FC<Props> = () => {
 	const location = useLocation();
 	const [active, setActive] = useState<string>(location.pathname);
 	
+	// This does not seem to do anything
 	useEffect(() => {
 		setActive(location.pathname);
 		console.log(location.pathname);

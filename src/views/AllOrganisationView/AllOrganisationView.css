@@ -1,0 +1,27 @@
+
+.inner-box{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+
+    width: 90vw;
+    width: 90vw;
+    margin-left: 7%;
+    margin-right: 4%;
+    margin-top: 5%; /* extra space for top nav bar*/
+}
+
+.card-flex {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
+
+.row{
+    margin: 0px;
+}
+
+.sidebar-position {
+    position: fixed;
+    top:0px;
+}

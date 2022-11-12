@@ -27,18 +27,8 @@ const DashboardView: FC<Props> = ({ companies, onStar, availableTickets }) => {
     useEffect(() => { })
 
     return (
-        <div className='dashboard-container'>
-            <div className='dashboard-sidebar'></div>
             <div className='dashboard-box'>
-                <div className='dashboard-header'>
-                    <h1>Dashboard</h1>
-                    <div className='header-right'>
-                        <div className='tickets'>Tickets</div>
-                        <div className='scanner'>Scanner</div>
-                        <div className='profile'>Profile</div>
-                    </div>
-                </div>
-
+                <h1 className='title-dashboard'>Dashboard</h1>
                 <div className='dashboard-spotlight-container'>
                     <div className='dashboard-spotlight'>
                         <div className='spotlight-header'>
@@ -61,8 +51,8 @@ const DashboardView: FC<Props> = ({ companies, onStar, availableTickets }) => {
                     <RaffleCountdown />
                 </div>
 
-                <div className='company-cards-body'>
-                    <div className='company-cards-header'>
+                <div className='dashboard-cards-body'>
+                    <div className='dashboard-cards-header'>
                         <span>Your Starred Companies</span>
                         <div className='arrows'>
                             {a !== 0 && <img src={arrow_left} alt={"arrow right starred page"} onClick={() => { setA(a - 3);}} />}
@@ -72,7 +62,6 @@ const DashboardView: FC<Props> = ({ companies, onStar, availableTickets }) => {
                     <CompanyCardsRow companies={companies} availableTickets={availableTickets} onStar={() => onStar()} a={a}></CompanyCardsRow>
                 </div>
             </div>
-        </div>
     )
 }
 

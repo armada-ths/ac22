@@ -1,13 +1,10 @@
+.title-dashboard{
+    margin-bottom: 0px;
+}
 .dashboard-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-}
-
-.dashboard-sidebar {
-    min-width: 5vw;
-    max-width: 5vw;
-    border-right: 1px solid var(--black-secondary);
 }
 
 .dashboard-box {
@@ -15,8 +12,11 @@
     flex-direction: column;
     background-color: var(--background);
 
-    min-width: 93.71vw; /*Could not make it work any other way*/
-    max-width: 93.71vw;
+    width: 90vw;
+    width: 90vw;
+    margin-left: 7%;
+    margin-right: 2%;
+    margin-top: 5%; /* extra space for top nav bar*/
 }
 
 .dashboard-header {
@@ -107,21 +107,23 @@
     flex-direction: row;
     justify-content: space-around;
     column-gap: 1vw;
-    margin-left: 0%;
-    margin-right: 0%;
 }
 
-.company-cards-body {
+.dashboard-cards-body {
     display: flex;
     flex-direction: column;
+    margin-right: 2%;
+    margin-top: 0px;
    
 }
 
-.company-cards-header {
+.dashboard-cards-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 2%;
+    color: var(--black-primary);
+    font-weight: var(--title-weight);
 }
 
 .arrows{

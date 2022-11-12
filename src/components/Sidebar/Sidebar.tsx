@@ -58,12 +58,12 @@ const Sidebar: FC<Props> = () => {
 				</div>
 				<div
 					className={
-						active == "/events"
+						active == "/overview"
 							? "sidebar-active"
 							: "sidebar-inactive"
 					}
 				>
-					<Link to="/events">
+					<Link to="/overview">
 						<svg
 							width="24"
 							height="24"

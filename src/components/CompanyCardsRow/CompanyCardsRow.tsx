@@ -26,7 +26,7 @@ const CompanyCardsRow: FC<Props>= ({ companies, availableTickets, onStar, a}) =>
                 return (
                     <div key={company.name} className="company-card">
                         <CompanyCard
-                            image={"rgb(18, 18, 71)"}
+                            image={company.image}
                             companyName={company.name}
                             tags={company.tags}
                             starred={company.starred}

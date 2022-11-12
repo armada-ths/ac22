@@ -16,76 +16,45 @@ import ProfilePresenter from "./presenters/ProfilePresenter";
 import CompanyView from "./views/CompanyView/CompanyView";
 import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
+import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 
 interface Props {
 	userModel: UserModel;
 }
 
 const App: FC<Props> = ({ userModel }) => {
-	return (
-		<Router>
-			<Routes>
-				<Route
-					path="/"
-					element={<HomePresenter placeholder="home" model={userModel} />}
-				/>
-				<Route
-					path="/events"
-					element={<EventsPresenter placeholder="events" />}
-				/>
-				<Route path="/tutorial" element={<TutorialPresenter />} />
-				<Route path="/createqrcode" element={<CreateQrCodePresenter />} />
-				<Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
-				<Route path="/register" element={<RegisterPresenter />} />
-				<Route path="/tutorial" element={<TutorialPresenter />} />
-				<Route
-					path="/profile"
-					element={<ProfilePresenter placeholder="profile" />}
-				/>
-				<Route
-					path="/company"
-					element={
-						<CompanyView
-							companies={dummyCompanies}
-							currentCompany={0}
-							onStar={() => console.log("on-star")}
-							availableTickets={dummyTickets}
-						/>
-					}
-				/>
-			</Routes>
-		</Router>
-	);
-	return (
-		<Router>
-			<Routes>
-				<Route
-					path="/"
-					element={<HomePresenter placeholder="home" model={userModel} />}
-				/>
-				<Route
-					path="/events"
-					element={<EventsPresenter placeholder="events" />}
-				/>
-				<Route path="/tutorial" element={<TutorialPresenter />} />
-				<Route
-					path="/profile"
-					element={<ProfilePresenter placeholder="profile" />}
-				/>
-				<Route
-					path="/company"
-					element={
-						<CompanyView
-							companies={dummyCompanies}
-							currentCompany={0}
-							onStar={() => console.log("on-star")}
-							availableTickets={dummyTickets}
-						/>
-					}
-				/>
-			</Routes>
-		</Router>
-	);
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePresenter
+        companies={dummyCompanies}
+              tickets={dummyTickets}
+              onStar={() => console.log("on-star")}/>} />
+        <Route path="/events" element={<EventsPresenter placeholder="events" />} />
+        <Route path="/tutorial" element={<TutorialPresenter />} />
+        <Route path="/createqrcode" element={<CreateQrCodePresenter />} />
+        <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
+        <Route path="/register" element={<RegisterPresenter />} />
+        <Route
+          path="/overview"
+          element={
+            <AllOrganisationPresenter
+              companies={dummyCompanies}
+              tickets={dummyTickets}
+              onStar={() => console.log("on-star")} />} 
+        />
+        <Route
+          path="/company"
+          element={
+            <CompanyView
+              companies={dummyCompanies}
+              currentCompany={0}
+              onStar={() => console.log("on-star")}
+              availableTickets={dummyTickets} />}
+        />
+      </Routes>
+    </Router>
+  );
 };
 
 export default App;

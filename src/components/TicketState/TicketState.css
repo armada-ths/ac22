@@ -4,8 +4,8 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 22vw;
-  height: 8vh;
+  width: 100%;
+  height: 30%;
 
   font-weight: var(--subtitle-weight);
 }
@@ -25,17 +25,19 @@
 .super-tickets {
   color: var(--black-secondary);
   font-size: 0.875rem;
-  margin-left: -5%;
+ 
 }
 
 .ticket-available {
   color: var(--armada-green);
   font-size: 0.875rem;
+  padding: 2%;
 }
 
 .ticket-none-available {
   color: var(--red-primary);
   font-size: 0.875rem;
+  padding: 2%;
 }
 
 .ticket-received-container {
@@ -53,9 +55,9 @@
   justify-content: center;
   align-items: center;
 
-  width: 22vw;
-  height: 8vh;
-
+  width: 100%;
+  height: 40%;
+  padding: 2%;
   background-color: var(--orange-secondary);
 
   border-radius: 32px;

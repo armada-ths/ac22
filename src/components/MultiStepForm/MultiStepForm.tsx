@@ -12,7 +12,8 @@ export interface FormData {
   gender: string;
   yearOfStudy: string;
   completionYear: string;
-};
+  repeatPassword: string;
+}
 
 const START_DATA: FormData = {
   email: "",
@@ -21,14 +22,14 @@ const START_DATA: FormData = {
   gender: "",
   yearOfStudy: "",
   completionYear: "",
+  repeatPassword: "",
 };
 
 interface Props {
   registerSubmit: (data: FormData) => void;
-  error: string;
 }
 
-const MultiStepForm: FC<Props> = ({ registerSubmit, error }) => {
+const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
   const [formData, setFormData] = useState(START_DATA);
 
   const updateFields = (data: Partial<FormData>) => {
@@ -46,7 +47,7 @@ const MultiStepForm: FC<Props> = ({ registerSubmit, error }) => {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if(!isLast) return nextStep();
+    if (!isLast) return nextStep();
     registerSubmit(formData);
   };
 
@@ -55,30 +56,37 @@ const MultiStepForm: FC<Props> = ({ registerSubmit, error }) => {
       <div className="form-container">
         <form onSubmit={onSubmit} className="form-content">
           <div className="steps">
-            <FormStepCounter currentStep={currentStep + 1} steps={steps.length} />
+            <FormStepCounter
+              currentStep={currentStep + 1}
+              steps={steps.length}
+            />
           </div>
           {step}
           <div className="button-container">
-            {/*!isFirst && (
+            {!isFirst && (
               <AuthButton
                 onButtonClick={prevStep}
                 buttonText="Back"
                 active={true}
                 buttonType="button"
               />
-            )*/}
+            )}
 
             <AuthButton
               buttonText={isLast ? "Complete Registration" : "Next"}
               buttonType="submit"
-              active={true}
+              active={(formData.password.length >= 8 && formData.repeatPassword === formData.password)? true : false}
               onButtonClick={() => {}}
             />
           </div>
         </form>
       </div>
 
-      {isFirst && <div className="login-link">Already have an account? <a href="/">Login</a></div>}
+      {isFirst && (
+        <div className="login-link">
+          Already have an account? <a href="/">Login</a>
+        </div>
+      )}
     </div>
   );
 };

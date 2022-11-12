@@ -40,6 +40,7 @@ const AccountForm: FC<Props> = ({ email, password, updateField }) => {
         placeholder="Password"
         value={password}
         onChange={(e) => updateField({ password: e })}
+        required={true}
       />
       <div>
         <div
@@ -69,6 +70,7 @@ const AccountForm: FC<Props> = ({ email, password, updateField }) => {
               setActive(false);
               setPlace("Repeat Password");
             }}
+            required
           />
         </div>
       </div>

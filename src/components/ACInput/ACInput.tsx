@@ -7,9 +7,10 @@ interface Props {
   placeholder: string;
   value: string;
   onChange: React.Dispatch<React.SetStateAction<any>>;
+  required?: boolean;
 }
 
-const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
+const ACInput: FC<Props> = ({ type, placeholder, value, onChange, required }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState(placeholder);
@@ -70,7 +71,8 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
             handleChange(text);
             onChange(text.target.value);
           }}
-          onFocus={() => {
+          onFocus={(e) => {
+            e.target.value === "" && setValidInput(false);
             setActive(true);
             setPlace("");
           }}

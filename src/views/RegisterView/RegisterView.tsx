@@ -4,84 +4,58 @@ import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
 import MultiStepForm from "../../components/MultiStepForm/MultiStepForm";
 import "./register-view.css";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from "firebase/auth";
-import { collection, doc, setDoc } from "firebase/firestore"; 
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  User,
+} from "firebase/auth";
+import { collection, doc, setDoc } from "firebase/firestore";
 import { auth, database } from "../../models/Firebase/firebaseConfig";
 import DropdownMenu from "../../components/DropdownMenu/DropdownMenu";
 import { Genders } from "../../components/DropdownMenu/RegisterDropdownItems";
 import { DropdownItem } from "../../components/DropdownMenu/DropdownItem";
-
+import { FormData } from "../../components/MultiStepForm/MultiStepForm";
 interface Props {
   title: string;
 }
 
-async function CreateDoc(user: User) {
-  if(user) {
-    const docRef = doc(collection(database, "users"), user.uid)
+async function CreateDoc(user: User, data: FormData) {
+  if (user) {
+    const docRef = doc(collection(database, "users"), user.uid);
     try {
       await setDoc(docRef, {
         collectedTickets: {
           nrOfTickets: 0,
-          nrOfSuperTickets: 0
+          nrOfSuperTickets: 0,
         },
         currentCompany: -1,
-        starredCompanies: []
-      })
-    }
-    catch(e) {
-      console.error("Error setting document:\n", e)
+        starredCompanies: [],
+        userInfo: {
+          studyProgramme: data.studyProgramme,
+          yearOfStudy: data.yearOfStudy,
+          completionYear: data.completionYear,
+        },
+      });
+      return docRef;
+    } catch (error) {
+      console.error("Error setting document:\n", error);
     }
   }
 }
 
-
 const RegisterView: FC<Props> = ({ title }) => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [selectedItem, setSelectedItem] = useState<string>("")
+  const [error, setError] = useState("");
 
   // You can use this function to send user registration data to the backend
-  async function RegisterUser() {
-    await createUserWithEmailAndPassword(auth, username, password);
-    if(auth.currentUser)
-      CreateDoc(auth.currentUser);
+  async function RegisterUser(user: FormData) {
+    await createUserWithEmailAndPassword(auth, user.email, user.password);
+    if (auth.currentUser) CreateDoc(auth.currentUser, user);
   }
 
-  const handleChange = (selectedOption: DropdownItem) => {
-    setSelectedItem(selectedOption.value);
-    console.log("handlechange: " + selectedItem);
-  };
-
   return (
-    
-  <div>
-    {/*<div className="wide">
-      <div className="Card">
-        <AuthHeading title={title} />
-        <ACInput
-          type="email"
-          placeholder="Email address"
-          value={username}
-          onChange={setUsername}
-        />
-        <ACInput
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={setPassword}
-        />
-        <AuthButton
-          buttonText="Register"
-          buttonType="submit"
-          active={true}
-          onButtonClick={RegisterUser}
-        />
-
-        <DropdownMenu items={Genders} title="Gender..." onChange={handleChange} width="100%" selectedItem={selectedItem} />
-      </div>
-  </div>*/}
-    <MultiStepForm />
-  </div>
+    <div>
+      <MultiStepForm registerSubmit={RegisterUser} error={error} />
+    </div>
   );
 };
 

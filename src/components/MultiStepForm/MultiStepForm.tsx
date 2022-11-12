@@ -5,7 +5,7 @@ import "./MultiStepForm.css";
 import { useMultiStepForm } from "./MultiStepHook/useMultiStepForm";
 import AuthButton from "../AuthButton/AuthButton";
 import FormStepCounter from "../FormStepCounter/FormStepCounter";
-interface FormData {
+export interface FormData {
   email: string;
   password: string;
   studyProgramme: string;
@@ -23,9 +23,12 @@ const START_DATA: FormData = {
   completionYear: "",
 };
 
-interface Props {}
+interface Props {
+  registerSubmit: (data: FormData) => void;
+  error: string;
+}
 
-const MultiStepForm: FC<Props> = () => {
+const MultiStepForm: FC<Props> = ({ registerSubmit, error }) => {
   const [formData, setFormData] = useState(START_DATA);
 
   const updateFields = (data: Partial<FormData>) => {
@@ -44,7 +47,7 @@ const MultiStepForm: FC<Props> = () => {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     if(!isLast) return nextStep();
-    console.log(formData);
+    registerSubmit(formData);
   };
 
   return (
@@ -75,7 +78,7 @@ const MultiStepForm: FC<Props> = () => {
         </form>
       </div>
 
-      {isFirst && <div className="login-link">Already have an account? <a href="/Login">Login</a></div>}
+      {isFirst && <div className="login-link">Already have an account? <a href="/">Login</a></div>}
     </div>
   );
 };

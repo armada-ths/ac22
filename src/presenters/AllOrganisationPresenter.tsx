@@ -3,6 +3,7 @@ import { UserModel } from "../models/UserModel";
 import AllOrganisationView from "../views/AllOrganisationView//AllOrganisationView";
 import "./Presenter.css";
 import { Company, Tickets } from '../models/DummyModel'
+import Sidebar from "../components/Sidebar/Sidebar";
 
 interface Props {
 	companies: Company[];
@@ -12,7 +13,13 @@ interface Props {
 
 const AllOrganisationPresenter: FC<Props> = ({ companies, onStar, tickets }) => {
 	return (
-        <AllOrganisationView companies={companies} availableTickets={tickets} onStar={onStar}/>
+        <div className="mainFlex">
+			<div className="sidebarPage">
+				<Sidebar />
+			</div>
+			<AllOrganisationView companies={companies} availableTickets={tickets} onStar={onStar}/>
+		</div>
+        
 	);
 };
 

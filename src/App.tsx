@@ -24,7 +24,10 @@ const App: FC<Props> = ({ userModel }) => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePresenter placeholder="home" model={userModel} />} />
+        <Route path="/" element={<HomePresenter
+        companies={dummyCompanies}
+              tickets={dummyTickets}
+              onStar={() => console.log("on-star")}/>} />
         <Route path="/events" element={<EventsPresenter placeholder="events" />} />
         <Route path="/tutorial" element={<TutorialPresenter />} />
         <Route path="/createqrcode" element={<CreateQrCodePresenter />} />

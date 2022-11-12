@@ -1,16 +1,16 @@
 .card-box {
   display: flex;
   flex-direction: column;
-  width: 28vw;
-  /*margin-bottom: 10%; Remove later*/
+  width: 100%;
+  margin: 5%;
   background-color: var(--white);
-  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
+  height: 100%;
 }
 
 .card-background-image {
-  min-height: 25vh;
-  max-height: 25vh;
+  height: 25vh;
   border-top-left-radius: 16px; /*Did not inherit from card-box for some reason*/
   border-top-right-radius: 16px;
 }
@@ -27,13 +27,12 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 10%;
-
 }
 
 .card-header-title {
   display: flex;
   flex-direction: column;
-  gap: 0.5vh;
+  gap: 0.5%;
 }
 
 .card-header div .h1 {

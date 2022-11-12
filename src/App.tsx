@@ -5,31 +5,51 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePresenter from "./presenters/HomePresenter";
 import EventsPresenter from "./presenters/EventsPresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
+import RegisterSuccess from "./components/RegisterSuccess/RegisterSuccess";
 
 import CompanyView from "./views/CompanyView/CompanyView";
-import { dummyCompanies, dummyTickets } from './models/dummyConstant'
+import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
+import RegisterPresenter from "./presenters/RegisterPresenter";
 
 interface Props {
-	userModel: UserModel;
+  userModel: UserModel;
 }
 
-const App: FC<Props> = ({userModel}) => {
-	return (
-	  <Router>
-		<Routes>
-		  <Route path="/" element={<HomePresenter placeholder="home" model={userModel} />} />
-		  <Route path="/events" element={<EventsPresenter placeholder="events" />} />
-		  <Route path="/tutorial" element={<TutorialPresenter />} />
+const App: FC<Props> = ({ userModel }) => {
+  return (
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={<HomePresenter placeholder="home" model={userModel} />}
+        />
+        <Route
+          path="/events"
+          element={<EventsPresenter placeholder="events" />}
+        />
+        <Route path="/tutorial" element={<TutorialPresenter />} />
 
-		  <Route path="/company" element={<CompanyView
-					companies={dummyCompanies}
-					currentCompany={0}
-					onStar={() => console.log("on-star")}
-					availableTickets={dummyTickets} />} />
-		</Routes>
-	  </Router>
-	);
-}
+        <Route
+          path="/company"
+          element={
+            <CompanyView
+              companies={dummyCompanies}
+              currentCompany={0}
+              onStar={() => console.log("on-star")}
+              availableTickets={dummyTickets}
+            />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <RegisterPresenter registered={true}/>
+          }
+        />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;

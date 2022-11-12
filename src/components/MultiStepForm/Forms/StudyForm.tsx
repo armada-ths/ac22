@@ -40,7 +40,7 @@ const StudyForm: FC<Props> = ({
               Gender..
             </option>
             {Genders.map((gender) => {
-              return <option className="option-text" value={gender}>{gender}</option>;
+              return <option className="option-text" value={gender} key={gender}>{gender}</option>;
             })}
           </select>
         </span>
@@ -55,7 +55,7 @@ const StudyForm: FC<Props> = ({
               Study programme..
             </option>
             {StudyProgramme.map((programme) => {
-              return <option className="option-text" value={programme}>{programme}</option>;
+              return <option className="option-text" value={programme} key={programme}>{programme}</option>;
             })}
           </select>
         </div>
@@ -70,7 +70,7 @@ const StudyForm: FC<Props> = ({
             Year of study..
           </option>
           {YearOfStudy.map((year) => {
-            return <option className="option-text" value={year}>{year}</option>;
+            return <option className="option-text" value={year} key={year}>{year}</option>;
           })}
         </select>
       </div>
@@ -84,7 +84,7 @@ const StudyForm: FC<Props> = ({
             Completion year..
           </option>
           {CompletionYear.map((year) => {
-            return <option className="option-text" value={year}>{year}</option>;
+            return <option className="option-text" value={year} key={year}>{year}</option>;
           })}
         </select>
       </div>

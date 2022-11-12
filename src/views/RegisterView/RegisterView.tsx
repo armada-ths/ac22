@@ -1,7 +1,4 @@
 import React, { FC, useState } from "react";
-import AuthHeading from "../../components/AuthHeading/AuthHeading";
-import AuthButton from "../../components/AuthButton/AuthButton";
-import ACInput from "../../components/ACInput/ACInput";
 import MultiStepForm from "../../components/MultiStepForm/MultiStepForm";
 import "./register-view.css";
 import {
@@ -11,12 +8,9 @@ import {
 } from "firebase/auth";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { auth, database } from "../../models/Firebase/firebaseConfig";
-import DropdownMenu from "../../components/DropdownMenu/DropdownMenu";
-import { Genders } from "../../components/DropdownMenu/RegisterDropdownItems";
-import { DropdownItem } from "../../components/DropdownMenu/DropdownItem";
 import { FormData } from "../../components/MultiStepForm/MultiStepForm";
 interface Props {
-  title: string;
+
 }
 
 async function CreateDoc(user: User, data: FormData) {
@@ -31,6 +25,7 @@ async function CreateDoc(user: User, data: FormData) {
         currentCompany: -1,
         starredCompanies: [],
         userInfo: {
+          email: data.email,
           studyProgramme: data.studyProgramme,
           yearOfStudy: data.yearOfStudy,
           completionYear: data.completionYear,
@@ -43,8 +38,9 @@ async function CreateDoc(user: User, data: FormData) {
   }
 }
 
-const RegisterView: FC<Props> = ({ title }) => {
-  const [error, setError] = useState("");
+const RegisterView: FC = () => {
+  const [registerError, setRegisterError] = useState("");
+  const [successSignup, setSuccessSignup] = useState(false);
 
   // You can use this function to send user registration data to the backend
   async function RegisterUser(user: FormData) {
@@ -52,9 +48,28 @@ const RegisterView: FC<Props> = ({ title }) => {
     if (auth.currentUser) CreateDoc(auth.currentUser, user);
   }
 
+  const signUpFunction = async (user: FormData) => {
+    try {
+      await createUserWithEmailAndPassword(auth, user.email, user.password);
+      if (auth.currentUser) {
+        CreateDoc(auth.currentUser, user);
+        setSuccessSignup(true);
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        setRegisterError(error.message);
+        console.log(registerError);
+        console.log("Mehir");
+      }
+    }
+  };
+
   return (
     <div>
-      <MultiStepForm registerSubmit={RegisterUser} error={error} />
+      <MultiStepForm
+        registerSubmit={signUpFunction}
+        error={registerError}
+      />
     </div>
   );
 };

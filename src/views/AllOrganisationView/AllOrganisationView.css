@@ -1,0 +1,27 @@
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2%;
+    
+}
+.inner-box{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    width: 90vw;
+}
+
+.card-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    padding: 2vh;
+    margin: 0px;
+}
+
+.sidebar-position {
+    position: fixed;
+    left: 0px;
+}

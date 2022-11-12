@@ -39,8 +39,8 @@ const Sidebar: FC<Props> = () => {
 				<div
 					className={
 						active === "/"
-							? "sidebar-dashboard"
-							: "sidebar-dashboard-inactive"
+							? "sidebar-active"
+							: "sidebar-inactive"
 					}
 				>
 					<Link to="/">
@@ -59,8 +59,8 @@ const Sidebar: FC<Props> = () => {
 				<div
 					className={
 						active == "/events"
-							? "sidebar-events"
-							: "sidebar-dashboard-inactive"
+							? "sidebar-active"
+							: "sidebar-inactive"
 					}
 				>
 					<Link to="/events">
@@ -79,8 +79,8 @@ const Sidebar: FC<Props> = () => {
 				<div
 					className={
 						active == "/profile"
-							? "sidebar-profile-active"
-							: "sidebar-dashboard-inactive"
+							? "sidebar-active"
+							: "sidebar-inactive"
 					}
 				>
 					<Link to="/profile">

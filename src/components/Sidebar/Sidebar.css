@@ -23,7 +23,7 @@
   height: 48px;
 }
 
-.sidebar-dashboard, .sidebar-dashboard-inactive, .sidebar-events {
+.sidebar-active, .sidebar-inactive, .sidebar-events {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,12 +34,8 @@
   border-radius: 8px;
 }
 
-.sidebar-dashboard-inactive {
+.sidebar-inactive {
   background-color: white;
-}
-
-.sidebar-events {
-  margin-top: 10px;
 }
 
 /*Nina */

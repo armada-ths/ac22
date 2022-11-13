@@ -1,0 +1,72 @@
+.navbar-base {
+  position: fixed;
+  width: 90vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--white);
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-left: 10%;
+  border-color: var(--grey-primary);
+  border-width: 1px;
+  border-style: solid;
+  z-index: 2;
+}
+
+.navbar-right {
+  display: flex;
+  flex-direction: row;
+  margin-right: 5%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5%;
+}
+
+.navbar-qr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+  background: var(--black-primary);
+  color: var(--orange-primary);
+  border-radius: 100px;
+}
+.navbar-qr img{
+height: 3vh;
+width: 3vh;
+}
+
+.navbar-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-weight: var(--subtitle-weight);
+  font-size: 1em;
+  color: var(--black-primary);
+  width: 10vw;
+  height: 5vh;
+  border-radius: 100px;
+  border-color: var(--grey-secondary);
+  border-width: 2px;
+  border-style: solid;
+}
+
+.navbar-tutorial{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--subtitle-weight);
+  font-size: 1.5em;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}

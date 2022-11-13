@@ -25,12 +25,25 @@ const App: FC<Props> = ({ userModel }) => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePresenter
-        companies={dummyCompanies}
+        <Route
+          path="/"
+          element={
+            <HomePresenter
+              companies={dummyCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")}/>} />
-        <Route path="/events" element={<EventsPresenter placeholder="events" />} />
-        <Route path="/tutorial" element={<TutorialPresenter />} />
+              onStar={() => console.log("on-star")}
+              collectedTickets={15}
+              name={["Malin", "Marques"]}/>
+          }
+        />
+        <Route
+          path="/events"
+          element={<EventsPresenter placeholder="events" />}
+        />
+        <Route path="/tutorial" element={<TutorialPresenter 
+         collectedTickets={15}
+         name={["Malin", "Marques"]}
+         />} />
         <Route path="/createqrcode" element={<CreateQrCodePresenter />} />
         <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
         <Route path="/register" element={<RegisterPresenter  registered={true} />} />
@@ -40,7 +53,11 @@ const App: FC<Props> = ({ userModel }) => {
             <AllOrganisationPresenter
               companies={dummyCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")} />} 
+              onStar={() => console.log("on-star")}
+              collectedTickets={15}
+              name={["Malin", "Marques"]}
+            />
+          }
         />
         <Route
           path="/company"
@@ -49,7 +66,9 @@ const App: FC<Props> = ({ userModel }) => {
               companies={dummyCompanies}
               currentCompany={0}
               onStar={() => console.log("on-star")}
-              availableTickets={dummyTickets} />}
+              availableTickets={dummyTickets}
+            />
+          }
         />
       </Routes>
     </Router>

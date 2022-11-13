@@ -6,7 +6,6 @@ interface Props { }
 const TutorialView: FC<Props> = () => {
     return (
         <div className="flex-bx">
-            <AuthHeading title="Tutorial" />
             <div className="subtitles">How to Play</div>
             <div className="text-img tutorialbox">
                 <p> <strong>Goal:</strong> Win the prises at the raffle a week after armada!

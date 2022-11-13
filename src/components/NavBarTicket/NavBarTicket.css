@@ -1,0 +1,14 @@
+.small-ticket-background {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 15vw;
+  height: 5vh;
+  background: var(--orange-secondary);
+  color: var(--orange-primary);
+  border-radius: 100px;
+}

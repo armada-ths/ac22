@@ -4,16 +4,20 @@ import AllOrganisationView from "../views/AllOrganisationView//AllOrganisationVi
 import "./Presenter.css";
 import { Company, Tickets } from '../models/DummyModel'
 import Sidebar from "../components/Sidebar/Sidebar";
+import NavBar from "../components/NavBar/NavBar";
 
 interface Props {
 	companies: Company[];
     tickets: Tickets[];
     onStar:() => void;
+	collectedTickets: number;
+	name: String[];
 }
 
-const AllOrganisationPresenter: FC<Props> = ({ companies, onStar, tickets }) => {
+const AllOrganisationPresenter: FC<Props> = ({ companies, onStar, tickets, collectedTickets, name}) => {
 	return (
         <div className="mainFlex">
+			<NavBar name={name} title="All Organisations" collectedTickets={collectedTickets}/>
 			<div className="sidebarPage">
 				<Sidebar />
 			</div>

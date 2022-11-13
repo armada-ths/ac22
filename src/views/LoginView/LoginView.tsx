@@ -3,7 +3,12 @@ import AuthHeading from "../../components/AuthHeading/AuthHeading";
 import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
 import "./login-view.css";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import { auth } from "../../models/Firebase/firebaseConfig";
 
 interface Props {
@@ -24,9 +29,9 @@ const RegisterView: FC<Props> = ({
   passwordOnChange,
 }) => {
   // You can use this function to send username and password to the backend
-   function LoginUser(): any {
+  function LoginUser(): any {
     signInWithEmailAndPassword(auth, username, password);
-   }
+  }
 
   return (
     <div className="screen">

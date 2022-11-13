@@ -9,6 +9,7 @@ import RegisterPresenter from "./presenters/RegisterPresenter";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
+import RegisterSuccess from "./components/RegisterSuccess/RegisterSuccess";
 
 import CompanyView from "./views/CompanyView/CompanyView";
 import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
@@ -32,7 +33,7 @@ const App: FC<Props> = ({ userModel }) => {
         <Route path="/tutorial" element={<TutorialPresenter />} />
         <Route path="/createqrcode" element={<CreateQrCodePresenter />} />
         <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
-        <Route path="/register" element={<RegisterPresenter />} />
+        <Route path="/register" element={<RegisterPresenter  registered={true} />} />
         <Route
           path="/overview"
           element={

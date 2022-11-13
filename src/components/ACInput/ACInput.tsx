@@ -9,7 +9,7 @@ interface Props {
   onChange: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
+const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState(placeholder);
@@ -19,7 +19,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   };
 
   const isValidPassword = (input: any) => {
-    return /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,64}$/.test(input);
+    return input.length >= 8;
   };
 
   const handleChange = (e: any) => {
@@ -53,6 +53,12 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
         ) : (
           ""
         )}
+        {active && !validInput && type === "password" && (
+          <div className="InvalidPassword">
+            <InvalidEmail />
+            <text style={{ marginLeft: "4px" }}>Min.Length=8</text>
+          </div>)
+          }
       </div>
       <div
         className={validInput ? "container" : "incorrect-container"}
@@ -70,7 +76,8 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
             handleChange(text);
             onChange(text.target.value);
           }}
-          onFocus={() => {
+          onFocus={(e) => {
+            e.target.value === "" && setValidInput(false);
             setActive(true);
             setPlace("");
           }}
@@ -78,6 +85,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
             setActive(false);
             setPlace(placeholder);
           }}
+          required
         />
       </div>
     </div>

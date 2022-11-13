@@ -1,5 +1,4 @@
 .ac-input{
-    width: 21rem;
     height: 3.75rem;
     background: #FFFFFF;
     font-size: 20px;
@@ -10,7 +9,6 @@
     justify-content: center;
     border-radius: 4px;
     padding: 0 !important;
-    color: #0F1322;
 }
 
 .container, .incorrect-container{

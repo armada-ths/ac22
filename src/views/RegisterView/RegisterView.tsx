@@ -10,9 +10,7 @@ import { collection, doc, setDoc } from "firebase/firestore";
 import { auth, database } from "../../models/Firebase/firebaseConfig";
 import { FormData } from "../../components/MultiStepForm/MultiStepForm";
 import { redirect } from "react-router-dom";
-interface Props {
-
-}
+interface Props {}
 
 async function CreateDoc(user: User, data: FormData) {
   if (user) {
@@ -40,7 +38,6 @@ async function CreateDoc(user: User, data: FormData) {
 }
 
 const RegisterView: FC = () => {
-
   // You can use this function to send user registration data to the backend
   async function RegisterUser(user: FormData) {
     await createUserWithEmailAndPassword(auth, user.email, user.password);
@@ -53,22 +50,21 @@ const RegisterView: FC = () => {
       if (auth.currentUser) {
         CreateDoc(auth.currentUser, user);
       }
-
-    } catch (error : any) {
+    } catch (error: any) {
       if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-        alert("Email is already in use, please provide another valid KTH email")
-      }
-      else{
-        alert("Something went wrong, please try again")
+        alert(
+          "Email is already in use, please provide another valid KTH email"
+        );
+      } else {
+        alert("Something went wrong, please try again");
       }
     }
   };
 
   return (
-
-      <MultiStepForm
-        registerSubmit={signUpFunction}
-      />
+    <div className="screen">
+      <MultiStepForm registerSubmit={signUpFunction} />
+    </div>
   );
 };
 

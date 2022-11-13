@@ -3,6 +3,7 @@ import ACInput from "../../ACInput/ACInput";
 import "./Forms.css";
 
 interface AccountData {
+  name: string;
   email: string;
   password: string;
   repeatPassword: string;
@@ -18,6 +19,7 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) =
   const [active, setActive] = useState<boolean>(false);
   const [repeatPassword, setRepeatPassword] = useState<string>("");
   const [place, setPlace] = useState("Repeat Password");
+  const [place2, setPlace2] = useState("Name");
 
   useEffect(() => {
     if (repeatPassword === password) {
@@ -31,6 +33,11 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) =
   return (
     <div className="form-content">
       <h2>Get Registered</h2>
+      <input
+        className="ac-input"
+        placeholder={place2}
+        onChange={(e) => updateField({ name: e.target.value })}
+      />
       {emailExists && <div style={{ color: "red", marginTop: "-6px"}}>Account with this email already exists</div>}
       <ACInput
         type="email"

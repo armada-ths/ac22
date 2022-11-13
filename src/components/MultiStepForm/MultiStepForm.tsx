@@ -6,6 +6,7 @@ import { useMultiStepForm } from "./MultiStepHook/useMultiStepForm";
 import AuthButton from "../AuthButton/AuthButton";
 import FormStepCounter from "../FormStepCounter/FormStepCounter";
 export interface FormData {
+  name: string;
   email: string;
   password: string;
   studyProgramme: string;
@@ -16,6 +17,7 @@ export interface FormData {
 }
 
 const START_DATA: FormData = {
+  name: "",
   email: "",
   password: "",
   studyProgramme: "",
@@ -52,42 +54,43 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
   };
 
   return (
-    <div className="screen">
-      <div className="form-container">
-        <form onSubmit={onSubmit} className="form-content">
-          <div className="steps">
-            <FormStepCounter
-              currentStep={currentStep + 1}
-              steps={steps.length}
-            />
-          </div>
-          {step}
-          <div className="button-container">
-            {!isFirst && (
-              <AuthButton
-                onButtonClick={prevStep}
-                buttonText="Back"
-                active={true}
-                buttonType="button"
-              />
-            )}
-
+    <>
+    <div className="form-container">
+      <form onSubmit={onSubmit} className="form-content">
+        <div className="steps">
+          <FormStepCounter currentStep={currentStep + 1} steps={steps.length} />
+        </div>
+        {step}
+        <div className="button-container">
+          {!isFirst && (
             <AuthButton
-              buttonText={isLast ? "Complete Registration" : "Next"}
-              buttonType="submit"
-              active={(formData.password.length >= 8 && formData.repeatPassword === formData.password)? true : false}
-              onButtonClick={() => {}}
+              onButtonClick={prevStep}
+              buttonText="Back"
+              active={true}
+              buttonType="button"
             />
-          </div>
-        </form>
-      </div>
+          )}
 
-      {isFirst && (
+          <AuthButton
+            buttonText={isLast ? "Complete Registration" : "Next"}
+            buttonType="submit"
+            active={
+              formData.password.length >= 8 &&
+              formData.repeatPassword === formData.password
+                ? true
+                : false
+            }
+            onButtonClick={() => {}}
+          />
+        </div>
+      </form>
+    </div>
+    {isFirst && (
         <div className="login-link">
           Already have an account? <a href="/">Login</a>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

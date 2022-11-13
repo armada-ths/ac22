@@ -36,7 +36,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 2%;
-  background-color: #FFFFFF;
+  background-color: white;
   border-radius: 16px;
 }
 
@@ -65,5 +65,21 @@
   border-radius: 50%;
   display: inline-block;
 }
+.name-mail-inputs{
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  border: black 1px solid;
+}
 
+.study-job-details{
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+}
+.settings-content{
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+}
 

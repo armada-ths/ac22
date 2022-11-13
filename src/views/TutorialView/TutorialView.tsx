@@ -30,12 +30,25 @@ const TutorialView: FC<Props> = () => {
 
             <div className="tutorialbox">
 
-                <div className="subsubtitles">Navigation bar</div>
+            <div className="subsubtitles">Top bar</div>
+                <div className="text-img">
+                    <p>
+                        To view your own progress, please use the top bar.
+                        Press the title of the page to be taken to the top of the current page.
+                        The ticket button takes you to a page detailing the history of your ticket collection.
+                        The next button takes you to a page that allows you to scan QR codes to collect tickets.
+                        The button with youre name takes you to your accounts settings.
+                    </p>
+                    <img />
+                </div>
+
+                <div className="subsubtitles">Side bar</div>
                 <div className="text-img">
                     <p>To navigate the app, use the side bar on the left.
                         The top button takes you to the overview of the organisations at the Armada fair.
                         The next button takes you to the home page.
                         The next button takes you to your acounts setting.
+                        The second to last button takes you to this tutorial!
                         The final button allows you to log out.
                     </p>
                     <img />
@@ -44,8 +57,9 @@ const TutorialView: FC<Props> = () => {
 
                 <div className="subsubtitles">Dashboard</div>
                 <div className="text-img">
-                    <p>At the top of the dashboard you can navigate to your profile with the button furthest to the right. There is also a button that opens the QR-code scanner.
-                        Bellow the spotlighted company you can also see how many tickets you have collected, your ranking among your peers and the time until the raffle.
+                    <p>At the top of the dashboard you can see a spotlighted company. To view the company's page plase click on the banner. The arrows in the corner also allows you to view other companies banners.
+                        You can also see how many tickets you have collected, and how long until the winners are drawn.
+                        At the bottom of the page you are also able to sort through all the competition's companies' summary cards.
                     </p>
                     <img />
                 </div>
@@ -55,6 +69,7 @@ const TutorialView: FC<Props> = () => {
                     <p>
                         Identify booths using their summary cards. Here you can see the number of super tickets available to you from each company.
                         You can also star each company by clicking the star in the right corner. Click the summary card to get taken tot the company's page.
+                        All the companies that are participating in the competition have a card in the <a href="/overview"> <strong>overview page</strong></a>.
                     </p>
                     <img />
                 </div>

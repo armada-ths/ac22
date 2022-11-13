@@ -28,7 +28,6 @@ const DashboardView: FC<Props> = ({ companies, onStar, availableTickets }) => {
 
     return (
             <div className='dashboard-box'>
-                <h1 className='title-dashboard'>Dashboard</h1>
                 <div className='dashboard-spotlight-container'>
                     <div className='dashboard-spotlight'>
                         <div className='spotlight-header'>

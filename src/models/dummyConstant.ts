@@ -2,6 +2,7 @@ import { Company, Tickets } from './DummyModel'
 
 import lunch_img from '../assets/CompanyInformation/lunch-img.svg'
 import waitlist_img from '../assets/CompanyInformation/waitlist-img.svg'
+import { UserModel } from './UserModel'
 
 const dummyCompanies: Company[] = [
     {

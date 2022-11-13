@@ -72,5 +72,5 @@ export const StudyProgramme: string[] = [
     "Property Development & Real Estate (B.Sc)",
     "Real Estate and Finance (B.Sc)",
     "Vehicle Engineering (M.Sc)",
-    "Other programme"
+    "Other"
 ];

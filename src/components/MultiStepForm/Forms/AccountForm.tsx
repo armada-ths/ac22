@@ -3,19 +3,23 @@ import ACInput from "../../ACInput/ACInput";
 import "./Forms.css";
 
 interface AccountData {
+  name: string;
   email: string;
   password: string;
+  repeatPassword: string;
 }
 
 interface Props extends AccountData {
   updateField: (data: Partial<AccountData>) => void;
+  emailExists?: boolean;
 }
 
-const AccountForm: FC<Props> = ({ email, password, updateField }) => {
+const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
-  const [repeatPassword, setRepeatPassword] = React.useState("");
+  const [repeatPassword, setRepeatPassword] = useState<string>("");
   const [place, setPlace] = useState("Repeat Password");
+  const [place2, setPlace2] = useState("Name");
 
   useEffect(() => {
     if (repeatPassword === password) {
@@ -29,6 +33,7 @@ const AccountForm: FC<Props> = ({ email, password, updateField }) => {
   return (
     <div className="form-content">
       <h2>Get Registered</h2>
+      {emailExists && <div style={{ color: "red", marginTop: "-6px"}}>Account with this email already exists</div>}
       <ACInput
         type="email"
         placeholder="Email"
@@ -60,15 +65,17 @@ const AccountForm: FC<Props> = ({ email, password, updateField }) => {
             style={{
               backgroundColor: !validInput && !active ? "#FFE6E6" : "",
             }}
-            onChange={(e) => setRepeatPassword(e.target.value)}
+            onChange={(e) => {setRepeatPassword(e.target.value); updateField({ repeatPassword: e.target.value })}}
             onFocus={() => {
               setActive(true);
               setPlace("");
+              setValidInput(false);
             }}
             onBlur={() => {
               setActive(false);
               setPlace("Repeat Password");
             }}
+            required
           />
         </div>
       </div>

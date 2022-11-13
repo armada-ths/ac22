@@ -6,11 +6,9 @@ import "./Sidebar.css";
 import { auth } from "../../models/Firebase/firebaseConfig";
 import { UserModel } from "../../models/UserModel";
 
-
-
 interface Props {
-	placeholder?: string;
-	model?: UserModel;
+  placeholder?: string;
+  model?: UserModel;
 }
 
 /*
@@ -18,8 +16,6 @@ interface Props {
 	@returns: Sidebar component
 	This component is the sidebar navigation which is seen on the homepage and eventspage
 */
-
-
 
 const Sidebar: FC<Props> = () => {
 	const location = useLocation();

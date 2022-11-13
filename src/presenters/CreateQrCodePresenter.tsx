@@ -24,7 +24,7 @@ const QrCodePresenter: FC = (props) => {
 	const [qrCode, setQrCode] = React.useState(window.location.href);
 
 	const encryptWithAES = (qrCode: string) => {
-		const passphrase = "testphrase"; // Needs to be kept secret and changed somewhere else before production
+		const passphrase = process.env.REACT_APP_AC22_ENCRYPTKEY;
 		return CryptoJS.AES.encrypt(qrCode, passphrase).toString();
 	};
 

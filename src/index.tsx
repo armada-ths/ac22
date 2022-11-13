@@ -32,7 +32,7 @@ auth.onAuthStateChanged((user) => {
       // <React.StrictMode>
         <Router>
 		      <Routes>
-            <Route path="/register" element={<RegisterPresenter />} />
+            <Route path="/register" element={<RegisterPresenter registered={false} />} />
             <Route path="/" element={<LoginPresenter />} />
           </Routes>
 	      </Router>

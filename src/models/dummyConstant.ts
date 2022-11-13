@@ -2,11 +2,12 @@ import { Company, Tickets } from './DummyModel'
 
 import lunch_img from '../assets/CompanyInformation/lunch-img.svg'
 import waitlist_img from '../assets/CompanyInformation/waitlist-img.svg'
+import { UserModel } from './UserModel'
 
 const dummyCompanies: Company[] = [
     {
-        name: "Volvo Automotive I",
-        image: "#FFFFFF",
+        name: "Armada",
+        image: "#2BDBA0",
         id: 0,
         tags: ["workshop", "mingle"],
         coordinators: [{ name: "Nina", mail: "nina@mail.se", img: "null" }, { name: "Malin", mail: "malin@mail.se", img: "null" }],

@@ -3,10 +3,14 @@
   flex-direction: column;
   align-items: center;
   width: 6vw;
-  background-color: #ffff;
+  background-color: var(--white);
   height: 100vh;
   position: fixed;
   top: 0px;
+  border-color: var(--grey-primary);
+  border-width: 1px;
+  border-style: solid;
+  z-index: 3;
 }
 
 
@@ -15,14 +19,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 72px;
-  height: 72px;
+  width: 6vw;
+  height: 6vw;
   border-radius: 8px;
 }
 
 .armada-logo-img {
-  width: 48px;
-  height: 48px;
+  width: 3vw;
+  height: 3vw;
 }
 
 .sidebar-active, .sidebar-inactive, .sidebar-events {
@@ -30,14 +34,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 6vw;
-  height: 72px;
+  width: 4vw;
+  height: 4vw;
   background-color: var(--armada-green);
+  color:var(--white);
   border-radius: 8px;
 }
 
 .sidebar-inactive {
   background-color: white;
+}
+
+.sidebar-events {
+  margin-top: 10%;
 }
 
 /*Nina */
@@ -48,7 +57,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 30%;
-  gap: 12px;
+  gap: 12%;
 
 }
 
@@ -58,9 +67,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 72px;
-  height: 72px;
+  margin-top: 1vh;
+  width: 4vh;
+  height: 4vh;
   border-radius: 8px;
+}
+.sidebar-tutorial{
+  font-weight: var(--subtitle-weight);
+  font-size: 1.5em;
+  color: var(--black-tetriary);
 }
 
 .sidebar-profile-active{

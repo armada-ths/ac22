@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Link } from "react-router-dom";
 import './CompanyView.css'
 
-import CompanyCard from '../../components/CompanyCard/CompanyCard';
+import CompanyCardsRow from '../../components/CompanyCardsRow/CompanyCardsRow';
 import CompanyHeader from '../../components/CompanyHeader/CompanyHeader';
 import CompanyInformation from '../../components/CompanyInformation/CompanyInformation';
 import { Company, Tickets } from '../../models/DummyModel';
@@ -26,7 +26,7 @@ interface Props {
     availableTickets: Tickets[];
 }
 
-const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTickets }) => {
+const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTickets}) => {
     const company = companies[currentCompany];
     return (
     <div className='company-container'>
@@ -81,24 +81,8 @@ const CompanyView: FC<Props>= ({ companies, currentCompany, onStar, availableTic
             <img src={arrow_right_img} alt={"arrow right company page"}></img>
           </div>
         </div>
-          <div className='company-cards'>
-            {companies.slice(0, 4).map((company) => {
-                    let ticketState = company.collectedTickets > 0 ? "received" : availableTickets[company.id].nrOfTickets > 0 ? "available" : "none available";
-                    return (
-                      <div key={company.name} className="company-card">
-                        <CompanyCard
-                          image={"rgb(18, 18, 71)"}
-                          companyName={company.name}
-                          tags={company.tags}
-                          starred={company.starred}
-                          onStar={() => onStar()}
-                          ticketState={ticketState}
-                          receivedTickets={company.collectedTickets}></CompanyCard>
-                      </div>
-                    )
-                })}
-          </div>
-        </div>
+        <CompanyCardsRow companies={companies} availableTickets={availableTickets} onStar={() => onStar() } a={0}></CompanyCardsRow>
+      </div>
     </div>
   )
 }

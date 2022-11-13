@@ -1,0 +1,17 @@
+.company-cards {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 45vh;
+}
+
+.company-card:hover {
+    transform: scale(0.99); /*Gets a bit blurry*/
+    transition: 0.5s ease;
+    cursor: pointer;
+    
+}
+.company-card{
+    width: 30%;
+    height: 90%;
+}

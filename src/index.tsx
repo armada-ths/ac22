@@ -22,19 +22,21 @@ auth.onAuthStateChanged((user) => {
     persistModel(userModel);
 
     root.render(
-      <React.StrictMode>
+      // <React.StrictMode> //Strict mode removed as it triggers useEffect twice
         <App userModel={userModel} />
-      </React.StrictMode>)
+      // </React.StrictMode>
+      )
   }
   else {
     root.render(
-      <React.StrictMode>
+      // <React.StrictMode>
         <Router>
 		      <Routes>
             <Route path="/register" element={<RegisterPresenter registered={false} />} />
             <Route path="/" element={<LoginPresenter />} />
           </Routes>
 	      </Router>
-      </React.StrictMode>)
+      // </React.StrictMode>
+      )
   }
 })

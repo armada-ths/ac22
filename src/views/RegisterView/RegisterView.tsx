@@ -38,12 +38,6 @@ async function CreateDoc(user: User, data: FormData) {
 }
 
 const RegisterView: FC = () => {
-  // You can use this function to send user registration data to the backend
-  async function RegisterUser(user: FormData) {
-    await createUserWithEmailAndPassword(auth, user.email, user.password);
-    if (auth.currentUser) CreateDoc(auth.currentUser, user);
-  }
-
   const signUpFunction = async (user: FormData) => {
     try {
       await createUserWithEmailAndPassword(auth, user.email, user.password);

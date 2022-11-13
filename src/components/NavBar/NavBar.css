@@ -9,6 +9,10 @@
   align-items: center;
   text-align: center;
   padding-left: 10%;
+  border-color: var(--grey-primary);
+  border-width: 1px;
+  border-style: solid;
+  z-index: 2;
 }
 
 .navbar-right {

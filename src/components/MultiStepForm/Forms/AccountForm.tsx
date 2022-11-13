@@ -33,11 +33,6 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) =
   return (
     <div className="form-content">
       <h2>Get Registered</h2>
-      <input
-        className="ac-input"
-        placeholder={place2}
-        onChange={(e) => updateField({ name: e.target.value })}
-      />
       {emailExists && <div style={{ color: "red", marginTop: "-6px"}}>Account with this email already exists</div>}
       <ACInput
         type="email"

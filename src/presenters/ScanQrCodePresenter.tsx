@@ -11,7 +11,7 @@ const QrCodePresenter: FC = (props) => {
 	}, []);
 
 	const decryptWithAES = (ciphertext: any) => {
-		const passphrase = "testphrase"; // Needs to be kept secret and changed somewhere else before production
+		const passphrase = process.env.REACT_APP_AC22_ENCRYPTKEY;
 		const bytes = CryptoJS.AES.decrypt(ciphertext, passphrase);
 		const originalText = bytes.toString(CryptoJS.enc.Utf8);
 		return originalText;

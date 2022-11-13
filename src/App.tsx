@@ -6,7 +6,6 @@ import HomePresenter from "./presenters/HomePresenter";
 import EventsPresenter from "./presenters/EventsPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
 
-import Login from "./views/Login";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
@@ -15,6 +14,7 @@ import CompanyView from "./views/CompanyView/CompanyView";
 import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
+
 
 interface Props {
   userModel: UserModel;

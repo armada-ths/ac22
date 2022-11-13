@@ -6,7 +6,7 @@ const RegisterSuccessView: FC = () => {
     <div className="screen">
       <RegisterSuccess
         title="Registration Successful"
-        text="10 tickets have been added to your account for registering before the fair!"
+        text="10 tickets have been added to your account for registering before the fair! Your account will be activated during the Fair-days!"
       />
     </div>
   );

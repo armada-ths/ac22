@@ -16,7 +16,6 @@ import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 
-
 interface Props {
   userModel: UserModel;
 }
@@ -25,7 +24,7 @@ const App: FC<Props> = ({ userModel }) => {
   return (
     <Router>
       <Routes>
-        <Route
+        {/*<Route
           path="/"
           element={
             <HomePresenter
@@ -33,20 +32,25 @@ const App: FC<Props> = ({ userModel }) => {
               tickets={dummyTickets}
               onStar={() => console.log("on-star")}
               collectedTickets={15}
-              name={["Malin", "Marques"]}/>
+              name={["Malin", "Marques"]}
+            />
           }
         />
         <Route
           path="/events"
           element={<EventsPresenter placeholder="events" />}
         />
-        <Route path="/tutorial" element={<TutorialPresenter 
-         collectedTickets={15}
-         name={["Malin", "Marques"]}
-         />} />
+        <Route
+          path="/tutorial"
+          element={
+            <TutorialPresenter
+              collectedTickets={15}
+              name={["Malin", "Marques"]}
+            />
+          }
+        />
         <Route path="/createqrcode" element={<CreateQrCodePresenter />} />
         <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
-        <Route path="/register" element={<RegisterPresenter  registered={true} />} />
         <Route
           path="/overview"
           element={
@@ -69,7 +73,13 @@ const App: FC<Props> = ({ userModel }) => {
               availableTickets={dummyTickets}
             />
           }
+        />*/}
+
+        <Route
+          path="/register"
+          element={<RegisterPresenter registered={true} />}
         />
+        <Route path="*" element={<RegisterPresenter registered={true} />} />
       </Routes>
     </Router>
   );

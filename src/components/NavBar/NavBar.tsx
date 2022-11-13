@@ -22,7 +22,6 @@ const NavBar: FC<Props> = ({name, title, collectedTickets}) => {
                 <NavBarTicket collectedTickets={collectedTickets}/>
                 <Link to="/scanqrcode" className='navbar-qr'> <img src={qrImg}/></Link>
                 <Link to="/profile" className='navbar-name'>{name[1]}</Link>
-                <Link to="/tutorial" className='navbar-tutorial'>?</Link>
             </div>
         </div>
     )

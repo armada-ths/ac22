@@ -37,6 +37,7 @@
   width: 4vw;
   height: 4vw;
   background-color: var(--armada-green);
+  color:var(--white);
   border-radius: 8px;
 }
 
@@ -69,6 +70,11 @@
   width: 4vh;
   height: 4vh;
   border-radius: 8px;
+}
+.sidebar-tutorial{
+  font-weight: var(--subtitle-weight);
+  font-size: 1.5em;
+  color: var(--black-tetriary);
 }
 
 

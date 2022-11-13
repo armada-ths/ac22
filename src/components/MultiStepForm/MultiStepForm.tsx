@@ -5,6 +5,7 @@ import "./MultiStepForm.css";
 import { useMultiStepForm } from "./MultiStepHook/useMultiStepForm";
 import AuthButton from "../AuthButton/AuthButton";
 import FormStepCounter from "../FormStepCounter/FormStepCounter";
+import JobPreference from "./Forms/JobPreference";
 export interface FormData {
   name: string;
   email: string;
@@ -14,6 +15,7 @@ export interface FormData {
   yearOfStudy: string;
   completionYear: string;
   repeatPassword: string;
+  jobInterests: string[];
 }
 
 const START_DATA: FormData = {
@@ -25,6 +27,7 @@ const START_DATA: FormData = {
   yearOfStudy: "",
   completionYear: "",
   repeatPassword: "",
+  jobInterests: [],
 };
 
 interface Props {
@@ -38,13 +41,14 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     setFormData((old) => {
       return { ...old, ...data };
     });
+    console.log(formData);
   };
 
   const { steps, currentStep, step, isFirst, prevStep, nextStep, isLast } =
     useMultiStepForm([
       <AccountForm {...formData} updateField={updateFields} />,
       <StudyForm {...formData} updateField={updateFields} />,
-      /*<JobPreference {...formData} updateField={updateFields} />,*/
+      <JobPreference {...formData} updateField={updateFields} />
     ]);
 
   const onSubmit = (e: FormEvent) => {
@@ -57,7 +61,7 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     <>
     <div className="form-container">
       <form onSubmit={onSubmit} className="form-content">
-        <div className="steps">
+        <div>
           <FormStepCounter currentStep={currentStep + 1} steps={steps.length} />
         </div>
         {step}
@@ -70,7 +74,7 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
               buttonType="button"
             />
           )}
-
+          
           <AuthButton
             buttonText={isLast ? "Complete Registration" : "Next"}
             buttonType="submit"

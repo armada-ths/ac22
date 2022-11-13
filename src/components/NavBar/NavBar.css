@@ -25,7 +25,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 5%;
+  padding: 3%;
   background: var(--black-primary);
   color: var(--orange-primary);
   border-radius: 100px;
@@ -52,4 +52,17 @@ width: 3vh;
   border-color: var(--grey-secondary);
   border-width: 2px;
   border-style: solid;
+}
+
+.navbar-tutorial{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--subtitle-weight);
+  font-size: 1.5em;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }

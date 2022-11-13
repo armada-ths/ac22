@@ -39,7 +39,10 @@ const App: FC<Props> = ({ userModel }) => {
           path="/events"
           element={<EventsPresenter placeholder="events" />}
         />
-        <Route path="/tutorial" element={<TutorialPresenter />} />
+        <Route path="/tutorial" element={<TutorialPresenter 
+         collectedTickets={15}
+         name={["Malin", "Marques"]}
+         />} />
         <Route path="/createqrcode" element={<CreateQrCodePresenter />} />
         <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
         <Route path="/register" element={<RegisterPresenter />} />

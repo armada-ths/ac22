@@ -14,10 +14,9 @@ interface Props extends AccountData {
   emailExists?: boolean;
 }
 
-const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) => {
+const AccountForm: FC<Props> = ({ email, password, updateField, emailExists, repeatPassword }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
-  const [repeatPassword, setRepeatPassword] = useState<string>("");
   const [place, setPlace] = useState("Repeat Password");
   const [place2, setPlace2] = useState("Name");
 
@@ -28,7 +27,7 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) =
     } else {
       setValidInput(false);
     }
-  }, [repeatPassword, password]);
+  }, [repeatPassword]);
 
   return (
     <div className="form-content">
@@ -46,7 +45,7 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) =
         value={password}
         onChange={(e) => updateField({ password: e })}
       />
-      <div>
+      <div className="input-flex-account">
         <div
           className={validInput ? "InputHeader" : "InputHeaderWrong"}
           style={{ color: validInput && !active ? "#0F1322" : "" }}
@@ -65,11 +64,10 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) =
             style={{
               backgroundColor: !validInput && !active ? "#FFE6E6" : "",
             }}
-            onChange={(e) => {setRepeatPassword(e.target.value); updateField({ repeatPassword: e.target.value })}}
+            onChange={(e) => {updateField({ repeatPassword: e.target.value })}}
             onFocus={() => {
               setActive(true);
               setPlace("");
-              setValidInput(false);
             }}
             onBlur={() => {
               setActive(false);

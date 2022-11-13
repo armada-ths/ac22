@@ -34,7 +34,7 @@ const RegisterView: FC<Props> = ({
         <AuthHeading title={title} />
         <ACInput
           type="email"
-          placeholder="Email address"
+          placeholder="Email"
           value={username}
           onChange={usernameOnChange}
         />

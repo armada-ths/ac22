@@ -39,7 +39,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
   };
 
   return (
-    <div>
+    <div className="input-flex">
       <div
         className={validInput ? "InputHeader" : "InputHeaderWrong"}
         style={{ color: validInput && !active ? "#0F1322" : "" }}
@@ -47,16 +47,16 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
         {active ? placeholder : ""}
         {active && !validInput && type === "email" ? (
           <div className="InvalidEmail">
-            <InvalidEmail />
-            <text style={{ marginLeft: "4px" }}>Invalid Email</text>
+            <InvalidEmail/>
+            <span style={{ marginLeft: "4px" }}>Invalid</span>
           </div>
         ) : (
           ""
         )}
         {active && !validInput && type === "password" && (
           <div className="InvalidPassword">
-            <InvalidEmail />
-            <text style={{ marginLeft: "4px" }}>Min.Length=8</text>
+            <InvalidEmail/>
+            <span style={{ marginLeft: "4px" }}>Min.Length=8</span>
           </div>)
           }
       </div>

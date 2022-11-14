@@ -40,7 +40,6 @@ const CreateQrCodeView: FC<Props> = (props) => {
     <div>
       {useCheckMobileScreen() ? (
         <div className="full-screen">
-          {/* <div className="header"></div> */}
           <div className="main-content">
             <div className="company-name">
               Generate QRCode for {props.company}
@@ -116,7 +115,49 @@ const CreateQrCodeView: FC<Props> = (props) => {
                 </div>
               )}
             </div>
-            <button onClick={openModal}>Open Modal</button>
+            <div className="mobile-button">
+              <AuthButton
+                onButtonClick={openModal}
+                buttonText="Open Modal"
+                buttonType="button"
+                active={true}
+              ></AuthButton>
+            </div>
+            {modalIsOpen ? (
+              <div onClick={() => closeModal()} className="popup">
+                <div className="popup-header">
+                  <div className="popup-close" onClick={() => closeModal()}>
+                    x
+                  </div>
+                </div>
+                <div className="pop-button">
+                  <AuthButton
+                    onButtonClick={() => console.log("hey")}
+                    buttonText="home"
+                    buttonType="button"
+                    active={true}
+                  ></AuthButton>
+                  <AuthButton
+                    onButtonClick={() => console.log("hey")}
+                    buttonText="how to play"
+                    buttonType="button"
+                    active={true}
+                  ></AuthButton>
+                  <AuthButton
+                    onButtonClick={() => console.log("hey")}
+                    buttonText="Statistics"
+                    buttonType="button"
+                    active={true}
+                  ></AuthButton>
+                  <AuthButton
+                    onButtonClick={() => console.log("hey")}
+                    buttonText="Log out"
+                    buttonType="button"
+                    active={true}
+                  ></AuthButton>
+                </div>
+              </div>
+            ) : null}
           </div>
           {/* <div className="main-content">
             <div className="company-name">

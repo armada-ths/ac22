@@ -151,7 +151,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     active={true}
                   ></AuthButton>
                   <AuthButton
-                    onButtonClick={() => console.log("hey")}
+                    onButtonClick={() => alert("Statistics will be available after the fair!")}
                     buttonText="Statistics"
                     buttonType="button"
                     active={true}
@@ -189,7 +189,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   buttonText="Statistics"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => console.log("hey")}
+                  onButtonClick={() => alert("Statistics will be available after the fair!")}
                 />
                 <AuthButton
                   buttonText="Log out"
@@ -310,7 +310,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                           active={true}
                         ></AuthButton>
                         <AuthButton
-                          onButtonClick={() => console.log("hey")}
+                          onButtonClick={() => alert("Statistics will be available after the fair!")}
                           buttonText="Statistics"
                           buttonType="button"
                           active={true}

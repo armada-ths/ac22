@@ -156,6 +156,26 @@
         padding: 1rem;
         gap: 2rem;
     }
+
+}
+
+.popup-tablet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    border: #CCCCCC 1px solid;
+    width: fit-content;
+    left: 14rem;
+    right: 13rem;
+    height: 40vh;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    padding: 1rem;
+    transform: translateY(10%);
+    animation: slide-up 0.5s ease-in-out;
 }
 
 .popup{
@@ -186,4 +206,9 @@
     position: absolute;
     padding-top: 1rem;
     transform: scale(1.5);
+}
+
+.web-button-not-seen{
+    display: none;
+    visibility: hidden;
 }

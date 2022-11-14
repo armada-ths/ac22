@@ -26,15 +26,21 @@ const CreateQrCodeView: FC<Props> = (props) => {
   };
 
   const [modalIsOpen, setIsOpen] = useState(false);
+  const tablet = window.innerWidth > 768 && window.innerWidth < 1024;
 
   function openModal() {
     setIsOpen(true);
   }
 
+  useEffect(() => {
+    if (!useCheckMobileScreen || !tablet) {
+      setIsOpen(false);
+    }
+  }, [useCheckMobileScreen, tablet]);
+
   function closeModal() {
     setIsOpen(false);
   }
-  // const [popup, SetPopup] = useState(false);
 
   return (
     <div>
@@ -268,6 +274,56 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     ></AuthButton>
                     <h5>Only use this if ticket has not yet been scanned!</h5>
                   </div>
+                  {tablet ? (
+                    <div className="mobile-button">
+                      <AuthButton
+                        onButtonClick={openModal}
+                        buttonText="Open Modal"
+                        buttonType="button"
+                        active={true}
+                      ></AuthButton>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {modalIsOpen ? (
+                    <div onClick={() => closeModal()} className="popup-tablet">
+                      <div className="popup-header">
+                        <div
+                          className="popup-close"
+                          onClick={() => closeModal()}
+                        >
+                          x
+                        </div>
+                      </div>
+                      <div className="pop-button">
+                        <AuthButton
+                          onButtonClick={() => console.log("hey")}
+                          buttonText="home"
+                          buttonType="button"
+                          active={true}
+                        ></AuthButton>
+                        <AuthButton
+                          onButtonClick={() => console.log("hey")}
+                          buttonText="how to play"
+                          buttonType="button"
+                          active={true}
+                        ></AuthButton>
+                        <AuthButton
+                          onButtonClick={() => console.log("hey")}
+                          buttonText="Statistics"
+                          buttonType="button"
+                          active={true}
+                        ></AuthButton>
+                        <AuthButton
+                          onButtonClick={() => console.log("hey")}
+                          buttonText="Log out"
+                          buttonType="button"
+                          active={true}
+                        ></AuthButton>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               )}
             </div>

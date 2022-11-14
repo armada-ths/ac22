@@ -1,6 +1,11 @@
 import React, { FC } from "react";
 import "./tutorial-view.css";
 import AuthHeading from "../../components/AuthHeading/AuthHeading";
+import Sidebar from "../../assets/Tutorial/side-bar-img.png";
+import topBar from "../../assets/Tutorial/top-bar-img.png";
+import ticketCounter from "../../assets/Tutorial/ticket-counter-img.png";
+import dashboardImg from "../../assets/Tutorial/dashboard-img.png";
+import companyCards from "../../assets/Tutorial/company-cards-img.png";
 interface Props { }
 
 const TutorialView: FC<Props> = () => {
@@ -11,7 +16,7 @@ const TutorialView: FC<Props> = () => {
                 <p> <strong>Goal:</strong> Win the prises at the raffle a week after armada!
                     How to win: Collect as many super tickets for the raffle as possible to increase your chance to win!
                     To get tickets, talk to the different booths at the armada fair and be rewarded tickets when completing their tasks.
-                </p><img />
+                </p><img src={ticketCounter} alt="Ticket counter" />
             </div>
             <div className="rules">
                 <div className="subtitles">Rules</div>
@@ -39,7 +44,7 @@ const TutorialView: FC<Props> = () => {
                         The next button takes you to a page that allows you to scan QR codes to collect tickets.
                         The button with youre name takes you to your accounts settings.
                     </p>
-                    <img />
+                    <img src={topBar} alt="Top bar image"/>
                 </div>
 
                 <div className="subsubtitles">Side bar</div>
@@ -51,7 +56,7 @@ const TutorialView: FC<Props> = () => {
                         The second to last button takes you to this tutorial!
                         The final button allows you to log out.
                     </p>
-                    <img />
+                    <img src={Sidebar} alt="Sidebar image"/>
                 </div>
 
 
@@ -61,7 +66,7 @@ const TutorialView: FC<Props> = () => {
                         You can also see how many tickets you have collected, and how long until the winners are drawn.
                         At the bottom of the page you are also able to sort through all the competition's companies' summary cards.
                     </p>
-                    <img />
+                    <img src={dashboardImg} alt="Dashboard image"/>
                 </div>
 
                 <div className="subsubtitles">Summary Cards</div>
@@ -71,7 +76,7 @@ const TutorialView: FC<Props> = () => {
                         You can also star each company by clicking the star in the right corner. Click the summary card to get taken tot the company's page.
                         All the companies that are participating in the competition have a card in the <a href="/overview"> <strong>overview page</strong></a>.
                     </p>
-                    <img />
+                    <img src={companyCards} alt="Company cards image"/>
                 </div>
 
                 <div className="subsubtitles">Company Page</div>

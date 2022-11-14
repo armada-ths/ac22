@@ -58,8 +58,7 @@ const TutorialView: FC<Props> = () => {
           <p>
             To navigate the app, use the side bar on the left. The top button
             takes you to the home page.
-            The next button . The next button takes
-            you to your acounts setting. The second to last button takes you to
+            The next button takes you to your acounts setting. The second to last button takes you to
             this tutorial! The final button allows you to log out.
           </p>
           <img src={qrSidebar} alt="the sidebar"/>

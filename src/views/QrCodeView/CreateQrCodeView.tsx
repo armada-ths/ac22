@@ -21,7 +21,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
   };
 
   return (
-    <div className="container">
+    <div className="qr-container">
       <div className="main-content">
         <div className="company-name">Generate QRCode for {props.company}</div>
         <div className="ticket">

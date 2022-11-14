@@ -6,6 +6,7 @@ import AuthButton from "../../components/AuthButton/AuthButton";
 import ticket_img from "../../assets/TicketState/ticket-img.svg";
 import plus_sign_img from "../../assets/TicketState/plus-sign-img.svg";
 import useCheckMobileScreen from "../../useCheckMobileScreen";
+import { auth } from "../../models/Firebase/firebaseConfig";
 
 interface Props {
   setTicketType: (ticketType: string) => void;
@@ -151,13 +152,15 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     active={true}
                   ></AuthButton>
                   <AuthButton
-                    onButtonClick={() => alert("Statistics will be available after the fair!")}
+                    onButtonClick={() =>
+                      alert("Statistics will be available after the fair!")
+                    }
                     buttonText="Statistics"
                     buttonType="button"
                     active={true}
                   ></AuthButton>
                   <AuthButton
-                    onButtonClick={() => console.log("hey")}
+                    onButtonClick={() => auth.signOut()}
                     buttonText="Log out"
                     buttonType="button"
                     active={true}
@@ -189,13 +192,15 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   buttonText="Statistics"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => alert("Statistics will be available after the fair!")}
+                  onButtonClick={() =>
+                    alert("Statistics will be available after the fair!")
+                  }
                 />
                 <AuthButton
                   buttonText="Log out"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => console.log("hey")}
+                  onButtonClick={() => auth.signOut()}
                 />
               </div>
             </div>
@@ -310,7 +315,11 @@ const CreateQrCodeView: FC<Props> = (props) => {
                           active={true}
                         ></AuthButton>
                         <AuthButton
-                          onButtonClick={() => alert("Statistics will be available after the fair!")}
+                          onButtonClick={() =>
+                            alert(
+                              "Statistics will be available after the fair!"
+                            )
+                          }
                           buttonText="Statistics"
                           buttonType="button"
                           active={true}

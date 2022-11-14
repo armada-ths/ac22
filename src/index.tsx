@@ -11,6 +11,7 @@ import RegisterPresenter from "./presenters/RegisterPresenter";
 import { UserModel, DbTicket } from "./models/UserModel";
 import { persistModel } from "./models/Firebase/persistModel";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
+import App2 from "./App2";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -22,8 +23,15 @@ auth.onAuthStateChanged((user) => {
     persistModel(userModel);
 
     root.render(
+      <div>
+        {user.email?.includes("ac22.se") ? (
+          <App2 userModel={user} />
+        ) : (
+          <App userModel={userModel} />
+        )}
+      </div>
       // <React.StrictMode> //Strict mode removed as it triggers useEffect twice
-      <App userModel={userModel} />
+
       // </React.StrictMode>
     );
   } else {
@@ -31,9 +39,7 @@ auth.onAuthStateChanged((user) => {
       // <React.StrictMode>
       <Router>
         <Routes>
-          {/* Remove this later ------ */}
-          @Todo remove this later
-          <Route path="/createqrcode" element={<CreateQrCodePresenter />} />
+          {/* <Route path="/createqrcode" element={<CreateQrCodePresenter />} /> */}
           <Route
             path="/register"
             element={<RegisterPresenter registered={false} />}

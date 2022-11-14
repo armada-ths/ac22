@@ -9,13 +9,20 @@ interface Props {
   onChange: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
+const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState(placeholder);
 
   const isValidEmail = (input: any) => {
-    return /^\w+([-+.']\w+)*@?(kth.se)$/.test(input);
+    if (
+      /^\w+([-+.']\w+)*@?(kth\.se)$/.test(input) ||
+      /^\w+([-+.']\w+)*@?(ac22\.se)$/.test(input)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const isValidPassword = (input: any) => {
@@ -47,7 +54,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
         {active ? placeholder : ""}
         {active && !validInput && type === "email" ? (
           <div className="InvalidEmail">
-            <InvalidEmail/>
+            <InvalidEmail />
             <span style={{ marginLeft: "4px" }}>Invalid</span>
           </div>
         ) : (
@@ -55,10 +62,10 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
         )}
         {active && !validInput && type === "password" && (
           <div className="InvalidPassword">
-            <InvalidEmail/>
+            <InvalidEmail />
             <span style={{ marginLeft: "4px" }}>Min.Length=8</span>
-          </div>)
-          }
+          </div>
+        )}
       </div>
       <div
         className={validInput ? "container" : "incorrect-container"}

@@ -115,6 +115,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                 </div>
               )}
             </div>
+            <div className="onlymobile&tab"></div>
             <div className="mobile-button">
               <AuthButton
                 onButtonClick={openModal}
@@ -159,63 +160,6 @@ const CreateQrCodeView: FC<Props> = (props) => {
               </div>
             ) : null}
           </div>
-          {/* <div className="main-content">
-            <div className="company-name">
-              Generate QRCode for {props.company}
-            </div>
-            
-
-            <div id="qrCodeContainer">
-              {props.isShown && (
-                <div className="qr-container">
-                  <QRCode
-                    size={256}
-                    style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-                    value={props.qrCode}
-                    viewBox={`0 0 256 256`}
-                  />
-
-                  {props.ticketType === "superticket" ? (
-                    <div className="left-box">
-                      <div className="ticket-logo">
-                        <img
-                          className="tckt-img"
-                          src={ticket_img}
-                          alt={"ticket available"}
-                        ></img>
-                        <img
-                          className="ticket-plus-sign"
-                          src={plus_sign_img}
-                          alt={"plus sign available"}
-                        ></img>
-                      </div>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-
-                  <h3>
-                    {props.ticketType === "standardticket"
-                      ? "Standard Ticket"
-                      : "Super Ticket"}
-                  </h3>
-
-                  <div>
-                    <AuthButton
-                      onButtonClick={() => {
-                        props.removePreviousQrCode();
-                        props.setIsShown(false);
-                      }}
-                      buttonText="Remove QRCode"
-                      buttonType="button"
-                      active={true}
-                    ></AuthButton>
-                    <h5>Only use this if ticket has not yet been scanned!</h5>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div> */}
         </div>
       ) : (
         <div className="full-screen">

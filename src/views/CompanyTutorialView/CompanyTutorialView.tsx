@@ -16,7 +16,7 @@ const TutorialView: FC<Props> = () => {
         <p>
           Welcome to the tutorial page for companies! Here you can find the
           information about the functions of the app. If you have any further
-          questions pelase reach out to your contact person at Armada.
+          questions pelase reach out to your contact person at Armada. The statistics will also be added at the end of the fair.
         </p>
       </div>
       <div className="goal-boxes">

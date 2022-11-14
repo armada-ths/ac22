@@ -34,7 +34,7 @@
 .personalInfo-container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 2%;
   background-color: white;
   border-radius: 16px;
@@ -54,11 +54,12 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 2%;
-  min-height: 50vh;
+  min-height: 25vh;
   max-height: 50vh;
 }
 
 .roundCircle{
+  display: flex;
   height: 100px;
   width: 100px;
   background-color: #bbb;
@@ -68,8 +69,6 @@
 .name-mail-inputs{
   display: flex;
   flex-direction: column;
-  padding: 2%;
-  border: black 1px solid;
 }
 
 .study-job-details{
@@ -83,3 +82,12 @@
   padding: 2%;
 }
 
+.lastName-gender{
+  display: flex;
+  flex-direction: column;
+}
+.input-width{
+  display: flex;
+  max-width: auto;
+
+}

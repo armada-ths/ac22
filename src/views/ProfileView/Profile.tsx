@@ -51,15 +51,31 @@ const ProfileView: FC<Props> = () => {
 								</div>
 								<div className="name-mail-inputs">
 									<h4>First Name</h4>
-									<input type="text" placeholder="First Name" />
+									<input
+										type="text"
+										placeholder="First Name"
+										className="input-width"
+									/>
 									<h4>Email</h4>
-									<input type="text" placeholder="Email" />
+									<input
+										type="text"
+										placeholder="Email"
+										className="input-width"
+									/>
 								</div>
 								<div className="lastName-gender">
 									<h4>Last Name</h4>
-									<input type="text" placeholder="Last Name" />
+									<input
+										type="text"
+										placeholder="Last Name"
+										className="input-width"
+									/>
 									<h4>Gender</h4>
-									<input type="text" placeholder="Gender" />
+									<input
+										type="text"
+										placeholder="Gender"
+										className="input-width"
+									/>
 								</div>
 							</div>
 						</div>

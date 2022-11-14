@@ -76,8 +76,8 @@ const Sidebar: FC<Props> = () => {
 				<div
           className={
             active === "/tutorial"
-              ? "sidebar-events"
-              : "sidebar-dashboard-inactive"
+              ? "sidebar-active"
+              : "sidebar-inactive"
           }
         >
           <Link to="/tutorial" className="sidebar-tutorial">

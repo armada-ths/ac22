@@ -46,8 +46,8 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
 
   const isValidEmail = (input: any) => {
     if (
-      /^\w+([-+.']\w+)*@?(kth.se)$/.test(input) ||
-      /^\w+([-+.']\w+)*@?(ac22.se)$/.test(input)
+      /^\w+([-+.']\w+)*@?(kth\.se)$/.test(input) ||
+      /^\w+([-+.']\w+)*@?(ac22\.se)$/.test(input)
     ) {
       return true;
     } else {

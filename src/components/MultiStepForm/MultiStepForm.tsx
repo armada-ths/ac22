@@ -44,11 +44,24 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     console.log(formData);
   };
 
+  const isValidEmail = (input: any) => {
+    if (
+      /^\w+([-+.']\w+)*@?(kth\.se)$/.test(input) ||
+      /^\w+([-+.']\w+)*@?(ac22\.se)$/.test(input)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+
+  };
+
   const { steps, currentStep, step, isFirst, prevStep, nextStep, isLast } =
     useMultiStepForm([
       <AccountForm {...formData} updateField={updateFields} />,
       <StudyForm {...formData} updateField={updateFields} />,
-      <JobPreference {...formData} updateField={updateFields} />
+      <JobPreference {...formData} updateField={updateFields} />,
+
     ]);
 
   const onSubmit = (e: FormEvent) => {
@@ -59,37 +72,41 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
 
   return (
     <>
-    <div className="form-container">
-      <form onSubmit={onSubmit} className="form-content">
-        <div>
-          <FormStepCounter currentStep={currentStep + 1} steps={steps.length} />
-        </div>
-        {step}
-        <div className="button-container">
-          {!isFirst && (
-            <AuthButton
-              onButtonClick={prevStep}
-              buttonText="Back"
-              active={true}
-              buttonType="button"
+      <div className="form-container">
+        <form onSubmit={onSubmit} className="form-content">
+          <div>
+            <FormStepCounter
+              currentStep={currentStep + 1}
+              steps={steps.length}
             />
-          )}
-          
-          <AuthButton
-            buttonText={isLast ? "Complete Registration" : "Next"}
-            buttonType="submit"
-            active={
-              formData.password.length >= 8 &&
-              formData.repeatPassword === formData.password
-                ? true
-                : false
-            }
-            onButtonClick={() => {}}
-          />
-        </div>
-      </form>
-    </div>
-    {isFirst && (
+          </div>
+          {step}
+          <div className="button-container">
+            {!isFirst && (
+              <AuthButton
+                onButtonClick={prevStep}
+                buttonText="Back"
+                active={true}
+                buttonType="button"
+              />
+            )}
+
+            <AuthButton
+              buttonText={isLast ? "Complete Registration" : "Next"}
+              buttonType="submit"
+              active={
+                formData.password.length >= 8 &&
+                formData.repeatPassword === formData.password &&
+                isValidEmail(formData.email)
+                  ? true
+                  : false
+              }
+              onButtonClick={() => {}}
+            />
+          </div>
+        </form>
+      </div>
+      {isFirst && (
         <div className="login-link">
           Already have an account? <a href="/">Login</a>
         </div>

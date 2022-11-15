@@ -15,7 +15,14 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const [place, setPlace] = useState(placeholder);
 
   const isValidEmail = (input: any) => {
-    return /^\w+([-+.']\w+)*@?(kth.se)$/.test(input);
+    if (
+      /^\w+([-+.']\w+)*@?(kth\.se)$/.test(input) ||
+      /^\w+([-+.']\w+)*@?(ac22\.se)$/.test(input)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const isValidPassword = (input: any) => {

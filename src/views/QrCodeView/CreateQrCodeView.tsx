@@ -8,6 +8,7 @@ import plus_sign_img from "../../assets/TicketState/plus-sign-img.svg";
 import useCheckMobileScreen from "../../useCheckMobileScreen";
 import { auth } from "../../models/Firebase/firebaseConfig";
 import fmv from "./fmv.jpeg"
+import { Link } from "react-router-dom";
 
 interface Props {
   setTicketType: (ticketType: string) => void;
@@ -149,12 +150,14 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     buttonType="button"
                     active={true}
                   ></AuthButton>
-                  <AuthButton
-                    onButtonClick={() => console.log()}
-                    buttonText="how to play"
-                    buttonType="button"
-                    active={true}
-                  ></AuthButton>
+                  <Link to="/tutorial-company">
+                <AuthButton
+                  buttonText="How to play"
+                  active={true}
+                  buttonType={"button"}
+                  onButtonClick={() => console.log()}
+                />
+                </Link>
                   <AuthButton
                     onButtonClick={() =>
                       alert("Statistics will be available after the fair!")
@@ -186,12 +189,14 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   buttonType={"button"}
                   onButtonClick={() => console.log()}
                 />
+                <Link to="/tutorial-company">
                 <AuthButton
                   buttonText="How to play"
                   active={true}
                   buttonType={"button"}
                   onButtonClick={() => console.log()}
                 />
+                </Link>
                 <AuthButton
                   buttonText="Statistics"
                   active={true}
@@ -312,12 +317,14 @@ const CreateQrCodeView: FC<Props> = (props) => {
                           buttonType="button"
                           active={true}
                         ></AuthButton>
-                        <AuthButton
-                          onButtonClick={() => console.log()}
-                          buttonText="how to play"
-                          buttonType="button"
-                          active={true}
-                        ></AuthButton>
+                        <Link to="/tutorial-company">
+                <AuthButton
+                  buttonText="How to play"
+                  active={true}
+                  buttonType={"button"}
+                  onButtonClick={() => console.log()}
+                />
+                </Link>
                         <AuthButton
                           onButtonClick={() =>
                             alert(
@@ -366,12 +373,14 @@ const CreateQrCodeView: FC<Props> = (props) => {
                       buttonType="button"
                       active={true}
                     ></AuthButton>
-                    <AuthButton
-                      onButtonClick={() => console.log("hey")}
-                      buttonText="how to play"
-                      buttonType="button"
-                      active={true}
-                    ></AuthButton>
+                    <Link to="/tutorial-company">
+                <AuthButton
+                  buttonText="How to play"
+                  active={true}
+                  buttonType={"button"}
+                  onButtonClick={() => console.log()}
+                />
+                </Link>
                     <AuthButton
                       onButtonClick={() =>
                         alert("Statistics will be available after the fair!")

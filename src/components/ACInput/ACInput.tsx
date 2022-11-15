@@ -68,7 +68,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
         )}
       </div>
       <div
-        className={validInput ? "container" : "incorrect-container"}
+        className={validInput ? "container-1" : "incorrect-container"}
         style={{ border: validInput && !active ? "1.5px solid #0F1322" : "" }}
       >
         <input

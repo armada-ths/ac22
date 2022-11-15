@@ -9,7 +9,7 @@ interface Props {
   onChange: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
+const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState(placeholder);
@@ -47,7 +47,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
         {active ? placeholder : ""}
         {active && !validInput && type === "email" ? (
           <div className="InvalidEmail">
-            <InvalidEmail/>
+            <InvalidEmail />
             <span style={{ marginLeft: "4px" }}>Invalid</span>
           </div>
         ) : (
@@ -55,13 +55,13 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
         )}
         {active && !validInput && type === "password" && (
           <div className="InvalidPassword">
-            <InvalidEmail/>
+            <InvalidEmail />
             <span style={{ marginLeft: "4px" }}>Min.Length=8</span>
-          </div>)
-          }
+          </div>
+        )}
       </div>
       <div
-        className={validInput ? "container" : "incorrect-container"}
+        className={validInput ? "container-1" : "incorrect-container"}
         style={{ border: validInput && !active ? "1.5px solid #0F1322" : "" }}
       >
         <input

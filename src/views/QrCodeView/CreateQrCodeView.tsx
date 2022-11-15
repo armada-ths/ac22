@@ -28,6 +28,8 @@ const CreateQrCodeView: FC<Props> = (props) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const tablet = window.innerWidth > 768 && window.innerWidth < 1024;
 
+  console.log("tablet", tablet);
+
   function openModal() {
     setIsOpen(true);
   }
@@ -36,7 +38,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
     if (!useCheckMobileScreen || !tablet) {
       setIsOpen(false);
     }
-  }, [useCheckMobileScreen, tablet]);
+  }, [tablet]);
 
   function closeModal() {
     setIsOpen(false);
@@ -151,7 +153,9 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     active={true}
                   ></AuthButton>
                   <AuthButton
-                    onButtonClick={() => alert("Statistics will be available after the fair!")}
+                    onButtonClick={() =>
+                      alert("Statistics will be available after the fair!")
+                    }
                     buttonText="Statistics"
                     buttonType="button"
                     active={true}
@@ -189,7 +193,9 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   buttonText="Statistics"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => alert("Statistics will be available after the fair!")}
+                  onButtonClick={() =>
+                    alert("Statistics will be available after the fair!")
+                  }
                 />
                 <AuthButton
                   buttonText="Log out"
@@ -274,58 +280,57 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     ></AuthButton>
                     <h5>Only use this if ticket has not yet been scanned!</h5>
                   </div>
-                  {tablet ? (
-                    <div className="mobile-button">
-                      <AuthButton
-                        onButtonClick={openModal}
-                        buttonText="Open Modal"
-                        buttonType="button"
-                        active={true}
-                      ></AuthButton>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {modalIsOpen ? (
-                    <div onClick={() => closeModal()} className="popup-tablet">
-                      <div className="popup-header">
-                        <div
-                          className="popup-close"
-                          onClick={() => closeModal()}
-                        >
-                          x
-                        </div>
-                      </div>
-                      <div className="pop-button">
-                        <AuthButton
-                          onButtonClick={() => console.log("hey")}
-                          buttonText="home"
-                          buttonType="button"
-                          active={true}
-                        ></AuthButton>
-                        <AuthButton
-                          onButtonClick={() => console.log("hey")}
-                          buttonText="how to play"
-                          buttonType="button"
-                          active={true}
-                        ></AuthButton>
-                        <AuthButton
-                          onButtonClick={() => alert("Statistics will be available after the fair!")}
-                          buttonText="Statistics"
-                          buttonType="button"
-                          active={true}
-                        ></AuthButton>
-                        <AuthButton
-                          onButtonClick={() => console.log("hey")}
-                          buttonText="Log out"
-                          buttonType="button"
-                          active={true}
-                        ></AuthButton>
-                      </div>
-                    </div>
-                  ) : null}
                 </div>
               )}
+              {tablet ? (
+                <div className="mobile-button">
+                  <AuthButton
+                    onButtonClick={openModal}
+                    buttonText="Open Modal"
+                    buttonType="button"
+                    active={true}
+                  ></AuthButton>
+                </div>
+              ) : (
+                ""
+              )}
+              {modalIsOpen ? (
+                <div onClick={() => closeModal()} className="popup-tablet">
+                  <div className="popup-header">
+                    <div className="popup-close" onClick={() => closeModal()}>
+                      x
+                    </div>
+                  </div>
+                  <div className="poptablet-button">
+                    <AuthButton
+                      onButtonClick={() => console.log("hey")}
+                      buttonText="home"
+                      buttonType="button"
+                      active={true}
+                    ></AuthButton>
+                    <AuthButton
+                      onButtonClick={() => console.log("hey")}
+                      buttonText="how to play"
+                      buttonType="button"
+                      active={true}
+                    ></AuthButton>
+                    <AuthButton
+                      onButtonClick={() =>
+                        alert("Statistics will be available after the fair!")
+                      }
+                      buttonText="Statistics"
+                      buttonType="button"
+                      active={true}
+                    ></AuthButton>
+                    <AuthButton
+                      onButtonClick={() => console.log("hey")}
+                      buttonText="Log out"
+                      buttonType="button"
+                      active={true}
+                    ></AuthButton>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

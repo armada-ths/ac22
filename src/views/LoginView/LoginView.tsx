@@ -29,8 +29,12 @@ const RegisterView: FC<Props> = ({
   passwordOnChange,
 }) => {
   // You can use this function to send username and password to the backend
-  function LoginUser(): any {
-    signInWithEmailAndPassword(auth, username, password);
+  async function LoginUser() {
+    try {
+      await signInWithEmailAndPassword(auth, username, password);
+    } catch (e) {
+      alert("Incorrect password");
+    }
   }
 
   const isValidEmail = (input: any) => {
@@ -54,12 +58,14 @@ const RegisterView: FC<Props> = ({
           value={username}
           onChange={usernameOnChange}
         />
-        <ACInput
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={passwordOnChange}
-        />
+        <form>
+          <ACInput
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={passwordOnChange}
+          />
+        </form>
         <AuthButton
           buttonText="Login"
           buttonType="submit"

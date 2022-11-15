@@ -17,16 +17,24 @@ import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 import { User } from "@firebase/auth";
 
+import { CompanyUserModel } from "./models/companyUserModel";
+
 interface Props {
-  userModel: User;
+  companyModel: CompanyUserModel;
 }
 
-const App2: FC<Props> = ({ userModel }) => {
+const App2: FC<Props> = ({ companyModel }) => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<CreateQrCodePresenter user={userModel} />} />
-        <Route path="*" element={<CreateQrCodePresenter user={userModel} />} />
+        <Route
+          path="/"
+          element={<CreateQrCodePresenter user={companyModel} />}
+        />
+        <Route
+          path="*"
+          element={<CreateQrCodePresenter user={companyModel} />}
+        />
       </Routes>
     </Router>
   );

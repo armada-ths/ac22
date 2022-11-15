@@ -13,22 +13,52 @@ import { persistModel } from "./models/Firebase/persistModel";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import App2 from "./App2";
 
+import { collection, doc, setDoc, getDoc } from "firebase/firestore";
+import { database } from "./models/Firebase/firebaseConfig";
+import { persistModelCompany } from "./models/Firebase/persistModelCompany";
+import { CompanyUserModel } from "./models/companyUserModel";
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-auth.onAuthStateChanged((user) => {
+auth.onAuthStateChanged(async (user) => {
+  let isStudent;
   if (user) {
-    const userModel = new UserModel(new Map<string, DbTicket>(), [], "", []);
-    persistModel(userModel);
+    const docRef = doc(collection(database, "users"), user.uid);
+    try {
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        isStudent = docSnap.data().isStudent;
+      }
+    } catch (e) {
+      console.error("Error getting document:\n", e);
+    }
+
+    let userModel: UserModel = new UserModel(
+      new Map<string, DbTicket>(),
+      [],
+      "",
+      []
+    );
+    let companyModel: CompanyUserModel = new CompanyUserModel(
+      user.email as string
+    );
+    if (isStudent) {
+      persistModel(userModel);
+    } else {
+      persistModelCompany(companyModel);
+    }
 
     root.render(
       <div>
-        {user.email?.includes("ac22.se") ? (
-          <App2 userModel={user} />
-        ) : (
-          <App userModel={userModel} />
-        )}
+        {
+          /*user.email?.includes("ac22.se")*/ isStudent ? (
+            <App userModel={userModel} />
+          ) : (
+            <App2 companyModel={companyModel} />
+          )
+        }
       </div>
       // <React.StrictMode> //Strict mode removed as it triggers useEffect twice
 

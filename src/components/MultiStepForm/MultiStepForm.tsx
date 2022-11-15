@@ -41,7 +41,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     setFormData((old) => {
       return { ...old, ...data };
     });
-    console.log(formData);
   };
 
   const isValidEmail = (input: any) => {

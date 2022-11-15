@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from "react";
 import QrCodeView from "../views/QrCodeView/CreateQrCodeView";
+import { CompanyUserModel } from "../models/companyUserModel";
 import {
   addToDB,
   getCompanyData,
@@ -11,7 +12,7 @@ const CryptoJS = require("crypto-js");
 // To be used by Companies to create QR codes for their tickets
 
 interface props {
-  user: User;
+  user: CompanyUserModel;
 }
 
 const QrCodePresenter: FC<props> = ({ user }) => {
@@ -19,7 +20,6 @@ const QrCodePresenter: FC<props> = ({ user }) => {
     getCompanyData(company).then((data) => {
       if (data !== undefined) {
         setTicketNr(data.TotalTickets + 1);
-        console.log("Setting ticketnr to " + (data.TotalTickets + 1));
       }
     });
   }, []);
@@ -45,12 +45,10 @@ const QrCodePresenter: FC<props> = ({ user }) => {
     setTicketNr(ticketNr + 1);
     const encoded = encryptWithAES(urlSearchParams.toString());
     setQrCode(redirectURL + "#" + encoded);
-    console.log("Generated URL: " + redirectURL + "#" + encoded);
     addTicketToDatabase();
   }
 
   function addTicketToDatabase() {
-    console.log("addTicketToDatabase: " + ticketNr);
     addToDB("companies", company, { ticketType, ticketNr });
   }
 

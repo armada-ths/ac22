@@ -140,13 +140,13 @@ const CreateQrCodeView: FC<Props> = (props) => {
                 </div>
                 <div className="pop-button">
                   <AuthButton
-                    onButtonClick={() => console.log("hey")}
+                    onButtonClick={() => console.log()}
                     buttonText="home"
                     buttonType="button"
                     active={true}
                   ></AuthButton>
                   <AuthButton
-                    onButtonClick={() => console.log("hey")}
+                    onButtonClick={() => console.log()}
                     buttonText="how to play"
                     buttonType="button"
                     active={true}
@@ -180,13 +180,13 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   buttonText="Home"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => console.log("hey")}
+                  onButtonClick={() => console.log()}
                 />
                 <AuthButton
                   buttonText="How to play"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => console.log("hey")}
+                  onButtonClick={() => console.log()}
                 />
                 <AuthButton
                   buttonText="Statistics"
@@ -303,13 +303,13 @@ const CreateQrCodeView: FC<Props> = (props) => {
                       </div>
                       <div className="pop-button">
                         <AuthButton
-                          onButtonClick={() => console.log("hey")}
+                          onButtonClick={() => console.log()}
                           buttonText="home"
                           buttonType="button"
                           active={true}
                         ></AuthButton>
                         <AuthButton
-                          onButtonClick={() => console.log("hey")}
+                          onButtonClick={() => console.log()}
                           buttonText="how to play"
                           buttonType="button"
                           active={true}
@@ -325,7 +325,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                           active={true}
                         ></AuthButton>
                         <AuthButton
-                          onButtonClick={() => console.log("hey")}
+                          onButtonClick={() => console.log()}
                           buttonText="Log out"
                           buttonType="button"
                           active={true}

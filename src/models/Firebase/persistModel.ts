@@ -12,9 +12,9 @@ export async function persistModel(userModel: UserModel) {
                 await setDoc(docRef, {
                     collectedTickets: userModel.collectedTickets,
                     currentCompany: userModel.currentCompany,
-                    starredCompanies: userModel.starredCompanies
+                    starredCompanies: userModel.starredCompanies,
+                    isStudent: true
                 })
-                console.log("Current model\n\n", userModel)
             }
             catch(e) {
                 console.error("Error setting document:\n", e)

@@ -18,6 +18,7 @@ import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 import { User } from "@firebase/auth";
 
 import { CompanyUserModel } from "./models/companyUserModel";
+import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
 
 interface Props {
   companyModel: CompanyUserModel;
@@ -30,6 +31,11 @@ const App2: FC<Props> = ({ companyModel }) => {
         <Route
           path="/"
           element={<CreateQrCodePresenter user={companyModel} />}
+        />
+        <Route path="/tutorial-company"
+        element={
+          <CompanyTutorialPresenter/>
+        }
         />
         <Route
           path="*"

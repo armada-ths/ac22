@@ -40,7 +40,7 @@
   color: #0f1322;
 }
 .container,
-.incorrect-container {
+.incorrect-container1 {
   border-radius: 4px;
   border: 1.5px solid #cccccc;
   width: 100%;
@@ -49,7 +49,7 @@
   place-items: center;
 }
 
-.incorrect-container {
+.incorrect-container1 {
   border: 1.5px solid red;
 }
 
@@ -57,18 +57,18 @@
   outline: none;
 }
 
-.container:focus-within {
+.container1:focus-within {
   border: 1.5px solid #2bdba0;
 }
 
-.InputHeader {
+.InputHeader1 {
   display: flex;
   margin-bottom: 8px;
   color: #2bdba0;
   width: 100%;
 }
 
-.InputHeaderWrong {
+.InputHeaderWrong1 {
   display: flex;
   margin-bottom: 8px;
   color: red;

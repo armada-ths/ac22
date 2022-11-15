@@ -63,7 +63,8 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!isLast) return nextStep();
+    if ((isFirst) && !(formData.password === formData.repeatPassword)) return;
+    else if (!isLast) return nextStep();
     registerSubmit(formData);
   };
 
@@ -84,11 +85,11 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
               buttonType="submit"
               active={
                 formData.password.length >= 8 &&
-                isValidEmail(formData.email)
+                  isValidEmail(formData.email)
                   ? true
                   : false
               }
-              onButtonClick={() => {}}
+              onButtonClick={() => { }}
             />
 
             {!isFirst && (

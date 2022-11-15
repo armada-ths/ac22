@@ -54,7 +54,7 @@ const AccountForm: FC<Props> = ({
         value={password}
         onChange={(e) => updateField({ password: e })}
       />
-      <div className="input-flex-account">
+     {/*<div className="input-flex-account">
         <div
           className={validInput ? "InputHeader" : "InputHeaderWrong"}
           style={{ color: validInput && !active ? "#0F1322" : "" }}
@@ -87,7 +87,7 @@ const AccountForm: FC<Props> = ({
             required
           />
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 };

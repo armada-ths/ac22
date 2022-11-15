@@ -72,7 +72,6 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
         style={{ border: validInput && !active ? "1.5px solid #0F1322" : "" }}
       >
         <input
-          autoComplete="off"
           className="ac-input"
           placeholder={place}
           type={type}

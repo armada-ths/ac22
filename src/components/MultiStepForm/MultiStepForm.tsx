@@ -52,7 +52,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     } else {
       return false;
     }
-
   };
 
   const { steps, currentStep, step, isFirst, prevStep, nextStep, isLast } =
@@ -60,7 +59,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
       <AccountForm {...formData} updateField={updateFields} />,
       <StudyForm {...formData} updateField={updateFields} />,
       <JobPreference {...formData} updateField={updateFields} />,
-
     ]);
 
   const onSubmit = (e: FormEvent) => {
@@ -86,7 +84,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
               buttonType="submit"
               active={
                 formData.password.length >= 8 &&
-                formData.repeatPassword === formData.password &&
                 isValidEmail(formData.email)
                   ? true
                   : false

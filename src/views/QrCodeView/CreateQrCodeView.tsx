@@ -7,6 +7,7 @@ import ticket_img from "../../assets/TicketState/ticket-img.svg";
 import plus_sign_img from "../../assets/TicketState/plus-sign-img.svg";
 import useCheckMobileScreen from "../../useCheckMobileScreen";
 import { auth } from "../../models/Firebase/firebaseConfig";
+import fmv from "./fmv.jpeg"
 
 interface Props {
   setTicketType: (ticketType: string) => void;
@@ -18,6 +19,7 @@ interface Props {
   qrCode: string;
   generateURL: () => void;
   removePreviousQrCode: () => void;
+  companyLogo: string;
 }
 
 const CreateQrCodeView: FC<Props> = (props) => {
@@ -204,7 +206,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                 />
               </div>
             </div>
-            <img src={logo} alt="logo" className="logo" />
+            <img src={require('../../assets/CompanyLogos/' + props.companyLogo)} alt="logo" className="logo" />
             <div></div>
           </div>
           <div className="main-content">

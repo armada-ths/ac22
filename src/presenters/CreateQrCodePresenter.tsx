@@ -73,6 +73,7 @@ const QrCodePresenter: FC<props> = ({ user }) => {
       qrCode={qrCode}
       setQrCode={setQrCode}
       removePreviousQrCode={removePreviousQrCode}
+      companyLogo={user.name}
     />
   );
 };

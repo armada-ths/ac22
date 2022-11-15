@@ -24,12 +24,14 @@ const root = ReactDOM.createRoot(
 
 auth.onAuthStateChanged(async (user) => {
   let isStudent;
+  let companyLogo;
   if (user) {
     const docRef = doc(collection(database, "users"), user.uid);
     try {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         isStudent = docSnap.data().isStudent;
+        if(!isStudent) companyLogo = docSnap.data().name;
       }
     } catch (e) {
       console.error("Error getting document:\n", e);
@@ -42,7 +44,7 @@ auth.onAuthStateChanged(async (user) => {
       []
     );
     let companyModel: CompanyUserModel = new CompanyUserModel(
-      user.email as string
+      user.email as string, companyLogo
     );
     if (isStudent) {
       persistModel(userModel);

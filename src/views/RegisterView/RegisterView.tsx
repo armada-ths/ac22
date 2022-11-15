@@ -32,6 +32,7 @@ async function CreateDoc(user: User, data: FormData) {
             (item, index) => data.jobInterests.indexOf(item) === index
           ),
         },
+        isStudent: true,
       });
       return docRef;
     } catch (error) {

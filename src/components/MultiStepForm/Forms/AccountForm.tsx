@@ -14,7 +14,13 @@ interface Props extends AccountData {
   emailExists?: boolean;
 }
 
-const AccountForm: FC<Props> = ({ email, password, updateField, emailExists, repeatPassword }) => {
+const AccountForm: FC<Props> = ({
+  email,
+  password,
+  updateField,
+  emailExists,
+  repeatPassword,
+}) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState("Repeat Password");
@@ -22,7 +28,6 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists, rep
 
   useEffect(() => {
     if (repeatPassword === password) {
-      console.log("Passwords match");
       setValidInput(true);
     } else {
       setValidInput(false);
@@ -32,7 +37,11 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists, rep
   return (
     <div className="form-content">
       <h2>Get Registered</h2>
-      {emailExists && <div style={{ color: "red", marginTop: "-6px"}}>Account with this email already exists</div>}
+      {emailExists && (
+        <div style={{ color: "red", marginTop: "-6px" }}>
+          Account with this email already exists
+        </div>
+      )}
       <ACInput
         type="email"
         placeholder="Email"
@@ -45,7 +54,7 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists, rep
         value={password}
         onChange={(e) => updateField({ password: e })}
       />
-      <div className="input-flex-account">
+     {/*<div className="input-flex-account">
         <div
           className={validInput ? "InputHeader" : "InputHeaderWrong"}
           style={{ color: validInput && !active ? "#0F1322" : "" }}
@@ -64,7 +73,9 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists, rep
             style={{
               backgroundColor: !validInput && !active ? "#FFE6E6" : "",
             }}
-            onChange={(e) => {updateField({ repeatPassword: e.target.value })}}
+            onChange={(e) => {
+              updateField({ repeatPassword: e.target.value });
+            }}
             onFocus={() => {
               setActive(true);
               setPlace("");
@@ -76,7 +87,7 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists, rep
             required
           />
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 };

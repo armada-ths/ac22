@@ -6,6 +6,8 @@ import AuthButton from "../../components/AuthButton/AuthButton";
 import ticket_img from "../../assets/TicketState/ticket-img.svg";
 import plus_sign_img from "../../assets/TicketState/plus-sign-img.svg";
 import useCheckMobileScreen from "../../useCheckMobileScreen";
+import { auth } from "../../models/Firebase/firebaseConfig";
+import fmv from "./fmv.jpeg"
 
 interface Props {
   setTicketType: (ticketType: string) => void;
@@ -17,6 +19,7 @@ interface Props {
   qrCode: string;
   generateURL: () => void;
   removePreviousQrCode: () => void;
+  companyLogo: string;
 }
 
 const CreateQrCodeView: FC<Props> = (props) => {
@@ -141,13 +144,13 @@ const CreateQrCodeView: FC<Props> = (props) => {
                 </div>
                 <div className="pop-button">
                   <AuthButton
-                    onButtonClick={() => console.log("hey")}
+                    onButtonClick={() => console.log()}
                     buttonText="home"
                     buttonType="button"
                     active={true}
                   ></AuthButton>
                   <AuthButton
-                    onButtonClick={() => console.log("hey")}
+                    onButtonClick={() => console.log()}
                     buttonText="how to play"
                     buttonType="button"
                     active={true}
@@ -161,7 +164,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     active={true}
                   ></AuthButton>
                   <AuthButton
-                    onButtonClick={() => console.log("hey")}
+                    onButtonClick={() => auth.signOut()}
                     buttonText="Log out"
                     buttonType="button"
                     active={true}
@@ -181,13 +184,13 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   buttonText="Home"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => console.log("hey")}
+                  onButtonClick={() => console.log()}
                 />
                 <AuthButton
                   buttonText="How to play"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => console.log("hey")}
+                  onButtonClick={() => console.log()}
                 />
                 <AuthButton
                   buttonText="Statistics"
@@ -201,11 +204,11 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   buttonText="Log out"
                   active={true}
                   buttonType={"button"}
-                  onButtonClick={() => console.log("hey")}
+                  onButtonClick={() => auth.signOut()}
                 />
               </div>
             </div>
-            <img src={logo} alt="logo" className="logo" />
+            <img src={require('../../assets/CompanyLogos/' + props.companyLogo)} alt="logo" className="logo" />
             <div></div>
           </div>
           <div className="main-content">
@@ -280,6 +283,61 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     ></AuthButton>
                     <h5>Only use this if ticket has not yet been scanned!</h5>
                   </div>
+                  {tablet ? (
+                    <div className="mobile-button">
+                      <AuthButton
+                        onButtonClick={openModal}
+                        buttonText="Open Modal"
+                        buttonType="button"
+                        active={true}
+                      ></AuthButton>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {modalIsOpen ? (
+                    <div onClick={() => closeModal()} className="popup-tablet">
+                      <div className="popup-header">
+                        <div
+                          className="popup-close"
+                          onClick={() => closeModal()}
+                        >
+                          x
+                        </div>
+                      </div>
+                      <div className="pop-button">
+                        <AuthButton
+                          onButtonClick={() => console.log()}
+                          buttonText="home"
+                          buttonType="button"
+                          active={true}
+                        ></AuthButton>
+                        <AuthButton
+                          onButtonClick={() => console.log()}
+                          buttonText="how to play"
+                          buttonType="button"
+                          active={true}
+                        ></AuthButton>
+                        <AuthButton
+                          onButtonClick={() =>
+                            alert(
+                              "Statistics will be available after the fair!"
+                            )
+                          }
+                          buttonText="Statistics"
+                          buttonType="button"
+                          active={true}
+                        ></AuthButton>
+                        <AuthButton
+                          onButtonClick={() => console.log()}
+                          buttonText="Log out"
+                          buttonType="button"
+                          active={true}
+                        ></AuthButton>
+                      </div>
+                    </div>
+                  ) : null}
+
                 </div>
               )}
               {tablet ? (

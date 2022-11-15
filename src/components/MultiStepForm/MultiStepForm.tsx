@@ -41,7 +41,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     setFormData((old) => {
       return { ...old, ...data };
     });
-    console.log(formData);
   };
 
   const isValidEmail = (input: any) => {
@@ -53,7 +52,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     } else {
       return false;
     }
-
   };
 
   const { steps, currentStep, step, isFirst, prevStep, nextStep, isLast } =
@@ -61,7 +59,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
       <AccountForm {...formData} updateField={updateFields} />,
       <StudyForm {...formData} updateField={updateFields} />,
       <JobPreference {...formData} updateField={updateFields} />,
-
     ]);
 
   const onSubmit = (e: FormEvent) => {
@@ -82,6 +79,18 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
           </div>
           {step}
           <div className="button-container">
+            <AuthButton
+              buttonText={isLast ? "Complete Registration" : "Next"}
+              buttonType="submit"
+              active={
+                formData.password.length >= 8 &&
+                isValidEmail(formData.email)
+                  ? true
+                  : false
+              }
+              onButtonClick={() => {}}
+            />
+
             {!isFirst && (
               <AuthButton
                 onButtonClick={prevStep}
@@ -90,19 +99,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
                 buttonType="button"
               />
             )}
-
-            <AuthButton
-              buttonText={isLast ? "Complete Registration" : "Next"}
-              buttonType="submit"
-              active={
-                formData.password.length >= 8 &&
-                formData.repeatPassword === formData.password &&
-                isValidEmail(formData.email)
-                  ? true
-                  : false
-              }
-              onButtonClick={() => {}}
-            />
           </div>
         </form>
       </div>

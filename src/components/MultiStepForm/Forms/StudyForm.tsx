@@ -70,10 +70,10 @@ const StudyForm: FC<Props> = ({
           </select>
       
       </div>
-      <div className="double-select">
-        <div>
+     
+        <div className="test">
           <select
-            className="select-option1"
+            className="select-option"
             placeholder="Year of study..."
             onChange={(e) => updateField({ yearOfStudy: e.target.value })}
             required>
@@ -89,10 +89,9 @@ const StudyForm: FC<Props> = ({
             })}
           </select>
         </div>
-        <span className="dash">—</span>
-        <div>
+        <div className="test">
           <select
-            className="select-option1"
+            className="select-option"
             placeholder="Completion year..."
             onChange={(e) => updateField({ completionYear: e.target.value })}
             required>
@@ -108,7 +107,7 @@ const StudyForm: FC<Props> = ({
             })}
           </select>
         </div>
-      </div>
+   
     </div>
   );
 };

@@ -25,7 +25,11 @@ const App: FC<Props> = ({ userModel }) => {
   return (
     <Router>
       <Routes>
+
+        {/* <Route
+
         <Route
+
           path="/"
           element={
             <HomePresenter
@@ -49,9 +53,9 @@ const App: FC<Props> = ({ userModel }) => {
               name={["Malin", "Marques"]}
             />
           }
-        />
-        <Route path="/createqrcode" element={<CreateQrCodePresenter />} />
-        <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
+        /> */}
+        {/* <Route path="/createqrcode" element={<CreateQrCodePresenter />} /> */}
+        {/* <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
         <Route
           path="/overview"
           element={
@@ -74,15 +78,19 @@ const App: FC<Props> = ({ userModel }) => {
               availableTickets={dummyTickets}
             />
           }
+
+        /> 
+
         />
         <Route path="tutorial-company"
         element={
           <CompanyTutorialPresenter/>
         }
-        />
+        />*/}
+
 
         <Route
-          path="/register"
+          path="/"
           element={<RegisterPresenter registered={true} />}
         />
         <Route path="*" element={<RegisterPresenter registered={true} />} />

@@ -13,10 +13,8 @@ const JobPreference: FC<Props> = ({ jobInterests, updateField }) => {
   const handleChange = (e: any) => {
     const { value, checked } = e.target;
     if (checked) {
-      console.log("checked");
       updateField({ jobInterests: [...jobInterests, value] });
     } else {
-      console.log("unchecked");
       updateField({ jobInterests: jobInterests.filter((i) => i !== value) });
     }
   };

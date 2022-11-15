@@ -79,15 +79,6 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
           </div>
           {step}
           <div className="button-container">
-            {!isFirst && (
-              <AuthButton
-                onButtonClick={prevStep}
-                buttonText="Back"
-                active={true}
-                buttonType="button"
-              />
-            )}
-
             <AuthButton
               buttonText={isLast ? "Complete Registration" : "Next"}
               buttonType="submit"
@@ -100,6 +91,15 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
               }
               onButtonClick={() => {}}
             />
+
+            {!isFirst && (
+              <AuthButton
+                onButtonClick={prevStep}
+                buttonText="Back"
+                active={true}
+                buttonType="button"
+              />
+            )}
           </div>
         </form>
       </div>

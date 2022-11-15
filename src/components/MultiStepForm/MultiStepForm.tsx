@@ -52,6 +52,7 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     } else {
       return false;
     }
+
   };
 
   const { steps, currentStep, step, isFirst, prevStep, nextStep, isLast } =
@@ -59,6 +60,7 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
       <AccountForm {...formData} updateField={updateFields} />,
       <StudyForm {...formData} updateField={updateFields} />,
       <JobPreference {...formData} updateField={updateFields} />,
+
     ]);
 
   const onSubmit = (e: FormEvent) => {

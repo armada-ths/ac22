@@ -1,0 +1,16 @@
+.goal-boxes{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    column-gap: 3%;
+    margin: 3%;
+}
+.goal-boxes .rules{
+    margin: 0px;
+}
+
+img{
+    border-radius: 16px;
+    border-width: 2px;
+    border-color: var(--gray-primary);
+}

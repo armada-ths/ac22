@@ -9,6 +9,7 @@ import RegisterPresenter from "./presenters/RegisterPresenter";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
+import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
 import RegisterSuccess from "./components/RegisterSuccess/RegisterSuccess";
 
 import CompanyView from "./views/CompanyView/CompanyView";
@@ -24,7 +25,11 @@ const App: FC<Props> = ({ userModel }) => {
   return (
     <Router>
       <Routes>
+
         {/* <Route
+
+        <Route
+
           path="/"
           element={
             <HomePresenter
@@ -73,7 +78,16 @@ const App: FC<Props> = ({ userModel }) => {
               availableTickets={dummyTickets}
             />
           }
+
         /> */}
+
+        />
+        <Route path="tutorial-company"
+        element={
+          <CompanyTutorialPresenter/>
+        }
+        />
+
 
         <Route
           path="/register"

@@ -4,6 +4,13 @@
     display: flex;
 }
 
+.container {
+    display: flex;
+    background-color: #F5F7FB;
+    height: 100vh;
+    width: 100vw;
+}
+
 .side{
     display: flex;
     flex-direction: column;
@@ -166,7 +173,6 @@
     align-items: center;
     background-color: #FFFFFF;
     border: #CCCCCC 1px solid;
-    width: fit-content;
     left: 14rem;
     right: 13rem;
     height: 40vh;
@@ -211,4 +217,9 @@
 .web-button-not-seen{
     display: none;
     visibility: hidden;
+}
+
+.poptablet-button button{
+    width: 18rem;
+    margin-bottom: 0.75rem;
 }

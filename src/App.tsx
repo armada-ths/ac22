@@ -19,6 +19,9 @@ import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 interface Props {
 	userModel: UserModel;
 }
+/*
+Just a comment
+ */
 
 const App: FC<Props> = ({ userModel }) => {
 	return (

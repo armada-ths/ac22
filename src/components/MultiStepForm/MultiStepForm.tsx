@@ -85,7 +85,7 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
               buttonType="submit"
               active={
                 formData.password.length >= 8 &&
-                  isValidEmail(formData.email)
+                  isValidEmail(formData.email) && formData.password === formData.repeatPassword
                   ? true
                   : false
               }

@@ -1,0 +1,18 @@
+.scan-navbar Link{
+    display: none;
+}
+
+.scan-main{
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scan-qr-reader{
+    width: 22rem;
+    border-radius: 15px;
+}

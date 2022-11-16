@@ -15,6 +15,7 @@ const TutorialPresenter: FC<Props> = ({ name, collectedTickets }) => {
         name={name}
         title="Tutorial"
         collectedTickets={collectedTickets}
+        qrButtonActive={true}
       />
       <Sidebar />
       <TutorialView />;

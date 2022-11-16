@@ -17,7 +17,7 @@ const TutorialView: FC<Props> = () => {
           <strong>Goal:</strong> Win the prises at the raffle a week after
           armada! How to win: Collect as many tickets for the raffle as
           possible to increase your chance to win! 
-          Standard tickets are worth 3 points and Super Tickets as worth 10.
+          Standard tickets are worth 3 points and Super Tickets are worth 10.
           To get tickets, talk to the different booths at the armada fair and be rewarded tickets when
           completing their tasks. But watch out! There are only 15 super tickets per booth!
         </p>

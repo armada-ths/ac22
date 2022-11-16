@@ -23,11 +23,17 @@ const ScanQrCodeView: FC<Props> = (props) => {
       <div className="scan-main">
         <QrReader
           className="scan-qr-reader"
+          scanDelay={300}
           constraints={{
             facingMode: "user",
           }}
-          videoContainerStyle={{ borderRaduis: "100px" }}
-          onResult={function noRefCheck() {}}
+          onResult={(result, error) => {
+            if (result) {
+              console.log(result);
+            } else {
+              console.log(error);
+            }
+          }}
         />
       </div>
     </div>

@@ -19,7 +19,7 @@ const TutorialView: FC<Props> = () => {
           possible to increase your chance to win! 
           Standard tickets are worth 3 points and Super Tickets are worth 10.
           To get tickets, talk to the different booths at the armada fair and be rewarded tickets when
-          completing their tasks. But watch out! There are only 15 super tickets per booth!
+          completing their tasks. But watch out! There are only 30 Super Tickets a day per booth!
         </p>
         <img src={ticketCounter} alt="Ticket counter" />
       </div>

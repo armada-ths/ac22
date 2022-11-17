@@ -36,6 +36,7 @@ const JobPreference: FC<Props> = ({ jobInterests, updateField }) => {
         <div className="checkboxes-row">
           <div className="checkbox-container">
             <input
+              checked={jobInterests.includes(positionLeft)}
               type="checkbox"
               className="checkbox"
               id={positionLeft}
@@ -46,6 +47,7 @@ const JobPreference: FC<Props> = ({ jobInterests, updateField }) => {
           </div>
           <div className="checkbox-container">
             <input
+              checked={jobInterests.includes(positionRight)}
               type="checkbox"
               className="checkbox"
               id={positionRight}

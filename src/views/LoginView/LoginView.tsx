@@ -58,7 +58,7 @@ const RegisterView: FC<Props> = ({
           value={username}
           onChange={usernameOnChange}
         />
-        <form>
+        <form onSubmit={LoginUser}>
           <ACInput
             type="password"
             placeholder="Password"
@@ -69,7 +69,7 @@ const RegisterView: FC<Props> = ({
         <AuthButton
           buttonText="Login"
           buttonType="submit"
-          active={isValidEmail(username) ? true : false}
+          active={(isValidEmail(username) && password.length > 8) ? true : false}
           onButtonClick={LoginUser}
         />
       </div>

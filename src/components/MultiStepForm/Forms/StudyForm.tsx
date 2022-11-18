@@ -34,16 +34,15 @@ const StudyForm: FC<Props> = ({
         <select
           className="select-option"
           placeholder="Gender..."
-          value={gender}
           onChange={(e) => updateField({ gender: e.target.value })}
           required>
           <option className="option-text" value="" disabled selected>
             Gender..
           </option>
-          {Genders.map((gender) => {
+          {Genders.map((genderOption) => {
             return (
-              <option className="option-text" value={gender} key={gender}>
-                {gender}
+              <option className="option-text" value={genderOption} key={genderOption} selected={genderOption === gender}>
+                {genderOption}
               </option>
             );
           })}
@@ -53,7 +52,6 @@ const StudyForm: FC<Props> = ({
         <select
           className="select-option"
           placeholder="Study Programme..."
-          value={studyProgramme}
           onChange={(e) => updateField({ studyProgramme: e.target.value })}
           required>
           <option value="" disabled selected className="option-text">
@@ -64,7 +62,8 @@ const StudyForm: FC<Props> = ({
               <option
                 className="option-text"
                 value={programme}
-                key={programme}>
+                key={programme}
+                selected={programme === studyProgramme}>
                 {programme}
               </option>
             );
@@ -77,7 +76,6 @@ const StudyForm: FC<Props> = ({
         <select
           className="select-option"
           placeholder="Year of study..."
-          value={yearOfStudy}
           onChange={(e) => updateField({ yearOfStudy: e.target.value })}
           required>
           <option value="" disabled selected className="option-text">
@@ -85,7 +83,7 @@ const StudyForm: FC<Props> = ({
           </option>
           {YearOfStudy.map((year) => {
             return (
-              <option className="option-text" value={year} key={year}>
+              <option className="option-text" value={year} key={year} selected={year === yearOfStudy}>
                 {year}
               </option>
             );
@@ -96,7 +94,6 @@ const StudyForm: FC<Props> = ({
         <select
           className="select-option"
           placeholder="Completion year..."
-          value={completionYear}
           onChange={(e) => updateField({ completionYear: e.target.value })}
           required>
           <option className="option-text" value="" disabled selected>
@@ -104,7 +101,7 @@ const StudyForm: FC<Props> = ({
           </option>
           {CompletionYear.map((year) => {
             return (
-              <option className="option-text" value={year} key={year}>
+              <option className="option-text" value={year} key={year} selected={year === completionYear}>
                 {year}
               </option>
             );

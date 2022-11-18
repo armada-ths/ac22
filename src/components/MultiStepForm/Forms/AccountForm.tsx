@@ -54,7 +54,7 @@ const AccountForm: FC<Props> = ({
         value={password}
         onChange={(e) => updateField({ password: e })}
       />
-     <div className="input-flex-account">
+      <div className="input-flex-account">
         <div
           className={validInput ? "InputHeader1" : "InputHeaderWrong1"}
           style={{ color: validInput && !active ? "#0F1322" : "" }}
@@ -71,7 +71,7 @@ const AccountForm: FC<Props> = ({
             type="password"
             value={repeatPassword}
             style={{
-              backgroundColor: !validInput && !active ? "#FFE6E6" : "",
+              backgroundColor: !validInput && !active ? "#FFE6E6;border-radius:4px" : "border-radius:4px",
             }}
             onChange={(e) => {
               updateField({ repeatPassword: e.target.value });

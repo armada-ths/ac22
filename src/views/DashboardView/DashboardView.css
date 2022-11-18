@@ -132,7 +132,21 @@
     column-gap: 10%;
     margin-right: 1%;
 }
+
 .arrows img {
     width: 2vw;
     padding: 2%;
+}
+
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .dashboard-box {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--background);
+        justify-content: center;
+        width: 90vw;
+        height: 110vh;
+        margin: 10% 5%;
+        
+    }
 }

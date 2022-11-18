@@ -1,76 +1,103 @@
 .flex-bx {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    padding-left: 10%;
-    padding-right: 5%;
-    padding-top: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 5%;
+  padding-top: 7%;
 }
 
 .subtitles {
-    font-weight: var(--subtitle-weight);
-    font-size: 1.75em;
-    color: var(--black-secondary);
-    padding-bottom: .5em;
+  font-weight: var(--subtitle-weight);
+  font-size: 1.75em;
+  color: var(--black-secondary);
+  padding-bottom: 0.5em;
 }
 
 .subsubtitles {
-    font-weight: var(--bold-weight);
-    font-size: 1.5em;
-    color: var(--black-tetriary);
-    font-style: italic;
-    padding-bottom: .5em;
-    padding-top: .5em;
+  font-weight: var(--bold-weight);
+  font-size: 1.5em;
+  color: var(--black-tetriary);
+  font-style: italic;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
 }
 
 strong {
-    color: var(--armada-green);
+  color: var(--armada-green);
 }
 
 li {
-    font-weight: var(--bold-weight);
-    font-size: 1.25em;
-    color: var(--armada-green);
-    background-color: var(--black-tetriary);
+  font-weight: var(--bold-weight);
+  font-size: 1.25em;
+  color: var(--armada-green);
+  background-color: var(--black-tetriary);
 }
 
 .rules {
-    background-color: var(--black-tetriary);
-    padding: 2%;
-    border-radius: 16px;
-    margin: 2%;
-    width:50%;
+  background-color: var(--black-tetriary);
+  padding: 2%;
+  border-radius: 16px;
+  margin: 2%;
+  width: 50%;
 }
 
 .rules div {
-    color: var(--white);
-    background-color: var(--black-tetriary);
+  color: var(--white);
+  background-color: var(--black-tetriary);
 }
 
 .tutorialbox {
-    padding: 2%;
-    background-color: var(--white);
-    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  padding: 2%;
+  background-color: var(--white);
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .text-img {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .text-img p {
-    width: 48%;
-    margin-right: 2%;
+  width: 48%;
+  margin-right: 2%;
 }
 
 .text-img img {
-    width: 48%;
-    margin-left: 2%;
+  width: 48%;
+  margin-left: 2%;
 }
 
-.dash{
-    transform: scale(0.8);
+.dash {
+  transform: scale(0.8);
+}
+
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .text-img img {
+    display: none;
+    width: 0px;
+  }
+
+  .text-img {
+    display: inline;
+    width: 100%;
+  }
+  .text-img p {
+    width: 90%;
+    padding: 5%;
+  }
+
+  .rules {
+    width: 100%;
+    padding: 5%;
+    margin: 15%;
+  }
+
+  .flex-bx {
+    padding: 10%;
+    margin-top: 20%;
+  }
 }

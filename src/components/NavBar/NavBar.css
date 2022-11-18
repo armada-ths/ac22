@@ -13,6 +13,7 @@
   border-width: 1px;
   border-style: solid;
   z-index: 2;
+  top:0px;
 }
 
 .navbar-right {
@@ -58,15 +59,9 @@ width: 3vh;
   border-style: solid;
 }
 
-.navbar-tutorial{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-weight: var(--subtitle-weight);
-  font-size: 1.5em;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 2%;
-  padding-bottom: 2%;
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .navbar-base {
+    padding-right:5%;
+    padding-left: 5%;
+  }
 }

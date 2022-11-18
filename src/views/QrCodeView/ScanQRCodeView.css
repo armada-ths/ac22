@@ -16,3 +16,24 @@
     width: 22rem;
     border-radius: 15px;
 }
+
+.success-prompt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    width: 60%;
+    height: 25%;
+    position: fixed;
+    z-index: 1;
+    padding: 40px;
+    gap: 40px;
+    border: 1px solid black;
+}
+
+.qr-text{
+    font-weight: 600;
+        font-size: 24px;
+}

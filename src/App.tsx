@@ -16,12 +16,14 @@ import CompanyView from "./views/CompanyView/CompanyView";
 import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
+import { User } from "firebase/auth";
 
 interface Props {
   userModel: UserModel;
+  user: User;
 }
 
-const App: FC<Props> = ({ userModel }) => {
+const App: FC<Props> = ({ userModel, user }) => {
   return (
     <Router>
       <Routes>
@@ -51,7 +53,10 @@ const App: FC<Props> = ({ userModel }) => {
           }
         />
         {/* <Route path="/createqrcode" element={<CreateQrCodePresenter />} /> */}
-        <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
+        <Route
+          path="/scanqrcode"
+          element={<ScanQrCodePresenter user={user} />}
+        />
         <Route
           path="/overview"
           element={

@@ -49,13 +49,12 @@ const ScanQrCodeView: FC<Props> = (props) => {
       const hash = url.substring(url.indexOf("#") + 1);
       const decoded = decryptWithAES(hash);
       const urlSearchParams = new URLSearchParams(decoded);
-      alert(urlSearchParams.toString());
       setCompany(urlSearchParams.get("companyName")?.toString() ?? "");
       setTicket(urlSearchParams.get("ticketType")?.toString() ?? "");
       claimTicket(
         urlSearchParams.get("companyName")?.toString() ?? "",
         parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "1")
-      ); //Ugly fix as the state is not updated in time
+      );
       resolve();
     });
   }
@@ -116,12 +115,17 @@ const ScanQrCodeView: FC<Props> = (props) => {
                 addTicketToDatabase(ticket);
               }}
             ></AuthButton>
-            <div>{company}</div>
+            <div className="qr-text">
+              {capitalizeFirstLetter(company.replace("@ac22.se", ""))}
+            </div>
             <div>{ticket}</div>
           </div>
         ) : (
           ""
         )}
+        <div className="scan-text">
+          Don't have an account? <a href="/Register">Register</a>
+        </div>
       </div>
     </div>
   );

@@ -82,14 +82,17 @@ export async function addToUserDatabase(
   collectedTickets?: any
 ) {
   const docRef = doc(database, "users", user);
-
   try {
     await setDoc(
       docRef,
-      {
-        starredCompanies: starredCompanies,
-        collectedTickets: collectedTickets,
-      },
+      starredCompanies && collectedTickets
+        ? {
+            starredCompanies: starredCompanies,
+            collectedTickets: collectedTickets,
+          }
+        : starredCompanies
+        ? { starredCompanies: starredCompanies }
+        : { collectedTickets: collectedTickets },
       { merge: true }
     );
   } catch (e) {}

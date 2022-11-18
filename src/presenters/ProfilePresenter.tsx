@@ -4,6 +4,13 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import NavBar from "../components/NavBar/NavBar";
 import ProfileView from "../views/ProfileView/Profile";
 import { Company, Tickets } from "../models/DummyModel";
+import {
+	Genders,
+	CompletionYear,
+	YearOfStudy,
+	StudyProgramme,
+} from "../components/MultiStepForm/Forms/StudyInformation";
+
 
 interface Props {
 	companies: Company[];
@@ -31,7 +38,7 @@ const ProfilePresenter: FC<Props> = ({
 			<div className="sidebarPage">
 				<Sidebar />
 			</div>
-			<ProfileView placeholder="Profile view" />
+			<ProfileView placeholder="Profile view"  />
 		</div>
 	);
 };

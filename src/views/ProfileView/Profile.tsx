@@ -3,11 +3,19 @@ import React, { FC, useState, useEffect } from "react";
 import "./Profile.css";
 import armada_logo from "../../assets/Profile/armada.png";
 
+import {
+	StudyProgramme,
+	Genders,
+	CompletionYear,
+	YearOfStudy,
+	PositionInterest,
+} from "../../components/MultiStepForm/Forms/StudyInformation";
+
 interface Props {
 	placeholder: string;
 }
 
-const ProfileView: FC<Props> = () => {
+const ProfileView: FC<Props> = ({}) => {
 	// 1 - Settings, 2 - Ticket History
 	const [setings, setSettings] = useState<boolean>(true);
 
@@ -54,13 +62,13 @@ const ProfileView: FC<Props> = () => {
 									<input
 										type="text"
 										placeholder="First Name"
-										className="input-width"
+										className="input-tag"
 									/>
 									<h4>Email</h4>
 									<input
 										type="text"
 										placeholder="Email"
-										className="input-width"
+										className="input-tag"
 									/>
 								</div>
 								<div className="lastName-gender">
@@ -68,15 +76,62 @@ const ProfileView: FC<Props> = () => {
 									<input
 										type="text"
 										placeholder="Last Name"
-										className="input-width"
+										className="input-tag"
 									/>
 									<h4>Gender</h4>
-									<input
-										type="text"
-										placeholder="Gender"
-										className="input-width"
-									/>
+									<select className="input-tag" placeholder="Gender" required>
+										<option className="option-text" value="" disabled selected>
+											Gender..
+										</option>
+										{Genders.map((gender) => {
+											return (
+												<option
+													className="option-text"
+													value={gender}
+													key={gender}
+												>
+													{gender}
+												</option>
+											);
+										})}
+									</select>
 								</div>
+							</div>
+						</div>
+						<div className="study-job-details-container">
+							<div className="study-job-container">
+								<div className="study-nYears">
+									<h3>Study & Job Details</h3>
+									<h3>Study Years</h3>
+								</div>
+								<div className="selectors">
+									<select
+										className="input-tag input-tag1"
+										placeholder="Study Programme"
+									>
+										{StudyProgramme.map((item, index) => (
+											<option key={index} value={item}>
+												{item}
+											</option>
+										))}
+									</select>
+									<select className="input-tag input-tag1">
+										{CompletionYear.map((item, index) => (
+											<option key={index} value={item}>
+												{item}
+											</option>
+										))}
+									</select>
+									<div className="fontSize">- </div>
+									<select className="input-tag input-tag1">
+										{CompletionYear.map((item, index) => (
+											<option key={index} value={item}>
+												{item}
+											</option>
+										))}
+									</select>
+								</div>
+								<div></div>
 							</div>
 						</div>
 					</div>

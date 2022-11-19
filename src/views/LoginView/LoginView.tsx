@@ -32,8 +32,16 @@ const RegisterView: FC<Props> = ({
   async function LoginUser() {
     try {
       await signInWithEmailAndPassword(auth, username, password);
-    } catch (e) {
-      alert("Incorrect password");
+    } catch (e: any) {
+      if(e.message === "Firebase: Error (auth/user-not-found).")
+      {
+        alert("Email is not registered");
+      }else if(e.message === "Firebase: Error (auth/wrong-password)."){
+        alert("Password is incorrect");
+      }
+      else{
+        alert("Something went wrong, please try again");
+      }
     }
   }
 

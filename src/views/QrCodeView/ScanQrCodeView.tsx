@@ -52,7 +52,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
 				{prompt && props.ticketStatus ? (
 					<div className="success-prompt">
 						<SuccessIcon />
-						{props.ticketStatus ? (
+						{props.ticketStatus ? ( //Needs fixing as is its not working properly
 							<div className="qr-text">Ticket Collected!</div>
 						) : (
 							<div className="qr-text">Ticket already collected!</div>

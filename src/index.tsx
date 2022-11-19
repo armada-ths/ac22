@@ -31,7 +31,7 @@ auth.onAuthStateChanged(async (user) => {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         isStudent = docSnap.data().isStudent;
-        if(!isStudent) companyLogo = docSnap.data().name;
+        if (!isStudent) companyLogo = docSnap.data().name;
       }
     } catch (e) {
       console.error("Error getting document:\n", e);
@@ -44,7 +44,8 @@ auth.onAuthStateChanged(async (user) => {
       []
     );
     let companyModel: CompanyUserModel = new CompanyUserModel(
-      user.email as string, companyLogo
+      user.email as string,
+      companyLogo
     );
     if (isStudent) {
       persistModel(userModel);

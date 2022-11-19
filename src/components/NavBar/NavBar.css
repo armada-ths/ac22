@@ -34,6 +34,10 @@
   color: var(--orange-primary);
   border-radius: 100px;
 }
+
+.navbar-qr-hide {
+  display: none;
+}
 .navbar-qr img{
 height: 3vh;
 width: 3vh;

@@ -1,10 +1,13 @@
 import React, { FC, useEffect } from "react";
 import ScanQrCodeView from "../views/QrCodeView/ScanQrCodeView";
 import { claimTicket } from "../models/Firebase/FirebaseModel";
+import { auth } from "../models/Firebase/firebaseConfig";
+
 const CryptoJS = require("crypto-js");
 
 const QrCodePresenter: FC = (props) => {
 	const [company, setCompany] = React.useState("");
+  const [ticketStatus, setTicketStatus] = React.useState(true);
 
 	useEffect(() => {
 		checkURL();
@@ -33,18 +36,27 @@ const QrCodePresenter: FC = (props) => {
 			const urlSearchParams = new URLSearchParams(decoded);
 			setCompany(urlSearchParams.get("companyName")?.toString() ?? "");
 			claimTicket(
+				auth.currentUser?.uid ?? "",
+				urlSearchParams.get("ticketType")?.toString() ?? "",
 				urlSearchParams.get("companyName")?.toString() ?? "",
 				parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "1")
-			); //Ugly fix as the state is not updated in time
+			).then((ticketStatus) => {
+				setTicketStatus(ticketStatus as boolean);
+			}); //Ugly fix as the state is not updated in time
 			resolve();
 		});
 	}
 
-	function capitalizeFirstLetter(string: string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
+	function sanitize(string: string) {
+		return (
+			string.charAt(0).toUpperCase() +
+			string.substring(0, string.indexOf("@")).slice(1)
+		);
 	}
 
-	return <ScanQrCodeView company={capitalizeFirstLetter(company)} />;
+	return (
+		<ScanQrCodeView company={sanitize(company)} fetchFromURL={fetchFromURL} ticketStatus = {ticketStatus}/>
+	);
 };
 
 export default QrCodePresenter;

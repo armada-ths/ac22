@@ -44,11 +44,11 @@ const QrCodePresenter: FC = (props) => {
 		});
 	}
 
-	function capitalizeFirstLetter(string: string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
+	function sanitize(string: string) {
+		return string.charAt(0).toUpperCase() + string.substring(0, string.indexOf('@')).slice(1);
 	}
 
-	return <ScanQrCodeView company={capitalizeFirstLetter(company)} />;
+	return <ScanQrCodeView company={sanitize(company)} />;
 };
 
 export default QrCodePresenter;

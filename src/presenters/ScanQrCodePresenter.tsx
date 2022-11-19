@@ -1,6 +1,8 @@
 import React, { FC, useEffect } from "react";
 import ScanQrCodeView from "../views/QrCodeView/ScanQrCodeView";
 import { claimTicket } from "../models/Firebase/FirebaseModel";
+import { auth } from "../models/Firebase/firebaseConfig";
+
 const CryptoJS = require("crypto-js");
 
 const QrCodePresenter: FC = (props) => {
@@ -33,6 +35,8 @@ const QrCodePresenter: FC = (props) => {
 			const urlSearchParams = new URLSearchParams(decoded);
 			setCompany(urlSearchParams.get("companyName")?.toString() ?? "");
 			claimTicket(
+				auth.currentUser?.uid ?? "",
+				urlSearchParams.get("ticketType")?.toString() ?? "",
 				urlSearchParams.get("companyName")?.toString() ?? "",
 				parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "1")
 			); //Ugly fix as the state is not updated in time

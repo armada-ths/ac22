@@ -20,15 +20,17 @@ const QrCodePresenter: FC<props> = ({ user }) => {
 		getCompanyData(company).then((data) => {
 			if (data !== undefined) {
 				setTicketNr(data.TotalTickets + 1);
+				setSuperTicketsLeft(data.SuperTicketsLeft);
 			}
 		});
 	}, []);
 
-	const redirectURL = "localhost:3000/scanqrcode";
+	// const redirectURL = "localhost:3000/scanqrcode";
 
 	const [company, setCompany] = React.useState(user.email as string); //This should be set by the company from company login
 	const [ticketType, setTicketType] = React.useState("standardticket");
 	const [ticketNr, setTicketNr] = React.useState(1);
+	const [superTicketsLeft, setSuperTicketsLeft] = React.useState(10);
 	const [isShown, setIsShown] = React.useState(false);
 	const [qrCode, setQrCode] = React.useState(window.location.href);
 
@@ -38,25 +40,32 @@ const QrCodePresenter: FC<props> = ({ user }) => {
 	};
 
 	async function generateURL() {
+		const redirectURL = window.location.href;
 		const urlSearchParams = new URLSearchParams();
 		urlSearchParams.append("companyName", company);
 		urlSearchParams.append("ticketType", ticketType);
 		urlSearchParams.append("ticketNr", ticketNr.toString());
 		setTicketNr(ticketNr + 1);
 		const encoded = encryptWithAES(urlSearchParams.toString());
-		setQrCode(redirectURL + "#" + encoded);
+		setQrCode(redirectURL + "scanqrcode#" + encoded);
 		addTicketToDatabase();
-		console.log(redirectURL + "#" + encoded);
+		console.log(redirectURL + "scanqrcode#" + encoded);
 	}
 
 	function addTicketToDatabase() {
 		addToDB("companies", company, { ticketType, ticketNr });
+		if (ticketType === "superticket") {
+			setSuperTicketsLeft(superTicketsLeft - 1);
+		}
 	}
 
 	function removePreviousQrCode() {
 		let ticket = "Ticket " + (ticketNr - 1);
 		setTicketNr(ticketNr - 1);
 		removeFromDB("companies", company, ticket);
+		if (ticketType === "superticket") {
+			setSuperTicketsLeft(superTicketsLeft + 1);
+		}
 	}
 
 	function capitalizeFirstLetter(string: string) {
@@ -75,6 +84,7 @@ const QrCodePresenter: FC<props> = ({ user }) => {
 			setQrCode={setQrCode}
 			removePreviousQrCode={removePreviousQrCode}
 			companyLogo={user.name}
+			superTicketsLeft={superTicketsLeft}
 		/>
 	);
 };

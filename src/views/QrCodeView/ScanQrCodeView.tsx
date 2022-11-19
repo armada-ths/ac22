@@ -10,6 +10,7 @@ const CryptoJS = require("crypto-js");
 interface Props {
   company: string;
   fetchFromURL: (url: string) => void;
+  ticketStatus: boolean;
 }
 
 const ScanQrCodeView: FC<Props> = (props) => {
@@ -49,7 +50,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
             setData(result?.getText() || "No result");
           }}
         />
-        {prompt ? (
+        {prompt && props.ticketStatus ? (
           <div className="success-prompt">
             <SuccessIcon />
             <div className="qr-text">Ticket Collected!</div>
@@ -68,7 +69,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
             {/* <div>{ticket}</div> */}
           </div>
         ) : (
-          ""
+          <div className="qr-text">Ticket already claimed!</div>
         )}
         <div className="scan-text">
           Don't have an account? <a href="/Register">Register</a>

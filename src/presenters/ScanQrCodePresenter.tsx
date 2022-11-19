@@ -7,6 +7,7 @@ const CryptoJS = require("crypto-js");
 
 const QrCodePresenter: FC = (props) => {
 	const [company, setCompany] = React.useState("");
+  const [ticketStatus, setTicketStatus] = React.useState(true);
 
 	useEffect(() => {
 		checkURL();
@@ -39,8 +40,8 @@ const QrCodePresenter: FC = (props) => {
 				urlSearchParams.get("ticketType")?.toString() ?? "",
 				urlSearchParams.get("companyName")?.toString() ?? "",
 				parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "1")
-			).then((e) => {
-				alert(e);
+			).then((ticketStatus) => {
+				setTicketStatus(ticketStatus as boolean);
 			}); //Ugly fix as the state is not updated in time
 			resolve();
 		});
@@ -54,7 +55,7 @@ const QrCodePresenter: FC = (props) => {
 	}
 
 	return (
-		<ScanQrCodeView company={sanitize(company)} fetchFromURL={fetchFromURL} />
+		<ScanQrCodeView company={sanitize(company)} fetchFromURL={fetchFromURL} ticketStatus = {ticketStatus}/>
 	);
 };
 

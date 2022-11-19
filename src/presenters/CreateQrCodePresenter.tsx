@@ -49,7 +49,7 @@ const QrCodePresenter: FC<props> = ({ user }) => {
 		const encoded = encryptWithAES(urlSearchParams.toString());
 		setQrCode(redirectURL + "scanqrcode#" + encoded);
 		addTicketToDatabase();
-		// console.log(redirectURL + "scanqrcode#" + encoded);
+		console.log(redirectURL + "scanqrcode#" + encoded); //For debugging
 	}
 
 	function addTicketToDatabase() {

@@ -18,10 +18,10 @@ async function CreateDoc(user: User, data: FormData) {
 		try {
 			await setDoc(docRef, {
 				collectedTickets: {
-					nrOfTickets: 10, // TODO: Change to 0 on fairday
+					nrOfTickets: 0,
 					nrOfSuperTickets: 0,
-					points: 30, //TODO: Change to 0 on fairday
 				},
+				points: 10, //TODO: Change to 0 on fairday
 				currentCompany: -1,
 				starredCompanies: [],
 				userInfo: {

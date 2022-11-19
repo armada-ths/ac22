@@ -5,7 +5,7 @@ import {
 	increment,
 	updateDoc,
 	deleteField,
-	arrayUnion
+	arrayUnion,
 } from "firebase/firestore";
 import { database } from "./firebaseConfig";
 
@@ -29,7 +29,7 @@ export async function addToDB(
 		try {
 			await setDoc(docRef, {
 				TotalTickets: 0,
-        SuperTicketsLeft: 0,
+				SuperTicketsLeft: 0,
 			});
 		} catch (e) {}
 		addToDB(collectionName, documentID, data);
@@ -89,6 +89,15 @@ export async function claimTicket(
 	if (docSnapCompany.exists() && docSnapUser.exists()) {
 		const data = docSnapCompany.data();
 		if (data[ticket].available && ticketGroup != null) {
+			//If user created an account before points field was added run this
+			if (docSnapUser.data().points == null) {
+				await setDoc(docRefUser, {
+					collectedTickets: {
+						nrOfTickets: 0,
+					},
+					points: 10,
+				},{ merge: true });
+			}
 			await setDoc(
 				docRefCompany,
 				{
@@ -104,8 +113,8 @@ export async function claimTicket(
 				{
 					["collectedTickets"]: {
 						[ticketGroup]: increment(1),
-						points: increment(points),
 					},
+					points: increment(points),
 					visitedCompanies: arrayUnion(company.replace("@ac22.se", "")),
 				},
 				{ merge: true }

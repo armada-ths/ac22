@@ -57,7 +57,7 @@ auth.onAuthStateChanged(async (user) => {
       <div>
         {
           /*user.email?.includes("ac22.se")*/ isStudent ? (
-            <App userModel={userModel} user={user} />
+            <App userModel={userModel} />
           ) : (
             <App2 companyModel={companyModel} />
           )

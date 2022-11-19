@@ -15,7 +15,6 @@ import { increment } from "firebase/firestore";
 const CryptoJS = require("crypto-js");
 
 interface Props {
-  company: string;
   user: User;
 }
 
@@ -59,15 +58,25 @@ const ScanQrCodeView: FC<Props> = (props) => {
     });
   }
 
-  function addTicketToDatabase(tickettype: string) {
+  function addTicketToDatabase(tickettype: string, company: string) {
     if (tickettype === "standardticket") {
-      addToUserDatabase(props.user.uid, null, {
-        nrOfTickets: increment(1),
-      });
+      addToUserDatabase(
+        props.user.uid,
+        null,
+        {
+          nrOfTickets: increment(1),
+        },
+        company
+      );
     } else {
-      addToUserDatabase(props.user.uid, null, {
-        nrOfSuperTickets: increment(1),
-      });
+      addToUserDatabase(
+        props.user.uid,
+        null,
+        {
+          nrOfSuperTickets: increment(1),
+        },
+        company
+      );
     }
   }
 
@@ -112,7 +121,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
               buttonType="button"
               onButtonClick={() => {
                 setPrompt(false);
-                addTicketToDatabase(ticket);
+                addTicketToDatabase(ticket, company.replace("@ac22.se", ""));
               }}
             ></AuthButton>
             <div className="qr-text">

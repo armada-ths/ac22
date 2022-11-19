@@ -7,6 +7,7 @@ import {
   increment,
   updateDoc,
   deleteField,
+  arrayUnion,
 } from "firebase/firestore";
 import { database } from "./firebaseConfig";
 
@@ -79,24 +80,83 @@ export async function claimTicket(company: string, ticketNr: number) {
 export async function addToUserDatabase(
   user: string,
   starredCompanies?: any,
-  collectedTickets?: any
+  collectedTickets?: any,
+  visitedCompanies?: any
 ) {
   const docRef = doc(database, "users", user);
-  try {
-    await setDoc(
-      docRef,
-      starredCompanies && collectedTickets
-        ? {
-            starredCompanies: starredCompanies,
+  if (!!starredCompanies && collectedTickets) {
+    try {
+      await setDoc(
+        docRef,
+        {
+          starredCompanies: arrayUnion(starredCompanies),
+          collectedTickets: collectedTickets,
+          visitedCompanies: arrayUnion(visitedCompanies),
+
+          // [collectedTickets]: {
+          //   collectedTickets: collectedTickets,
+          // },
+          // [starredCompanies]: {
+          //   starredCompanies: starredCompanies,
+          // },
+          // visitedCompanies: arrayUnion(visitedCompanies),
+        },
+        { merge: true }
+      );
+    } catch (e) {}
+  } else {
+    if (!!starredCompanies) {
+      try {
+        await setDoc(
+          docRef,
+          {
+            starredCompanies: arrayUnion(starredCompanies),
+          },
+          { merge: true }
+        );
+      } catch (e) {}
+    } else {
+      try {
+        await setDoc(
+          docRef,
+          {
             collectedTickets: collectedTickets,
-          }
-        : starredCompanies
-        ? { starredCompanies: starredCompanies }
-        : { collectedTickets: collectedTickets },
-      { merge: true }
-    );
-  } catch (e) {}
+            visitedCompanies: arrayUnion(visitedCompanies),
+          },
+          { merge: true }
+        );
+      } catch (e) {}
+    }
+  }
+  // try {
+  //   await setDoc(
+  //     docRef,
+  //     {
+  //       starredCompanies: arrayUnion(starredCompanies),
+  //       collectedTickets: collectedTickets,
+  //       visitedCompanies: arrayUnion(visitedCompanies),
+
+  //       // [collectedTickets]: {
+  //       //   collectedTickets: collectedTickets,
+  //       // },
+  //       // [starredCompanies]: {
+  //       //   starredCompanies: starredCompanies,
+  //       // },
+  //       // visitedCompanies: arrayUnion(visitedCompanies),
+  //     },
+  //     { merge: true }
+  //   );
+  // } catch (e) {}
 }
+
+// starredCompanies && collectedTickets
+// ? {
+//     starredCompanies: starredCompanies,
+//     collectedTickets: collectedTickets,
+//   }
+// : starredCompanies
+// ? { starredCompanies: starredCompanies }
+// : { collectedTickets: collectedTickets }
 
 export async function getCompanyData(company: string) {
   const docRef = doc(database, "companies", company);

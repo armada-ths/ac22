@@ -106,7 +106,7 @@ export async function claimTicket(
 						[ticketGroup]: increment(1),
 						points: increment(points),
 					},
-					visitedCompanies: arrayUnion(company),
+					visitedCompanies: arrayUnion(company.replace("@ac22.se", "")),
 				},
 				{ merge: true }
 			);

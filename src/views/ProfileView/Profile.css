@@ -3,7 +3,6 @@
     flex-direction: column;
     background-color: var(--background);
     width: 90vw;
-    width: 90vw;
     margin-left: 7%;
     margin-right: 2%;
     margin-top: 5%; /* extra space for top nav bar*/
@@ -159,3 +158,13 @@
   font-size: auto;
   font-style: normal;
 }
+
+.checkmarks-container{
+  display: flex;
+  flex-direction: column;
+}
+.checkmarks{
+  display: flex;
+  flex-direction: row;
+}
+

@@ -122,7 +122,7 @@ const ProfileView: FC<Props> = ({}) => {
 											</option>
 										))}
 									</select>
-									<div className="fontSize">- </div>
+									<div className="fontSize">-</div>
 									<select className="input-tag input-tag1">
 										{CompletionYear.map((item, index) => (
 											<option key={index} value={item}>
@@ -131,7 +131,17 @@ const ProfileView: FC<Props> = ({}) => {
 										))}
 									</select>
 								</div>
-								<div></div>
+								<div className="checkmarks-container">
+									<h3>Interests</h3>
+									<div className="checkmarks">
+										<input type="checkbox" className="checkmark"/>
+											<label>Hello </label>
+									
+										<input type="checkbox" className="checkmark" />
+										<label>World</label>
+										
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

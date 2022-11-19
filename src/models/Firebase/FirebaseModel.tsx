@@ -110,8 +110,10 @@ export async function claimTicket(
 				},
 				{ merge: true }
 			);
+			return true;
 		} else {
 			// Ticket already claimed function (NEEDS IMPLEMENTATION)
+			return false;
 		}
 	}
 }

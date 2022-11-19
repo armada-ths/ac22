@@ -39,7 +39,9 @@ const QrCodePresenter: FC = (props) => {
 				urlSearchParams.get("ticketType")?.toString() ?? "",
 				urlSearchParams.get("companyName")?.toString() ?? "",
 				parseInt(urlSearchParams.get("ticketNr")?.toString() ?? "1")
-			); //Ugly fix as the state is not updated in time
+			).then((e) => {
+				console.log("fetching: " + e);
+			}); //Ugly fix as the state is not updated in time
 			resolve();
 		});
 	}

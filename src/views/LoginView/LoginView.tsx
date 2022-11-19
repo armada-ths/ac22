@@ -50,7 +50,7 @@ const RegisterView: FC<Props> = ({
 
   return (
     <div className="screen">
-      <div className="LoginCard">
+      <div className="login-card">
         <AuthHeading title={title} />
         <div className="form-content-login">
           <ACInput

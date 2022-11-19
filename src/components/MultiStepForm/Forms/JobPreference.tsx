@@ -28,33 +28,33 @@ const JobPreference: FC<Props> = ({ jobInterests, updateField }) => {
   );
 
   return (
-    <div className="form-content">
+    <div className="form-content checkboxes-margin">
       <h2>Final Step!</h2>
 
       <div className="subheading">Job Interests</div>
-      {twoColumnPositions.map(([positionLeft, positionRight]) => (
+      {twoColumnPositions.map(([jobPositionL, jobPositionR]) => (
         <div className="checkboxes-row">
           <div className="checkbox-container">
             <input
-              checked={jobInterests.includes(positionLeft)}
+              checked={jobInterests.includes(jobPositionL)}
               type="checkbox"
               className="checkbox"
-              id={positionLeft}
-              value={positionLeft}
+              id={jobPositionL}
+              value={jobPositionL}
               onClick={(e) => handleChange(e)}
             />
-            <label htmlFor={positionLeft}>{positionLeft}</label>
+            <label htmlFor={jobPositionL}>{jobPositionL}</label>
           </div>
-          <div className="checkbox-container">
+          <div className="checkbox-container right-col-pad">
             <input
-              checked={jobInterests.includes(positionRight)}
+              checked={jobInterests.includes(jobPositionR)}
               type="checkbox"
               className="checkbox"
-              id={positionRight}
-              value={positionRight}
+              id={jobPositionR}
+              value={jobPositionR}
               onClick={(e) => handleChange(e)}
             />
-            <label htmlFor={positionRight}>{positionRight}</label>
+            <label htmlFor={jobPositionR}>{jobPositionR}</label>
           </div>
         </div>
       ))}

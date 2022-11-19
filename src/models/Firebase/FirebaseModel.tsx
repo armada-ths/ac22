@@ -1,46 +1,47 @@
 import {
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  setDoc,
-  increment,
-  updateDoc,
-  deleteField,
+	collection,
+	doc,
+	getDoc,
+	getDocs,
+	setDoc,
+	increment,
+	updateDoc,
+	deleteField,
 } from "firebase/firestore";
 import { database } from "./firebaseConfig";
 
 export async function addToDB(
-  collectionName: string,
-  documentID: any,
-  data: any
+	collectionName: string,
+	documentID: any,
+	data: any
 ) {
-  const docRef = doc(database, collectionName, documentID);
-  if ((await getDoc(docRef)).exists()) {
-    switch (collectionName) {
-      case "users":
-        //Add to users
-        break;
+	const docRef = doc(database, collectionName, documentID);
+	if ((await getDoc(docRef)).exists()) {
+		switch (collectionName) {
+			case "users":
+				//Add to users
+				break;
 
-      case "companies":
-        addToCompanyDatabase(documentID, data.ticketType, data.ticketNr);
-        break;
-    }
-  } else {
-    try {
-      await setDoc(docRef, {
-        TotalTickets: 0,
-        TotalTicketsLeft: 0,
-      });
-    } catch (e) {}
-    addToDB(collectionName, documentID, data);
-  }
+			case "companies":
+				addToCompanyDatabase(documentID, data.ticketType, data.ticketNr);
+				break;
+		}
+	} else {
+		try {
+			await setDoc(docRef, {
+				TotalTickets: 0,
+        SuperTicketsLeft: 0,
+				// TotalTicketsLeft: 0, //Might not be needed as only SuperTicketsLeft are being shown in main page
+			});
+		} catch (e) {}
+		addToDB(collectionName, documentID, data);
+	}
 }
 
 export async function addToCompanyDatabase(
-  company: string,
-  ticketType: string,
-  ticketNr: number
+	company: string,
+	ticketType: string,
+	ticketNr: number
 ) {
 	const docRef = doc(database, "companies", company);
 	const ticket = "Ticket " + ticketNr;
@@ -49,7 +50,7 @@ export async function addToCompanyDatabase(
 		await updateDoc(docRef, {
 			SuperTicketsLeft: increment(-1),
 			TotalTickets: increment(1),
-			TotalTicketsLeft: increment(1),
+			// TotalTicketsLeft: increment(1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 			[ticket]: {
 				ticketType: ticketType,
 				available: true,
@@ -59,7 +60,7 @@ export async function addToCompanyDatabase(
 	} else {
 		await updateDoc(docRef, {
 			TotalTickets: increment(1),
-			TotalTicketsLeft: increment(1),
+			// TotalTicketsLeft: increment(1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 			[ticket]: {
 				ticketType: ticketType,
 				available: true,
@@ -89,19 +90,20 @@ export async function claimTicket(
 		ticketGroup = "nrOfSuperTickets";
 		points = 10;
 	}
-  if (docSnapCompany.exists() && docSnapUser.exists()) {
+	if (docSnapCompany.exists() && docSnapUser.exists()) {
 		const data = docSnapCompany.data();
 		if (data[ticket].available && ticketGroup != null) {
 			await setDoc(
 				docRefCompany,
-        {
-          [ticket]: {
-            available: false,
-          },
-          TotalTicketsLeft: increment(-1),
-        },
-        { merge: true }
-      );await setDoc(
+				{
+					[ticket]: {
+						available: false,
+					},
+					// TotalTicketsLeft: increment(-1), //Might not be needed as only SuperTicketsLeft are being shown in main page
+				},
+				{ merge: true }
+			);
+			await setDoc(
 				docRefUser,
 				{
 					["collectedTickets"]: {
@@ -114,37 +116,37 @@ export async function claimTicket(
 		} else {
 			// Ticket already claimed function (NEEDS IMPLEMENTATION)
 		}
-  }
+	}
 }
 
 export async function addToUserDatabase(
-  user: string,
-  starredCompanies: any,
-  collectedTickets: any
+	user: string,
+	starredCompanies: any,
+	collectedTickets: any
 ) {
-  const docRef = doc(database, "users", user);
+	const docRef = doc(database, "users", user);
 
-  try {
-    await setDoc(docRef, {
-      starredCompanies: starredCompanies,
-      collectedTickets: collectedTickets,
-    });
-  } catch (e) {}
+	try {
+		await setDoc(docRef, {
+			starredCompanies: starredCompanies,
+			collectedTickets: collectedTickets,
+		});
+	} catch (e) {}
 }
 
 export async function getCompanyData(company: string) {
-  const docRef = doc(database, "companies", company);
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    return docSnap.data();
-  } else {
-  }
+	const docRef = doc(database, "companies", company);
+	const docSnap = await getDoc(docRef);
+	if (docSnap.exists()) {
+		return docSnap.data();
+	} else {
+	}
 }
 
 export async function removeFromDB(
-  collectionName: string,
-  documentID: any,
-  data: any
+	collectionName: string,
+	documentID: any,
+	data: any
 ) {
 	const docRef = doc(database, collectionName, documentID);
 	try {
@@ -153,14 +155,14 @@ export async function removeFromDB(
 				await updateDoc(docRef, {
 					[data]: deleteField(),
 					TotalTickets: increment(-1),
-					TotalTicketsLeft: increment(-1),
+					// TotalTicketsLeft: increment(-1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 					SuperTicketsLeft: increment(1),
 				});
 			} else {
 				await updateDoc(docRef, {
 					[data]: deleteField(),
 					TotalTickets: increment(-1),
-					TotalTicketsLeft: increment(-1),
+					// TotalTicketsLeft: increment(-1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 				});
 			}
 		}

@@ -6,7 +6,7 @@ import {
 	getCompanyData,
 	removeFromDB,
 } from "../models/Firebase/FirebaseModel";
-import { User } from "@firebase/auth";
+// import { User } from "@firebase/auth";
 const CryptoJS = require("crypto-js");
 
 // To be used by Companies to create QR codes for their tickets

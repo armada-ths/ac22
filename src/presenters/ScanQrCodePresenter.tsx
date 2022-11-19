@@ -45,10 +45,15 @@ const QrCodePresenter: FC = (props) => {
 	}
 
 	function sanitize(string: string) {
-		return string.charAt(0).toUpperCase() + string.substring(0, string.indexOf('@')).slice(1);
+		return (
+			string.charAt(0).toUpperCase() +
+			string.substring(0, string.indexOf("@")).slice(1)
+		);
 	}
 
-	return <ScanQrCodeView company={sanitize(company)} />;
+	return (
+		<ScanQrCodeView company={sanitize(company)} fetchFromURL={fetchFromURL} />
+	);
 };
 
 export default QrCodePresenter;

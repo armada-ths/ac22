@@ -1,12 +1,11 @@
 import {
-	collection,
 	doc,
 	getDoc,
-	getDocs,
 	setDoc,
 	increment,
 	updateDoc,
 	deleteField,
+	arrayUnion
 } from "firebase/firestore";
 import { database } from "./firebaseConfig";
 
@@ -31,7 +30,6 @@ export async function addToDB(
 			await setDoc(docRef, {
 				TotalTickets: 0,
         SuperTicketsLeft: 0,
-				// TotalTicketsLeft: 0, //Might not be needed as only SuperTicketsLeft are being shown in main page
 			});
 		} catch (e) {}
 		addToDB(collectionName, documentID, data);
@@ -50,7 +48,6 @@ export async function addToCompanyDatabase(
 		await updateDoc(docRef, {
 			SuperTicketsLeft: increment(-1),
 			TotalTickets: increment(1),
-			// TotalTicketsLeft: increment(1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 			[ticket]: {
 				ticketType: ticketType,
 				available: true,
@@ -60,7 +57,6 @@ export async function addToCompanyDatabase(
 	} else {
 		await updateDoc(docRef, {
 			TotalTickets: increment(1),
-			// TotalTicketsLeft: increment(1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 			[ticket]: {
 				ticketType: ticketType,
 				available: true,
@@ -98,8 +94,8 @@ export async function claimTicket(
 				{
 					[ticket]: {
 						available: false,
+						claimedBy: currentUserUID, // Might want to have the user's name instead of UID
 					},
-					// TotalTicketsLeft: increment(-1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 				},
 				{ merge: true }
 			);
@@ -110,6 +106,7 @@ export async function claimTicket(
 						[ticketGroup]: increment(1),
 						points: increment(points),
 					},
+					visitedCompanies: arrayUnion(company),
 				},
 				{ merge: true }
 			);
@@ -155,14 +152,12 @@ export async function removeFromDB(
 				await updateDoc(docRef, {
 					[data]: deleteField(),
 					TotalTickets: increment(-1),
-					// TotalTicketsLeft: increment(-1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 					SuperTicketsLeft: increment(1),
 				});
 			} else {
 				await updateDoc(docRef, {
 					[data]: deleteField(),
 					TotalTickets: increment(-1),
-					// TotalTicketsLeft: increment(-1), //Might not be needed as only SuperTicketsLeft are being shown in main page
 				});
 			}
 		}

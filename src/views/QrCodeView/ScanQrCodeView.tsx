@@ -5,80 +5,92 @@ import "./ScanQRCodeView.css";
 import { QrReader, useQrReader, OnResultFunction } from "react-qr-reader";
 import AuthButton from "../../components/AuthButton/AuthButton";
 import { SuccessIcon } from "../../assets/RegisterSuccessIcon/SucccessIcon";
-const CryptoJS = require("crypto-js");
+import { setDefaultEventParameters } from "firebase/analytics";
+import { wait } from "@testing-library/user-event/dist/utils";
+import { InvalidTicket } from "../../assets/InvalidTicket/InvalidTicket";
 
 interface Props {
-	company: string;
-	fetchFromURL: (url: string) => void;
-	ticketStatus: boolean;
+  company: string;
+  fetchFromURL: (url: string) => void;
+  ticketStatus: boolean;
 }
 
 const ScanQrCodeView: FC<Props> = (props) => {
-	const [data, setData] = useState("No result");
-	const [prompt, setPrompt] = useState(false);
-	const [company, setCompany] = useState("");
+  const [prompt, setPrompt] = useState(false);
+  const [scanDelay, setscanDelay] = useState(3000);
+  const [ticketClaimed, setTicketClaimed] = useState(!props.ticketStatus); //if status is true, ticket is unclaimed
 
-	function capitalizeFirstLetter(string: string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
+  function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
-	console.log(data);
-	return (
-		<div>
-			<div className="scan-navbar">
-				<NavBar
-					name={["Malin", "Marques"]}
-					title="<- Back"
-					collectedTickets={10}
-					qrButtonActive={false}
-				/>
-			</div>
-			<div className="scan-main">
-				<QrReader
-					className="scan-qr-reader"
-					scanDelay={300}
-					constraints={{
-						facingMode: "environment",
-					}}
-					onResult={(result) => {
-						if (!!result) {
-							setPrompt(true);
-							props.fetchFromURL(result?.getText());
-						}
-						window.navigator.vibrate(100);
-						setData(result?.getText() || "No result");
-					}}
-				/>
-				{prompt && props.ticketStatus ? (
-					<div className="success-prompt">
-						<SuccessIcon />
-						{props.ticketStatus ? ( //Needs fixing as is its not working properly
-							<div className="qr-text">Ticket Collected!</div>
-						) : (
-							<div className="qr-text">Ticket already collected!</div>
-						)}
-						<AuthButton
-							active={true}
-							buttonText="great"
-							buttonType="button"
-							onButtonClick={() => {
-								setPrompt(false);
-								// addTicketToDatabase(ticket);
-							}}></AuthButton>
-						<div className="qr-text">
-							{capitalizeFirstLetter(company.replace("@ac22.se", ""))}
-						</div>
-						{/* <div>{ticket}</div> */}
-					</div>
-				) : (
-					""
-				)}
-				<div className="scan-text">
-					Don't have an account? <a href="/Register">Register</a>
-				</div>
-			</div>
-		</div>
-	);
+  console.log(!props.ticketStatus, "heyy");
+  return (
+    <div>
+      <div className="scan-navbar">
+        <NavBar
+          name={["Malin", "Marques"]}
+          title="<- Back"
+          collectedTickets={10}
+          qrButtonActive={false}
+        />
+      </div>
+      <div className="scan-main">
+        <QrReader
+          className="scan-qr-reader"
+          scanDelay={scanDelay}
+          constraints={{
+            facingMode: "environment",
+          }}
+          onResult={(result) => {
+            setTimeout(() => {}, 10000);
+            if (!!result) {
+              window.navigator.vibrate(3);
+              setTimeout(() => {}, 10000);
+              setscanDelay(8000);
+              setPrompt(true);
+              props.fetchFromURL(result?.getText());
+            }
+          }}
+        />
+        {prompt ? (
+          props.ticketStatus === true ? (
+            <div className="success-prompt">
+              <SuccessIcon />
+              <div className="qr-text">Ticket claimed!</div>
+              <AuthButton
+                active={true}
+                buttonText="great"
+                buttonType="button"
+                onButtonClick={() => {
+                  window.navigator.vibrate(3);
+                  setPrompt(false);
+                  setscanDelay(3000);
+                }}
+              ></AuthButton>
+            </div>
+          ) : (
+            <div className="success-prompt">
+              <InvalidTicket />
+              <div className="qr-text">Ticket already claimed!</div>
+              <AuthButton
+                active={true}
+                buttonText="oh no!"
+                buttonType="button"
+                onButtonClick={() => {
+                  window.navigator.vibrate(3);
+                  setPrompt(false);
+                  setscanDelay(3000);
+                }}
+              ></AuthButton>
+            </div>
+          )
+        ) : null}
+
+        <div className="scan-text">Scan the QR code to claim the ticket</div>
+      </div>
+    </div>
+  );
 };
 
 export default ScanQrCodeView;

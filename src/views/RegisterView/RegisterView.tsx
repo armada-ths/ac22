@@ -20,7 +20,7 @@ async function CreateDoc(user: User, data: FormData) {
 				collectedTickets: {
 					nrOfTickets: 10, // TODO: Change to 0 on fairday
 					nrOfSuperTickets: 0,
-					points: 10, //TODO: Change to 0 on fairday
+					points: 30, //TODO: Change to 0 on fairday
 				},
 				currentCompany: -1,
 				starredCompanies: [],

@@ -25,7 +25,7 @@ const App: FC<Props> = ({ userModel }) => {
 	return (
 		<Router>
 			<Routes>
-				<Route
+				{/* <Route
 					path="/"
 					element={
 						<HomePresenter
@@ -75,7 +75,7 @@ const App: FC<Props> = ({ userModel }) => {
 					}
 				/>
 
-				<Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
+				<Route path="tutorial-company" element={<CompanyTutorialPresenter />} /> */}
 
 				<Route path="/" element={<RegisterPresenter registered={true} />} />
 				<Route path="*" element={<RegisterPresenter registered={true} />} />

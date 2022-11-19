@@ -68,14 +68,17 @@ const QrCodePresenter: FC<props> = ({ user }) => {
 		}
 	}
 
-	function capitalizeFirstLetter(string: string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
+	function sanitize(string: string) {
+		return (
+			string.charAt(0).toUpperCase() +
+			string.substring(0, string.indexOf("@")).slice(1)
+		);
 	}
 
 	return (
 		<QrCodeView
 			setTicketType={setTicketType}
-			company={capitalizeFirstLetter(company)}
+			company={sanitize(company)}
 			ticketType={ticketType}
 			generateURL={generateURL}
 			isShown={isShown}

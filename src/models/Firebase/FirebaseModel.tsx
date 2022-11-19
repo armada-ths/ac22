@@ -45,7 +45,7 @@ export async function addToCompanyDatabase(
 ) {
 	const docRef = doc(database, "companies", company);
 	const ticket = "Ticket " + ticketNr;
-	console.log(ticketType);
+	// console.log(ticketType);
 	if (ticketType === "superticket") {
 		await updateDoc(docRef, {
 			SuperTicketsLeft: increment(-1),
@@ -56,7 +56,7 @@ export async function addToCompanyDatabase(
 				available: true,
 			},
 		});
-		console.log("superTicket--");
+		// console.log("superTicket--");
 	} else {
 		await updateDoc(docRef, {
 			TotalTickets: increment(1),

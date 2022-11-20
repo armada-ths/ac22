@@ -6,21 +6,19 @@ import AuthButton from "../../components/AuthButton/AuthButton";
 import { SuccessIcon } from "../../assets/RegisterSuccessIcon/SucccessIcon";
 import { BarcodeScanner } from "react-barcode-qrcode-scanner";
 import { TextResult } from "dynamsoft-javascript-barcode";
+import { LoadingIcon } from "../../components/LoadingIcon/Loading";
 
 interface Props {
   company: string;
-  fetchFromURL: (url: string) => void;
-  ticketStatus: boolean;
+  fetchFromURL: (url: string) => Promise<boolean>;
 }
 
 const ScanQrCodeView: FC<Props> = (props) => {
   const [data, setData] = useState("No result");
   const [prompt, setPrompt] = useState(false);
   const [company, setCompany] = useState("");
-
-  function capitalizeFirstLetter(string: string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  const [loading, setLoading] = useState(false);
+  const [ticketStatus, setTicketStatus] = useState(true);
 
   const [Initialized, setInitialized] = useState(false);
   const [isActive, setIsActive] = useState(true); //whether the camera is active
@@ -37,14 +35,18 @@ const ScanQrCodeView: FC<Props> = (props) => {
     //console.log("closed");
   };
 
-  const onScanned = (results: TextResult[]) => {
+  async function onScanned(results: TextResult[]) {
     if (results.length > 0) {
-      setPrompt(true);
+      setLoading(true);
       setIsActive(false);
       window.navigator.vibrate(100);
-      props.fetchFromURL(results[0].barcodeText);
+      setTicketStatus(
+        (await props.fetchFromURL(results[0].barcodeText)) as any
+      );
+      setLoading(false);
+      setPrompt(true);
     }
-  };
+  }
 
   const onClicked = (result: TextResult) => {
     // when a barcode overlay is clicked
@@ -85,23 +87,15 @@ const ScanQrCodeView: FC<Props> = (props) => {
             interval={2000}
           ></BarcodeScanner>
         </div>
-        {/* <QrReader
-					className="scan-qr-reader"
-					scanDelay={300}
-					constraints={{
-						facingMode: "environment",
-					}}
-					onResult={(result) => {
-						if (!!result) {
-							setPrompt(true);
-							props.fetchFromURL(result?.getText());
-						}
-						window.navigator.vibrate(100);
-						setData(result?.getText() || "No result");
-					}}
-				/> */}
+        {loading ? (
+          <div className="success-prompt-loading">
+            <LoadingIcon />
+          </div>
+        ) : (
+          ""
+        )}
         {prompt ? (
-          props.ticketStatus === true ? (
+          ticketStatus === true ? (
             <div className="success-prompt">
               <SuccessIcon />
               <div className="qr-text">Ticket Collected!</div>
@@ -114,9 +108,6 @@ const ScanQrCodeView: FC<Props> = (props) => {
                   setIsActive(true);
                 }}
               ></AuthButton>
-              <div className="qr-text">
-                {capitalizeFirstLetter(company.replace("@ac22.se", ""))}
-              </div>
             </div>
           ) : (
             <div className="success-prompt">
@@ -130,9 +121,6 @@ const ScanQrCodeView: FC<Props> = (props) => {
                   setIsActive(true);
                 }}
               ></AuthButton>
-              <div className="qr-text">
-                {capitalizeFirstLetter(company.replace("@ac22.se", ""))}
-              </div>
             </div>
           )
         ) : (

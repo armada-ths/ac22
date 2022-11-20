@@ -37,14 +37,10 @@ const ScanQrCodeView: FC<Props> = (props) => {
     //console.log("closed");
   };
 
-  const onDeviceListLoaded = (devices: MediaDeviceInfo[]) => {
-    //console.log(devices);
-  };
-
   const onScanned = (results: TextResult[]) => {
     if (results.length > 0) {
       setPrompt(true);
-      setIsPause(true);
+      setIsActive(false);
       window.navigator.vibrate(100);
       props.fetchFromURL(results[0].barcodeText);
     }
@@ -115,7 +111,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
                 buttonType="button"
                 onButtonClick={() => {
                   setPrompt(false);
-                  setIsPause(false);
+                  setIsActive(true);
                 }}
               ></AuthButton>
               <div className="qr-text">
@@ -131,7 +127,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
                 buttonType="button"
                 onButtonClick={() => {
                   setPrompt(false);
-                  setIsPause(false);
+                  setIsActive(true);
                 }}
               ></AuthButton>
               <div className="qr-text">

@@ -33,6 +33,7 @@
 }
 
 .InputHeader{
+    font-size: 14px;
     display: flex;
     margin-bottom: 8px;
     color: #2BDBA0;

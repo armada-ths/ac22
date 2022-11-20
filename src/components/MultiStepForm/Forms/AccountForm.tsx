@@ -24,7 +24,6 @@ const AccountForm: FC<Props> = ({
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState("Repeat Password");
-  /*const [place2, setPlace2] = useState("Name");*/
 
   useEffect(() => {
     if (repeatPassword === password) {
@@ -88,6 +87,7 @@ const AccountForm: FC<Props> = ({
           />
         </div>
       </div>
+
     </div>
   );
 };

@@ -76,7 +76,11 @@ li {
 }
 
 @media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-  .text-img img {
+    .tutorialbox {
+        padding: 5%;
+    }
+  
+    .text-img img {
     display: none;
     width: 0px;
   }
@@ -87,7 +91,6 @@ li {
   }
   .text-img p {
     width: 90%;
-    padding: 5%;
   }
 
   .rules {
@@ -99,5 +102,6 @@ li {
   .flex-bx {
     padding: 10%;
     margin-top: 20%;
+    margin-bottom: 10%;
   }
 }

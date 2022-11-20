@@ -4,7 +4,6 @@
     flex-direction: column;
     background-color: var(--background);
     width: 90vw;
-    width: 90vw;
     margin-left: 7%;
     margin-right: 4%;
     margin-top: 7%; /* extra space for top nav bar*/
@@ -29,5 +28,13 @@
     .inner-box{
         margin-left: 4%;
         margin-right: 4%;
+    }
+
+    .inner-box{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--background);
+        height: 135vh;
+        margin-top: 20%;
     }
 }

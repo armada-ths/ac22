@@ -17,7 +17,7 @@ const NavBar: FC<Props> = ({name, title, collectedTickets}) => {
 
     return(
         <div className='navbar-base'>
-            <h1 onClick={()=>toTop()}>{title}</h1>
+            <h1 onClick={()=>toTop()} className="sidebar-title">{title}</h1>
             <div className='navbar-right'>
                 <NavBarTicket collectedTickets={collectedTickets}/>
                 <Link to="/scanqrcode" className='navbar-qr'> <img src={qrImg}/></Link>

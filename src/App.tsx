@@ -26,10 +26,7 @@ const App: FC<Props> = ({ userModel }) => {
     <Router>
       <Routes>
 
-        {/* <Route
-
-        <Route
-
+         <Route
           path="/"
           element={
             <HomePresenter
@@ -53,9 +50,8 @@ const App: FC<Props> = ({ userModel }) => {
               name={["Malin", "Marques"]}
             />
           }
-        /> */}
-        {/* <Route path="/createqrcode" element={<CreateQrCodePresenter />} /> */}
-        {/* <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
+        /> 
+        <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
         <Route
           path="/overview"
           element={
@@ -80,13 +76,11 @@ const App: FC<Props> = ({ userModel }) => {
           }
 
         /> 
-
-        />
         <Route path="tutorial-company"
         element={
           <CompanyTutorialPresenter/>
         }
-        />*/}
+        />
 
 
         <Route

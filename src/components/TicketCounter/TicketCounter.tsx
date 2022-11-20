@@ -8,7 +8,7 @@ interface Props {
 const TicketCounter: FC<Props> = ({ tickets }) => {
   return (
     <div className="counterbox">
-      <div className="title">YOUR TICKETS</div>
+      <div className="ticket-counter-title">YOUR TICKETS</div>
       <div className="ticket-flex">
         <img className="img-here" src={ticket_img} />
         <div className="tickets">{tickets}</div>

@@ -115,7 +115,7 @@ const ProfileView: FC<Props> = ({}) => {
 											</option>
 										))}
 									</select>
-									<select className="input-tag input-tag1">
+									<select className="input-tag">
 										{CompletionYear.map((item, index) => (
 											<option key={index} value={item}>
 												{item}
@@ -123,7 +123,7 @@ const ProfileView: FC<Props> = ({}) => {
 										))}
 									</select>
 									<div className="fontSize">-</div>
-									<select className="input-tag input-tag1">
+									<select className="input-tag ">
 										{CompletionYear.map((item, index) => (
 											<option key={index} value={item}>
 												{item}
@@ -134,15 +134,51 @@ const ProfileView: FC<Props> = ({}) => {
 								<div className="checkmarks-container">
 									<h3>Interests</h3>
 									<div className="checkmarks">
-										<input type="checkbox" className="checkmark"/>
-											<label>Hello </label>
-									
-										<input type="checkbox" className="checkmark" />
-										<label>World</label>
-										
+										<div className="checkmarks-row-container">
+											<input type="checkbox" className="checkmark" />
+											<label>Part-time Job </label>
+										</div>
+										<div className="checkmarks-row-container">
+											<label>Full-time Job</label>
+											<input type="checkbox" className="checkmark" />
+										</div>
+									</div>
+									<div className="checkmarks">
+										<div className="checkmarks-row-container">
+											<input type="checkbox" className="checkmark" />
+											<label>Internship</label>
+										</div>
+										<div>
+											<label>Bachelor Thesis</label>
+											<input type="checkbox" className="checkmark" />
+										</div>
+									</div>
+									<div className="checkmarks">
+										<div className="checkmarks-row-container">
+											<input type="checkbox" className="checkmark" />
+											<label>Master Thesis </label>
+										</div>
+										<div className="checkmarks-row-container">
+											<label>Trainee</label>
+											<input type="checkbox" className="checkmark" />
+										</div>
+									</div>
+									<div className="checkmarks">
+										<div className="checkmarks-row-container">
+											<input type="checkbox" className="checkmark" />
+											<label>Summer Job </label>
+										</div>
+										<div className="checkmarks-row-container">
+											<label>Other</label>
+											<input type="checkbox" className="checkmark" />
+										</div>
 									</div>
 								</div>
 							</div>
+						</div>
+						{/* Implement Delete button from Firebase here */}
+						<div className="GDPR-stuff-container"> 
+
 						</div>
 					</div>
 				) : (

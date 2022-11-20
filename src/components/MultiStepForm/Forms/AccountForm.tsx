@@ -81,7 +81,7 @@ const AccountForm: FC<Props> = ({
             }}
             onBlur={() => {
               setActive(false);
-              setPlace("Repeat Password");
+              setPlace("Retype Password");
             }}
             required
           />

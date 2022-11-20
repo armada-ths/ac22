@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
 import { auth } from "../../models/Firebase/firebaseConfig";
@@ -33,16 +34,25 @@ const RegisterView: FC<Props> = ({
     try {
       await signInWithEmailAndPassword(auth, username, password);
     } catch (e: any) {
-      if(e.message === "Firebase: Error (auth/user-not-found).")
-      {
+      if (e.message === "Firebase: Error (auth/user-not-found).") {
         alert("Email is not registered");
-      }else if(e.message === "Firebase: Error (auth/wrong-password)."){
+      } else if (e.message === "Firebase: Error (auth/wrong-password).") {
         alert("Password is incorrect");
       }
-      else{
+      else {
         alert("Something went wrong, please try again");
       }
     }
+  }
+
+  async function handleForgotPassword() {
+
+    if (username) await sendPasswordResetEmail(auth, username).then(() => alert("Please check your email for password reset. Note: Min.Length=8")).catch((e: any) => {
+      if (e.message === "Firebase: Error (auth/user-not-found).") { alert("Email is not registered") }
+      else if (e.message === "Firebase: Error (auth/invalid-email).") { alert("Email is not valid") }
+      else { console.log("error:", e.message) /*alert("Something went wrong in password reset")*/ }
+    })
+    else { alert("Please provide your email in the field for password reset") }
   }
 
   const isValidEmail = (input: any) => {
@@ -75,7 +85,8 @@ const RegisterView: FC<Props> = ({
                 value={password}
                 onChange={passwordOnChange}
               />
-            </form></span>
+            </form><span className="forgot-password" onClick={handleForgotPassword}>Forgot password</span>
+          </span>
           <AuthButton
             buttonText="Login"
             buttonType="submit"
@@ -84,7 +95,7 @@ const RegisterView: FC<Props> = ({
           />
         </div>
       </div>
-      <div className="RegisterText">
+      <div className="register-text">
         Don't have an account? <a href="/Register">Register</a>
       </div>
     </div>

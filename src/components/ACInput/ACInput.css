@@ -63,3 +63,8 @@
     flex-direction: column;
     width: 100%;
 }
+
+.warning-text{
+    margin-left: 4px;
+    font-size: 14px;
+}

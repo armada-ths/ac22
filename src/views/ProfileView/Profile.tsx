@@ -210,12 +210,17 @@ const ProfileView: FC<Props> = ({}) => {
 																This action will delete your account and all
 																related data
 															</div>
-															<div className="popup-red-warning color-red">
+															<div className="color-red">
 																This action is irreversible.
 															</div>
 															<div className="">Do you want to continue?</div>
 														</div>
-														<div> </div>
+														<div className="popup-button-cancel-container">
+															<div className="popup-greenbox-cancel">
+															<div className="popup-cancel">No Cancel</div>
+															</div>
+														</div>
+														<div className="popup-button-deleteacc">Yes delete my account</div>
 													</div>
 												</div>
 											}

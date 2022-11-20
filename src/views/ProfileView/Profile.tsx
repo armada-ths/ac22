@@ -213,8 +213,9 @@ const ProfileView: FC<Props> = ({}) => {
 															<div className="popup-red-warning color-red">
 																This action is irreversible.
 															</div>
-															<div></div>
+															<div className="">Do you want to continue?</div>
 														</div>
+														<div> </div>
 													</div>
 												</div>
 											}

@@ -5,6 +5,7 @@ import "./MultiStepForm.css";
 import { useMultiStepForm } from "./MultiStepHook/useMultiStepForm";
 import AuthButton from "../AuthButton/AuthButton";
 import FormStepCounter from "../FormStepCounter/FormStepCounter";
+import JobPreference from "./Forms/JobPreference";
 export interface FormData {
   name: string;
   email: string;
@@ -14,6 +15,7 @@ export interface FormData {
   yearOfStudy: string;
   completionYear: string;
   repeatPassword: string;
+  jobInterests: string[];
 }
 
 const START_DATA: FormData = {
@@ -25,6 +27,7 @@ const START_DATA: FormData = {
   yearOfStudy: "",
   completionYear: "",
   repeatPassword: "",
+  jobInterests: [],
 };
 
 interface Props {
@@ -40,52 +43,67 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
     });
   };
 
+  const isValidEmail = (input: any) => {
+    if (
+      /^\w+([-+.']\w+)*@?(kth\.se)$/.test(input) ||
+      /^\w+([-+.']\w+)*@?(ac22\.se)$/.test(input)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const { steps, currentStep, step, isFirst, prevStep, nextStep, isLast } =
     useMultiStepForm([
       <AccountForm {...formData} updateField={updateFields} />,
       <StudyForm {...formData} updateField={updateFields} />,
-      /*<JobPreference {...formData} updateField={updateFields} />,*/
+      <JobPreference {...formData} updateField={updateFields} />,
     ]);
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!isLast) return nextStep();
+    if ((isFirst) && !(formData.password === formData.repeatPassword)) return;
+    else if (!isLast) return nextStep();
     registerSubmit(formData);
   };
 
   return (
     <>
-    <div className="form-container">
-      <form onSubmit={onSubmit} className="form-content">
-        <div className="steps">
-          <FormStepCounter currentStep={currentStep + 1} steps={steps.length} />
-        </div>
-        {step}
-        <div className="button-container">
-          {!isFirst && (
-            <AuthButton
-              onButtonClick={prevStep}
-              buttonText="Back"
-              active={true}
-              buttonType="button"
+      <div className="form-container">
+        <form onSubmit={onSubmit} className="form-content">
+          <div>
+            <FormStepCounter
+              currentStep={currentStep + 1}
+              steps={steps.length}
             />
-          )}
+          </div>
+          {step}
+          <div className="button-container">
+            <AuthButton
+              buttonText={isLast ? "Complete Registration" : "Next"}
+              buttonType="submit"
+              active={
+                formData.password.length >= 8 &&
+                  isValidEmail(formData.email) && formData.password === formData.repeatPassword
+                  ? true
+                  : false
+              }
+              onButtonClick={() => { }}
+            />
 
-          <AuthButton
-            buttonText={isLast ? "Complete Registration" : "Next"}
-            buttonType="submit"
-            active={
-              formData.password.length >= 8 &&
-              formData.repeatPassword === formData.password
-                ? true
-                : false
-            }
-            onButtonClick={() => {}}
-          />
-        </div>
-      </form>
-    </div>
-    {isFirst && (
+            {!isFirst && (
+              <AuthButton
+                onButtonClick={prevStep}
+                buttonText="Back"
+                active={true}
+                buttonType="button"
+              />
+            )}
+          </div>
+        </form>
+      </div>
+      {isFirst && (
         <div className="login-link">
           Already have an account? <a href="/">Login</a>
         </div>

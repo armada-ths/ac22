@@ -9,13 +9,20 @@ interface Props {
   onChange: React.Dispatch<React.SetStateAction<any>>;
 }
 
-const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
+const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState(placeholder);
 
   const isValidEmail = (input: any) => {
-    return /^\w+([-+.']\w+)*@?(kth.se)$/.test(input);
+    if (
+      /^\w+([-+.']\w+)*@?(kth\.se)$/.test(input) ||
+      /^\w+([-+.']\w+)*@?(ac22\.se)$/.test(input)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const isValidPassword = (input: any) => {
@@ -39,7 +46,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
   };
 
   return (
-    <div>
+    <div className="input-flex">
       <div
         className={validInput ? "InputHeader" : "InputHeaderWrong"}
         style={{ color: validInput && !active ? "#0F1322" : "" }}
@@ -48,7 +55,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
         {active && !validInput && type === "email" ? (
           <div className="InvalidEmail">
             <InvalidEmail />
-            <text style={{ marginLeft: "4px" }}>Invalid Email</text>
+            <span style={{ marginLeft: "4px" }}>Invalid</span>
           </div>
         ) : (
           ""
@@ -56,12 +63,12 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange}) => {
         {active && !validInput && type === "password" && (
           <div className="InvalidPassword">
             <InvalidEmail />
-            <text style={{ marginLeft: "4px" }}>Min.Length=8</text>
-          </div>)
-          }
+            <span style={{ marginLeft: "4px" }}>Min.Length=8</span>
+          </div>
+        )}
       </div>
       <div
-        className={validInput ? "container" : "incorrect-container"}
+        className={validInput ? "container-1" : "incorrect-container"}
         style={{ border: validInput && !active ? "1.5px solid #0F1322" : "" }}
       >
         <input

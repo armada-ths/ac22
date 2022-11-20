@@ -6,10 +6,7 @@ const LoginPresenter: FC = () => {
   const [password, setPassword] = React.useState("");
 
   // You can use this function to send username and password to the backend
-  function LoginUser(): any {
-    console.log(username, password);
-    console.log("hey in here");
-  }
+  function LoginUser(): any {}
   return (
     <LoginView
       title="Login"

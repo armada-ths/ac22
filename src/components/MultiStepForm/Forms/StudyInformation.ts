@@ -40,7 +40,7 @@ export const YearOfStudy: string[] = [
 ];
 
 export const PositionInterest: string[] = [
-   "Part-time Job" ,
+    "Part-time Job" ,
     "Full-time Job" ,
     "Internship" ,
     "Bachelor Thesis" ,

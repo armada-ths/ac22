@@ -6,7 +6,7 @@ interface Props {
 }
 
 const RegisterPresenter: FC<Props> = ({ registered }) => {
-  return registered ? <RegisterSuccessView /> : <RegisterView />;
+  return registered ? (<RegisterSuccessView /> ): <RegisterView />;
 };
 
 export default RegisterPresenter;

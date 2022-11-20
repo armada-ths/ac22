@@ -1,0 +1,47 @@
+.scan-navbar Link{
+    display: none;
+}
+
+.scan-main{
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scan-qr-reader{
+    width: 22rem;
+    border-radius: 15px;
+}
+
+.success-prompt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    width: 60%;
+    height: 30%;
+    position: fixed;
+    z-index: 1;
+    padding: 2rem;
+    gap: 15px;
+    border: 1px solid black;
+}
+
+.qr-text{
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.scan-text {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #999999;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}

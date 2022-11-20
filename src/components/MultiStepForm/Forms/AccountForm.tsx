@@ -14,26 +14,34 @@ interface Props extends AccountData {
   emailExists?: boolean;
 }
 
-const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) => {
+const AccountForm: FC<Props> = ({
+  email,
+  password,
+  updateField,
+  emailExists,
+  repeatPassword,
+}) => {
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
-  const [repeatPassword, setRepeatPassword] = useState<string>("");
   const [place, setPlace] = useState("Repeat Password");
-  const [place2, setPlace2] = useState("Name");
+  /*const [place2, setPlace2] = useState("Name");*/
 
   useEffect(() => {
     if (repeatPassword === password) {
-      console.log("Passwords match");
       setValidInput(true);
     } else {
       setValidInput(false);
     }
-  }, [repeatPassword, password]);
+  }, [repeatPassword]);
 
   return (
     <div className="form-content">
       <h2>Get Registered</h2>
-      {emailExists && <div style={{ color: "red", marginTop: "-6px"}}>Account with this email already exists</div>}
+      {emailExists && (
+        <div style={{ color: "red", marginTop: "-6px" }}>
+          Account with this email already exists
+        </div>
+      )}
       <ACInput
         type="email"
         placeholder="Email"
@@ -46,15 +54,15 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) =
         value={password}
         onChange={(e) => updateField({ password: e })}
       />
-      <div>
+      <div className="input-flex-account">
         <div
-          className={validInput ? "InputHeader" : "InputHeaderWrong"}
+          className={validInput ? "InputHeader1" : "InputHeaderWrong1"}
           style={{ color: validInput && !active ? "#0F1322" : "" }}
         >
-          {active ? "Repeat password" : ""}
+          {active ? "Retype password" : ""}
         </div>
         <div
-          className={validInput ? "container" : "incorrect-container"}
+          className={validInput ? "container1" : "incorrect-container1"}
           style={{ border: validInput && !active ? "1.5px solid #0F1322" : "" }}
         >
           <input
@@ -65,11 +73,12 @@ const AccountForm: FC<Props> = ({ email, password, updateField, emailExists }) =
             style={{
               backgroundColor: !validInput && !active ? "#FFE6E6" : "",
             }}
-            onChange={(e) => {setRepeatPassword(e.target.value); updateField({ repeatPassword: e.target.value })}}
+            onChange={(e) => {
+              updateField({ repeatPassword: e.target.value });
+            }}
             onFocus={() => {
               setActive(true);
               setPlace("");
-              setValidInput(false);
             }}
             onBlur={() => {
               setActive(false);

@@ -9,6 +9,7 @@ import RegisterPresenter from "./presenters/RegisterPresenter";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
+import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
 import RegisterSuccess from "./components/RegisterSuccess/RegisterSuccess";
 import ProfilePresenter from "./presenters/ProfilePresenter";
 import CompanyView from "./views/CompanyView/CompanyView";
@@ -40,6 +41,10 @@ const App: FC<Props> = ({ userModel }) => {
 					}
 				/>
 				<Route
+					path="/events"
+					element={<EventsPresenter placeholder="events" />}
+				/>
+				<Route
 					path="/tutorial"
 					element={
 						<TutorialPresenter
@@ -48,7 +53,6 @@ const App: FC<Props> = ({ userModel }) => {
 						/>
 					}
 				/>
-				<Route path="/createqrcode" element={<CreateQrCodePresenter />} />
 				<Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
 				<Route
 					path="/overview"
@@ -73,22 +77,10 @@ const App: FC<Props> = ({ userModel }) => {
 						/>
 					}
 				/>
-				<Route
-					path="/register"
-					element={<RegisterPresenter registered={true} />}
-				/>
-				<Route
-					path="/profile"
-					element={
-						<ProfilePresenter
-							companies={dummyCompanies}
-							tickets={dummyTickets}
-							onStar={() => console.log("on-star")}
-							collectedTickets={15}
-							name={["Malin", "Marques"]}
-						/>
-					}
-				/>
+
+				<Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
+
+				<Route path="/" element={<RegisterPresenter registered={true} />} />
 				<Route path="*" element={<RegisterPresenter registered={true} />} />
 			</Routes>
 		</Router>

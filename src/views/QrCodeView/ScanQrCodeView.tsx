@@ -27,26 +27,15 @@ const ScanQrCodeView: FC<Props> = (props) => {
 
   async function onScanned(results: TextResult[]) {
     if (results.length > 0) {
+      setLoading(true);
       setIsActive(false);
-      window.navigator.vibrate(100);
       setTicketStatus(
         (await props.fetchFromURL(results[0].barcodeText)) as any
       );
-
       setPrompt(true);
+      setLoading(false);
     }
   }
-
-  const onOpened = (cam: HTMLVideoElement, camLabel: string) => {
-    // You can access the video element in the onOpened event
-    //console.log("opened");
-  };
-
-  const onClosed = () => {
-    //console.log("closed");
-  };
-
-  //DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAxNDc0MjQwLVRYbFhaV0pRY205cVgyUmljZyIsIm9yZ2FuaXphdGlvbklEIjoiMTAxNDc0MjQwIiwiY2hlY2tDb2RlIjo3NDQ2ODI4MDd9
 
   const onInitialized = () => {
     // when the Barcode Reader is initialized
@@ -69,6 +58,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
             isActive={isActive}
             isPause={isPause}
             drawOverlay={false}
+            license="DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAxNDc0MjQwLVRYbFhaV0pRY205cVgyUmljZyIsIm9yZ2FuaXphdGlvbklEIjoiMTAxNDc0MjQwIiwiY2hlY2tDb2RlIjo3NDQ2ODI4MDd9"
             desiredCamera="back"
             desiredResolution={{ width: 1280, height: 720 }}
             runtimeSettings={runtimeSettings}
@@ -76,8 +66,6 @@ const ScanQrCodeView: FC<Props> = (props) => {
             facingMode="environment"
             onInitialized={onInitialized}
             interval={2000}
-            onOpened={onOpened}
-            onClosed={onClosed}
           ></BarcodeScanner>
         </div>
         {loading ? (

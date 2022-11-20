@@ -40,10 +40,7 @@ const App: FC<Props> = ({ userModel }) => {
 						/>
 					}
 				/>
-				<Route
-					path="/events"
-					element={<EventsPresenter placeholder="events" />}
-				/>
+
 				<Route
 					path="/tutorial"
 					element={
@@ -77,9 +74,20 @@ const App: FC<Props> = ({ userModel }) => {
 						/>
 					}
 				/>
+				<Route
+					path="/profile"
+					element={
+						<ProfilePresenter
+							companies={dummyCompanies}
+							tickets={dummyTickets}
+							onStar={() => console.log("on-star")}
+							collectedTickets={15}
+							name={["Malin", "Marques"]}
+						/>
+					}
+				/>
 
 				<Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
-
 				<Route path="/" element={<RegisterPresenter registered={true} />} />
 				<Route path="*" element={<RegisterPresenter registered={true} />} />
 			</Routes>

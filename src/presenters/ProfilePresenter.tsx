@@ -33,12 +33,13 @@ const ProfilePresenter: FC<Props> = ({
 				name={name}
 				title="Profile"
 				collectedTickets={collectedTickets}
+				qrButtonActive={true}
 			/>
 
 			<div className="sidebarPage">
 				<Sidebar />
 			</div>
-			<ProfileView placeholder="Profile view"  />
+			<ProfileView placeholder="Profile view" />
 		</div>
 	);
 };

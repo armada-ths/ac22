@@ -85,7 +85,7 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
           <div className="button-container">
             {isFirst ? <div className="account-email-info">
               <RegisterInfo />
-              <span style={{ marginLeft: "4px" }}>Please use an @kth.se email for registation</span>
+              <span style={{ marginLeft: "4px" }}>Please use an @kth.se email</span>
             </div> : ""}
             <AuthButton
               buttonText={isLast ? "Complete Registration" : "Next"}

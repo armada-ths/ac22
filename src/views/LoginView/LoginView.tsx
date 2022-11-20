@@ -23,12 +23,12 @@ interface Props {
 
 const RegisterView: FC<Props> = ({
   title,
-  login,
   username,
   password,
   usernameOnChange,
   passwordOnChange,
 }) => {
+
   // You can use this function to send username and password to the backend
   async function LoginUser() {
     try {
@@ -46,16 +46,18 @@ const RegisterView: FC<Props> = ({
   }
 
   async function handleForgotPassword() {
-
+    /* Sends password reset email to the email in email input field
+    Note: requirements for password length can NOT be implemented in password reset email */
     if (username) await sendPasswordResetEmail(auth, username).then(() => alert("Please check your email for password reset. Note: Min.Length=8")).catch((e: any) => {
       if (e.message === "Firebase: Error (auth/user-not-found).") { alert("Email is not registered") }
       else if (e.message === "Firebase: Error (auth/invalid-email).") { alert("Email is not valid") }
       else { console.log("error:", e.message) /*alert("Something went wrong in password reset")*/ }
     })
-    else { alert("Please provide your email in the field for password reset") }
+    else { alert("Please provide your email in the email field for password reset") }
   }
 
   const isValidEmail = (input: any) => {
+    // Checks if @kth.se or @ac22.se email. Note: @ac22.se is not a real email.
     if (
       /^\w+([-+.']\w+)*@?(kth\.se)$/.test(input) ||
       /^\w+([-+.']\w+)*@?(ac22\.se)$/.test(input)
@@ -77,7 +79,7 @@ const RegisterView: FC<Props> = ({
             value={username}
             onChange={usernameOnChange}
           />
-          <span className="wider">
+          <span className="form-width">
             <form onSubmit={LoginUser}>
               <ACInput
                 type="password"
@@ -85,12 +87,13 @@ const RegisterView: FC<Props> = ({
                 value={password}
                 onChange={passwordOnChange}
               />
-            </form><span className="forgot-password" onClick={handleForgotPassword}>Forgot password</span>
+            </form>
+            <span className="forgot-password" onClick={handleForgotPassword}>Forgot password</span>
           </span>
           <AuthButton
             buttonText="Login"
             buttonType="submit"
-            active={(isValidEmail(username) && password.length > 8) ? true : false}
+            active={(isValidEmail(username) && password.length >= 8) ? true : false}
             onButtonClick={LoginUser}
           />
         </div>

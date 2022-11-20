@@ -2,6 +2,8 @@ import React, { FC, useState, useEffect } from "react";
 
 import "./Profile.css";
 import armada_logo from "../../assets/Profile/armada.png";
+import Popup from "../../assets/Profile/Popup";
+import attention from "../../assets/Profile/attention.png";
 
 import {
 	StudyProgramme,
@@ -9,6 +11,7 @@ import {
 	CompletionYear,
 	YearOfStudy,
 	PositionInterest,
+	StartYear,
 } from "../../components/MultiStepForm/Forms/StudyInformation";
 
 interface Props {
@@ -18,6 +21,11 @@ interface Props {
 const ProfileView: FC<Props> = ({}) => {
 	// 1 - Settings, 2 - Ticket History
 	const [setings, setSettings] = useState<boolean>(true);
+	const [isOpen, setIsOpen] = useState(false);
+
+	const togglePopup = () => {
+		setIsOpen(!isOpen);
+	};
 
 	return (
 		<div className="Profile-Container">
@@ -116,7 +124,7 @@ const ProfileView: FC<Props> = ({}) => {
 										))}
 									</select>
 									<select className="input-tag">
-										{CompletionYear.map((item, index) => (
+										{StartYear.map((item, index) => (
 											<option key={index} value={item}>
 												{item}
 											</option>
@@ -176,14 +184,56 @@ const ProfileView: FC<Props> = ({}) => {
 								</div>
 							</div>
 						</div>
-						{/* Implement Delete button from Firebase here */}
-						<div className="GDPR-stuff-container"> 
-
+						{/* Implement Delete button from Firebase here and the pop up */}
+						<div className="GDPR-stuff-container">
+							<div className="delete-account-button">
+								<div
+									className="delete-acc-font del-acc-color"
+									onClick={togglePopup}
+								>
+									Delete My Account
+									{isOpen && (
+										<Popup
+											content={
+												<div className="popup-container">
+													<div className="">
+														<div className="popup-img-box">
+															<img
+																src={attention}
+																alt="attention"
+																className="popup-img"
+															></img>
+														</div>
+														<div className="popup-text-box">
+															<h2>Attention!</h2>
+															<div className="popup-subtext color-greytext">
+																This action will delete your account and all
+																related data
+															</div>
+															<div className="popup-red-warning color-red">
+																This action is irreversible.
+															</div>
+															<div></div>
+														</div>
+													</div>
+												</div>
+											}
+											handleClose={togglePopup}
+										/>
+									)}
+								</div>
+							</div>
+							<div className="delete-account-button discard-changes-button">
+								<div className="discard-changes-font">Discard Changes </div>
+							</div>
+							<div className="delete-account-button save-changes-font save-changes">
+								<div className="">Saves Changes </div>
+							</div>
 						</div>
 					</div>
 				) : (
-					<div className="tickethistory-container">
-						This page has not yet been added but is on it's way
+					<div className="tickethistory-container ">
+						<div>This page has not yet been added but is on it's way</div>
 					</div>
 				)}
 			</div>

@@ -2,7 +2,6 @@
   display: flex;
     flex-direction: column;
     background-color: var(--background);
-    width: 90vw;
     margin-left: 7%;
     margin-right: 2%;
     margin-top: 5%; /* extra space for top nav bar*/
@@ -37,7 +36,7 @@
   padding: 2%;
   background-color: white;
   border-radius: 16px;
-  width: 100vh;
+  width: 80vw;
   
 
 }
@@ -82,7 +81,7 @@
   display: flex;
   flex-direction: column;
   padding: 2%;
-  gap: 2vh;
+  gap: 2.5vh;
 }
 
 .lastName-gender{
@@ -99,7 +98,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: white;  
-  width: 100vh;
+  width: 80vw;
   padding: 2%;
   border-radius: 16px;
 }
@@ -183,12 +182,148 @@
 
 .GDPR-stuff-container{
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
   background-color: transparent;
-
+  justify-content: space-evenly;
+}
+.delete-account-button{
+  margin-top: 10vh;
+  margin-left: 2vh;
+  cursor: pointer;
 }
 
+.delete-acc-font{
+  font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* Red Primary */
+      color: #FF0000;
+}
+.edit-changes-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.discard-changes-button{
+  background: #FFE6E6;
+    border-radius: 4px;
+}
+
+.discard-changes-font{
+  /* Register now */
+    height: 22px;
+    display: flex;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* Red Primary */
+    color: #DB2B2B;   
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.save-changes{
+  background: #2BDBA0;
+  border-radius: 4px;
+}
+.save-changes-font{
+  width: auto;
+  height: 22px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  /* White */
+  color: #FFFFFF;
+
+/* Inside auto layout */
+}
+
+.popup.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  width: 50vw;
+  height: 50vh;
+  padding: 2%;
+  color: black
+}
+.popup-img{
+  width: 20px;
+  height: 20px;
+}
+
+.popup-img-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-text-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:black
+}
+.popup-subtext{
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    /* Black Secondary */
+    /* Inside auto layout */
+  
+    flex: none;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.color-greytext{
+  color: #999999;
+}
+.color-red{
+  color: red;
+}
+
+
+.popup-red-warning{
+
+}
 
 
 

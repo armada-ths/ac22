@@ -30,6 +30,7 @@ export interface Company {
     collectedTickets: number; // User specific
 
     aboutUs: string;
+    fieldOfStudy?: string[];
 }
 
 export interface Tickets {

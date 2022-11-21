@@ -90,7 +90,6 @@ const App: FC<Props> = ({ userModel }) => {
             />
           }
         />
-
         <Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
 
         <Route path="/" element={<RegisterPresenter registered={true} />} />

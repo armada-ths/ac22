@@ -70,3 +70,27 @@
 .tckt-img{
   width: 2.5vw;
 }
+
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+
+  .ticket-received-container {
+    font-size: 0.5rem;
+  }
+
+  .ticket-available {
+    font-size: 0.5rem;
+  }
+
+  .ticket-none-available {
+    font-size: 0.5rem;
+  }
+
+  .tckt-img{
+    width: 1vw;
+  }
+
+  .super-tickets {
+    font-size: 0.5rem;
+   
+  }
+}

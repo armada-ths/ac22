@@ -57,13 +57,14 @@
   justify-content: space-between;
   padding: 2%;
   max-height: 25vh;
+  gap: 2%;
   width: 70vw;
 }
 
 .roundCircle {
   display: flex;
-  height: 100px;
-  width: 100px;
+  height: 15vw;
+  width: 15vw;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -71,6 +72,9 @@
 .name-mail-inputs {
   display: flex;
   flex-direction: column;
+}
+.name-mail-inputs h4{
+  margin: 5% 0%;
 }
 
 .study-job-details {
@@ -90,6 +94,10 @@
   flex-direction: column;
   margin-left: 2.5vw;
 }
+.lastName-gender h4{
+  margin: 5% 0%;
+}
+
 .input-width {
   display: flex;
   max-width: auto;
@@ -122,9 +130,9 @@
 
 .input-tag {
   height: 6vh;
-  background: #FFFFFF;
-  font-size: 1.5vh;
-  color: #0F1322;
+  background: #ffffff;
+  font-size: 1.5vw;
+  color: #0f1322;
   font-weight: 600;
   text-indent: 1rem;
   border: 2px solid black;
@@ -192,16 +200,17 @@
   padding-bottom: 10vh;
 }
 .delete-account-button {
-  margin-top: 1vh;
+  margin-top: 1%;
   margin-left: 2vh;
   cursor: pointer;
+  padding: 2%;
 }
 
 .delete-acc-font {
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.75vh;
+  font-size: 1.75vw;
   line-height: 140%;
   /* or 22px */
   display: flex;
@@ -229,7 +238,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.75vh;
+  font-size: 1.75vw;
   line-height: 140%;
   /* or 22px */
   display: flex;
@@ -245,13 +254,14 @@
 }
 .save-changes {
   background: #2bdba0;
+
   border-radius: 4px;
 }
-.save-changes-font{
-  font-family: 'Inter';
+.save-changes-font {
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  font-size: 1.5vh;
+  font-size: 1.5vw;
   line-height: 140%;
   /* or 22px */
 
@@ -359,22 +369,53 @@
   justify-content: center;
 }
 
-@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-
-}
-.study-years-heading{
+.study-years-heading {
   padding-right: 5vw;
 }
 
-.checkbox{
+.checkbox {
   appearance: none;
   -webkit-appearance: none;
   background-color: #fff;
   cursor: pointer;
-  width: 18px;
-  height: 18px;
+  width: 2vw;
+  height: 2vw;
   border: 1px solid var(--armada-green);
   border-radius: 2px;
   box-sizing: border-box;
 }
+.checkmarks-row-container label{
+  font-size: 2vw;
+}
 
+
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .save-changes-font {
+    font-size: 3vw;
+  }
+  .discard-changes-font {
+    font-size: 3vw;
+  }
+
+  .delete-acc-font {
+    font-size: 3vw;
+  }
+
+  .input-tag {
+    font-size: 3vw;
+    height: 4vh;
+  }
+
+  .checkbox {
+    height: 4vw;
+    width: 4vw;
+  }
+
+  .checkmarks-row-container label{
+    font-size: 4vw;
+  }
+
+  .personalInfo-container {
+    height: 30vh;
+  }
+}

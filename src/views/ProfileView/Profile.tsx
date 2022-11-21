@@ -63,8 +63,7 @@ const ProfileView: FC<Props> = ({}) => {
 									<img
 										alt="armada-logo"
 										src={armada_logo}
-										className="roundCircle"
-									></img>
+										className="roundCircle"/>
 								</div>
 								<div className="name-mail-inputs">
 									<h4>First Name</h4>
@@ -157,7 +156,7 @@ const ProfileView: FC<Props> = ({}) => {
 											<input type="checkbox" className="checkbox" />
 											<label>Internship</label>
 										</div>
-										<div>
+										<div className="checkmarks-row-container">
 											<label>Bachelor Thesis</label>
 											<input type="checkbox" className="checkbox" />
 										</div>

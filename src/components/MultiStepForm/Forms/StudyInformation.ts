@@ -17,6 +17,19 @@ export const CompletionYear: string[] = [
     "2030",
 ];
 
+export const StartYear: string[] = [
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+];
+
+
 
 export const YearOfStudy: string[] = [
     "Year 1 Bachelor" ,

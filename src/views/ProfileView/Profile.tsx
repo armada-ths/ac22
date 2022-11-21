@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from "react";
 
 import "./Profile.css";
 import armada_logo from "../../assets/Profile/armada.png";
-import Popup from "../../assets/Profile/Popup";
+import Popup from "../../components/Popup/Popup";
 import attention from "../../assets/Profile/attention.png";
 
 import {
@@ -63,7 +63,7 @@ const ProfileView: FC<Props> = ({}) => {
 										alt="armada-logo"
 										src={armada_logo}
 										className="roundCircle"
-									></img>
+									/>
 								</div>
 								<div className="name-mail-inputs">
 									<h4>First Name</h4>
@@ -110,7 +110,7 @@ const ProfileView: FC<Props> = ({}) => {
 							<div className="study-job-container">
 								<div className="study-nYears">
 									<h3>Study & Job Details</h3>
-									<h3>Study Years</h3>
+									<h3 className="study-years-heading">Study Years</h3>
 								</div>
 								<div className="selectors">
 									<select
@@ -143,42 +143,42 @@ const ProfileView: FC<Props> = ({}) => {
 									<h3>Interests</h3>
 									<div className="checkmarks">
 										<div className="checkmarks-row-container">
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 											<label>Part-time Job </label>
 										</div>
 										<div className="checkmarks-row-container">
 											<label>Full-time Job</label>
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 										</div>
 									</div>
 									<div className="checkmarks">
 										<div className="checkmarks-row-container">
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 											<label>Internship</label>
 										</div>
-										<div>
+										<div className="checkmarks-row-container">
 											<label>Bachelor Thesis</label>
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 										</div>
 									</div>
 									<div className="checkmarks">
 										<div className="checkmarks-row-container">
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 											<label>Master Thesis </label>
 										</div>
 										<div className="checkmarks-row-container">
 											<label>Trainee</label>
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 										</div>
 									</div>
 									<div className="checkmarks">
 										<div className="checkmarks-row-container">
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 											<label>Summer Job </label>
 										</div>
 										<div className="checkmarks-row-container">
 											<label>Other</label>
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 										</div>
 									</div>
 								</div>
@@ -187,41 +187,31 @@ const ProfileView: FC<Props> = ({}) => {
 						{/* Implement Delete button from Firebase here and the pop up */}
 						<div className="GDPR-stuff-container">
 							<div className="delete-account-button">
-								<div
-									className="delete-acc-font del-acc-color"
-									onClick={togglePopup}
-								>
+								<div className="delete-acc-font" onClick={togglePopup}>
 									Delete My Account
 									{isOpen && (
 										<Popup
 											content={
 												<div className="popup-container">
-													<div className="">
-														<div className="popup-img-box">
-															<img
-																src={attention}
-																alt="attention"
-																className="popup-img"
-															></img>
-														</div>
-														<div className="popup-text-box">
-															<h2>Attention!</h2>
-															<div className="popup-subtext color-greytext">
-																This action will delete your account and all
-																related data
-															</div>
-															<div className="color-red">
-																This action is irreversible.
-															</div>
-															<div className="">Do you want to continue?</div>
-														</div>
-														<div className="popup-button-cancel-container">
-															<div className="popup-greenbox-cancel">
-															<div className="popup-cancel">No Cancel</div>
-															</div>
-														</div>
-														<div className="popup-button-deleteacc">Yes delete my account</div>
+													<div className="popup-img-box">
+														<img
+															src={attention}
+															alt="attention"
+															className="popup-img"
+														></img>
 													</div>
+													<div className="popup-text-box">
+														<h2>Attention!</h2>
+														<div className="popup-subtext color-greytext">
+															All accounts will be deleted after the fair .
+														</div>
+														<div className="color-red">
+															If you want your account deleted immediately, email
+															us at ac@armada.nu
+														</div>
+													</div>
+													{/*<div className="popup-button-cancel-container"></div>*/}
+													<div className="popup-button-deleteacc"></div>
 												</div>
 											}
 											handleClose={togglePopup}
@@ -229,11 +219,11 @@ const ProfileView: FC<Props> = ({}) => {
 									)}
 								</div>
 							</div>
-							<div className="delete-account-button discard-changes-button">
+							<div className="delete-account-button">
 								<div className="discard-changes-font">Discard Changes </div>
 							</div>
 							<div className="delete-account-button save-changes-font save-changes">
-								<div className="">Saves Changes </div>
+								<div>Saves Changes</div>
 							</div>
 						</div>
 					</div>

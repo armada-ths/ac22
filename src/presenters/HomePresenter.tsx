@@ -35,6 +35,7 @@ const HomePresenter: FC<Props> = ({
         companies={companies}
         availableTickets={tickets}
         onStar={onStar}
+        collectedTickets={collectedTickets}
       />
     </div>
   );

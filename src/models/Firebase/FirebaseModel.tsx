@@ -156,6 +156,15 @@ export async function getCompanyData(company: string) {
   }
 }
 
+export async function getUserData(user: string) {
+  const docRefUser = doc(database, "users", user);
+  const docSnapUser = await getDoc(docRefUser);
+  if (docSnapUser.exists()) {
+    return docSnapUser.data();
+  } else {
+  }
+}
+
 export async function removeFromDB(
   collectionName: string,
   documentID: any,

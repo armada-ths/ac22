@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import "./ScanQRCodeView.css";
 import AuthButton from "../../components/AuthButton/AuthButton";
@@ -9,6 +9,7 @@ import { LoadingIcon } from "../../assets/LoadingIcon/Loading";
 import { InvalidIcon } from "../../assets/Invalid/InvalidIcon";
 import { auth } from "../../models/Firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
+import { getUserData } from "../../models/Firebase/FirebaseModel";
 
 interface Props {
   company: string;
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const ScanQrCodeView: FC<Props> = (props) => {
+  const [userData, setUserData] = useState<any>();
   const [prompt, setPrompt] = useState(false);
   const [loading, setLoading] = useState(false);
   const [ticketStatus, setTicketStatus] = useState(true);
@@ -25,6 +27,21 @@ const ScanQrCodeView: FC<Props> = (props) => {
   const [runtimeSettings] = useState(
     '{"ImageParameter":{"BarcodeFormatIds":["BF_QR_CODE"],"Description":"","Name":"Settings"},"Version":"3.0"}'
   ); //use JSON template to decode QR codes only
+
+  useEffect(() => {
+    getUserData(auth.currentUser?.uid as string).then((data) => {
+      setUserData(data);
+    });
+  }, [prompt]);
+
+  // async function getTickets(userid: string) {
+  //   let totaltickets: number = await getUserTickets(userid);
+  //   console.log(totaltickets);
+  //   setTickets(totaltickets);
+  //   return totaltickets;
+  // }
+
+  console.log("tickets", userData);
 
   async function onScanned(results: TextResult[]) {
     if (results.length > 0) {
@@ -67,9 +84,12 @@ const ScanQrCodeView: FC<Props> = (props) => {
         </svg>
 
         <NavBar
-          name={["", auth.currentUser?.displayName as string]}
+          name={["", ""]}
           title=""
-          collectedTickets={10}
+          collectedTickets={
+            userData?.collectedTickets.nrOfSuperTickets +
+            userData?.collectedTickets.nrOfTickets
+          }
           qrButtonActive={false}
         />
       </div>
@@ -117,7 +137,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
               <div className="qr-text-already">Ticket already claimed!</div>
               <AuthButton
                 active={true}
-                buttonText="great"
+                buttonText="oh no!"
                 buttonType="button"
                 onButtonClick={() => {
                   setPrompt(false);

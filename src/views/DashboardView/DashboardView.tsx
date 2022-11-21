@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState } from "react";
 import "./DashboardView.css";
 
 import arrow_left from "../../assets/DashboardView/arrow-left.svg";
@@ -16,13 +16,18 @@ interface Props {
   companies: Company[];
   onStar: () => void;
   availableTickets: Tickets[];
+  collectedTickets: number;
 }
 
-const DashboardView: FC<Props> = ({ companies, onStar, availableTickets }) => {
+const DashboardView: FC<Props> = ({
+  companies,
+  onStar,
+  availableTickets,
+  collectedTickets,
+}) => {
   const rand: number = Math.floor(Math.random() * 14);
   const [a, setA] = useState(0);
   const [spotlight, setSpotlight] = useState<number>(rand);
-  useEffect(() => {});
 
   return (
     <div className="dashboard-box">
@@ -63,7 +68,7 @@ const DashboardView: FC<Props> = ({ companies, onStar, availableTickets }) => {
       </div>
 
       <div className="fair-info">
-        <TicketCounter tickets={30} />
+        <TicketCounter tickets={collectedTickets} />
         <RaffleCountdown />
       </div>
 

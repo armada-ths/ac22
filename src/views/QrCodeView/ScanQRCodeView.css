@@ -62,8 +62,8 @@
 }
 
 .qr-text-already {
-    font-weight: 580;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 21px;
 }
 
 .scan-text {
@@ -75,9 +75,9 @@
 }
 
 .scan-back-button{
-        padding-left: 0.8rem;
-            transform: scale(0.7);
-            z-index: 3;
-            position: absolute;
-            padding-top: 2rem;
+    padding-left: 0.8rem;
+    transform: scale(0.7);
+    z-index: 3;
+    position: absolute;
+    padding-top: 2rem;
 }

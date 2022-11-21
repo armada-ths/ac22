@@ -378,3 +378,15 @@
   padding-right: 5vw;
 }
 
+.checkbox{
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--armada-green);
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+

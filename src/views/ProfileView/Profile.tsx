@@ -144,42 +144,42 @@ const ProfileView: FC<Props> = ({}) => {
 									<h3>Interests</h3>
 									<div className="checkmarks">
 										<div className="checkmarks-row-container">
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 											<label>Part-time Job </label>
 										</div>
 										<div className="checkmarks-row-container">
 											<label>Full-time Job</label>
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 										</div>
 									</div>
 									<div className="checkmarks">
 										<div className="checkmarks-row-container">
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 											<label>Internship</label>
 										</div>
 										<div>
 											<label>Bachelor Thesis</label>
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 										</div>
 									</div>
 									<div className="checkmarks">
 										<div className="checkmarks-row-container">
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 											<label>Master Thesis </label>
 										</div>
 										<div className="checkmarks-row-container">
 											<label>Trainee</label>
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 										</div>
 									</div>
 									<div className="checkmarks">
 										<div className="checkmarks-row-container">
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 											<label>Summer Job </label>
 										</div>
 										<div className="checkmarks-row-container">
 											<label>Other</label>
-											<input type="checkbox" className="checkmark" />
+											<input type="checkbox" className="checkbox" />
 										</div>
 									</div>
 								</div>

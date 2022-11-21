@@ -10,6 +10,7 @@ interface Props {
   title: String;
   qrButtonActive: boolean;
 }
+
 const NavBar: FC<Props> = ({
   name,
   title,
@@ -30,8 +31,7 @@ const NavBar: FC<Props> = ({
           to="/scanqrcode"
           className={qrButtonActive ? "navbar-qr" : "navbar-qr-hide"}
         >
-          {" "}
-          <img src={qrImg} />
+          <img src={qrImg} alt="qr" />
         </Link>
         <Link to="/profile" className="navbar-name">
           {name[1]}

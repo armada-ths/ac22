@@ -10,6 +10,7 @@ import {
   sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
+
 import { auth } from "../../models/Firebase/firebaseConfig";
 
 interface Props {
@@ -93,7 +94,9 @@ const RegisterView: FC<Props> = ({
           <AuthButton
             buttonText="Login"
             buttonType="submit"
-            active={(isValidEmail(username) && password.length >= 8) ? true : false}
+            active={
+              isValidEmail(username) && password.length >= 8 ? true : false
+            }
             onButtonClick={LoginUser}
           />
         </div>

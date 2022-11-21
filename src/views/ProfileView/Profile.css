@@ -335,6 +335,7 @@
 }
 .color-red {
   color: var(--red-primary);
+  text-align: center;
 }
 
 .popup-button-cancel-container {

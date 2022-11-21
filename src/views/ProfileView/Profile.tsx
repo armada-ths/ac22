@@ -4,7 +4,6 @@ import "./Profile.css";
 import armada_logo from "../../assets/Profile/armada.png";
 import Popup from "../../components/Popup/Popup";
 import attention from "../../assets/Profile/attention.png";
-//Hello Rakin
 
 import {
 	StudyProgramme,
@@ -63,7 +62,8 @@ const ProfileView: FC<Props> = ({}) => {
 									<img
 										alt="armada-logo"
 										src={armada_logo}
-										className="roundCircle"/>
+										className="roundCircle"
+									/>
 								</div>
 								<div className="name-mail-inputs">
 									<h4>First Name</h4>
@@ -187,37 +187,32 @@ const ProfileView: FC<Props> = ({}) => {
 						{/* Implement Delete button from Firebase here and the pop up */}
 						<div className="GDPR-stuff-container">
 							<div className="delete-account-button">
-								<div
-									className="delete-acc-font"
-									onClick={togglePopup}
-								>
+								<div className="delete-acc-font" onClick={togglePopup}>
 									Delete My Account
 									{isOpen && (
 										<Popup
 											content={
 												<div className="popup-container">
-														<div className="popup-img-box">
-															<img
-																src={attention}
-																alt="attention"
-																className="popup-img"
-															></img>
-														</div>
-														<div className="popup-text-box">
-															<h2>Attention!</h2>
-															<div className="popup-subtext color-greytext">
-																This action will delete your account and all
-																related data
-															</div>
-															<div className="color-red">
-																This action is irreversible.
-															</div>
-															<div className="">Do you want to continue?</div>
-														</div>
-														<div className="popup-button-cancel-container">No, Cancel
-														</div>
-														<div className="popup-button-deleteacc">Yes delete my account</div>
+													<div className="popup-img-box">
+														<img
+															src={attention}
+															alt="attention"
+															className="popup-img"
+														></img>
 													</div>
+													<div className="popup-text-box">
+														<h2>Attention!</h2>
+														<div className="popup-subtext color-greytext">
+															All accounts will be deleted after the fair .
+														</div>
+														<div className="color-red">
+															If you want your account deleted immediately, email
+															us at ac@armada.nu
+														</div>
+													</div>
+													{/*<div className="popup-button-cancel-container"></div>*/}
+													<div className="popup-button-deleteacc"></div>
+												</div>
 											}
 											handleClose={togglePopup}
 										/>

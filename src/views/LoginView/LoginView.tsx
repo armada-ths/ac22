@@ -3,12 +3,7 @@ import AuthHeading from "../../components/AuthHeading/AuthHeading";
 import AuthButton from "../../components/AuthButton/AuthButton";
 import ACInput from "../../components/ACInput/ACInput";
 import "./login-view.css";
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../models/Firebase/firebaseConfig";
 
 interface Props {
@@ -33,13 +28,11 @@ const RegisterView: FC<Props> = ({
     try {
       await signInWithEmailAndPassword(auth, username, password);
     } catch (e: any) {
-      if(e.message === "Firebase: Error (auth/user-not-found).")
-      {
+      if (e.message === "Firebase: Error (auth/user-not-found).") {
         alert("Email is not registered");
-      }else if(e.message === "Firebase: Error (auth/wrong-password)."){
+      } else if (e.message === "Firebase: Error (auth/wrong-password).") {
         alert("Password is incorrect");
-      }
-      else{
+      } else {
         alert("Something went wrong, please try again");
       }
     }
@@ -75,11 +68,14 @@ const RegisterView: FC<Props> = ({
                 value={password}
                 onChange={passwordOnChange}
               />
-            </form></span>
+            </form>
+          </span>
           <AuthButton
             buttonText="Login"
             buttonType="submit"
-            active={(isValidEmail(username) && password.length >= 8) ? true : false}
+            active={
+              isValidEmail(username) && password.length >= 8 ? true : false
+            }
             onButtonClick={LoginUser}
           />
         </div>

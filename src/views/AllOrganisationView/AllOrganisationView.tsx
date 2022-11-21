@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import "./AllOrganisationView.css";
 import { Company, Tickets } from "../../models/DummyModel";
 import CompanyCardsRow from "../../components/CompanyCardsRow/CompanyCardsRow";
-import Sidebar from "../../components/Sidebar/Sidebar";
 
 interface Props {
   companies: Company[];

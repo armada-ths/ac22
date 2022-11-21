@@ -345,7 +345,7 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Zwapgrid AB",
-    image: "#F2F2F2",
+    image: zwapgrid,
     id: 3,
     tags: ["workshop", "mingle"],
     coordinators: [

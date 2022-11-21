@@ -31,7 +31,8 @@ const RegisterView: FC<Props> = ({
 }) => {
 
   // You can use this function to send username and password to the backend
-  async function LoginUser() {
+  async function LoginUser(event: any) {
+    event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, username, password);
     } catch (e: any) {
@@ -41,7 +42,8 @@ const RegisterView: FC<Props> = ({
         alert("Password is incorrect");
       }
       else {
-        alert("Something went wrong, please try again");
+        console.log(e.message);
+        //alert("Something went wrong, please try again");
       }
     }
   }
@@ -81,7 +83,7 @@ const RegisterView: FC<Props> = ({
             onChange={usernameOnChange}
           />
           <span className="form-width">
-            <form onSubmit={LoginUser}>
+            <form onSubmit={(e) => { LoginUser(e) }}>
               <ACInput
                 type="password"
                 placeholder="Password"

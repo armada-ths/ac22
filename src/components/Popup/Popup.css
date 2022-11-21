@@ -23,17 +23,19 @@
 }
 
 .close-icon {
-  content: 'x';
   cursor: pointer;
   position: fixed;
-  right: calc(15% - 30px);
+  right: calc(40vw+2%);
   top: calc(100vh - 85vh - 33px);
-  background: #ededed;
-  width: 25px;
-  height: 25px;
+  background: var(--red-secondary);
+  width: 2vw;
+  height: 2vw;
+  font-size: 2vw;
   border-radius: 50%;
   line-height: 20px;
   text-align: center;
-  border: 1px solid #999;
-  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--red-primary);
+  padding: 1%;
 }

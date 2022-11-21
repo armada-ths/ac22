@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from "react";
 
 import "./Profile.css";
 import armada_logo from "../../assets/Profile/armada.png";
-import Popup from "../../assets/Profile/Popup";
+import Popup from "../../components/Popup/Popup";
 import attention from "../../assets/Profile/attention.png";
 //Hello Rakin
 
@@ -216,10 +216,7 @@ const ProfileView: FC<Props> = ({}) => {
 															</div>
 															<div className="">Do you want to continue?</div>
 														</div>
-														<div className="popup-button-cancel-container">
-															<div className="popup-greenbox-cancel">
-															<div className="popup-cancel">No Cancel</div>
-															</div>
+														<div className="popup-button-cancel-container">No, Cancel
 														</div>
 														<div className="popup-button-deleteacc">Yes delete my account</div>
 													</div>

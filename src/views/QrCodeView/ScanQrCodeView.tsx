@@ -121,6 +121,38 @@ const ScanQrCodeView: FC<Props> = (props) => {
             <div className="success-prompt">
               <SuccessIcon />
               <div className="qr-text">Ticket Collected!</div>
+
+              <label className="ratings-label">
+                How was {company}'s stall on a scale from 1 to 10?
+              </label>
+                  <select
+                    placeholder={"Choose rating..."}
+                    onChange={(e) => setStallRating(parseInt(e.target.value))}
+                    className="rating-select">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
+                      return (
+                        <option value={number} className="rating-text">
+                          {number}
+                        </option>
+                      );
+                    })}
+                  </select>
+              <label className="ratings-label">
+                How satisfied were you with your experience at the stall on a
+                scale from 1 to 10?
+              </label>
+              <select
+                placeholder={"Choose rating..."}
+                onChange={(e) => setExperienceRating(parseInt(e.target.value))}
+                className="rating-select">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
+                  return (
+                    <option value={number} className="rating-text">
+                      {number}
+                    </option>
+                  );
+                })}
+              </select>
               <AuthButton
                 active={true}
                 buttonText="great"

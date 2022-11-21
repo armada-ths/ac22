@@ -76,8 +76,7 @@
 .study-job-details {
   display: flex;
   flex-direction: column;
-  padding: 2%;
-  width: 9 0vw;
+  justify-content: space-evenly;
 }
 .settings-content {
   display: flex;
@@ -123,9 +122,9 @@
 
 .input-tag {
   height: 6vh;
-  background: #ffffff;
-  font-size: 20px;
-  color: #0f1322;
+  background: #FFFFFF;
+  font-size: 1.5vh;
+  color: #0F1322;
   font-weight: 600;
   text-indent: 1rem;
   border: 2px solid black;
@@ -136,7 +135,6 @@
 }
 .input-tag1 {
   width: 40vw;
-  height: ;
 }
 
 .study-job-container {
@@ -144,7 +142,6 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
-  padding: 2%;
   border-radius: 16px;
 }
 .study-nYears {
@@ -158,6 +155,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 80vw;
 }
 
 .fontSize {
@@ -249,14 +247,11 @@
   background: #2bdba0;
   border-radius: 4px;
 }
-.save-changes-font {
-  width: auto;
-  height: 22px;
-
-  font-family: "Inter";
+.save-changes-font{
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1.5vh;
   line-height: 140%;
   /* or 22px */
 
@@ -365,3 +360,19 @@
 @media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
 
 }
+.study-years-heading{
+  padding-right: 5vw;
+}
+
+.checkbox{
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--armada-green);
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+

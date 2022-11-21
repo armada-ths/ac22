@@ -1,4 +1,4 @@
-.sidebar-container{
+.sidebar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,6 @@
   border-style: solid;
   z-index: 3;
 }
-
 
 .armada-logo {
   display: flex;
@@ -29,7 +28,9 @@
   height: 3vw;
 }
 
-.sidebar-dashboard, .sidebar-dashboard-inactive, .sidebar-events {
+.sidebar-dashboard,
+.sidebar-dashboard-inactive,
+.sidebar-events {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +38,7 @@
   width: 4vw;
   height: 4vw;
   background-color: var(--armada-green);
-  color:var(--white);
+  color: var(--white);
   border-radius: 8px;
 }
 
@@ -50,17 +51,16 @@
 }
 
 /*Nina */
-.sidebar-button-container{
+.sidebar-button-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 30%;
   gap: 12%;
-
 }
 
-.logout{
+.logout {
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -71,15 +71,79 @@
   height: 4vh;
   border-radius: 8px;
 }
-.sidebar-tutorial{
+.sidebar-tutorial {
   font-weight: var(--subtitle-weight);
   font-size: 1.5em;
   color: var(--black-tetriary);
 }
 
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
 
+  .sidebar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: var(--white);
+    height: 9vh;
+    position: fixed;
+    bottom: 0px;
+    top:auto;
+    border-color: var(--grey-primary);
+    border-width: 1px;
+    border-style: solid;
+    z-index: 3;
+  }
+  .sidebar-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    gap: 7%;
+    bottom: 0px;
+    width: 75%;
+  }
 
+.sidebar-dashboard,
+.sidebar-dashboard-inactive,
+.sidebar-events {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 4vh;
+  height: 4vh;
+  background-color: var(--armada-green);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 3%;
+  bottom: 0px;
+  margin-top: 0px;
+}
 
+.sidebar-dashboard svg,
+.sidebar-dashboard-inactive svg,
+.sidebar-events  svg{
+  width: 6vw;
+  height: 6vw;
+}
 
+.armada-logo-img{
+  width: 9vw;
+  height: 9vw;
+  margin-left: 15%;
+}
 
+.armada-logo 
+{
+  width: unset;
+  height: unset;
+}
 
+.sidebar-dashboard-inactive {
+  background-color: white;
+}
+
+}

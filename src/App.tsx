@@ -9,6 +9,8 @@ import RegisterPresenter from "./presenters/RegisterPresenter";
 import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
 import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
+import ProfilePresenter from "./presenters/ProfilePresenter";
+
 
 import CompanyView from "./views/CompanyView/CompanyView";
 import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
@@ -30,70 +32,76 @@ const App: FC<Props> = ({ userModel }) => {
   }, []);
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePresenter
-              companies={dummyCompanies}
-              tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
-              collectedTickets={
-                userData?.points
-              }
-              name={["Malin", "Marques"]}
-            />
-          }
-        />
-        <Route
-          path="/events"
-          element={<EventsPresenter placeholder="events" />}
-        />
-        <Route
-          path="/tutorial"
-          element={
-            <TutorialPresenter
-              collectedTickets={
-                userData?.points
-              }
-              name={["Malin", "Marques"]}
-            />
-          }
-        />
-        <Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
-        <Route
-          path="/overview"
-          element={
-            <AllOrganisationPresenter
-              companies={dummyCompanies}
-              tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
-              collectedTickets={
-                userData?.points
-              }
-              name={["Malin", "Marques"]}
-            />
-          }
-        />
-        <Route
-          path="/company"
-          element={
-            <CompanyView
-              companies={dummyCompanies}
-              currentCompany={0}
-              onStar={() => console.log("on-star")}
-              availableTickets={dummyTickets}
-            />
-          }
-        />
-        <Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
+		<Router>
+			<Routes>
+				<Route
+					path="/"
+					element={
+						<HomePresenter
+							companies={dummyCompanies}
+							tickets={dummyTickets}
+							onStar={() => console.log("on-star")}
+							collectedTickets={userData?.points}
+							name={["Malin", "Marques"]}
+						/>
+					}
+				/>
+				<Route
+					path="/events"
+					element={<EventsPresenter placeholder="events" />}
+				/>
+				<Route
+					path="/tutorial"
+					element={
+						<TutorialPresenter
+							collectedTickets={userData?.points}
+							name={["Malin", "Marques"]}
+						/>
+					}
+				/>
+				<Route path="/scanqrcode" element={<ScanQrCodePresenter />} />
+				<Route
+					path="/overview"
+					element={
+						<AllOrganisationPresenter
+							companies={dummyCompanies}
+							tickets={dummyTickets}
+							onStar={() => console.log("on-star")}
+							collectedTickets={userData?.points}
+							name={["Malin", "Marques"]}
+						/>
+					}
+				/>
+				<Route
+					path="/company"
+					element={
+						<CompanyView
+							companies={dummyCompanies}
+							currentCompany={0}
+							onStar={() => console.log("on-star")}
+							availableTickets={dummyTickets}
+						/>
+					}
+				/>
+				<Route
+					path="/profile"
+					element={
+						<ProfilePresenter
+							companies={dummyCompanies}
+							tickets={dummyTickets}
+							onStar={() => console.log("on-star")}
+							collectedTickets={userData?.points}
+							name={["Malin", "Marques"]}
+						/>
+					}
+				/>
+				<Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
 
-        <Route path="/" element={<RegisterPresenter registered={true} />} />
-        <Route path="*" element={<RegisterPresenter registered={true} />} />
-      </Routes>
-    </Router>
-  );
+				<Route path="/" element={<RegisterPresenter registered={true} />} />
+				<Route path="*" element={<RegisterPresenter registered={true} />} />
+			</Routes>
+		</Router>
+	);
 };
 
 export default App;

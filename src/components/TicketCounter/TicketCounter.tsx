@@ -15,8 +15,8 @@ const TicketCounter: FC<Props> = ({ tickets }) => {
       </div>
 
       <div className="exposition">
-        Collect tickets through active participation in THS Armada. The more
-        tickets you collect, greater the chances of winning during the raffle!
+        Collect points through active participation in THS Armada. The more
+        points you collect, greater the chances of winning during the raffle!
       </div>
     </div>
   );

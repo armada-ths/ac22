@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
-import './CompanyHeader.css'
+import React, { FC } from "react";
+import "./CompanyHeader.css";
 
-import StarButtonHeader from '../StarButton/StarButtonHeader'
-import CompanyHeaderBox from '../CompanyHeaderBox/CompanyHeaderBox'
+import StarButtonHeader from "../StarButton/StarButtonHeader";
+import CompanyHeaderBox from "../CompanyHeaderBox/CompanyHeaderBox";
 
-import location_img from '../../assets/CompanyHeader/location-img.svg'
-import stall_img from '../../assets/CompanyHeader/stall-img.svg'
-import ticket_img from '../../assets/CompanyHeader/ticket-img.svg'
+import location_img from "../../assets/CompanyHeader/location-img.svg";
+import stall_img from "../../assets/CompanyHeader/stall-img.svg";
+import ticket_img from "../../assets/CompanyHeader/ticket-img.svg";
 
 /**
  * location:    location of stall
@@ -16,26 +16,53 @@ import ticket_img from '../../assets/CompanyHeader/ticket-img.svg'
  * onStar:      callback function that is called when the button is pressed
  */
 interface Props {
-    location: string;
-    stall: number;
-    tickets: number;
-    starred: boolean;
-    onStar: () => void;
+  companyName: string;
+  location: string;
+  stall: number;
+  tickets: number;
+  starred: boolean;
+  onStar: (companyName: string) => void;
 }
 
-const CompanyHeader: FC<Props> = ({ location, stall, tickets, starred, onStar }) => {
+const CompanyHeader: FC<Props> = ({
+  companyName,
+  location,
+  stall,
+  tickets,
+  starred,
+  onStar,
+}) => {
   return (
-    <div className='header-container'>
-        <CompanyHeaderBox img={location_img} icon="location" title="LOCATION" info={location}></CompanyHeaderBox>
-        <div className='line'></div>
-        <CompanyHeaderBox img={stall_img} icon="stall" title="STALL" info={"#" + stall}></CompanyHeaderBox>
-        <div className='line'></div>
-        <CompanyHeaderBox img={ticket_img} icon="ticket" title="SUPER TICKETS" info={tickets + " Left"}></CompanyHeaderBox>
-        <div className='line'></div>
-        
-        <StarButtonHeader starred={starred} onStar={() => onStar()}></StarButtonHeader>
-    </div>
-  )
-}
+    <div className="header-container">
+      <CompanyHeaderBox
+        img={location_img}
+        icon="location"
+        title="LOCATION"
+        info={location}
+      ></CompanyHeaderBox>
+      <div className="line"></div>
+      <CompanyHeaderBox
+        img={stall_img}
+        icon="stall"
+        title="STALL"
+        info={"#" + stall}
+      ></CompanyHeaderBox>
+      <div className="line"></div>
+      <CompanyHeaderBox
+        img={ticket_img}
+        icon="ticket"
+        title="SUPER TICKETS"
+        info={tickets + " Left"}
+      ></CompanyHeaderBox>
+      <div className="line"></div>
 
-export default CompanyHeader
+      <StarButtonHeader
+        companyName={companyName}
+        starred={starred}
+        onStar={onStar}
+      ></StarButtonHeader>
+    </div>
+  );
+};
+
+export default CompanyHeader;

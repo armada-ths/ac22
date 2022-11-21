@@ -5,19 +5,23 @@ import { auth } from "../models/Firebase/firebaseConfig";
 import { UserModel } from "../models/UserModel";
 
 interface Props {
-	model?: UserModel;
+  model?: UserModel;
 }
 
-const HomeViewer: FC<Props> = ({model}) => {
-	return (
-		<div>
-			<button onClick={() => {model?.addCompany("Ninas Company")}}>Star</button>
-			<button onClick={() => {model?.removeCompany("Ninas Company")}}>Unstar</button>
-			<button onClick={() => {model?.toggleStar("Ninas Company")}}>Toggle Star</button>
-			<RaffleCountdown/>
-			<TicketCounter tickets={10} />		
-
-		</div>);
+const HomeViewer: FC<Props> = ({ model }) => {
+  return (
+    <div>
+      <button
+        onClick={() => {
+          model?.toggleStar("Ninas Company");
+        }}
+      >
+        Toggle Star
+      </button>
+      <RaffleCountdown />
+      <TicketCounter tickets={10} />
+    </div>
+  );
 };
 
 export default HomeViewer;

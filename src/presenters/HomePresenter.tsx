@@ -8,6 +8,7 @@ import DashboardView from "../views/DashboardView/DashboardView";
 import NavBar from "../components/NavBar/NavBar";
 
 interface Props {
+  userModel: UserModel;
   companies: Company[];
   tickets: Tickets[];
   onStar: () => void;
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const HomePresenter: FC<Props> = ({
+  userModel,
   name,
   companies,
   tickets,
@@ -34,6 +36,7 @@ const HomePresenter: FC<Props> = ({
         <Sidebar />
       </div>
       <DashboardView
+        userModel={userModel}
         companies={companies}
         availableTickets={tickets}
         onStar={onStar}

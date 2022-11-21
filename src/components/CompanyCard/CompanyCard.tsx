@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import "./CompanyCard.css";
 
-import StarButtonCard from '../StarButton/StarButtonCard'
-import TicketState from '../TicketState/TicketState'
+import StarButtonCard from "../StarButton/StarButtonCard";
+import TicketState from "../TicketState/TicketState";
 
 /**
  * image:           the image that will be displayed
@@ -12,7 +12,7 @@ import TicketState from '../TicketState/TicketState'
  * ticketState:     tells the component in which ticket state the company is in
  *                  relative to the specific user
  * receivedtickets: tells how many tickets the user has collected (if any are collected)
- * 
+ *
  * Too many arguments, what do you think?
  */
 interface Props {
@@ -20,7 +20,7 @@ interface Props {
   companyName: string;
   tags: string[];
   starred: boolean;
-  onStar: () => void;
+  onStar: (companyName: string) => void;
   ticketState: string;
   receivedTickets: number;
 }
@@ -29,29 +29,47 @@ interface Props {
  * I am having trouble setting the backgroundImage attribute
  * therefore I am just using backgroundColor for now
  */
-export const CompanyCard: FC<Props> = ({ image, companyName, tags, starred, onStar, ticketState, receivedTickets }) => {
+export const CompanyCard: FC<Props> = ({
+  image,
+  companyName,
+  tags,
+  starred,
+  onStar,
+  ticketState,
+  receivedTickets,
+}) => {
   return (
     <div className="card-box">
-        <div className="card-background-image" style={{backgroundColor: image}}></div>
-        <div className="card-body">
-          <div className="card-header">
-            <div className="card-header-title">
-              <span className="h1">{companyName}</span >
-              <span className="h2">{tags.map(tag => {
+      <div
+        className="card-background-image"
+        style={{ backgroundColor: image }}
+      ></div>
+      <div className="card-body">
+        <div className="card-header">
+          <div className="card-header-title">
+            <span className="h1">{companyName}</span>
+            <span className="h2">
+              {tags.map((tag) => {
                 /**
                  * Should we keep this logic where all tags are printed
                  * or stick to only two tags being printed for each company?
                  */
-                if (tag == tags.at(-1))
-                  return <span key={tag}>{tag}</span>
-                else
-                  return <span key={tag}>{tag + " · "}</span>})}</span>
-            </div>
-            <StarButtonCard starred={starred} onStar={() => onStar()}></StarButtonCard>
+                if (tag == tags.at(-1)) return <span key={tag}>{tag}</span>;
+                else return <span key={tag}>{tag + " · "}</span>;
+              })}
+            </span>
           </div>
-
-          <TicketState ticketState={ticketState} receivedTickets={receivedTickets}></TicketState>
+          <StarButtonCard
+            starred={starred}
+            onStar={() => onStar(companyName)}
+          ></StarButtonCard>
         </div>
+
+        <TicketState
+          ticketState={ticketState}
+          receivedTickets={receivedTickets}
+        ></TicketState>
+      </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import NavBar from "../components/NavBar/NavBar";
 
 interface Props {
+  userModel: UserModel;
   companies: Company[];
   tickets: Tickets[];
   onStar: () => void;
@@ -15,6 +16,7 @@ interface Props {
 }
 
 const AllOrganisationPresenter: FC<Props> = ({
+  userModel,
   companies,
   onStar,
   tickets,
@@ -33,6 +35,7 @@ const AllOrganisationPresenter: FC<Props> = ({
         <Sidebar />
       </div>
       <AllOrganisationView
+        userModel={userModel}
         companies={companies}
         availableTickets={tickets}
         onStar={onStar}

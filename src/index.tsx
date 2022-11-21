@@ -9,7 +9,7 @@ import { auth } from "./models/Firebase/firebaseConfig";
 import LoginPresenter from "./presenters/LoginPresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
 import { UserModel, DbTicket } from "./models/UserModel";
-import { persistModel } from "./models/Firebase/persistModel";
+import { persistUser } from "./models/Firebase/persistUser";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import App2 from "./App2";
 
@@ -37,20 +37,15 @@ auth.onAuthStateChanged(async (user) => {
       console.error("Error getting document:\n", e);
     }
 
-    let userModel: UserModel = new UserModel(
-      new Map<string, DbTicket>(),
-      [],
-      "",
-      []
-    );
+    let userModel: UserModel = new UserModel();
     let companyModel: CompanyUserModel = new CompanyUserModel(
       user.email as string,
       companyLogo
     );
     if (isStudent) {
-      persistModel(userModel);
+      await persistUser(userModel);
     } else {
-      persistModelCompany(companyModel);
+      await persistModelCompany(companyModel);
     }
 
     root.render(

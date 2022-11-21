@@ -18,7 +18,7 @@ import sopraSteria from "../assets/CompanyLogos/sopra-steria.jpeg";
 import spp from "../assets/CompanyLogos/spp.png";
 import zwapgrid from "../assets/CompanyLogos/zwapgrid.png";
 
-const dummyCompanies: Company[] = [
+const ExhibitorCompanies: Company[] = [
   {
     name: "Alstom Transport AB",
     image: alstom,
@@ -367,4 +367,4 @@ const dummyCompanies: Company[] = [
   }
 ];
 
-export { dummyCompanies };
+export { ExhibitorCompanies };

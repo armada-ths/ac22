@@ -111,7 +111,7 @@ const ProfileView: FC<Props> = ({}) => {
 							<div className="study-job-container">
 								<div className="study-nYears">
 									<h3>Study & Job Details</h3>
-									<h3>Study Years</h3>
+									<h3 className="study-years-heading">Study Years</h3>
 								</div>
 								<div className="selectors">
 									<select

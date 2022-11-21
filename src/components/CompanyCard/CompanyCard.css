@@ -10,15 +10,17 @@
 }
 
 .card-background-image {
-  height: 25vh;
+  min-height: 50%;
+  max-height: 50%;
   border-top-left-radius: 16px; /*Did not inherit from card-box for some reason*/
   border-top-right-radius: 16px;
 }
 
 .card-body {
+  min-height: 50%;
+  max-height: 50%;
   display: flex;
   flex-direction: column;
-  gap: 2vh;
   padding: 6%;
 }
 
@@ -26,7 +28,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .card-header-title {
@@ -47,4 +49,26 @@
   font-weight: var(--bold-weight);
   font-size: 0.875rem;
   text-transform: uppercase;
+}
+
+@media only screen and (min-device-width:370px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+
+  .card-header div .h1 {
+    font-size: 0.8rem;
+  }
+  .card-header div .h2 {
+    font-size: 0.5rem;
+  }
+
+}
+
+@media only screen and (max-device-width: 370px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+
+  .card-header div .h1 {
+    font-size: 0.6rem;
+  }
+  .card-header div .h2 {
+    font-size: 0.5rem;
+  }
+
 }

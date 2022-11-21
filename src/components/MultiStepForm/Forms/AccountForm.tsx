@@ -24,7 +24,7 @@ const AccountForm: FC<Props> = ({
   const [validInput, setValidInput] = useState<boolean>(true);
   const [active, setActive] = useState<boolean>(false);
   const [place, setPlace] = useState("Repeat Password");
-  /*const [place2, setPlace2] = useState("Name");*/
+
 
   useEffect(() => {
     if (repeatPassword === password) {
@@ -59,7 +59,7 @@ const AccountForm: FC<Props> = ({
           className={validInput ? "InputHeader1" : "InputHeaderWrong1"}
           style={{ color: validInput && !active ? "#0F1322" : "" }}
         >
-          {active ? "Retype password" : ""}
+          {active ? "Repeat password" : ""}
         </div>
         <div
           className={validInput ? "container1" : "incorrect-container1"}
@@ -88,6 +88,7 @@ const AccountForm: FC<Props> = ({
           />
         </div>
       </div>
+
     </div>
   );
 };

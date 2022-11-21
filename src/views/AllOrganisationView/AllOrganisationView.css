@@ -4,6 +4,7 @@
     flex-direction: column;
     background-color: var(--background);
     width: 90vw;
+    width: 90vw;
     margin-left: 7%;
     margin-right: 4%;
     margin-top: 7%; /* extra space for top nav bar*/
@@ -22,19 +23,4 @@
 .sidebar-position {
     position: fixed;
     top:0px;
-}
-
-@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .inner-box{
-        margin-left: 4%;
-        margin-right: 4%;
-    }
-
-    .inner-box{
-        display: flex;
-        flex-direction: column;
-        background-color: var(--background);
-        height: 135vh;
-        margin-top: 20%;
-    }
 }

@@ -9,7 +9,7 @@ interface Props {
 const NavBarTicket: FC<Props> = ({ collectedTickets}) => {
     return(
         <Link to="/profile" className='small-ticket-background'>
-            <img src={ticket_img}/>x{collectedTickets}</Link>
+            <img src={ticket_img}/>x {collectedTickets}</Link>
     )
 }
 export default NavBarTicket

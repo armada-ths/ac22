@@ -14,14 +14,3 @@ img{
     border-width: 2px;
     border-color: var(--gray-primary);
 }
-
-@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
-    .text-img img{
-        display: none;
-        width:0px;
-    }
-    .text-img p {
-        width: 100%;
-        margin-right: 0px;
-    }
-}

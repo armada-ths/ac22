@@ -44,10 +44,3 @@
     margin-top: 5%;
     color: var(--black-secondary);
 }
-
-.account-email-info{
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--black-secondary);
-    margin-bottom: -2%;
-  }

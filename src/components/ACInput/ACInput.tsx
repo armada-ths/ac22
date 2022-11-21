@@ -55,7 +55,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
         {active && !validInput && type === "email" ? (
           <div className="InvalidEmail">
             <InvalidEmail />
-            <span className="warning-text">Invalid</span>
+            <span style={{ marginLeft: "4px" }}>Invalid</span>
           </div>
         ) : (
           ""
@@ -63,7 +63,7 @@ const ACInput: FC<Props> = ({ type, placeholder, value, onChange }) => {
         {active && !validInput && type === "password" && (
           <div className="InvalidPassword">
             <InvalidEmail />
-            <span className="warning-text">Min.Length=8</span>
+            <span style={{ marginLeft: "4px" }}>Min.Length=8</span>
           </div>
         )}
       </div>

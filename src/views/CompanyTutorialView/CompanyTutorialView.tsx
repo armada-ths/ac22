@@ -16,7 +16,7 @@ const TutorialView: FC<Props> = () => {
         <p>
           Welcome to the tutorial page for companies! Here you can find the
           information about the functions of the app. If you have any further
-          questions please reach out to your contact person at Armada. The statistics will also be added at the end of the fair.
+          questions pelase reach out to your contact person at Armada. The statistics will also be added at the end of the fair.
         </p>
       </div>
       <div className="goal-boxes">
@@ -34,8 +34,6 @@ const TutorialView: FC<Props> = () => {
         <div className="subtitles">The Company Goals:</div>
         <div>
           To connect with students and hand out tickets to fuel the competition!
-          You have 30 Super Tickets each day and an unlimited amount of standard tickets.
-          A Standard Ticket is worth 3 points and a Super Ticket is worth 10 points.
         </div>
       </div> </div>
 

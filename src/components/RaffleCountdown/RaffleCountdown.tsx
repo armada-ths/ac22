@@ -26,7 +26,7 @@ const RaffleCountdown: FC<Props> = () => {
 
     return (
         <div className="timerbox">
-            <div className='counter-title'>THE RAFFLE</div>
+            <div className='title'>THE RAFFLE</div>
             {done ?
                     <h3 className='raffled'><div>It's time to raffle!</div> <div>May the odds be ever in your favour</div></h3>
                 :

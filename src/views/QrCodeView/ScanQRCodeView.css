@@ -3,18 +3,13 @@
 }
 
 .scan-main{
+
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-}
-
-.scan-camera {
-    height: 25rem;
-    width: 25rem;
 }
 
 .scan-qr-reader{
@@ -29,41 +24,18 @@
     align-items: center;
     background-color: #FFFFFF;
     border-radius: 16px;
-    height: 15rem;
-    width: 15rem;
+    width: 60%;
+    height: 30%;
     position: fixed;
     z-index: 1;
     padding: 2rem;
     gap: 15px;
     border: 1px solid black;
-    margin-bottom: 4rem;
-}
-
-.success-prompt-loading {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #2BDBA0 ;
-    border-radius: 16px;
-    height: 5rem;
-    width: 5rem;
-    position: fixed;
-    z-index: 1;
-    padding: 2rem;
-    gap: 15px;
-    border: 1px solid black;
-    margin-bottom: 4rem;
 }
 
 .qr-text{
     font-weight: 600;
     font-size: 24px;
-}
-
-.qr-text-already {
-    font-weight: 600;
-    font-size: 21px;
 }
 
 .scan-text {
@@ -72,12 +44,4 @@
     color: #999999;
     font-weight: 400;
     letter-spacing: 0.02em;
-}
-
-.scan-back-button{
-    padding-left: 0.8rem;
-    transform: scale(0.7);
-    z-index: 3;
-    position: absolute;
-    padding-top: 2rem;
 }

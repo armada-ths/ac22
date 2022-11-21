@@ -31,10 +31,10 @@
 }
 
 
-.form-width{
+.wider{
     width:100%;
 }
-.register-text{
+.RegisterText{
     margin-top: 5%;
     font-size: 14px;
     color: #999999;
@@ -44,20 +44,9 @@
 
 a{
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0.02em;
     text-decoration: none;
     color: var(--armada-green);
 }
 
-.forgot-password{
-    display: block;
-    margin-top: 3%;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    color: var(--armada-green);
-    text-align: right;
-    cursor: pointer;
-}

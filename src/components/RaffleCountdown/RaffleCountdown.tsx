@@ -6,7 +6,7 @@ interface Props {
 }
 const RaffleCountdown: FC<Props> = () => {
     var today = Date.now();
-    var closing = new Date("Nov 30, 2022, 16:00:00");
+    var closing = new Date("Nov 30, 2022, 12:15:00");
     const done = today > closing.getTime();
 
     const rafflecountdown = ({ days, hours, minutes, seconds }: { days: number, hours: number, minutes: number, seconds: number }) => {

@@ -6,45 +6,44 @@ import {
   updateDoc,
   deleteField,
   arrayUnion,
-} from "firebase/firestore";
-import { database } from "./firebaseConfig";
+} from 'firebase/firestore'
+import { database } from './firebaseConfig'
 
 export async function addToDB(
   collectionName: string,
   documentID: any,
-  data: any
+  data: any,
 ) {
-  const docRef = doc(database, collectionName, documentID);
+  const docRef = doc(database, collectionName, documentID)
   if ((await getDoc(docRef)).exists()) {
     switch (collectionName) {
-      case "users":
+      case 'users':
         //Add to users
-        break;
+        break
 
-      case "companies":
-        addToCompanyDatabase(documentID, data.ticketType, data.ticketNr);
-        break;
+      case 'companies':
+        addToCompanyDatabase(documentID, data.ticketType, data.ticketNr)
+        break
     }
   } else {
     try {
       await setDoc(docRef, {
         TotalTickets: 0,
         SuperTicketsLeft: 0,
-      });
-    } catch (e) {}
-    addToDB(collectionName, documentID, data);
+      })
+    } catch (e) { }
+    addToDB(collectionName, documentID, data)
   }
 }
 
 export async function addToCompanyDatabase(
   company: string,
   ticketType: string,
-  ticketNr: number
+  ticketNr: number,
 ) {
-  const docRef = doc(database, "companies", company);
-  const ticket = "Ticket " + ticketNr;
-  // console.log(ticketType);
-  if (ticketType === "superticket") {
+  const docRef = doc(database, 'companies', company)
+  const ticket = 'Ticket ' + ticketNr
+  if (ticketType === 'superticket') {
     await updateDoc(docRef, {
       SuperTicketsLeft: increment(-1),
       TotalTickets: increment(1),
@@ -52,8 +51,7 @@ export async function addToCompanyDatabase(
         ticketType: ticketType,
         available: true,
       },
-    });
-    // console.log("superTicket--");
+    })
   } else {
     await updateDoc(docRef, {
       TotalTickets: increment(1),
@@ -61,7 +59,35 @@ export async function addToCompanyDatabase(
         ticketType: ticketType,
         available: true,
       },
-    });
+    })
+  }
+}
+
+export async function addSurveyToCompanyDatabase(
+  user: string,
+  company: string,
+  ratingExperience: number,
+  ratingStall: number,
+) {
+  const docRef = doc(database, 'companies', company)
+  try {
+    await updateDoc(
+      docRef,
+      {
+        experieneRating: arrayUnion({
+          rating: ratingExperience,
+          uid: user,
+        }),
+        stallRating: arrayUnion({
+          rating: ratingStall,
+          uid: user,
+        }),
+      }
+    )
+  } catch (error) {
+    alert(
+      'Something went wrong when adding the survey data to company: ' + company,
+    )
   }
 }
 
@@ -69,25 +95,25 @@ export async function claimTicket(
   currentUserUID: string,
   ticketType: string,
   company: string,
-  ticketNr: number
+  ticketNr: number,
 ): Promise<boolean> {
-  const ticket = "Ticket " + ticketNr;
-  const docRefCompany = doc(database, "companies", company);
-  const docSnapCompany = await getDoc(docRefCompany);
-  const docRefUser = doc(database, "users", currentUserUID);
-  const docSnapUser = await getDoc(docRefUser);
-  var ticketGroup;
-  var points = 0;
+  const ticket = 'Ticket ' + ticketNr
+  const docRefCompany = doc(database, 'companies', company)
+  const docSnapCompany = await getDoc(docRefCompany)
+  const docRefUser = doc(database, 'users', currentUserUID)
+  const docSnapUser = await getDoc(docRefUser)
+  var ticketGroup
+  var points = 0
 
-  if (ticketType === "standardticket") {
-    ticketGroup = "nrOfTickets";
-    points = 3;
-  } else if (ticketType === "superticket") {
-    ticketGroup = "nrOfSuperTickets";
-    points = 10;
+  if (ticketType === 'standardticket') {
+    ticketGroup = 'nrOfTickets'
+    points = 3
+  } else if (ticketType === 'superticket') {
+    ticketGroup = 'nrOfSuperTickets'
+    points = 10
   }
   if (docSnapCompany.exists() && docSnapUser.exists()) {
-    const data = docSnapCompany.data();
+    const data = docSnapCompany.data()
     if (data[ticket].available && ticketGroup != null) {
       //If user created an account before points field was added run this
       if (docSnapUser.data().points == null) {
@@ -99,8 +125,8 @@ export async function claimTicket(
             },
             points: 10,
           },
-          { merge: true }
-        );
+          { merge: true },
+        )
       }
       await setDoc(
         docRefCompany,
@@ -110,57 +136,57 @@ export async function claimTicket(
             claimedBy: currentUserUID, // Might want to have the user's name instead of UID
           },
         },
-        { merge: true }
-      );
+        { merge: true },
+      )
       await setDoc(
         docRefUser,
         {
-          ["collectedTickets"]: {
+          ['collectedTickets']: {
             [ticketGroup]: increment(1),
           },
           points: increment(points),
-          visitedCompanies: arrayUnion(company.replace("@ac22.se", "")),
+          visitedCompanies: arrayUnion(company.replace('@ac22.se', '')),
         },
-        { merge: true }
-      );
-      return true;
+        { merge: true },
+      )
+      return true
     } else {
       // Ticket already claimed function (NEEDS IMPLEMENTATION)
-      return false;
+      return false
     }
   }
-  return false;
+  return false
 }
 
 export async function addToUserDatabase(
   user: string,
   starredCompanies: any,
-  collectedTickets: any
+  collectedTickets: any,
 ) {
-  const docRef = doc(database, "users", user);
+  const docRef = doc(database, 'users', user)
 
   try {
     await setDoc(docRef, {
       starredCompanies: starredCompanies,
       collectedTickets: collectedTickets,
-    });
-  } catch (e) {}
+    })
+  } catch (e) { }
 }
 
 export async function getCompanyData(company: string) {
-  const docRef = doc(database, "companies", company);
-  const docSnap = await getDoc(docRef);
+  const docRef = doc(database, 'companies', company)
+  const docSnap = await getDoc(docRef)
   if (docSnap.exists()) {
-    return docSnap.data();
+    return docSnap.data()
   } else {
   }
 }
 
 export async function getUserData(user: string) {
-  const docRefUser = doc(database, "users", user);
-  const docSnapUser = await getDoc(docRefUser);
+  const docRefUser = doc(database, 'users', user)
+  const docSnapUser = await getDoc(docRefUser)
   if (docSnapUser.exists()) {
-    return docSnapUser.data();
+    return docSnapUser.data()
   } else {
   }
 }
@@ -168,25 +194,25 @@ export async function getUserData(user: string) {
 export async function removeFromDB(
   collectionName: string,
   documentID: any,
-  data: any
+  data: any,
 ) {
-  const docRef = doc(database, collectionName, documentID);
+  const docRef = doc(database, collectionName, documentID)
   try {
-    if (collectionName === "companies" && data.includes("Ticket")) {
-      if (data.includes("superticket")) {
+    if (collectionName === 'companies' && data.includes('Ticket')) {
+      if (data.includes('superticket')) {
         await updateDoc(docRef, {
           [data]: deleteField(),
           TotalTickets: increment(-1),
           SuperTicketsLeft: increment(1),
-        });
+        })
       } else {
         await updateDoc(docRef, {
           [data]: deleteField(),
           TotalTickets: increment(-1),
-        });
+        })
       }
     }
   } catch (e) {
-    console.error("Error removing document: ", e);
+    console.error('Error removing document: ', e)
   }
 }

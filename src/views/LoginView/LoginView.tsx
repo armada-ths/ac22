@@ -32,8 +32,16 @@ const RegisterView: FC<Props> = ({
   async function LoginUser() {
     try {
       await signInWithEmailAndPassword(auth, username, password);
-    } catch (e) {
-      alert("Incorrect password");
+    } catch (e: any) {
+      if(e.message === "Firebase: Error (auth/user-not-found).")
+      {
+        alert("Email is not registered");
+      }else if(e.message === "Firebase: Error (auth/wrong-password)."){
+        alert("Password is incorrect");
+      }
+      else{
+        alert("Something went wrong, please try again");
+      }
     }
   }
 
@@ -50,28 +58,31 @@ const RegisterView: FC<Props> = ({
 
   return (
     <div className="screen">
-      <div className="LoginCard">
+      <div className="login-card">
         <AuthHeading title={title} />
-        <ACInput
-          type="email"
-          placeholder="Email"
-          value={username}
-          onChange={usernameOnChange}
-        />
-        <form>
+        <div className="form-content-login">
           <ACInput
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={passwordOnChange}
+            type="email"
+            placeholder="Email"
+            value={username}
+            onChange={usernameOnChange}
           />
-        </form>
-        <AuthButton
-          buttonText="Login"
-          buttonType="submit"
-          active={isValidEmail(username) ? true : false}
-          onButtonClick={LoginUser}
-        />
+          <span className="wider">
+            <form onSubmit={LoginUser}>
+              <ACInput
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={passwordOnChange}
+              />
+            </form></span>
+          <AuthButton
+            buttonText="Login"
+            buttonType="submit"
+            active={(isValidEmail(username) && password.length >= 8) ? true : false}
+            onButtonClick={LoginUser}
+          />
+        </div>
       </div>
       <div className="RegisterText">
         Don't have an account? <a href="/Register">Register</a>

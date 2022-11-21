@@ -26,7 +26,7 @@
     justify-content: space-between;
     align-items: center;
     width:90%;
-    gap: 24px;
+    gap: 1rem;
 }
 
 .steps{
@@ -39,6 +39,8 @@
 }
 
 .login-link{
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 5%;
     color: var(--black-secondary);
-    margin-top: 40px;
 }

@@ -1,3 +1,14 @@
+.screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top:5vh;
+    padding: 0 10%;
+
+}
+
 .Card{
     display: flex;
     flex-direction: column;
@@ -14,13 +25,3 @@
     min-height: 100vh;
 }
 
-.screen{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top:5vh;
-    padding: 0 10%;
-
-}

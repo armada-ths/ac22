@@ -21,7 +21,7 @@
 
 
 .incorrect-container{
-    border: 1.5px solid red;
+    border: 1.5px solid #DB2B2B;
 }
 
 .ac-input:focus{
@@ -39,15 +39,17 @@
 }
 
 .InputHeaderWrong {
+    font-size: 14px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 8px;
-    color: red;
+    color: #DB2B2B;
 }
 
 .InvalidEmail{
     margin-left: 5%;
+    align-items: center;
 }
 
 .InvalidPassword {

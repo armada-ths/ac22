@@ -51,6 +51,7 @@ const QrCodePresenter: FC = (props) => {
   }
 
   function sendSurvey() {
+    alert(company)
     addSurveyToCompanyDatabase(
       auth.currentUser?.uid ?? '',
       company,

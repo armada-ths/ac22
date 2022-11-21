@@ -86,7 +86,7 @@ export async function addSurveyToCompanyDatabase(
       { merge: true },
     )
   } catch (error) {
-    console.error(
+    alert(
       'Something went wrong when adding the survey data to company: ' + company,
     )
   }

@@ -27,9 +27,7 @@ async function CreateDoc(user: User, data: FormData) {
 					studyProgramme: data.studyProgramme,
 					yearOfStudy: data.yearOfStudy,
 					completionYear: data.completionYear,
-					jobInterests: data.jobInterests.filter(
-						(item, index) => data.jobInterests.indexOf(item) === index
-					),
+					jobInterests: data.jobInterests,
 				},
 				isStudent: true,
 			});

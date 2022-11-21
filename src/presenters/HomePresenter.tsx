@@ -4,6 +4,7 @@ import { Company, Tickets } from "../models/DummyModel";
 import "./Presenter.css";
 import DashboardView from "../views/DashboardView/DashboardView";
 import NavBar from "../components/NavBar/NavBar";
+import { ExhibitorCompanies } from "../models/ExhibitorConst";
 
 interface Props {
   companies: Company[];
@@ -32,7 +33,7 @@ const HomePresenter: FC<Props> = ({
         <Sidebar />
       </div>
       <DashboardView
-        companies={companies}
+        companies={ExhibitorCompanies}
         availableTickets={tickets}
         onStar={onStar}
         collectedTickets={collectedTickets}

@@ -66,6 +66,8 @@
 
     background-color: rgb(18, 18, 71); /*Change later*/
     color: var(--white);
+
+    background: no-repeat center;
 }
 
 .spotlight-header {

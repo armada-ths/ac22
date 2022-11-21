@@ -94,6 +94,7 @@
     border-width: 1px;
     border-style: solid;
     z-index: 3;
+    padding-bottom: 0.5rem;
   }
   .sidebar-button-container {
     display: flex;
@@ -140,6 +141,7 @@
 {
   width: unset;
   height: unset;
+  margin-left: 1.5rem;
 }
 
 .sidebar-dashboard-inactive {

@@ -8,16 +8,15 @@ interface Props {
 const TicketCounter: FC<Props> = ({ tickets }) => {
   return (
     <div className="counterbox">
-      <div className="title">YOUR TICKETS</div>
+      <div className="ticket-counter-title">YOUR TICKETS</div>
       <div className="ticket-flex">
-        <img className="img-here" src={ticket_img} />
+        <img className="img-here" src={ticket_img} alt="img" />
         <div className="tickets">{tickets}</div>
       </div>
 
       <div className="exposition">
-        {" "}
-        Collect tickets through active participation in THS Armada. The more
-        tickets you collect, greater the chances of winning during the raffle!
+        Collect points through active participation in THS Armada. The more
+        points you collect, greater the chances of winning during the raffle!
       </div>
     </div>
   );

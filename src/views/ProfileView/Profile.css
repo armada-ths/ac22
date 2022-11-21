@@ -1,0 +1,373 @@
+.Profile-Container{
+  display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    margin-left: 7%;
+    margin-right: 2%;
+    margin-top: 5%; /* extra space for top nav bar*/
+  background-color: #F5F7FB;
+}
+.Profile-header-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.active-header{
+  color: black;
+}
+
+.inactive-header{
+  color: var(--black-secondary)
+}
+
+.Settings-header{
+ margin-right: 10vh;
+ cursor: pointer;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.personalInfo-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2%;
+  background-color: white;
+  border-radius: 16px;
+  width: 80vw;
+  
+
+}
+
+.tickethistory-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2%;
+  min-height: 50vh;
+  max-height: 50vh;
+}
+
+.personal-details-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2%;
+  min-height: 25vh;
+  max-height: 50vh;
+}
+
+.roundCircle{
+  display: flex;
+  height: 100px;
+  width: 100px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.name-mail-inputs{
+  display: flex;
+  flex-direction: column;
+}
+
+.study-job-details{
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+}
+.settings-content{
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  gap: 2.5vh;
+}
+
+.lastName-gender{
+  display: flex;
+  flex-direction: column;
+}
+.input-width{
+  display: flex;
+  max-width: auto;
+}
+
+.study-job-details-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;  
+  width: 80vw;
+  padding: 2%;
+  border-radius: 16px;
+}
+
+.select-option {
+  width: 100%;
+  height: 3rem;
+  color: var(--grey-primary);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 4px;
+}
+
+.option-text {
+  font-size: 14px;
+  color: var(--black-secondary);
+  font-style: normal;
+}
+
+.input-tag {
+  height: 3.75rem;
+  background: #FFFFFF;
+  font-size: 20px;
+  color: #0F1322;
+  font-weight: 600;
+  text-indent: 1rem;
+  border: 2px solid black;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0 !important;
+  min-width: min-content;
+  width: 100%;
+}
+.input-tag1{
+  width: fit-content;
+}
+
+.study-job-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  padding: 2%;
+  border-radius: 16px;
+}
+.study-nYears{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.selectors{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fontSize{
+  font-size: auto;
+  font-style: normal;
+}
+
+.checkmarks-container{
+  display: flex;
+  flex-direction: column;;
+}
+.checkmarks{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.checkmarks-row-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.profile-content-container{
+  display: flex;
+}
+
+.GDPR-stuff-container{
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  justify-content: space-evenly;
+}
+.delete-account-button{
+  margin-top: 10vh;
+  margin-left: 2vh;
+  cursor: pointer;
+}
+
+.delete-acc-font{
+  font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* Red Primary */
+      color: #FF0000;
+}
+.edit-changes-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.discard-changes-button{
+  background: #FFE6E6;
+    border-radius: 4px;
+}
+
+.discard-changes-font{
+  /* Register now */
+    height: 22px;
+    display: flex;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* Red Primary */
+    color: #DB2B2B;   
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.save-changes{
+  background: #2BDBA0;
+  border-radius: 4px;
+}
+.save-changes-font{
+  width: auto;
+  height: 22px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  /* or 22px */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  /* White */
+  color: #FFFFFF;
+
+/* Inside auto layout */
+}
+
+.popup.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+  width: 40vw;
+  height: 40vh;
+  padding: 2%;
+  color: black
+}
+.popup-img{
+  width: 20px;
+  height: 20px;
+}
+
+.popup-img-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-text-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:black;
+  gap: 2.5vh;
+}
+.popup-subtext{
+    display: flex;
+    justify-content: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    /* Black Secondary */
+    /* Inside auto layout */
+  
+    flex: none;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.color-greytext{
+  color: #999999;
+}
+.color-red{
+  color: red;
+}
+
+.popup-button-cancel-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5vh;
+}
+.popup-cancel{
+  justify-content: center;
+  border-radius: 4px;
+  width: 20vw;
+  font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* White */
+    color: #FFFFFF;
+}
+.popup-greenbox-cancel{
+  display: flex;
+  background: #2BDBA0;
+  width: 20vw;
+  justify-content: center;
+}
+
+
+.popup-button-deleteacc{
+  background: transparent;
+  border-radius: 4px;
+  font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    /* or 22px */
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    /* Red Primary */
+    color: #DB2B2B;
+    justify-content: center;
+}
+

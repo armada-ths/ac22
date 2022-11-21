@@ -1,15 +1,10 @@
 import React, { FC, useState } from "react";
 import MultiStepForm from "../../components/MultiStepForm/MultiStepForm";
 import "./register-view.css";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  User,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, User } from "firebase/auth";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { auth, database } from "../../models/Firebase/firebaseConfig";
 import { FormData } from "../../components/MultiStepForm/MultiStepForm";
-import { redirect } from "react-router-dom";
 interface Props {}
 
 async function CreateDoc(user: User, userData: FormData) {

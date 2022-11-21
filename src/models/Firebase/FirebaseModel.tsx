@@ -43,7 +43,6 @@ export async function addToCompanyDatabase(
 ) {
   const docRef = doc(database, "companies", company);
   const ticket = "Ticket " + ticketNr;
-  // console.log(ticketType);
   if (ticketType === "superticket") {
     await updateDoc(docRef, {
       SuperTicketsLeft: increment(-1),
@@ -53,7 +52,6 @@ export async function addToCompanyDatabase(
         available: true,
       },
     });
-    // console.log("superTicket--");
   } else {
     await updateDoc(docRef, {
       TotalTickets: increment(1),
@@ -65,12 +63,37 @@ export async function addToCompanyDatabase(
   }
 }
 
+export async function addSurveyToCompanyDatabase(
+  user: string,
+  company: string,
+  ratingExperience: number,
+  ratingStall: number
+) {
+  const docRef = doc(database, "companies", company);
+  try {
+    await updateDoc(docRef, {
+      experienceRating: arrayUnion({
+        rating: ratingExperience,
+        uid: user,
+      }),
+      stallRating: arrayUnion({
+        rating: ratingStall,
+        uid: user,
+      }),
+    });
+  } catch (error) {
+    alert(
+      "Something went wrong when adding the survey data to company: " + company
+    );
+  }
+}
+
 export async function claimTicket(
   currentUserUID: string,
   ticketType: string,
   company: string,
   ticketNr: number
-) {
+): Promise<boolean> {
   const ticket = "Ticket " + ticketNr;
   const docRefCompany = doc(database, "companies", company);
   const docSnapCompany = await getDoc(docRefCompany);
@@ -129,6 +152,7 @@ export async function claimTicket(
       return false;
     }
   }
+  return false;
 }
 
 export async function addToUserDatabase(
@@ -151,6 +175,15 @@ export async function getCompanyData(company: string) {
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
     return docSnap.data();
+  } else {
+  }
+}
+
+export async function getUserData(user: string) {
+  const docRefUser = doc(database, "users", user);
+  const docSnapUser = await getDoc(docRefUser);
+  if (docSnapUser.exists()) {
+    return docSnapUser.data();
   } else {
   }
 }

@@ -40,7 +40,8 @@ const App: FC<Props> = ({ userModel }) => {
               tickets={dummyTickets}
               onStar={() => console.log("on-star")}
               collectedTickets={
-                userData?.points
+                userData?.collectedTickets.nrOfSuperTickets +
+                userData?.collectedTickets.nrOfTickets
               }
               name={["Malin", "Marques"]}
             />
@@ -55,7 +56,8 @@ const App: FC<Props> = ({ userModel }) => {
           element={
             <TutorialPresenter
               collectedTickets={
-                userData?.points
+                userData?.collectedTickets.nrOfSuperTickets +
+                userData?.collectedTickets.nrOfTickets
               }
               name={["Malin", "Marques"]}
             />
@@ -70,7 +72,8 @@ const App: FC<Props> = ({ userModel }) => {
               tickets={dummyTickets}
               onStar={() => console.log("on-star")}
               collectedTickets={
-                userData?.points
+                userData?.collectedTickets.nrOfSuperTickets +
+                userData?.collectedTickets.nrOfTickets
               }
               name={["Malin", "Marques"]}
             />

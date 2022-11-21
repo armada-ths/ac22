@@ -8,6 +8,8 @@ import {
   arrayUnion,
 } from 'firebase/firestore'
 import { database } from './firebaseConfig'
+import { getAuth, deleteUser } from "firebase/auth";
+
 
 export async function addToDB(
   collectionName: string,
@@ -216,3 +218,13 @@ export async function removeFromDB(
     console.error('Error removing document: ', e)
   }
 }
+
+export async function deleteAccountFromDB(){
+    const auth = getAuth();
+		const user = auth.currentUser;
+		user? deleteUser(user).then(() => {
+			console.log(user, " deleted.");
+		}).catch((e) => { console.log(e, " : error in deleting user ", user);
+		}): console.log("no user authenticated");
+	}
+

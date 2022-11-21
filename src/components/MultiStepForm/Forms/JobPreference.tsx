@@ -33,7 +33,7 @@ const JobPreference: FC<Props> = ({ jobInterests, updateField }) => {
 
       <div className="subheading">Job Interests</div>
       {twoColumnPositions.map(([jobPositionL, jobPositionR]) => (
-        <div className="checkboxes-row">
+        <div key={jobPositionL + jobPositionR} className="checkboxes-row">
           <div className="checkbox-container">
             <input
               checked={jobInterests.includes(jobPositionL)}
@@ -41,7 +41,7 @@ const JobPreference: FC<Props> = ({ jobInterests, updateField }) => {
               className="checkbox"
               id={jobPositionL}
               value={jobPositionL}
-              onClick={(e) => handleChange(e)}
+              onChange={(e) => handleChange(e)}
             />
             <label htmlFor={jobPositionL}>{jobPositionL}</label>
           </div>
@@ -52,7 +52,7 @@ const JobPreference: FC<Props> = ({ jobInterests, updateField }) => {
               className="checkbox"
               id={jobPositionR}
               value={jobPositionR}
-              onClick={(e) => handleChange(e)}
+              onChange={(e) => handleChange(e)}
             />
             <label htmlFor={jobPositionR}>{jobPositionR}</label>
           </div>

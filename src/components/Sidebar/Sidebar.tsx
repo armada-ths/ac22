@@ -34,9 +34,7 @@ const Sidebar: FC<Props> = () => {
       <div className="sidebar-button-container">
         <div
           className={
-            active === "/"
-              ? "sidebar-dashboard"
-              : "sidebar-dashboard-inactive"
+            active === "/" ? "sidebar-dashboard" : "sidebar-dashboard-inactive"
           }
         >
           <Link to="/">

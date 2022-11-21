@@ -43,7 +43,10 @@ const App: FC<Props> = ({ userModel }) => {
                 userData?.collectedTickets.nrOfSuperTickets +
                 userData?.collectedTickets.nrOfTickets
               }
-              name={["Malin", "Marques"]}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
             />
           }
         />
@@ -59,7 +62,10 @@ const App: FC<Props> = ({ userModel }) => {
                 userData?.collectedTickets.nrOfSuperTickets +
                 userData?.collectedTickets.nrOfTickets
               }
-              name={["Malin", "Marques"]}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
             />
           }
         />
@@ -75,7 +81,10 @@ const App: FC<Props> = ({ userModel }) => {
                 userData?.collectedTickets.nrOfSuperTickets +
                 userData?.collectedTickets.nrOfTickets
               }
-              name={["Malin", "Marques"]}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
             />
           }
         />

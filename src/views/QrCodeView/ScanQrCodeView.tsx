@@ -14,9 +14,12 @@ import { getUserData } from "../../models/Firebase/FirebaseModel";
 interface Props {
   company: string;
   fetchFromURL: (url: string) => Promise<boolean>;
+  setStallRating: (rating: number) => void;
+  setExperienceRating: (rating: number) => void;
+  sendSurvey: () => void;
 }
 
-const ScanQrCodeView: FC<Props> = (props) => {
+const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setExperienceRating }) => {
   const [userData, setUserData] = useState<any>();
   const [prompt, setPrompt] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -27,6 +30,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
   const [runtimeSettings] = useState(
     '{"ImageParameter":{"BarcodeFormatIds":["BF_QR_CODE"],"Description":"","Name":"Settings"},"Version":"3.0"}'
   ); //use JSON template to decode QR codes only
+
 
   useEffect(() => {
     getUserData(auth.currentUser?.uid as string).then((data) => {
@@ -48,7 +52,7 @@ const ScanQrCodeView: FC<Props> = (props) => {
       setLoading(true);
       setIsActive(false);
       setTicketStatus(
-        (await props.fetchFromURL(results[0].barcodeText)) as any
+        (await fetchFromURL(results[0].barcodeText)) as any
       );
       setPrompt(true);
       setLoading(false);
@@ -121,6 +125,24 @@ const ScanQrCodeView: FC<Props> = (props) => {
             <div className="success-prompt">
               <SuccessIcon />
               <div className="qr-text">Ticket Collected!</div>
+
+              <label>How was {company}'s stall on a scale from 1 to 10?
+                <select placeholder={"Choose rating..."} onChange={(e) => setStallRating(parseInt(e.target.value))} className="rating-select">
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
+                    return (
+                      <option value={number} className="rating-text">{number}</option>);
+                  })}
+                </select>
+              </label>
+              <label>How satisfied were you with your experience at the stall on a scale from 1 to 10?
+                <select placeholder={"Choose rating..."} onChange={(e) => setExperienceRating(parseInt(e.target.value))} className="rating-select">
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
+                    return (
+                      <option value={number} className="rating-text">{number}</option>);
+                  })}
+                </select>
+              </label>
+
               <AuthButton
                 active={true}
                 buttonText="great"

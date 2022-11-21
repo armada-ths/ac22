@@ -31,7 +31,7 @@ export async function addToDB(
         TotalTickets: 0,
         SuperTicketsLeft: 0,
       });
-    } catch (e) {}
+    } catch (e) { }
     addToDB(collectionName, documentID, data);
   }
 }
@@ -43,7 +43,6 @@ export async function addToCompanyDatabase(
 ) {
   const docRef = doc(database, "companies", company);
   const ticket = "Ticket " + ticketNr;
-  // console.log(ticketType);
   if (ticketType === "superticket") {
     await updateDoc(docRef, {
       SuperTicketsLeft: increment(-1),
@@ -53,7 +52,6 @@ export async function addToCompanyDatabase(
         available: true,
       },
     });
-    // console.log("superTicket--");
   } else {
     await updateDoc(docRef, {
       TotalTickets: increment(1),
@@ -62,6 +60,29 @@ export async function addToCompanyDatabase(
         available: true,
       },
     });
+  }
+}
+
+export async function addSurveyToCompanyDatabase(user: string, company: string, ratingExperience: number, ratingStall: number) {
+  const docRef = doc(database, "companies", company);
+  try {
+    await updateDoc(docRef, {
+      "experieneRating": arrayUnion(
+        {
+          "rating": ratingExperience,
+          "uid": user
+        }
+      ),
+      "stallRating": arrayUnion(
+        {
+          "rating": ratingStall,
+          "uid": user
+        }
+      )
+    })
+  } catch (error) {
+    console.error("Something went wrong when adding the survey data to company: " + company);
+
   }
 }
 
@@ -144,7 +165,7 @@ export async function addToUserDatabase(
       starredCompanies: starredCompanies,
       collectedTickets: collectedTickets,
     });
-  } catch (e) {}
+  } catch (e) { }
 }
 
 export async function getCompanyData(company: string) {

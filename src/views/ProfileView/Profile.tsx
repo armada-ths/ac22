@@ -197,7 +197,6 @@ const ProfileView: FC<Props> = ({}) => {
 										<Popup
 											content={
 												<div className="popup-container">
-													<div className="">
 														<div className="popup-img-box">
 															<img
 																src={attention}
@@ -220,7 +219,6 @@ const ProfileView: FC<Props> = ({}) => {
 														</div>
 														<div className="popup-button-deleteacc">Yes delete my account</div>
 													</div>
-												</div>
 											}
 											handleClose={togglePopup}
 										/>

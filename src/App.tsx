@@ -1,31 +1,38 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Import all presenters here
 import HomePresenter from "./presenters/HomePresenter";
 import RegisterPresenter from "./presenters/RegisterPresenter";
+import ProfilePresenter from "./presenters/ProfilePresenter";
 
-import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import ScanQrCodePresenter from "./presenters/ScanQrCodePresenter";
 import TutorialPresenter from "./presenters/TutorialPresenter";
 import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
-import RegisterSuccess from "./components/RegisterSuccess/RegisterSuccess";
-import ProfilePresenter from "./presenters/ProfilePresenter";
 import CompanyView from "./views/CompanyView/CompanyView";
 import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
+import { auth } from "./models/Firebase/firebaseConfig";
+import { getUserData } from "./models/Firebase/FirebaseModel";
 
 interface Props {
-	userModel: UserModel;
+  userModel: UserModel;
 }
 /*
 Just a comment
  */
 
 const App: FC<Props> = ({ userModel }) => {
-	return (
+  const [userData, setUserData] = useState<any>();
+  useEffect(() => {
+    getUserData(auth.currentUser?.uid as string).then((data) => {
+      setUserData(data);
+    });
+  }, []);
+
+  return (
 		<Router>
 			<Routes>
 				<Route
@@ -35,17 +42,22 @@ const App: FC<Props> = ({ userModel }) => {
 							companies={dummyCompanies}
 							tickets={dummyTickets}
 							onStar={() => console.log("on-star")}
-							collectedTickets={15}
+							collectedTickets={
+								userData?.collectedTickets.nrOfSuperTickets +
+								userData?.collectedTickets.nrOfTickets
+							}
 							name={["Malin", "Marques"]}
 						/>
 					}
 				/>
-
 				<Route
 					path="/tutorial"
 					element={
 						<TutorialPresenter
-							collectedTickets={15}
+							collectedTickets={
+								userData?.collectedTickets.nrOfSuperTickets +
+								userData?.collectedTickets.nrOfTickets
+							}
 							name={["Malin", "Marques"]}
 						/>
 					}
@@ -58,7 +70,10 @@ const App: FC<Props> = ({ userModel }) => {
 							companies={dummyCompanies}
 							tickets={dummyTickets}
 							onStar={() => console.log("on-star")}
-							collectedTickets={15}
+							collectedTickets={
+								userData?.collectedTickets.nrOfSuperTickets +
+								userData?.collectedTickets.nrOfTickets
+							}
 							name={["Malin", "Marques"]}
 						/>
 					}
@@ -74,6 +89,9 @@ const App: FC<Props> = ({ userModel }) => {
 						/>
 					}
 				/>
+				<Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
+				<Route path="/" element={<RegisterPresenter registered={true} />} />
+				<Route path="*" element={<RegisterPresenter registered={true} />} />
 				<Route
 					path="/profile"
 					element={
@@ -86,10 +104,6 @@ const App: FC<Props> = ({ userModel }) => {
 						/>
 					}
 				/>
-
-				<Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
-				<Route path="/" element={<RegisterPresenter registered={true} />} />
-				<Route path="*" element={<RegisterPresenter registered={true} />} />
 			</Routes>
 		</Router>
 	);

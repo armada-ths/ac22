@@ -6,6 +6,8 @@ import { useMultiStepForm } from "./MultiStepHook/useMultiStepForm";
 import AuthButton from "../AuthButton/AuthButton";
 import FormStepCounter from "../FormStepCounter/FormStepCounter";
 import JobPreference from "./Forms/JobPreference";
+import { RegisterInfo } from "../../assets/RegisterInfo";
+
 export interface FormData {
   name: string;
   email: string;
@@ -79,7 +81,12 @@ const MultiStepForm: FC<Props> = ({ registerSubmit }) => {
             />
           </div>
           {step}
+
           <div className="button-container">
+            {isFirst ? <div className="account-email-info">
+              <RegisterInfo />
+              <span style={{ marginLeft: "4px" }}>Please use an @kth.se email</span>
+            </div> : ""}
             <AuthButton
               buttonText={isLast ? "Complete Registration" : "Next"}
               buttonType="submit"

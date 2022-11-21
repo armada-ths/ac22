@@ -11,8 +11,8 @@ const CryptoJS = require('crypto-js')
 const QrCodePresenter: FC = (props) => {
   const [company, setCompany] = React.useState('')
   const [companyRatings, setCompanyRatings] = React.useState({})
-  const [stallRating, setStallRating] = React.useState<number>(5)
-  const [experienceRating, setExperienceRating] = React.useState<number>(5)
+  const [stallRating, setStallRating] = React.useState<number>(1)
+  const [experienceRating, setExperienceRating] = React.useState<number>(1)
   //const [ticketStatus, setTicketStatus] = React.useState<boolean>(true);
 
   useEffect(() => {
@@ -51,7 +51,6 @@ const QrCodePresenter: FC = (props) => {
   }
 
   function sendSurvey() {
-    alert(company)
     addSurveyToCompanyDatabase(
       auth.currentUser?.uid ?? '',
       company,

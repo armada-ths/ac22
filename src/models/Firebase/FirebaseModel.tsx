@@ -71,7 +71,7 @@ export async function addSurveyToCompanyDatabase(
 ) {
   const docRef = doc(database, 'companies', company)
   try {
-    await setDoc(
+    await updateDoc(
       docRef,
       {
         experieneRating: arrayUnion({
@@ -82,8 +82,7 @@ export async function addSurveyToCompanyDatabase(
           rating: ratingStall,
           uid: user,
         }),
-      },
-      { merge: true },
+      }
     )
   } catch (error) {
     alert(

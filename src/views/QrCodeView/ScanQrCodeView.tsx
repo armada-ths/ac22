@@ -1,42 +1,47 @@
-import { FC, useEffect, useState } from "react";
-import NavBar from "../../components/NavBar/NavBar";
-import "./ScanQRCodeView.css";
-import AuthButton from "../../components/AuthButton/AuthButton";
-import { SuccessIcon } from "../../assets/RegisterSuccessIcon/SucccessIcon";
-import { BarcodeScanner } from "react-barcode-qrcode-scanner";
-import { TextResult } from "dynamsoft-javascript-barcode";
-import { LoadingIcon } from "../../assets/LoadingIcon/Loading";
-import { InvalidIcon } from "../../assets/Invalid/InvalidIcon";
-import { auth } from "../../models/Firebase/firebaseConfig";
-import { useNavigate } from "react-router-dom";
-import { getUserData } from "../../models/Firebase/FirebaseModel";
+import { FC, useEffect, useState } from 'react'
+import NavBar from '../../components/NavBar/NavBar'
+import './ScanQRCodeView.css'
+import AuthButton from '../../components/AuthButton/AuthButton'
+import { SuccessIcon } from '../../assets/RegisterSuccessIcon/SucccessIcon'
+import { BarcodeScanner } from 'react-barcode-qrcode-scanner'
+import { TextResult } from 'dynamsoft-javascript-barcode'
+import { LoadingIcon } from '../../assets/LoadingIcon/Loading'
+import { InvalidIcon } from '../../assets/Invalid/InvalidIcon'
+import { auth } from '../../models/Firebase/firebaseConfig'
+import { useNavigate } from 'react-router-dom'
+import { getUserData } from '../../models/Firebase/FirebaseModel'
 
 interface Props {
-  company: string;
-  fetchFromURL: (url: string) => Promise<boolean>;
-  setStallRating: (rating: number) => void;
-  setExperienceRating: (rating: number) => void;
-  sendSurvey: () => void;
+  company: string
+  fetchFromURL: (url: string) => Promise<boolean>
+  setStallRating: (rating: number) => void
+  setExperienceRating: (rating: number) => void
+  sendSurvey: () => void
 }
 
-const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setExperienceRating }) => {
-  const [userData, setUserData] = useState<any>();
-  const [prompt, setPrompt] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [ticketStatus, setTicketStatus] = useState(true);
-  const [Initialized, setInitialized] = useState(false);
-  const [isActive, setIsActive] = useState(true); //whether the camera is active
-  const [isPause] = useState(false); //whether the video is paused
+const ScanQrCodeView: FC<Props> = ({
+  company,
+  fetchFromURL,
+  setStallRating,
+  setExperienceRating,
+  sendSurvey
+}) => {
+  const [userData, setUserData] = useState<any>()
+  const [prompt, setPrompt] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [ticketStatus, setTicketStatus] = useState(true)
+  const [Initialized, setInitialized] = useState(false)
+  const [isActive, setIsActive] = useState(true) //whether the camera is active
+  const [isPause] = useState(false) //whether the video is paused
   const [runtimeSettings] = useState(
-    '{"ImageParameter":{"BarcodeFormatIds":["BF_QR_CODE"],"Description":"","Name":"Settings"},"Version":"3.0"}'
-  ); //use JSON template to decode QR codes only
-
+    '{"ImageParameter":{"BarcodeFormatIds":["BF_QR_CODE"],"Description":"","Name":"Settings"},"Version":"3.0"}',
+  ) //use JSON template to decode QR codes only
 
   useEffect(() => {
     getUserData(auth.currentUser?.uid as string).then((data) => {
-      setUserData(data);
-    });
-  }, [prompt]);
+      setUserData(data)
+    })
+  }, [prompt])
 
   // async function getTickets(userid: string) {
   //   let totaltickets: number = await getUserTickets(userid);
@@ -45,26 +50,24 @@ const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setE
   //   return totaltickets;
   // }
 
-  console.log("tickets", userData);
+  console.log('tickets', userData)
 
   async function onScanned(results: TextResult[]) {
     if (results.length > 0) {
-      setLoading(true);
-      setIsActive(false);
-      setTicketStatus(
-        (await fetchFromURL(results[0].barcodeText)) as any
-      );
-      setPrompt(true);
-      setLoading(false);
+      setLoading(true)
+      setIsActive(false)
+      setTicketStatus((await fetchFromURL(results[0].barcodeText)) as any)
+      setPrompt(true)
+      setLoading(false)
     }
   }
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const onInitialized = () => {
     // when the Barcode Reader is initialized
-    setInitialized(true);
-  };
+    setInitialized(true)
+  }
 
   return (
     <div>
@@ -72,8 +75,8 @@ const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setE
         <svg
           className="scan-back-button"
           onClick={() => {
-            setIsActive(false);
-            navigate(-1);
+            setIsActive(false)
+            navigate(-1)
           }}
           width="52"
           height="31"
@@ -88,7 +91,7 @@ const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setE
         </svg>
 
         <NavBar
-          name={["", ""]}
+          name={['', '']}
           title=""
           collectedTickets={
             userData?.collectedTickets.nrOfSuperTickets +
@@ -118,7 +121,7 @@ const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setE
             <LoadingIcon />
           </div>
         ) : (
-          ""
+          ''
         )}
         {prompt ? (
           ticketStatus === true ? (
@@ -126,19 +129,38 @@ const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setE
               <SuccessIcon />
               <div className="qr-text">Ticket Collected!</div>
 
-              <label>How was {company}'s stall on a scale from 1 to 10?
-                <select placeholder={"Choose rating..."} onChange={(e) => setStallRating(parseInt(e.target.value))} className="rating-select">
+              <label>
+                How was {company}'s stall on a scale from 1 to 10?
+                <select
+                  placeholder={'Choose rating...'}
+                  onChange={(e) => setStallRating(parseInt(e.target.value))}
+                  className="rating-select"
+                >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
                     return (
-                      <option value={number} className="rating-text">{number}</option>);
+                      <option value={number} className="rating-text">
+                        {number}
+                      </option>
+                    )
                   })}
                 </select>
               </label>
-              <label>How satisfied were you with your experience at the stall on a scale from 1 to 10?
-                <select placeholder={"Choose rating..."} onChange={(e) => setExperienceRating(parseInt(e.target.value))} className="rating-select">
+              <label>
+                How satisfied were you with your experience at the stall on a
+                scale from 1 to 10?
+                <select
+                  placeholder={'Choose rating...'}
+                  onChange={(e) =>
+                    setExperienceRating(parseInt(e.target.value))
+                  }
+                  className="rating-select"
+                >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
                     return (
-                      <option value={number} className="rating-text">{number}</option>);
+                      <option value={number} className="rating-text">
+                        {number}
+                      </option>
+                    )
                   })}
                 </select>
               </label>
@@ -148,8 +170,9 @@ const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setE
                 buttonText="great"
                 buttonType="button"
                 onButtonClick={() => {
-                  setPrompt(false);
-                  setIsActive(true);
+                  setPrompt(false)
+                  setIsActive(true)
+                  sendSurvey()
                 }}
               ></AuthButton>
             </div>
@@ -162,19 +185,19 @@ const ScanQrCodeView: FC<Props> = ({ company, fetchFromURL, setStallRating, setE
                 buttonText="oh no!"
                 buttonType="button"
                 onButtonClick={() => {
-                  setPrompt(false);
-                  setIsActive(true);
+                  setPrompt(false)
+                  setIsActive(true)
                 }}
               ></AuthButton>
             </div>
           )
         ) : (
-          ""
+          ''
         )}
         <div className="scan-text">Scan the QR Code to collect your ticket</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ScanQrCodeView;
+export default ScanQrCodeView

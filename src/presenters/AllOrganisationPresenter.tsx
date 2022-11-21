@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { UserModel } from "../models/UserModel";
 import AllOrganisationView from "../views/AllOrganisationView//AllOrganisationView";
 import "./Presenter.css";
 import { Company, Tickets } from "../models/DummyModel";

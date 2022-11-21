@@ -73,3 +73,11 @@
     font-weight: 400;
     letter-spacing: 0.02em;
 }
+
+.scan-back-button{
+        padding-left: 0.8rem;
+            transform: scale(0.7);
+            z-index: 3;
+            position: absolute;
+            padding-top: 2rem;
+}

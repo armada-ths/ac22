@@ -188,7 +188,7 @@ const ProfileView: FC<Props> = ({}) => {
 						<div className="GDPR-stuff-container">
 							<div className="delete-account-button">
 								<div
-									className="delete-acc-font del-acc-color"
+									className="delete-acc-font"
 									onClick={togglePopup}
 								>
 									Delete My Account
@@ -229,11 +229,11 @@ const ProfileView: FC<Props> = ({}) => {
 									)}
 								</div>
 							</div>
-							<div className="delete-account-button discard-changes-button">
+							<div className="delete-account-button">
 								<div className="discard-changes-font">Discard Changes </div>
 							</div>
 							<div className="delete-account-button save-changes-font save-changes">
-								<div className="">Saves Changes </div>
+								<div>Saves Changes</div>
 							</div>
 						</div>
 					</div>

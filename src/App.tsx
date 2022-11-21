@@ -43,7 +43,7 @@ const App: FC<Props> = ({ userModel }) => {
               collectedTickets={userData?.points}
               name={[
                 "",
-                (auth.currentUser?.email as string).replace("@ac22.se", ""),
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
               ]}
             />
           }
@@ -59,7 +59,7 @@ const App: FC<Props> = ({ userModel }) => {
               collectedTickets={userData?.points}
               name={[
                 "",
-                (auth.currentUser?.email as string).replace("@ac22.se", ""),
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
               ]}
             />
           }
@@ -75,7 +75,7 @@ const App: FC<Props> = ({ userModel }) => {
               collectedTickets={userData?.points}
               name={[
                 "",
-                (auth.currentUser?.email as string).replace("@ac22.se", ""),
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
               ]}
             />
           }
@@ -101,7 +101,7 @@ const App: FC<Props> = ({ userModel }) => {
               collectedTickets={userData?.points}
               name={[
                 "",
-                (auth.currentUser?.email as string).replace("@ac22.se", ""),
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
               ]}
             />
           }

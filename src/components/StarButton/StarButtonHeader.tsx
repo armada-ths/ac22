@@ -15,6 +15,7 @@ interface Props {
 
 const StarButtonHeader: FC<Props> = ({ companyName, starred, onStar }) => {
   const [star, setStar] = React.useState(starred);
+  console.log("\nStar in button: ", star);
 
   function onClick() {
     onStar(companyName);

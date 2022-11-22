@@ -18,6 +18,8 @@ interface Props {
   onStar: (companyName: string) => void;
   a: number;
   onCardClick?: (id: number) => void;
+  currentCompany?: number;
+  starred?: boolean;
 }
 
 const CompanyCardsRow: FC<Props> = ({
@@ -27,9 +29,25 @@ const CompanyCardsRow: FC<Props> = ({
   onStar,
   a,
   onCardClick,
+  currentCompany,
+  starred,
 }) => {
+  if (starred) {
+    companies = companies.filter((company) =>
+      userModel.starredCompanies.includes(company.name)
+    );
+  }
   function getCards() {
-    return companies.slice(a, a + 3).map((company) => {
+    let n = 3;
+    if (
+      currentCompany &&
+      companies
+        .slice(a, a + 3)
+        .filter((company) => company.id != currentCompany).length == 2
+    )
+      n++;
+    return companies.slice(a, a + n).map((company) => {
+      if (currentCompany && company.id == currentCompany) return;
       let ticketState =
         company.collectedTickets > 0
           ? "received"
@@ -43,13 +61,14 @@ const CompanyCardsRow: FC<Props> = ({
             onClick={() => {
               userModel.updateCurrentCompany(company.id);
               if (onCardClick) onCardClick(userModel.currentCompany);
+              window.scrollTo(0, 0);
             }}
           >
             <CompanyCard
               image={company.image}
               companyName={company.name}
               tags={company.tags}
-              starred={company.starred}
+              starred={userModel.isStarred(company.name)}
               onStar={onStar}
               ticketState={ticketState}
               receivedTickets={company.collectedTickets}

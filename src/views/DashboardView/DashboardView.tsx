@@ -19,6 +19,7 @@ interface Props {
   companies: Company[];
   onStar: (companyName: string) => void;
   availableTickets: Tickets[];
+  collectedTickets: number;
 }
 
 const DashboardView: FC<Props> = ({
@@ -26,11 +27,11 @@ const DashboardView: FC<Props> = ({
   companies,
   onStar,
   availableTickets,
+  collectedTickets,
 }) => {
   const rand: number = Math.floor(Math.random() * 14);
   const [a, setA] = useState(0);
   const [spotlight, setSpotlight] = useState<number>(rand);
-
   return (
     <div className="dashboard-box">
       <div className="dashboard-spotlight-container">
@@ -45,6 +46,7 @@ const DashboardView: FC<Props> = ({
                   onClick={() => {
                     setSpotlight(spotlight - 1);
                   }}
+                  className="arrow"
                 ></img>
               )}
               {spotlight !== 14 && (
@@ -54,6 +56,7 @@ const DashboardView: FC<Props> = ({
                   onClick={() => {
                     setSpotlight(spotlight + 1);
                   }}
+                  className="arrow"
                 ></img>
               )}
             </div>
@@ -85,15 +88,17 @@ const DashboardView: FC<Props> = ({
                 onClick={() => {
                   setA(a - 3);
                 }}
+                className="arrow"
               />
             )}
-            {a !== 12 && (
+            {a + 3 < userModel.starredCompanies.length && (
               <img
                 src={arrow_right}
                 alt={"arrow right starred page"}
                 onClick={() => {
                   setA(a + 3);
                 }}
+                className="arrow"
               />
             )}
           </div>
@@ -104,6 +109,7 @@ const DashboardView: FC<Props> = ({
           availableTickets={availableTickets}
           onStar={onStar}
           a={a}
+          starred={true}
         ></CompanyCardsRow>
       </div>
     </div>

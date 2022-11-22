@@ -4,12 +4,13 @@ import { Company, Tickets } from "../models/DummyModel";
 import "./Presenter.css";
 import DashboardView from "../views/DashboardView/DashboardView";
 import NavBar from "../components/NavBar/NavBar";
+import { UserModel } from "../models/UserModel";
 
 interface Props {
   userModel: UserModel;
   companies: Company[];
   tickets: Tickets[];
-  onStar: () => void;
+  onStar: (companyName: string) => void;
   collectedTickets: number;
   name: String[];
 }

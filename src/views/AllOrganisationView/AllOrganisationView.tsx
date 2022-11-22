@@ -8,7 +8,7 @@ import { UserModel } from "../../models/UserModel";
 interface Props {
   userModel: UserModel;
   companies: Company[];
-  onStar: () => void;
+  onStar: (companyName: string) => void;
   availableTickets: Tickets[];
 }
 
@@ -26,7 +26,7 @@ const AllOrganisationView: FC<Props> = ({
             userModel={userModel}
             companies={companies}
             availableTickets={availableTickets}
-            onStar={() => onStar()}
+            onStar={onStar}
             a={0}
           />
         </div>
@@ -35,7 +35,7 @@ const AllOrganisationView: FC<Props> = ({
             userModel={userModel}
             companies={companies}
             availableTickets={availableTickets}
-            onStar={() => onStar()}
+            onStar={onStar}
             a={3}
           />
         </div>
@@ -44,7 +44,7 @@ const AllOrganisationView: FC<Props> = ({
             userModel={userModel}
             companies={companies}
             availableTickets={availableTickets}
-            onStar={() => onStar()}
+            onStar={onStar}
             a={6}
           />
         </div>
@@ -53,7 +53,7 @@ const AllOrganisationView: FC<Props> = ({
             userModel={userModel}
             companies={companies}
             availableTickets={availableTickets}
-            onStar={() => onStar()}
+            onStar={onStar}
             a={9}
           />
         </div>
@@ -62,7 +62,7 @@ const AllOrganisationView: FC<Props> = ({
             userModel={userModel}
             companies={companies}
             availableTickets={availableTickets}
-            onStar={() => onStar()}
+            onStar={onStar}
             a={12}
           />
         </div>

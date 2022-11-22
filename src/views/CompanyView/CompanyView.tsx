@@ -39,6 +39,13 @@ const CompanyView: FC<Props> = ({
   );
   console.log(currentCompany);
   const company = companies[currentCompany];
+  const starred = userModel.isStarred(companies[currentCompany].name);
+  console.log("Current company: ", companies[currentCompany].name);
+  console.log(
+    "\nIs starred: ",
+    userModel.isStarred(companies[currentCompany].name)
+  );
+  console.log("\nCurrent company id: ", currentCompany);
   return (
     <div className="company-container">
       <div className="company-header">
@@ -46,32 +53,21 @@ const CompanyView: FC<Props> = ({
           <Link to={"/"}>
             <img src={arrow_left_img} alt={"arrow left company page"}></img>
           </Link>
-          <div className="company-right-bar">
-            <div>Tickets</div>
-            <button>Profile</button>
-          </div>
+          <div className="company-right-bar"></div>
         </div>
         <div className="company-title">
           <span className="h1">{company.name}</span>
-          <span className="h2">
-            {company.tags.map((tag) => {
-              if (tag == company.tags.at(-1))
-                // If it is the last element
-                return <span key={tag}>{tag}</span>;
-              else return <span key={tag}>{tag + " · "}</span>;
-            })}
-          </span>
         </div>
       </div>
 
       <div className="company-body">
         <div className="company-header-component">
           <CompanyHeader
-            companyName={companies[userModel.currentCompany].name}
+            companyName={company.name}
             location={company.location}
             stall={company.stall}
             tickets={availableTickets[currentCompany].nrOfTickets}
-            starred={company.starred}
+            starred={starred}
             onStar={onStar}
           ></CompanyHeader>
         </div>
@@ -94,11 +90,13 @@ const CompanyView: FC<Props> = ({
 
       <div className="company-cards-body">
         <div className="company-cards-header">
-          <span>Nearby Stalls</span>
-          <div>
-            <span>All Stalls</span>
-            <img src={arrow_right_img} alt={"arrow right company page"}></img>
-          </div>
+          <span></span>
+          <Link to={"/overview"}>
+            <div>
+              <span>All Stalls</span>
+              <img src={arrow_right_img} alt={"arrow right company page"}></img>
+            </div>
+          </Link>
         </div>
         <CompanyCardsRow
           userModel={userModel}
@@ -107,6 +105,7 @@ const CompanyView: FC<Props> = ({
           onStar={onStar}
           a={0}
           onCardClick={setCurrentCompany}
+          currentCompany={userModel.currentCompany}
         ></CompanyCardsRow>
       </div>
     </div>
@@ -114,3 +113,6 @@ const CompanyView: FC<Props> = ({
 };
 
 export default CompanyView;
+function useEffect(arg0: () => void, arg1: never[]) {
+  throw new Error("Function not implemented.");
+}

@@ -1,3 +1,6 @@
+import { doc, deleteDoc } from "firebase/firestore";
+import { database } from "./Firebase/firebaseConfig";
+
 interface Coordinator {
   name: string;
   mail: string;
@@ -30,7 +33,7 @@ interface Company {
 
 interface UserInfo {
   completionYear: string;
-  email: string;
+  email: string; // Not change
   jobInterests: string[];
   studyProgramme: string;
   yearOfStudy: string;
@@ -40,7 +43,6 @@ interface UserInfo {
 export interface DbTicket {
   nrOfTickets: number;
   nrOfSuperTickets: number;
-  points: number;
 }
 
 export class UserModel {
@@ -48,21 +50,24 @@ export class UserModel {
   starredCompanies: string[];
   visitedCompanies: string[];
   currentCompany: number;
+  points: number;
 
   isStudent: boolean;
   userInfo: UserInfo;
 
   observers: Map<string, () => void>;
 
+  uid?: string;
+
   constructor() {
     this.collectedTickets = {
       nrOfTickets: 0,
       nrOfSuperTickets: 0,
-      points: 0,
     };
     this.starredCompanies = [];
     this.visitedCompanies = [];
     this.currentCompany = -1;
+    this.points = 0;
 
     this.isStudent = true;
     this.userInfo = {
@@ -184,4 +189,10 @@ export class UserModel {
   setUserInfo(userInfo: UserInfo) {
     this.userInfo = userInfo;
   }
+
+  /**
+  async deleteAccount() {
+    if (this.uid) await deleteDoc(doc(database, "users", this.uid));
+  }
+  */
 }

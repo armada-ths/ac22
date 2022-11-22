@@ -12,7 +12,8 @@ import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
 import ProfilePresenter from "./presenters/ProfilePresenter";
 
 import CompanyView from "./views/CompanyView/CompanyView";
-import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
+import { dummyCompanies } from "./models/ExhibitorConst";
+import { dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 import { auth } from "./models/Firebase/firebaseConfig";
@@ -23,20 +24,14 @@ interface Props {
 }
 
 const App: FC<Props> = ({ userModel }) => {
-  /**
-	 * <CompanyView
-              userModel={userModel}
-              companies={dummyCompanies}
-              onStar={userModel.toggleStar}
-              availableTickets={dummyTickets}
-            />
-	 */
   const [userData, setUserData] = useState<any>();
   useEffect(() => {
     getUserData(auth.currentUser?.uid as string).then((data) => {
       setUserData(data);
     });
   }, []);
+
+  const onStar = (companyName: string) => userModel.toggleStar(companyName);
 
   return (
     <Router>
@@ -45,10 +40,11 @@ const App: FC<Props> = ({ userModel }) => {
           path="/"
           element={
             <HomePresenter
+              userModel={userModel}
               companies={dummyCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
-              collectedTickets={userData?.points}
+              onStar={onStar}
+              collectedTickets={userData?.collectedTickets.points}
               name={["Malin", "Marques"]}
             />
           }
@@ -71,9 +67,10 @@ const App: FC<Props> = ({ userModel }) => {
           path="/overview"
           element={
             <AllOrganisationPresenter
+              userModel={userModel}
               companies={dummyCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
+              onStar={onStar}
               collectedTickets={userData?.points}
               name={["Malin", "Marques"]}
             />
@@ -83,9 +80,9 @@ const App: FC<Props> = ({ userModel }) => {
           path="/company"
           element={
             <CompanyView
+              userModel={userModel}
               companies={dummyCompanies}
-              currentCompany={0}
-              onStar={() => console.log("on-star")}
+              onStar={onStar}
               availableTickets={dummyTickets}
             />
           }

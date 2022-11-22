@@ -82,7 +82,8 @@ const ScanQrCodeView: FC<Props> = ({
           height="31"
           viewBox="0 0 52 31"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M50 13.5C51.1046 13.5 52 14.3954 52 15.5C52 16.6046 51.1046 17.5 50 17.5V13.5ZM0.585785 16.9142C-0.195263 16.1332 -0.195263 14.8668 0.585785 14.0858L13.3137 1.35786C14.0948 0.576816 15.3611 0.576816 16.1421 1.35786C16.9232 2.13891 16.9232 3.40524 16.1421 4.18629L4.82843 15.5L16.1421 26.8137C16.9232 27.5948 16.9232 28.8611 16.1421 29.6421C15.3611 30.4232 14.0948 30.4232 13.3137 29.6421L0.585785 16.9142ZM50 17.5H2V13.5H50V17.5Z"
             fill="#0F1322"
@@ -95,10 +96,7 @@ const ScanQrCodeView: FC<Props> = ({
             (auth.currentUser?.email as string).replace("@kth.se", ""),
           ]}
           title=""
-          collectedTickets={
-            userData?.collectedTickets.nrOfSuperTickets +
-            userData?.collectedTickets.nrOfTickets
-          }
+          collectedTickets={userData?.points}
           qrButtonActive={false}
         />
       </div>
@@ -115,7 +113,8 @@ const ScanQrCodeView: FC<Props> = ({
             onScanned={onScanned}
             facingMode="environment"
             onInitialized={onInitialized}
-            interval={2000}></BarcodeScanner>
+            interval={2000}
+          ></BarcodeScanner>
         </div>
         {loading ? (
           <div className="success-prompt-loading">
@@ -132,27 +131,29 @@ const ScanQrCodeView: FC<Props> = ({
 
               <label className="ratings-label">
                 How was {company}'s stall on a scale from 1 to 10?
-                </label>
-                  <select
-                    placeholder={"Choose rating..."}
-                    onChange={(e) => setStallRating(parseInt(e.target.value))}
-                    className="rating-select">
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
-                      return (
-                        <option value={number} className="rating-text">
-                          {number}
-                        </option>
-                      );
-                    })}
-                  </select>
-                <label className="ratings-label">
+              </label>
+              <select
+                placeholder={"Choose rating..."}
+                onChange={(e) => setStallRating(parseInt(e.target.value))}
+                className="rating-select"
+              >
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
+                  return (
+                    <option value={number} className="rating-text">
+                      {number}
+                    </option>
+                  );
+                })}
+              </select>
+              <label className="ratings-label">
                 How satisfied were you with your experience at the stall on a
                 scale from 1 to 10?
               </label>
               <select
                 placeholder={"Choose rating..."}
                 onChange={(e) => setExperienceRating(parseInt(e.target.value))}
-                className="rating-select">
+                className="rating-select"
+              >
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
                   return (
                     <option value={number} className="rating-text">
@@ -170,7 +171,8 @@ const ScanQrCodeView: FC<Props> = ({
                   setPrompt(false);
                   setIsActive(true);
                   sendSurvey();
-                }}></AuthButton>
+                }}
+              ></AuthButton>
             </div>
           ) : (
             <div className="success-prompt">
@@ -183,7 +185,8 @@ const ScanQrCodeView: FC<Props> = ({
                 onButtonClick={() => {
                   setPrompt(false);
                   setIsActive(true);
-                }}></AuthButton>
+                }}
+              ></AuthButton>
             </div>
           )
         ) : (
@@ -193,7 +196,6 @@ const ScanQrCodeView: FC<Props> = ({
       </div>
     </div>
   );
-
 };
 
 export default ScanQrCodeView;

@@ -15,11 +15,12 @@ const TutorialView: FC<Props> = () => {
       <div className="text-img tutorialbox">
         <p>
           <strong>Goal:</strong> Win the prises at the raffle a week after
-          armada! How to win: Collect as many tickets for the raffle as
-          possible to increase your chance to win! 
-          Standard tickets are worth 3 points and Super Tickets are worth 10.
-          To get tickets, talk to the different booths at the armada fair and be rewarded tickets when
-          completing their tasks. But watch out! There are only 30 Super Tickets a day per booth!
+          armada! How to win: Collect as many tickets for the raffle as possible
+          to increase your chance to win! Standard tickets are worth 3 points
+          and Super Tickets are worth 10. To get tickets, talk to the different
+          booths at the armada fair and be rewarded tickets when completing
+          their tasks. But watch out! There are only 30 Super Tickets a day per
+          booth!
         </p>
         <img src={ticketCounter} alt="Ticket counter" />
       </div>
@@ -45,7 +46,7 @@ const TutorialView: FC<Props> = () => {
             of the page to be taken to the top of the current page. The ticket
             button takes you to a page detailing the history of your ticket
             collection. The next button takes you to a page that allows you to
-            scan QR codes to collect tickets. The button with youre name takes
+            scan QR codes to collect tickets. The button with your name takes
             you to your accounts settings.
           </p>
           <img src={topBar} alt="Top bar image" />

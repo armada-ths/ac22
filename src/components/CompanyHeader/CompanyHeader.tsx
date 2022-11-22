@@ -47,20 +47,6 @@ const CompanyHeader: FC<Props> = ({
         title="STALL"
         info={"#" + stall}
       ></CompanyHeaderBox>
-      <div className="line"></div>
-      <CompanyHeaderBox
-        img={ticket_img}
-        icon="ticket"
-        title="SUPER TICKETS"
-        info={tickets + " Left"}
-      ></CompanyHeaderBox>
-      <div className="line"></div>
-
-      <StarButtonHeader
-        companyName={companyName}
-        starred={starred}
-        onStar={onStar}
-      ></StarButtonHeader>
     </div>
   );
 };

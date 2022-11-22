@@ -90,3 +90,22 @@
   font-weight: var(--bold-weight);
   font-size: 1rem; /*16px*/
 }
+
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  .company-info {
+    width: max-content;
+    height: auto;
+    padding: 3%;
+    margin-top: 2rem;
+  }
+
+  .theme-flex {
+    display: flex;
+    flex-direction: column;
+  }  
+
+  .theme.border {
+    width: fit-content;
+  }
+}
+

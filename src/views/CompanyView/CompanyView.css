@@ -148,3 +148,19 @@
     transition: 0.5s ease;
     cursor: pointer;
 }
+
+@media only screen and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+
+    .company-information {
+        flex-direction: column;
+        gap: 5%;
+    }
+
+    .header-container{
+        flex-direction: column;
+    }
+
+    .header-container {
+        flex-direction: column;
+    }
+}

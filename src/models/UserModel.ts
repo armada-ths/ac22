@@ -120,7 +120,6 @@ export class UserModel {
 
   /**Stars or unstars a given company in the model and updates the db */
   toggleStar(companyName: string) {
-    console.log(this);
     if (this.isStarred(companyName)) this.removeStarredCompany(companyName);
     else this.addStarredCompany(companyName);
     this.notifyObservers("starredCompanies");

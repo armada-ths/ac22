@@ -3,6 +3,8 @@ import "./CompanyCard.css";
 
 import StarButtonCard from "../StarButton/StarButtonCard";
 import TicketState from "../TicketState/TicketState";
+import { UserModel } from "../../models/UserModel";
+import { Link } from "react-router-dom";
 
 /**
  * image:           the image that will be displayed
@@ -16,6 +18,7 @@ import TicketState from "../TicketState/TicketState";
  * Too many arguments, what do you think?
  */
 interface Props {
+  userModel: UserModel;
   image: string;
   companyName: string;
   tags: string[];
@@ -23,6 +26,8 @@ interface Props {
   onStar: (companyName: string) => void;
   ticketState: string;
   receivedTickets: number;
+  onCardClick?: (id: number) => void;
+  companyId: number;
 }
 
 /**
@@ -30,12 +35,15 @@ interface Props {
  * therefore I am just using backgroundColor for now
  */
 export const CompanyCard: FC<Props> = ({
+  userModel,
   image,
   companyName,
   starred,
   onStar,
   ticketState,
   receivedTickets,
+  onCardClick,
+  companyId,
 }) => {
   return (
     <div className="card-box">
@@ -46,15 +54,23 @@ export const CompanyCard: FC<Props> = ({
 
       <div className="card-body">
         <div className="card-header">
-          <div className="card-header-title">
-            <span className="h1">{companyName}</span>
-          </div>
+          <Link
+            to={"/company"}
+            onClick={() => {
+              userModel.updateCurrentCompany(companyId);
+              if (onCardClick) onCardClick(userModel.currentCompany);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <div className="card-header-title">
+              <span className="h1">{companyName}</span>
+            </div>
+          </Link>
           <StarButtonCard
             starred={starred}
             onStar={() => onStar(companyName)}
           ></StarButtonCard>
         </div>
-
         <TicketState
           ticketState={ticketState}
           receivedTickets={receivedTickets}

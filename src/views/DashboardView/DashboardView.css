@@ -63,12 +63,20 @@
 
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
-
     background-color: rgb(18, 18, 71); /*Change later*/
     color: var(--white);
 
+
     background: no-repeat center;
 }
+
+.dashboard-cover{
+    background-color: black; 
+    box-shadow: 500px 500px 500px rgba(0, 0, 0, 0.5) inset;
+    height: 100%;
+    width: 100%;
+} 
+
 
 .spotlight-header {
     display: flex;
@@ -79,7 +87,7 @@
 
 .spotlight-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  
 }
 
 .spotlight-info h1 {

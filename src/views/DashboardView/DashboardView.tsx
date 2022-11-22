@@ -33,7 +33,7 @@ const DashboardView: FC<Props> = ({
     <div className="dashboard-box">
       <div className="dashboard-spotlight-container">
         <div
-          className="dashboard-spotlight"
+          className="dashboard-spotlight dashboard-cover"
           style={{
             backgroundImage: `url(${companies[spotlight].image})`,
             backgroundSize: "cover",

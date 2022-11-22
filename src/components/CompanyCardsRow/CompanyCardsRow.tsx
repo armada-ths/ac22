@@ -23,7 +23,7 @@ const CompanyCardsRow: FC<Props> = ({
   a,
 }) => {
   function getCards() {
-    return companies.slice(a, a + 3).map((company) => {
+    return companies.slice(a, a + 2).map((company) => {
       let ticketState =
         company.collectedTickets > 0
           ? "received"

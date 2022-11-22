@@ -37,15 +37,8 @@ const CompanyView: FC<Props> = ({
   const [currentCompany, setCurrentCompany] = React.useState(
     userModel.currentCompany
   );
-  console.log(currentCompany);
   const company = companies[currentCompany];
   const starred = userModel.isStarred(companies[currentCompany].name);
-  console.log("Current company: ", companies[currentCompany].name);
-  console.log(
-    "\nIs starred: ",
-    userModel.isStarred(companies[currentCompany].name)
-  );
-  console.log("\nCurrent company id: ", currentCompany);
   return (
     <div className="company-container">
       <div className="company-header">

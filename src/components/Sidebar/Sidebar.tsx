@@ -23,7 +23,6 @@ const Sidebar: FC<Props> = () => {
 
   useEffect(() => {
     setActive(location.pathname);
-    console.log(location.pathname);
   }, [location.pathname]);
 
   return (

@@ -50,8 +50,6 @@ const ScanQrCodeView: FC<Props> = ({
   //   return totaltickets;
   // }
 
-  console.log("tickets", userData);
-
   async function onScanned(results: TextResult[]) {
     if (results.length > 0) {
       setLoading(true);

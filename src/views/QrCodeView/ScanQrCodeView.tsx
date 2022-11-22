@@ -90,7 +90,10 @@ const ScanQrCodeView: FC<Props> = ({
         </svg>
 
         <NavBar
-          name={["", ""]}
+          name={[
+            "",
+            (auth.currentUser?.email as string).replace("@kth.se", ""),
+          ]}
           title=""
           collectedTickets={
             userData?.collectedTickets.nrOfSuperTickets +

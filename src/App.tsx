@@ -17,21 +17,21 @@ import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 import { auth } from "./models/Firebase/firebaseConfig";
 import {
-	getUserData,
-	deleteAccountFromDB,
+  getUserData,
+  deleteAccountFromDB,
 } from "./models/Firebase/FirebaseModel";
 
 interface Props {
-	userModel: UserModel;
+  userModel: UserModel;
 }
 
 const App: FC<Props> = ({ userModel }) => {
-	const [userData, setUserData] = useState<any>();
-	useEffect(() => {
-		getUserData(auth.currentUser?.uid as string).then((data) => {
-			setUserData(data);
-		});
-	}, []);
+  const [userData, setUserData] = useState<any>();
+  useEffect(() => {
+    getUserData(auth.currentUser?.uid as string).then((data) => {
+      setUserData(data);
+    });
+  }, []);
 
   return (
     <Router>
@@ -94,7 +94,7 @@ const App: FC<Props> = ({ userModel }) => {
             />
           }
         />
-        <Route
+        {/*<Route
           path="/profile"
           element={
             <ProfilePresenter
@@ -108,11 +108,24 @@ const App: FC<Props> = ({ userModel }) => {
               ]}
             />
           }
-        />
+        />*/}
         <Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
 
-        <Route path="/" element={<RegisterPresenter registered={true} />} />
-        <Route path="*" element={<RegisterPresenter registered={true} />} />
+        <Route
+          path="*"
+          element={
+            <HomePresenter
+              companies={dummyCompanies}
+              tickets={dummyTickets}
+              onStar={() => console.log("on-star")}
+              collectedTickets={userData?.points}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
+            />
+          }
+        />
       </Routes>
     </Router>
   );

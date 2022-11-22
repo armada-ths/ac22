@@ -23,15 +23,6 @@ const ExhibitorCompanies: Company[] = [
     image: alstromcr,
     id: 0,
     tags: ["workshop", "mingle"],
-    fieldOfStudy: [
-      "Computer Science and Engineering",
-      "Electrical Engineering",
-      "Engineering Physics",
-      "Environmental Engineering",
-      "Industrial Management",
-      "Information and Communication Technology",
-      "Mechanical Engineering",
-    ],
     coordinators: [
       { name: "Anna Mared", mail: "anna.mared@alstomgroup.com", img: "null" },
     ],
@@ -61,17 +52,6 @@ const ExhibitorCompanies: Company[] = [
     image: epiroc,
     id: 1,
     tags: ["workshop", "mingle"],
-    fieldOfStudy: [
-      "Computer Science and Engineering",
-      "Electrical Engineering",
-      "Engineering Physics",
-      "Industrial Management",
-      "Information and Communication Technology",
-      "Material Science and Engineering",
-      "Mathematics",
-      "Mechanical Engineering",
-      "Technology and Management",
-    ],
     coordinators: [
       {
         name: "Klara Petersen",
@@ -104,25 +84,6 @@ const ExhibitorCompanies: Company[] = [
     image: fmv,
     id: 2,
     tags: ["workshop", "mingle"],
-    fieldOfStudy: [
-      "Biotechnology",
-      "Chemical Science and Engineering",
-      "Computer Science and Engineering",
-      "Electrical Engineering",
-      "Engineering Physics",
-      "Environmental Engineering",
-      "Industrial Management",
-      "Information and Communication Technology",
-      "Material Science and Engineering",
-      "Mathematics",
-      "Mechanical Engineering",
-      "Medical Engineering",
-      "Technology and Economics",
-      "Technology and Health",
-      "Technology and Learning",
-      "Technology and Management",
-      "The Built Environment",
-    ],
     coordinators: [],
     offerings: ["Full Time Job"],
     askAbout: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"],
@@ -130,7 +91,7 @@ const ExhibitorCompanies: Company[] = [
       { info: "Lunch Provided", img: lunch_img },
       { info: "Waitlist Available", img: waitlist_img },
     ],
-    location: "KTH Bibliotek",
+    location: "KTH Library",
     stall: 92,
     starred: false,
     collectedTickets: 0,
@@ -142,13 +103,6 @@ const ExhibitorCompanies: Company[] = [
     image: gartner,
     id: 3,
     tags: ["workshop", "mingle"],
-    fieldOfStudy: [
-      "Technology and Economics",
-      "Technology and Health",
-      "Technology and Learning",
-      "Technology and Management",
-      "Information and Communication Technology",
-    ],
     coordinators: [
       {
         name: "Stephanie Shull",
@@ -172,7 +126,7 @@ const ExhibitorCompanies: Company[] = [
   {
     name: "Gränges",
     image: granges,
-    id: 3,
+    id: 4,
     tags: ["workshop", "mingle"],
     coordinators: [
       {
@@ -204,7 +158,7 @@ const ExhibitorCompanies: Company[] = [
   {
     name: "Infront Financial Technology",
     image: infront,
-    id: 3,
+    id: 5,
     tags: ["workshop", "mingle"],
     coordinators: [
       {
@@ -229,7 +183,7 @@ const ExhibitorCompanies: Company[] = [
   {
     name: "RISE Research Institutes of Sweden",
     image: rise,
-    id: 0,
+    id: 6,
     tags: ["workshop", "mingle"],
     coordinators: [],
     offerings: ["Bachelor Thesis", "Masters Thesis", "Internship"],
@@ -248,7 +202,7 @@ const ExhibitorCompanies: Company[] = [
   {
     name: "Siemens Energy AB",
     image: siemensEnergy,
-    id: 1,
+    id: 7,
     tags: ["workshop", "mingle"],
     coordinators: [
       {
@@ -278,7 +232,7 @@ const ExhibitorCompanies: Company[] = [
   {
     name: "Siemens AB",
     image: siemens,
-    id: 2,
+    id: 8,
     tags: ["workshop", "mingle"],
     coordinators: [
       {
@@ -303,7 +257,7 @@ const ExhibitorCompanies: Company[] = [
   {
     name: "Sopra Steria",
     image: sopraSteria,
-    id: 3,
+    id: 9,
     tags: ["workshop", "mingle"],
     coordinators: [
       { name: "Ina Tran", mail: "ina.tran@soprasteria.com", img: "null" },
@@ -314,7 +268,7 @@ const ExhibitorCompanies: Company[] = [
       { info: "Lunch Provided", img: lunch_img },
       { info: "Waitlist Available", img: waitlist_img },
     ],
-    location: "KTH Bibliotek",
+    location: "KTH Library",
     stall: 108,
     starred: true,
     collectedTickets: 0,
@@ -324,10 +278,10 @@ const ExhibitorCompanies: Company[] = [
   {
     name: "SPP Pension & Försäkring AB",
     image: spp,
-    id: 3,
+    id: 10,
     tags: ["workshop", "mingle"],
     coordinators: [
-      { name: "Sofie Pemer", mail: "sofie.pemer@spp.se", img: "null" }
+      { name: "Sofie Pemer", mail: "sofie.pemer@spp.se", img: "null" },
     ],
     offerings: ["Full Time Job"],
     askAbout: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"],
@@ -345,7 +299,7 @@ const ExhibitorCompanies: Company[] = [
   {
     name: "Zwapgrid AB",
     image: zwapgrid,
-    id: 3,
+    id: 11,
     tags: ["workshop", "mingle"],
     coordinators: [
       { name: "Anna Holmgren", mail: "anna@zwapgrid.com", img: "null" },
@@ -362,7 +316,7 @@ const ExhibitorCompanies: Company[] = [
     collectedTickets: 0,
     aboutUs:
       "You make all the difference. Help us create the best infrastructure in the world for data sharing between systems. We have already started and large SaaS companies, such as Nets and Kivra are using our technology to help their customers automate mundane tasks that require data from more than one system. Dive deep into the ever growing world of systems and become a part of our team of engineers. Join the grid!",
-  }
+  },
 ];
 
 export { ExhibitorCompanies };

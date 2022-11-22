@@ -4,17 +4,20 @@ import { Company, Tickets } from "../models/DummyModel";
 import "./Presenter.css";
 import DashboardView from "../views/DashboardView/DashboardView";
 import NavBar from "../components/NavBar/NavBar";
+import { UserModel } from "../models/UserModel";
 import { ExhibitorCompanies } from "../models/ExhibitorConst";
 
 interface Props {
+  userModel: UserModel;
   companies: Company[];
   tickets: Tickets[];
-  onStar: () => void;
+  onStar: (companyName: string) => void;
   collectedTickets: number;
   name: String[];
 }
 
 const HomePresenter: FC<Props> = ({
+  userModel,
   name,
   companies,
   tickets,
@@ -33,6 +36,7 @@ const HomePresenter: FC<Props> = ({
         <Sidebar />
       </div>
       <DashboardView
+        userModel={userModel}
         companies={ExhibitorCompanies}
         availableTickets={tickets}
         onStar={onStar}

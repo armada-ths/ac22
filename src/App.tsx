@@ -12,7 +12,8 @@ import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
 import ProfilePresenter from "./presenters/ProfilePresenter";
 
 import CompanyView from "./views/CompanyView/CompanyView";
-import { dummyCompanies, dummyTickets } from "./models/dummyConstant";
+import { ExhibitorCompanies } from "./models/ExhibitorConst";
+import { dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 import { auth } from "./models/Firebase/firebaseConfig";
@@ -33,6 +34,8 @@ const App: FC<Props> = ({ userModel }) => {
     });
   }, []);
 
+  const onStar = (companyName: string) => userModel.toggleStar(companyName);
+
   return (
     <Router>
       <Routes>
@@ -40,9 +43,10 @@ const App: FC<Props> = ({ userModel }) => {
           path="/"
           element={
             <HomePresenter
-              companies={dummyCompanies}
+              userModel={userModel}
+              companies={ExhibitorCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
+              onStar={onStar}
               collectedTickets={userData?.points}
               name={[
                 "",
@@ -72,9 +76,10 @@ const App: FC<Props> = ({ userModel }) => {
           path="/overview"
           element={
             <AllOrganisationPresenter
-              companies={dummyCompanies}
+              userModel={userModel}
+              companies={ExhibitorCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
+              onStar={onStar}
               collectedTickets={userData?.points}
               name={[
                 "",
@@ -87,9 +92,9 @@ const App: FC<Props> = ({ userModel }) => {
           path="/company"
           element={
             <CompanyView
-              companies={dummyCompanies}
-              currentCompany={0}
-              onStar={() => console.log("on-star")}
+              userModel={userModel}
+              companies={ExhibitorCompanies}
+              onStar={onStar}
               availableTickets={dummyTickets}
             />
           }
@@ -98,9 +103,9 @@ const App: FC<Props> = ({ userModel }) => {
           path="/profile"
           element={
             <ProfilePresenter
-              companies={dummyCompanies}
+              companies={ExhibitorCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
+              onStar={onStar}
               collectedTickets={userData?.points}
               name={[
                 "",
@@ -115,9 +120,10 @@ const App: FC<Props> = ({ userModel }) => {
           path="*"
           element={
             <HomePresenter
-              companies={dummyCompanies}
+              userModel={userModel}
+              companies={ExhibitorCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
+              onStar={onStar}
               collectedTickets={userData?.points}
               name={[
                 "",

@@ -11,15 +11,19 @@ import RaffleCountdown from "../../components/RaffleCountdown/RaffleCountdown";
 import { Company, Tickets } from "../../models/DummyModel";
 
 import CompanyCardsRow from "../../components/CompanyCardsRow/CompanyCardsRow";
+import { getConfigFileParsingDiagnostics } from "typescript";
+import { UserModel } from "../../models/UserModel";
 
 interface Props {
+  userModel: UserModel;
   companies: Company[];
-  onStar: () => void;
+  onStar: (companyName: string) => void;
   availableTickets: Tickets[];
   collectedTickets: number;
 }
 
 const DashboardView: FC<Props> = ({
+  userModel,
   companies,
   onStar,
   availableTickets,
@@ -28,7 +32,6 @@ const DashboardView: FC<Props> = ({
   const rand: number = Math.floor(Math.random() * 14);
   const [a, setA] = useState(0);
   const [spotlight, setSpotlight] = useState<number>(rand);
-
   return (
     <div className="dashboard-box">
       <div className="dashboard-spotlight-container">
@@ -49,6 +52,7 @@ const DashboardView: FC<Props> = ({
                   onClick={() => {
                     setSpotlight(spotlight - 1);
                   }}
+                  className="arrow"
                 ></img>
               )}
               {spotlight !== 11 && (
@@ -58,6 +62,7 @@ const DashboardView: FC<Props> = ({
                   onClick={() => {
                     setSpotlight(spotlight + 1);
                   }}
+                  className="arrow"
                 ></img>
               )}
             </div>
@@ -84,26 +89,30 @@ const DashboardView: FC<Props> = ({
                 src={arrow_left}
                 alt={"arrow right starred page"}
                 onClick={() => {
-                  setA(a - 3);
+                  setA(a - 2);
                 }}
+                className="arrow"
               />
             )}
-            {a !== 12 && (
+            {a + 2 < userModel.starredCompanies.length && (
               <img
                 src={arrow_right}
                 alt={"arrow right starred page"}
                 onClick={() => {
-                  setA(a + 3);
+                  setA(a + 2);
                 }}
+                className="arrow"
               />
             )}
           </div>
         </div>
         <CompanyCardsRow
+          userModel={userModel}
           companies={companies}
           availableTickets={availableTickets}
-          onStar={() => onStar()}
+          onStar={onStar}
           a={a}
+          starred={true}
         ></CompanyCardsRow>
       </div>
     </div>

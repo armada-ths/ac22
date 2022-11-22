@@ -20,7 +20,7 @@ interface Props {
   companyName: string;
   tags: string[];
   starred: boolean;
-  onStar: () => void;
+  onStar: (companyName: string) => void;
   ticketState: string;
   receivedTickets: number;
 }
@@ -32,7 +32,6 @@ interface Props {
 export const CompanyCard: FC<Props> = ({
   image,
   companyName,
-  tags,
   starred,
   onStar,
   ticketState,
@@ -49,20 +48,10 @@ export const CompanyCard: FC<Props> = ({
         <div className="card-header">
           <div className="card-header-title">
             <span className="h1">{companyName}</span>
-            <span className="h2">
-              {tags.map((tag) => {
-                /**
-                 * Should we keep this logic where all tags are printed
-                 * or stick to only two tags being printed for each company?
-                 */
-                if (tag === tags.at(-1)) return <span key={tag}>{tag}</span>;
-                else return <span key={tag}>{tag + " · "}</span>;
-              })}
-            </span>
           </div>
           <StarButtonCard
             starred={starred}
-            onStar={() => onStar()}
+            onStar={() => onStar(companyName)}
           ></StarButtonCard>
         </div>
 

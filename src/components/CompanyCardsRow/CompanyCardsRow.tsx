@@ -1,8 +1,10 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 import "./CompanyCardsRow.css";
 
 import CompanyCard from "../CompanyCard/CompanyCard";
 import { Company, Tickets } from "../../models/DummyModel";
+import { UserModel } from "../../models/UserModel";
 
 /**
  * companies:        an array of companies that is used to display the cards
@@ -10,20 +12,42 @@ import { Company, Tickets } from "../../models/DummyModel";
  * availableTickets: an array of the available number of tickets left for each company
  */
 interface Props {
+  userModel: UserModel;
   companies: Company[];
   availableTickets: Tickets[];
-  onStar: () => void;
+  onStar: (companyName: string) => void;
   a: number;
+  onCardClick?: (id: number) => void;
+  currentCompany?: number;
+  starred?: boolean;
 }
 
 const CompanyCardsRow: FC<Props> = ({
+  userModel,
   companies,
   availableTickets,
   onStar,
   a,
+  onCardClick,
+  currentCompany,
+  starred,
 }) => {
+  if (starred) {
+    companies = companies.filter((company) =>
+      userModel.starredCompanies.includes(company.name)
+    );
+  }
   function getCards() {
-    return companies.slice(a, a + 2).map((company) => {
+    let n = 2;
+    if (
+      currentCompany &&
+      companies
+        .slice(a, a + 2)
+        .filter((company) => company.id !== currentCompany).length === 1
+    )
+      n++;
+    return companies.slice(a, a + n).map((company) => {
+      if (currentCompany && company.id === currentCompany) return;
       let ticketState =
         company.collectedTickets > 0
           ? "received"
@@ -32,15 +56,24 @@ const CompanyCardsRow: FC<Props> = ({
           : "none available";
       return (
         <div key={company.name} className="company-card">
-          <CompanyCard
-            image={company.image}
-            companyName={company.name}
-            tags={company.tags}
-            starred={company.starred}
-            onStar={() => onStar()}
-            ticketState={ticketState}
-            receivedTickets={company.collectedTickets}
-          ></CompanyCard>
+          <Link
+            to={"/company"}
+            onClick={() => {
+              userModel.updateCurrentCompany(company.id);
+              if (onCardClick) onCardClick(userModel.currentCompany);
+              window.scrollTo(0, 0);
+            }}
+          >
+            <CompanyCard
+              image={company.image}
+              companyName={company.name}
+              tags={company.tags}
+              starred={userModel.isStarred(company.name)}
+              onStar={onStar}
+              ticketState={ticketState}
+              receivedTickets={company.collectedTickets}
+            ></CompanyCard>
+          </Link>
         </div>
       );
     });

@@ -7,7 +7,8 @@
     color: var(--black-primary);
     text-transform: capitalize;
 
-    padding: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
     
     background: var(--white);
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);

@@ -1,118 +1,198 @@
-import {dummyCompanies} from "./dummyConstant"
+import { doc, deleteDoc } from "firebase/firestore";
+import { database } from "./Firebase/firebaseConfig";
 
 interface Coordinator {
-    name: string;
-    mail: string;
-    img: string;
+  name: string;
+  mail: string;
+  img: string;
 }
 
 interface ExtraInfo {
-    info: string;
-    img: string;
+  info: string;
+  img: string;
 }
 
 interface Company {
-    name: string;
-    image: string;
-    id: number;
-    tags: string[]
+  name: string;
+  image: string;
+  id: number;
+  tags: string[];
 
-    //Company information
-    coordinators: Coordinator[];
-    offerings: string[];
-    askAbout: string[];
-    extraInfo: ExtraInfo[];
+  //Company information
+  coordinators: Coordinator[];
+  offerings: string[];
+  askAbout: string[];
+  extraInfo: ExtraInfo[];
 
-    //Company header
-    location: string;
-    stall: number;
+  //Company header
+  location: string;
+  stall: number;
 
-    aboutUs: string;
+  aboutUs: string;
+}
+
+interface UserInfo {
+  completionYear: string;
+  email: string; // Not change
+  jobInterests: string[];
+  studyProgramme: string;
+  yearOfStudy: string;
 }
 
 /**Company name is used as key*/
 export interface DbTicket {
-    nrOfTickets: number;
-    nrOfSuperTickets: number;
+  nrOfTickets: number;
+  nrOfSuperTickets: number;
 }
 
 export class UserModel {
-    collectedTickets: Map<string, DbTicket>;
-    starredCompanies: string[];
-    currentCompany: string;
-    observers: (() => void)[];
+  collectedTickets: DbTicket;
+  starredCompanies: string[];
+  visitedCompanies: string[];
+  currentCompany: number;
+  points: number;
 
-    constructor(collectedTickets: Map<string, DbTicket>, starredCompanies: string[], currentCompany: string, observers: (() => void)[]) {
-        this.collectedTickets = collectedTickets;
-        this.starredCompanies = starredCompanies;
-        this.currentCompany = currentCompany;
-        this.observers = observers;
-    }
+  isStudent: boolean;
+  userInfo: UserInfo;
 
-    addTicket(companyName: string, isSuper: boolean) {
-        let addedTicket = this.collectedTickets.get(companyName); // Ref?
+  observers: Map<string, () => void>;
 
-        if(addedTicket && isSuper)
-            addedTicket.nrOfSuperTickets++;
-        else if(addedTicket && !isSuper)
-            addedTicket.nrOfTickets++;
-        else if(isSuper)
-            this.collectedTickets.set(companyName, {
-                nrOfTickets: 0,
-                nrOfSuperTickets: 1
-            })
-        else
-            this.collectedTickets.set(companyName, {
-                nrOfTickets: 1,
-                nrOfSuperTickets: 0
-            })
-    }
+  uid?: string;
 
-    isStarred(companyName: string): boolean {
-        return this.starredCompanies.filter(company => company == companyName).length ? true : false
-    }
+  constructor() {
+    this.collectedTickets = {
+      nrOfTickets: 0,
+      nrOfSuperTickets: 0,
+    };
+    this.starredCompanies = [];
+    this.visitedCompanies = [];
+    this.currentCompany = -1;
+    this.points = 0;
 
-    addCompany(companyName: string) {
-        if(!this.isStarred(companyName))
-            this.starredCompanies = [...this.starredCompanies, companyName]
-        this.notifyObservers()
-    }
+    this.isStudent = true;
+    this.userInfo = {
+      completionYear: "",
+      email: "",
+      jobInterests: [],
+      studyProgramme: "",
+      yearOfStudy: "",
+    };
 
-    removeCompany(companyName: string) {
-        if(this.isStarred(companyName))
-            this.starredCompanies = this.starredCompanies.filter(company => company != companyName)
-            this.notifyObservers()
-    }
+    this.observers = new Map<string, () => void>([
+      ["collectedTickets", function () {}],
+      ["starredCompanies", function () {}],
+      ["visitedCompanies", function () {}],
+      ["currentCompany", function () {}],
+      ["userInfo", function () {}],
+    ]);
+  }
 
-    toggleStar(companyName: string) {
-        if(this.isStarred(companyName))
-            this.removeCompany(companyName);
-        else
-            this.addCompany(companyName);
-            this.notifyObservers();
-    }
+  /**Adds a ticket to the model and updates the db */
+  addTicket(isSuper: boolean) {
+    if (isSuper) this.collectedTickets.nrOfSuperTickets++;
+    else this.collectedTickets.nrOfTickets++;
+    this.notifyObservers("collectedTickets");
+  }
 
-    addObserver(callback: () => void) {
-        this.observers = [...this.observers, callback];
-    }
-    
-    removeObserver(callback: () => void) {
-        this.observers = this.observers.filter(cb => cb !== callback);
-    }
+  /**Returns true if the given company is starred, false if not */
+  isStarred(companyName: string): boolean {
+    return this.starredCompanies.filter((company) => company == companyName)
+      .length
+      ? true
+      : false;
+  }
 
-    notifyObservers() {
-        this.observers.forEach(cb => cb());
+  addStarredCompany(companyName: string) {
+    if (!this.isStarred(companyName)) {
+      this.starredCompanies = [...this.starredCompanies, companyName];
+      this.notifyObservers("starredCompanies");
     }
+  }
 
-    setCollectedTickets(collectedTickets: Map<string, DbTicket>) {
-        this.collectedTickets = collectedTickets;
+  removeStarredCompany(companyName: string) {
+    if (this.isStarred(companyName)) {
+      this.starredCompanies = this.starredCompanies.filter(
+        (company) => company != companyName
+      );
+      this.notifyObservers("starredCompanies");
     }
+  }
 
-    setStarredCompanies(starredCompanies: string[]) {
-        this.starredCompanies = starredCompanies;
-    }
+  /**Stars or unstars a given company in the model and updates the db */
+  toggleStar(companyName: string) {
+    console.log(this);
+    if (this.isStarred(companyName)) this.removeStarredCompany(companyName);
+    else this.addStarredCompany(companyName);
+    this.notifyObservers("starredCompanies");
+  }
 
-    setCurrentCompany(currentCompany: string) {
-        this.currentCompany = currentCompany;
+  /**Returns true if the given company has been visited, false if not */
+  private isVisited(companyName: string) {
+    return this.visitedCompanies.filter((company) => company == companyName)
+      .length
+      ? true
+      : false;
+  }
+
+  /**Adds a given visited company to the model and updates the db */
+  addVisitedCompany(companyName: string) {
+    if (!this.isVisited(companyName)) {
+      this.visitedCompanies = [...this.visitedCompanies, companyName];
+      this.notifyObservers("visitedCompanies");
     }
+  }
+
+  /**Removes a given visited company to the model and updates the db */
+  removeVisitedCompany(companyName: string) {
+    if (this.isVisited(companyName))
+      this.visitedCompanies = this.visitedCompanies.filter(
+        (company) => company != companyName
+      );
+    this.notifyObservers("visitedCompanies");
+  }
+
+  /**Updates the current company and updates the db */
+  updateCurrentCompany(currentCompany: number) {
+    this.currentCompany = currentCompany;
+    this.notifyObservers("currentCompany");
+  }
+
+  addObserver(observer: string, callback: () => void) {
+    this.observers.set(observer, callback);
+  }
+
+  removeObserver(observer: string) {
+    this.observers.delete(observer);
+  }
+
+  notifyObservers(observer: string) {
+    const func = this.observers.get(observer);
+    if (func) func();
+  }
+
+  setCollectedTickets(collectedTickets: DbTicket) {
+    this.collectedTickets = collectedTickets;
+  }
+
+  setStarredCompanies(starredCompanies: string[]) {
+    this.starredCompanies = starredCompanies;
+  }
+
+  setVisitedCompanies(visitedCompanies: string[]) {
+    this.visitedCompanies = visitedCompanies;
+  }
+
+  setCurrentCompany(currentCompany: number) {
+    this.currentCompany = currentCompany;
+  }
+
+  setUserInfo(userInfo: UserInfo) {
+    this.userInfo = userInfo;
+  }
+
+  /**
+  async deleteAccount() {
+    if (this.uid) await deleteDoc(doc(database, "users", this.uid));
+  }
+  */
 }

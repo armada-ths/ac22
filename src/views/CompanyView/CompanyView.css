@@ -121,6 +121,10 @@
     gap: 12%;
 
     white-space: nowrap;
+
+    color: var(--black-primary);
+    font-weight: var(--title-weight);
+    font-size: 1rem;
 }
 
 .company-cards-header div:hover {

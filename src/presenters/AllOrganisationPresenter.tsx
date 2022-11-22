@@ -4,17 +4,20 @@ import "./Presenter.css";
 import { Company, Tickets } from "../models/DummyModel";
 import Sidebar from "../components/Sidebar/Sidebar";
 import NavBar from "../components/NavBar/NavBar";
+import { UserModel } from "../models/UserModel";
 import { ExhibitorCompanies } from "../models/ExhibitorConst";
 
 interface Props {
+  userModel: UserModel;
   companies: Company[];
   tickets: Tickets[];
-  onStar: () => void;
+  onStar: (companyName: string) => void;
   collectedTickets: number;
   name: String[];
 }
 
 const AllOrganisationPresenter: FC<Props> = ({
+  userModel,
   companies,
   onStar,
   tickets,
@@ -33,6 +36,7 @@ const AllOrganisationPresenter: FC<Props> = ({
         <Sidebar />
       </div>
       <AllOrganisationView
+        userModel={userModel}
         companies={ExhibitorCompanies}
         availableTickets={tickets}
         onStar={onStar}

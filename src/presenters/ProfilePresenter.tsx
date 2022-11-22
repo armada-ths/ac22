@@ -17,7 +17,6 @@ interface Props {
 	onStar: () => void;
 	collectedTickets: number;
 	name: String[];
-	deleteAccount: () => void;
 }
 
 const ProfilePresenter: FC<Props> = ({
@@ -26,7 +25,7 @@ const ProfilePresenter: FC<Props> = ({
 	tickets,
 	collectedTickets,
 	name,
-	deleteAccount,
+
 }) => {
 
 	return (

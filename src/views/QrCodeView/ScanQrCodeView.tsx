@@ -94,10 +94,7 @@ const ScanQrCodeView: FC<Props> = ({
             (auth.currentUser?.email as string).replace("@kth.se", ""),
           ]}
           title=""
-          collectedTickets={
-            userData?.collectedTickets.nrOfSuperTickets +
-            userData?.collectedTickets.nrOfTickets
-          }
+          collectedTickets={userData?.points}
           qrButtonActive={false}
         />
       </div>

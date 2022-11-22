@@ -5,6 +5,7 @@ import "./Presenter.css";
 import DashboardView from "../views/DashboardView/DashboardView";
 import NavBar from "../components/NavBar/NavBar";
 import { UserModel } from "../models/UserModel";
+import { ExhibitorCompanies } from "../models/ExhibitorConst";
 
 interface Props {
   userModel: UserModel;
@@ -36,7 +37,7 @@ const HomePresenter: FC<Props> = ({
       </div>
       <DashboardView
         userModel={userModel}
-        companies={companies}
+        companies={ExhibitorCompanies}
         availableTickets={tickets}
         onStar={onStar}
         collectedTickets={collectedTickets}

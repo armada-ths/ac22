@@ -5,6 +5,7 @@ import { Company, Tickets } from "../models/DummyModel";
 import Sidebar from "../components/Sidebar/Sidebar";
 import NavBar from "../components/NavBar/NavBar";
 import { UserModel } from "../models/UserModel";
+import { ExhibitorCompanies } from "../models/ExhibitorConst";
 
 interface Props {
   userModel: UserModel;
@@ -36,7 +37,7 @@ const AllOrganisationPresenter: FC<Props> = ({
       </div>
       <AllOrganisationView
         userModel={userModel}
-        companies={companies}
+        companies={ExhibitorCompanies}
         availableTickets={tickets}
         onStar={onStar}
       />

@@ -25,7 +25,9 @@ const ProfilePresenter: FC<Props> = ({
 	tickets,
 	collectedTickets,
 	name,
+
 }) => {
+
 	return (
 		<div className="mainFlex">
 			<NavBar

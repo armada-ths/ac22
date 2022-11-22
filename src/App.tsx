@@ -12,12 +12,15 @@ import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
 import ProfilePresenter from "./presenters/ProfilePresenter";
 
 import CompanyView from "./views/CompanyView/CompanyView";
-import { dummyCompanies } from "./models/ExhibitorConst";
+import { ExhibitorCompanies } from "./models/ExhibitorConst";
 import { dummyTickets } from "./models/dummyConstant";
 import { UserModel } from "./models/UserModel";
 import AllOrganisationPresenter from "./presenters/AllOrganisationPresenter";
 import { auth } from "./models/Firebase/firebaseConfig";
-import { getUserData } from "./models/Firebase/FirebaseModel";
+import {
+  getUserData,
+  deleteAccountFromDB,
+} from "./models/Firebase/FirebaseModel";
 
 interface Props {
   userModel: UserModel;
@@ -41,11 +44,14 @@ const App: FC<Props> = ({ userModel }) => {
           element={
             <HomePresenter
               userModel={userModel}
-              companies={dummyCompanies}
+              companies={ExhibitorCompanies}
               tickets={dummyTickets}
               onStar={onStar}
-              collectedTickets={userData?.collectedTickets.points}
-              name={["Malin", "Marques"]}
+              collectedTickets={userData?.points}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
             />
           }
         />
@@ -58,7 +64,10 @@ const App: FC<Props> = ({ userModel }) => {
           element={
             <TutorialPresenter
               collectedTickets={userData?.points}
-              name={["Malin", "Marques"]}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
             />
           }
         />
@@ -68,11 +77,14 @@ const App: FC<Props> = ({ userModel }) => {
           element={
             <AllOrganisationPresenter
               userModel={userModel}
-              companies={dummyCompanies}
+              companies={ExhibitorCompanies}
               tickets={dummyTickets}
               onStar={onStar}
               collectedTickets={userData?.points}
-              name={["Malin", "Marques"]}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
             />
           }
         />
@@ -81,28 +93,45 @@ const App: FC<Props> = ({ userModel }) => {
           element={
             <CompanyView
               userModel={userModel}
-              companies={dummyCompanies}
+              companies={ExhibitorCompanies}
               onStar={onStar}
               availableTickets={dummyTickets}
             />
           }
         />
-        <Route
+        {/*<Route
           path="/profile"
           element={
             <ProfilePresenter
-              companies={dummyCompanies}
+              companies={ExhibitorCompanies}
               tickets={dummyTickets}
-              onStar={() => console.log("on-star")}
+              onStar={onStar}
               collectedTickets={userData?.points}
-              name={["Malin", "Marques"]}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
+            />
+          }
+        />*/}
+        <Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
+
+        <Route
+          path="*"
+          element={
+            <HomePresenter
+              userModel={userModel}
+              companies={ExhibitorCompanies}
+              tickets={dummyTickets}
+              onStar={onStar}
+              collectedTickets={userData?.points}
+              name={[
+                "",
+                (auth.currentUser?.email as string).replace("@kth.se", ""),
+              ]}
             />
           }
         />
-        <Route path="tutorial-company" element={<CompanyTutorialPresenter />} />
-
-        <Route path="/" element={<RegisterPresenter registered={true} />} />
-        <Route path="*" element={<RegisterPresenter registered={true} />} />
       </Routes>
     </Router>
   );

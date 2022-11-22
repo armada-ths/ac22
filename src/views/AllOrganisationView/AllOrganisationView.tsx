@@ -21,7 +21,7 @@ const AllOrganisationView: FC<Props> = ({
   return (
     <div className="inner-box">
       <div className="card-flex">
-        <div className="row">
+        <div className="row" style={{ marginTop: "1rem" }}>
           <CompanyCardsRow
             userModel={userModel}
             companies={companies}
@@ -36,7 +36,16 @@ const AllOrganisationView: FC<Props> = ({
             companies={companies}
             availableTickets={availableTickets}
             onStar={onStar}
-            a={3}
+            a={2}
+          />
+        </div>
+        <div className="row">
+          <CompanyCardsRow
+            userModel={userModel}
+            companies={companies}
+            availableTickets={availableTickets}
+            onStar={onStar}
+            a={4}
           />
         </div>
         <div className="row">
@@ -54,7 +63,16 @@ const AllOrganisationView: FC<Props> = ({
             companies={companies}
             availableTickets={availableTickets}
             onStar={onStar}
-            a={9}
+            a={8}
+          />
+        </div>
+        <div className="row">
+          <CompanyCardsRow
+            userModel={userModel}
+            companies={companies}
+            availableTickets={availableTickets}
+            onStar={onStar}
+            a={10}
           />
         </div>
         <div className="row">

@@ -41,8 +41,9 @@ export const CompanyCard: FC<Props> = ({
     <div className="card-box">
       <div
         className="card-background-image"
-        style={{ backgroundColor: image }}
+        style={{ backgroundImage: `url(${image})`, overflow: "hidden" }}
       ></div>
+
       <div className="card-body">
         <div className="card-header">
           <div className="card-header-title">

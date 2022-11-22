@@ -2,26 +2,25 @@ import { Company, Tickets } from "./DummyModel";
 
 import lunch_img from "../assets/CompanyInformation/lunch-img.svg";
 import waitlist_img from "../assets/CompanyInformation/waitlist-img.svg";
-import { UserModel } from "./UserModel";
-
 import alstom from "../assets/CompanyLogos/alstom.jpeg";
 import diversity from "../assets/CompanyLogos/diversity.png";
 import epiroc from "../assets/CompanyLogos/epiroc.png";
-import fmv from "../assets/CompanyLogos/fmv.jpeg";
-import gartner from "../assets/CompanyLogos/gartner.jpeg";
-import granges from "../assets/CompanyLogos/granges.png";
-import infront from "../assets/CompanyLogos/infront.png";
+import fmv from "../assets/CompanyLogos/fmv-cropped.jpeg";
+import gartner from "../assets/CompanyLogos/Gartner-G.png";
+import granges from "../assets/CompanyLogos/granges-cropped.png";
+import infront from "../assets/CompanyLogos/infront-cropped.png";
 import rise from "../assets/CompanyLogos/rise.png";
-import siemensEnergy from "../assets/CompanyLogos/siemens-energy.png";
+import siemensEnergy from "../assets/CompanyLogos/siemens-energy-cropped.png";
 import siemens from "../assets/CompanyLogos/siemens.png";
 import sopraSteria from "../assets/CompanyLogos/sopra-steria.jpeg";
-import spp from "../assets/CompanyLogos/spp.png";
-import zwapgrid from "../assets/CompanyLogos/zwapgrid.png";
+import spp from "../assets/CompanyLogos/spp-cropped.png";
+import zwapgrid from "../assets/CompanyLogos/zwapgrid-cropped.jpg";
+import alstromcr from "../assets/CompanyLogos/alstom-cropped.png";
 
-const dummyCompanies: Company[] = [
+const ExhibitorCompanies: Company[] = [
   {
     name: "Alstom Transport AB",
-    image: alstom,
+    image: alstromcr,
     id: 0,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -299,12 +298,11 @@ const dummyCompanies: Company[] = [
   },
   {
     name: "Zwapgrid AB",
-    image: "#F2F2F2",
+    image: zwapgrid,
     id: 11,
     tags: ["workshop", "mingle"],
     coordinators: [
       { name: "Anna Holmgren", mail: "anna@zwapgrid.com", img: "null" },
-      { name: "Malin", mail: "malin@mail.se", img: "null" },
     ],
     offerings: ["Full Time Job", "Internship", "Summer Job"],
     askAbout: ["Full Time Job", "Masters Thesis", "Internship", "Green jobs"],
@@ -321,4 +319,4 @@ const dummyCompanies: Company[] = [
   },
 ];
 
-export { dummyCompanies };
+export { ExhibitorCompanies };

@@ -35,7 +35,13 @@ const DashboardView: FC<Props> = ({
   return (
     <div className="dashboard-box">
       <div className="dashboard-spotlight-container">
-        <div className="dashboard-spotlight">
+        <div
+          className="dashboard-spotlight dashboard-cover"
+          style={{
+            backgroundImage: `url(${companies[spotlight].image})`,
+            backgroundSize: "cover",
+          }}
+        >
           <div className="spotlight-header">
             <span>SPOTLIGHT</span>
             <div className="spotlight-right arrows">
@@ -49,7 +55,7 @@ const DashboardView: FC<Props> = ({
                   className="arrow"
                 ></img>
               )}
-              {spotlight !== 14 && (
+              {spotlight !== 11 && (
                 <img
                   src={arrow_right_white}
                   alt={"arrow right starred page"}
@@ -61,10 +67,7 @@ const DashboardView: FC<Props> = ({
               )}
             </div>
           </div>
-          <div
-            className="spotlight-info"
-            style={{ backgroundImage: companies[spotlight].image }}
-          >
+          <div className="spotlight-info">
             <h1>{companies[spotlight].name}</h1>
             <h2>STALL: {companies[spotlight].stall}</h2>
             <span>{companies[spotlight].location}</span>

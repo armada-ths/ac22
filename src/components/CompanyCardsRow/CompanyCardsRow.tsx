@@ -38,16 +38,16 @@ const CompanyCardsRow: FC<Props> = ({
     );
   }
   function getCards() {
-    let n = 3;
+    let n = 2;
     if (
       currentCompany &&
       companies
-        .slice(a, a + 3)
-        .filter((company) => company.id != currentCompany).length == 2
+        .slice(a, a + 2)
+        .filter((company) => company.id !== currentCompany).length === 1
     )
       n++;
     return companies.slice(a, a + n).map((company) => {
-      if (currentCompany && company.id == currentCompany) return;
+      if (currentCompany && company.id === currentCompany) return;
       let ticketState =
         company.collectedTickets > 0
           ? "received"

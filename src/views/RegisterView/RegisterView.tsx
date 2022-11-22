@@ -7,7 +7,7 @@ import { auth, database } from "../../models/Firebase/firebaseConfig";
 import { FormData } from "../../components/MultiStepForm/MultiStepForm";
 interface Props {}
 
-async function CreateDoc(user: User, userData: FormData) {
+async function CreateDoc(user: User, data: FormData) {
   if (user) {
     const docRef = doc(collection(database, "users"), user.uid);
     try {
@@ -15,21 +15,18 @@ async function CreateDoc(user: User, userData: FormData) {
         collectedTickets: {
           nrOfTickets: 0,
           nrOfSuperTickets: 0,
-          points: 10, //TODO: Change to 0 on fairday
         },
-        starredCompanies: [],
-        visitedCompanies: [],
+        points: 0, //TODO: Change to 0 on fairday
         currentCompany: -1,
-        isStudent: true,
+        starredCompanies: [],
         userInfo: {
-          email: userData.email,
-          studyProgramme: userData.studyProgramme,
-          yearOfStudy: userData.yearOfStudy,
-          completionYear: userData.completionYear,
-          jobInterests: userData.jobInterests.filter(
-            (item, index) => userData.jobInterests.indexOf(item) === index
-          ),
+          email: data.email,
+          studyProgramme: data.studyProgramme,
+          yearOfStudy: data.yearOfStudy,
+          completionYear: data.completionYear,
+          jobInterests: data.jobInterests,
         },
+        isStudent: true,
       });
       return docRef;
     } catch (error) {

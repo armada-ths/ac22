@@ -1,23 +1,25 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
 interface Props {
-    title: string;
-    information: string[];
+  title: string;
+  information: string[];
 }
 
 export const CompanyInformationMini: FC<Props> = ({ title, information }) => {
-    return (
-    <div className='mini-flex'>
-        <div className='title'>{title}</div>
-        <div className="theme-flex">
+  return (
+    <div className="mini-flex">
+      <div className="title">{title}</div>
+      <div className="theme-flex">
         {information.map((info) => {
-            return (
-                    <span className="theme border" key={info}>{info}</span>
-            )
+          return (
+            <span className="theme border" key={info}>
+              {info}
+            </span>
+          );
         })}
-        </div>
+      </div>
     </div>
-    )
-}
+  );
+};
 
-export default CompanyInformationMini
+export default CompanyInformationMini;

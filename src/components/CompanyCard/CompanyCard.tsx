@@ -54,11 +54,6 @@ export const CompanyCard: FC<Props> = ({
             onStar={() => onStar(companyName)}
           ></StarButtonCard>
         </div>
-
-        <TicketState
-          ticketState={ticketState}
-          receivedTickets={receivedTickets}
-        ></TicketState>
       </div>
     </div>
   );

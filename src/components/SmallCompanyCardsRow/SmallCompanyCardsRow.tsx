@@ -9,6 +9,7 @@ import { Company, Tickets } from "../../models/DummyModel";
  * onStar:           callback function that is called when the star button is pressed
  * availableTickets: an array of the available number of tickets left for each company
  */
+/**
 interface Props {
   companies: Company[];
   availableTickets: Tickets[];
@@ -49,3 +50,4 @@ const SmallCompanyCardsRow: FC<Props> = ({
 };
 
 export default SmallCompanyCardsRow;
+*/

@@ -56,24 +56,18 @@ const CompanyCardsRow: FC<Props> = ({
           : "none available";
       return (
         <div key={company.name} className="company-card">
-          <Link
-            to={"/company"}
-            onClick={() => {
-              userModel.updateCurrentCompany(company.id);
-              if (onCardClick) onCardClick(userModel.currentCompany);
-              window.scrollTo(0, 0);
-            }}
-          >
-            <CompanyCard
-              image={company.image}
-              companyName={company.name}
-              tags={company.tags}
-              starred={userModel.isStarred(company.name)}
-              onStar={onStar}
-              ticketState={ticketState}
-              receivedTickets={company.collectedTickets}
-            ></CompanyCard>
-          </Link>
+          <CompanyCard
+            userModel={userModel}
+            image={company.image}
+            companyName={company.name}
+            tags={company.tags}
+            starred={userModel.isStarred(company.name)}
+            onStar={onStar}
+            ticketState={ticketState}
+            receivedTickets={company.collectedTickets}
+            onCardClick={onCardClick}
+            companyId={company.id}
+          ></CompanyCard>
         </div>
       );
     });

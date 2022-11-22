@@ -220,11 +220,7 @@ export async function deleteAccountFromDB() {
   const user = auth.currentUser;
   user
     ? deleteUser(user)
-        .then(() => {
-          console.log(user, " deleted.");
-        })
-        .catch((e) => {
-          console.log(e, " : error in deleting user ", user);
-        })
-    : console.log("no user authenticated");
+        .then(() => {})
+        .catch((e) => {})
+    : console.log();
 }

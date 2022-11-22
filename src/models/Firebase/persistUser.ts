@@ -87,7 +87,6 @@ export async function persistUser(userModel: UserModel) {
         userModel.setVisitedCompanies(docSnap.data().visitedCompanies);
         userModel.setUserInfo(docSnap.data().userInfo);
         userModel.setCurrentCompany(docSnap.data().currentCompany);
-        console.log(userModel);
       }
     } catch (e) {
       console.error("Error getting document:\n", e);

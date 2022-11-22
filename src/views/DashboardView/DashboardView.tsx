@@ -89,17 +89,17 @@ const DashboardView: FC<Props> = ({
                 src={arrow_left}
                 alt={"arrow right starred page"}
                 onClick={() => {
-                  setA(a - 3);
+                  setA(a - 2);
                 }}
                 className="arrow"
               />
             )}
-            {a + 3 < userModel.starredCompanies.length && (
+            {a + 2 < userModel.starredCompanies.length && (
               <img
                 src={arrow_right}
                 alt={"arrow right starred page"}
                 onClick={() => {
-                  setA(a + 3);
+                  setA(a + 2);
                 }}
                 className="arrow"
               />

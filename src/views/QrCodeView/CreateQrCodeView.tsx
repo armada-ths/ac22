@@ -8,7 +8,7 @@ import plus_sign_img from "../../assets/TicketState/plus-sign-img.svg";
 import useCheckMobileScreen from "../../useCheckMobileScreen";
 import { auth } from "../../models/Firebase/firebaseConfig";
 import fmv from "./fmv.jpeg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Props {
   setTicketType: (ticketType: string) => void;
@@ -29,6 +29,8 @@ const CreateQrCodeView: FC<Props> = (props) => {
     props.setIsShown(true);
     props.generateURL();
   };
+  
+const navigate = useNavigate();
 
   function validTicketsLeft() {
     if (props.superTicketsLeft == 0 && props.ticketType == "superticket") {
@@ -168,12 +170,13 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   </Link>
                   <AuthButton
                     onButtonClick={() =>
-                      alert("Statistics will be available after the fair!")
+                      navigate("/statistics")
                     }
                     buttonText="Statistics"
                     buttonType="button"
                     active={true}
                   ></AuthButton>
+
                   <AuthButton
                     onButtonClick={() => auth.signOut()}
                     buttonText="Log out"
@@ -210,7 +213,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                   active={true}
                   buttonType={"button"}
                   onButtonClick={() =>
-                    alert("Statistics will be available after the fair!")
+                    navigate("/statistics")
                   }
                 />
                 <AuthButton
@@ -340,9 +343,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                         </Link>
                         <AuthButton
                           onButtonClick={() =>
-                            alert(
-                              "Statistics will be available after the fair!"
-                            )
+                            navigate("/statistics")
                           }
                           buttonText="Statistics"
                           buttonType="button"
@@ -395,7 +396,7 @@ const CreateQrCodeView: FC<Props> = (props) => {
                     </Link>
                     <AuthButton
                       onButtonClick={() =>
-                        alert("Statistics will be available after the fair!")
+                        navigate("/statistics")
                       }
                       buttonText="Statistics"
                       buttonType="button"

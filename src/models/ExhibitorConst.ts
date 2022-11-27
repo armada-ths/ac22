@@ -16,11 +16,54 @@ import sopraSteria from "../assets/CompanyLogos/sopra-steria.jpeg";
 import spp from "../assets/CompanyLogos/spp-cropped.png";
 import zwapgrid from "../assets/CompanyLogos/zwapgrid-cropped.jpg";
 import alstromcr from "../assets/CompanyLogos/alstom-cropped.png";
+import alstomJobs from "../assets/StatsJobs/alstom_jobs.png";
+import diversityJobs from "../assets/StatsJobs/diversity_jobs.png";
+import epirocJobs from "../assets/StatsJobs/epiroc_jobs.png";
+import gartnerJobs from "../assets/StatsJobs/gartner_jobs.png";
+import grangesJobs from "../assets/StatsJobs/granges_jobs.png";
+import infrontJobs from "../assets/StatsJobs/infront_jobs.png";
+import riseJobs from "../assets/StatsJobs/rise_jobs.png";
+import siemensEnergyJobs from "../assets/StatsJobs/siemensenergy_jobs.png";
+import siemensJobs from "../assets/StatsJobs/siemens_jobs.png";
+import sopraSteriaJobs from "../assets/StatsJobs/soprasteria_jobs.png";
+import sppJobs from "../assets/StatsJobs/spp_jobs.png";
+import zwapgridJobs from "../assets/StatsJobs/zwapgrid_jobs.png";
+import alstomProg from "../assets/StatsProgram/alstom_program.png";
+import diversityProg from "../assets/StatsProgram/diversity_program.png";
+import epirocProg from "../assets/StatsProgram/epiroc_program.png";
+import gartnerProg from "../assets/StatsProgram/gartner_program.png";
+import grangesProg from "../assets/StatsProgram/granges_program.png";
+import infrontProg from "../assets/StatsProgram/infront_program.png";
+import riseProg from "../assets/StatsProgram/rise_program.png";
+import siemensEnergyProg from "../assets/StatsProgram/siemensenergy_program.png";
+import siemensProg from "../assets/StatsProgram/siemens_program.png";
+import sopraSteriaProg from "../assets/StatsProgram/soprasteria_program.png";
+import sppProg from "../assets/StatsProgram/spp_program.png";
+import zwapgridProg from "../assets/StatsProgram/zwapgrid_program.png";
+import alstomYear from "../assets/StatsYear/alstom_year.png";
+import diversityYear from "../assets/StatsYear/diversity_year.png";
+import epirocYear from "../assets/StatsYear/epiroc_year.png";
+import gartnerYear from "../assets/StatsYear/gartner_year.png";
+import grangesYear from "../assets/StatsYear/granges_year.png";
+import infrontYear from "../assets/StatsYear/infront_year.png";
+import riseYear from "../assets/StatsYear/rise_year.png";
+import siemensEnergyYear from "../assets/StatsYear/siemensenergy_year.png";
+import siemensYear from "../assets/StatsYear/siemens_year.png";
+import sopraSteriaYear from "../assets/StatsYear/soprasteria_year.png";
+import sppYear from "../assets/StatsYear/spp_year.png";
+import zwapgridYear from "../assets/StatsYear/zwapgrid_year.png";
 
 const ExhibitorCompanies: Company[] = [
   {
     name: "Alstom Transport AB",
+    companyName: "Alstom",
     image: alstromcr,
+    jobsStat: alstomJobs,
+    progStat: alstomProg,
+    yearStat: alstomYear,
+    numberOfParticipants:20,
+    experienceStallrating:8.6,
+    averageStallrating: 8.5,
     id: 0,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -49,8 +92,15 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Epiroc",
+    companyName: "Epiroc",
     image: epiroc,
     id: 1,
+    experienceStallrating:8.5,
+    averageStallrating: 8.4,
+    jobsStat: epirocJobs,
+    progStat: epirocProg,
+    yearStat: epirocYear,
+    numberOfParticipants:42,
     tags: ["workshop", "mingle"],
     coordinators: [
       {
@@ -81,7 +131,13 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "FMV Försvarets materielverk",
+    companyName: "Fmv",
     image: fmv,
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
+    experienceStallrating:0,
+    averageStallrating: 0,
     id: 2,
     tags: ["workshop", "mingle"],
     coordinators: [],
@@ -100,7 +156,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Gartner",
+    companyName: "Gartner",
     image: gartner,
+    numberOfParticipants: 13,
+    averageStallrating:8.0,
+    experienceStallrating:8.0,
+    jobsStat: gartnerJobs,
+    progStat: gartnerProg,
+    yearStat: gartnerYear,
     id: 3,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -125,7 +188,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Gränges",
+    companyName: "Granges",
     image: granges,
+    averageStallrating:8.2,
+    experienceStallrating:8.3,
+    numberOfParticipants: 12,
+    jobsStat: grangesJobs,
+    progStat: grangesProg,
+    yearStat: grangesYear,
     id: 4,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -157,7 +227,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Infront Financial Technology",
+    companyName: "Infront",
     image: infront,
+    numberOfParticipants: 49,
+    averageStallrating:9.2,
+    experienceStallrating:8.6,
+    jobsStat: infrontJobs,
+    progStat: infrontProg,
+    yearStat: infrontYear,
     id: 5,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -182,7 +259,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "RISE Research Institutes of Sweden",
+    companyName: "Rise",
     image: rise,
+    averageStallrating:8.1,
+    experienceStallrating:8.2,
+    jobsStat: riseJobs,
+    progStat: riseProg,
+    yearStat: riseYear,
+    numberOfParticipants: 27,
     id: 6,
     tags: ["workshop", "mingle"],
     coordinators: [],
@@ -201,7 +285,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Siemens Energy AB",
+    companyName: "Siemensenergy",
     image: siemensEnergy,
+    averageStallrating:9.3,
+    experienceStallrating:9.2,
+    jobsStat: siemensEnergyJobs,
+    progStat: siemensEnergyProg,
+    yearStat: siemensEnergyYear,
+    numberOfParticipants: 33,
     id: 7,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -231,7 +322,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Siemens AB",
+    companyName: "Siemens",
     image: siemens,
+    averageStallrating:8.1,
+    experienceStallrating:7.9,
+    jobsStat: siemensJobs,
+    progStat: siemensProg,
+    yearStat: siemensYear,
+    numberOfParticipants: 23,
     id: 8,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -256,7 +354,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Sopra Steria",
+    companyName: "Soprasteria",
     image: sopraSteria,
+    averageStallrating:9.2,
+    experienceStallrating:9.2,
+    jobsStat: sopraSteriaJobs,
+    progStat: sopraSteriaProg,
+    yearStat: sopraSteriaYear,
+    numberOfParticipants: 13,
     id: 9,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -277,7 +382,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "SPP Pension & Försäkring AB",
+    companyName: "Spp",
     image: spp,
+    averageStallrating:8.7,
+    experienceStallrating:9.0,
+    jobsStat: sppJobs,
+    progStat: sppProg,
+    yearStat: sppYear,
+    numberOfParticipants: 26,
     id: 10,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -298,7 +410,14 @@ const ExhibitorCompanies: Company[] = [
   },
   {
     name: "Zwapgrid AB",
+    companyName: "Zwapgrid",
     image: zwapgrid,
+    averageStallrating:8.9,
+    experienceStallrating:8.6,
+    jobsStat: zwapgridJobs,
+    progStat: zwapgridProg,
+    yearStat: zwapgridYear,
+    numberOfParticipants: 22,
     id: 11,
     tags: ["workshop", "mingle"],
     coordinators: [

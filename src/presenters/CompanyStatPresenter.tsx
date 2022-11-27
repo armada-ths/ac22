@@ -10,7 +10,7 @@ interface props {
 
 const CompanyStatPresenter: FC<props> = ({user}) => {
     const [company, setCompany] = React.useState(user.email as string); 
-
+    
     function sanitize(string: string) {
 		return (
 			string.charAt(0).toUpperCase() +

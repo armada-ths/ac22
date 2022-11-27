@@ -1,0 +1,48 @@
+.container-stats{
+    width: 100%;
+}
+
+.header-stats{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inner-header{
+
+}
+
+.statisticJobs{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.statisticYear {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.statisticProg {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.image-container{
+    height: 20rem;
+    width: 20rem;
+    display: contents;
+    /* display: flex;
+    flex-direction: column;
+    align-content: center; */
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}

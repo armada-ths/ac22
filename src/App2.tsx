@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CreateQrCodePresenter from "./presenters/CreateQrCodePresenter";
 import { CompanyUserModel } from "./models/companyUserModel";
 import CompanyTutorialPresenter from "./presenters/CompanyTutorialPresenter";
+import CompanyStatPresenter from "./presenters/CompanyStatPresenter";
 
 interface Props {
   companyModel: CompanyUserModel;
@@ -25,6 +26,10 @@ const App2: FC<Props> = ({ companyModel }) => {
           path="*"
           element={<CreateQrCodePresenter user={companyModel} />}
         />
+        <Route
+          path="/statistics"
+          element={<CompanyStatPresenter user={companyModel} />}
+        />  
       </Routes>
     </Router>
   );

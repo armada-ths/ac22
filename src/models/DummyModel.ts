@@ -13,6 +13,9 @@ export interface ExtraInfo {
 export interface Company {
     name: string;
     image: string;
+    jobsStat: string;
+    yearStat: string;
+    progStat: string;
     id: number;
     tags: string[]
 

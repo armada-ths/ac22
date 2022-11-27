@@ -8,6 +8,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Armada",
     image: "#2BDBA0",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 0,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -30,6 +33,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive II",
     image: "#DB2B2B",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 1,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -52,6 +58,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive III",
     image: "#FFE6E6",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 2,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -74,6 +83,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive IV",
     image: "#0F1322",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 3,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -96,6 +108,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive V",
     image: "#E6FFF7",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 4,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -118,6 +133,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive VI",
     image: "#FFE6E6",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 5,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -140,6 +158,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive VII",
     image: "#2BDBA0",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 6,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -162,6 +183,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive VIII",
     image: "#999999",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 7,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -184,6 +208,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive IX",
     image: "#FFF5E6",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 8,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -206,6 +233,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive X",
     image: "#0F1322",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 9,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -228,6 +258,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive XI",
     image: "#E6FFF7",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 10,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -250,6 +283,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive XII",
     image: "#F2F2F2",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 11,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -272,6 +308,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive XIII",
     image: "#2BDBA0",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 12,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -294,6 +333,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive XIV",
     image: "#F9A444",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 13,
     tags: ["workshop", "mingle"],
     coordinators: [
@@ -316,6 +358,9 @@ const dummyCompanies: Company[] = [
   {
     name: "Volvo Automotive XV",
     image: "#333333",
+    jobsStat: "",
+    progStat: "",
+    yearStat: "",
     id: 14,
     tags: ["workshop", "mingle"],
     coordinators: [

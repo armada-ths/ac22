@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import { Company } from "../../models/DummyModel";
 import { ExhibitorCompanies } from "../../models/ExhibitorConst";
 import alstomJobs from "/home/redve/Koder/Armada/ac22/src/assets/StatsJobs/alstom_jobs.png";
@@ -38,100 +38,95 @@ import sopraSteriaYear from "../assets/StatsYear/soprasteria_year.png";
 import sppYear from "../assets/StatsYear/spp_year.png";
 import zwapgridYear from "../assets/StatsYear/zwapgrid_year.png";
 import { useNavigate } from "react-router-dom";
-import "./company-stat-view.css"
+import "./company-stat-view.css";
 interface Props {
-    company: string;
+  company: string;
 }
-    
-const CompanyStatView: FC <Props> = (props) => {
 
-    function getJobPic(company: string): any{
-        for (let index = 0; index < ExhibitorCompanies.length; index++) {  
-            console.log(props.company)
-            if(ExhibitorCompanies[index].companyName?.includes(props.company)) 
-            {
-                return ExhibitorCompanies[index].jobsStat;
-            }
-        }
+const CompanyStatView: FC<Props> = (props) => {
+  function getJobPic(company: string): any {
+    for (let index = 0; index < ExhibitorCompanies.length; index++) {
+      console.log(props.company);
+      if (ExhibitorCompanies[index].companyName === props.company) {
+        return ExhibitorCompanies[index].jobsStat;
+      }
     }
+  }
 
-    function getYearPic(company: string): any{
-        for (let index = 0; index < ExhibitorCompanies.length; index++) {
-            if(ExhibitorCompanies[index].companyName?.includes(props.company)) 
-            {
-                return ExhibitorCompanies[index].yearStat;
-            }
-        }
+  function getYearPic(company: string): any {
+    for (let index = 0; index < ExhibitorCompanies.length; index++) {
+      if (ExhibitorCompanies[index].companyName === props.company) {
+        return ExhibitorCompanies[index].yearStat;
+      }
     }
+  }
 
-    
-    function getProgPic(company: string): any{
-        for (let index = 0; index < ExhibitorCompanies.length; index++) {
-            if(ExhibitorCompanies[index].companyName?.includes(props.company)) 
-            {
-                return ExhibitorCompanies[index].progStat;
-            }
-        }
+  function getProgPic(company: string): any {
+    for (let index = 0; index < ExhibitorCompanies.length; index++) {
+      if (ExhibitorCompanies[index].companyName === props.company) {
+        return ExhibitorCompanies[index].progStat;
+      }
     }
+  }
 
-    function getParticipants(company: string): any{
-        for (let index = 0; index < ExhibitorCompanies.length; index++) {
-            if(ExhibitorCompanies[index].companyName?.includes(props.company)) 
-            {
-                return ExhibitorCompanies[index].numberOfParticipants;
-            }
-        }
+  function getParticipants(company: string): any {
+    for (let index = 0; index < ExhibitorCompanies.length; index++) {
+      if (ExhibitorCompanies[index].companyName === props.company) {
+        return ExhibitorCompanies[index].numberOfParticipants;
+      }
     }
+  }
 
-    function getStallRating(company: string): any{
-        for (let index = 0; index < ExhibitorCompanies.length; index++) {
-            if(ExhibitorCompanies[index].companyName?.includes(props.company)) 
-            {
-                return ExhibitorCompanies[index].averageStallrating;
-            }
-        }
+  function getStallRating(company: string): any {
+    for (let index = 0; index < ExhibitorCompanies.length; index++) {
+      if (ExhibitorCompanies[index].companyName === props.company) {
+        return ExhibitorCompanies[index].averageStallrating;
+      }
     }
+  }
 
-    function getExperienceRating(company: string): any{
-        for (let index = 0; index < ExhibitorCompanies.length; index++) {
-            if(ExhibitorCompanies[index].companyName?.includes(props.company)) 
-            {
-                return ExhibitorCompanies[index].experienceStallrating;
-            }
-        }
+  function getExperienceRating(company: string): any {
+    for (let index = 0; index < ExhibitorCompanies.length; index++) {
+      if (ExhibitorCompanies[index].companyName === props.company) {
+        return ExhibitorCompanies[index].experienceStallrating;
+      }
     }
+  }
 
-
-    
-
-    return (
-        <div style={{width: "100%"}}>
-            <h1 className="header-stats">Statistics</h1>
-            <div className="statisticParticipants">
-                <h2>Participants for this company:{getParticipants(props.company)}</h2>
-            </div>
-            <div className="statisticStallRating">
-                <h2>Average stall rating:{getStallRating(props.company)}</h2>
-            </div>
-            <div className="statisticExperienceRating">
-                <h2>Average experience rating:{getExperienceRating(props.company)}</h2>
-            </div>
-            <div className="statisticJobs">
-                <h2 className="inner-header" style={{paddingLeft: "48%"}}>Jobs</h2>
-                <div className="img-container"><img src={getJobPic(props.company)}/></div>
-                
-            </div>
-            <div className="statisticYear">
-                <h2 style={{paddingLeft: "48%"}}>Year</h2>
-                <div className="img-container"><img src = {getYearPic(props.company)}/></div>
-            </div>
-            <div className="statisticProg">
-                <h2 style={{paddingLeft: "46%"}}>Programme</h2>
-               <div className="img-container"><img src = {getProgPic(props.company)}/></div>
-            </div>
+  return (
+    <div style={{ width: "100%" }}>
+      <h1 className="header-stats">Statistics</h1>
+      <div className="statisticParticipants">
+        <h2>Participants for this company:{getParticipants(props.company)}</h2>
+      </div>
+      <div className="statisticStallRating">
+        <h2>Average stall rating:{getStallRating(props.company)}</h2>
+      </div>
+      <div className="statisticExperienceRating">
+        <h2>Average experience rating:{getExperienceRating(props.company)}</h2>
+      </div>
+      <div className="statisticJobs">
+        <h2 className="inner-header" style={{ paddingLeft: "48%" }}>
+          Jobs
+        </h2>
+        <div className="img-container">
+          <img src={getJobPic(props.company)} />
         </div>
-    );
+      </div>
+      <div className="statisticYear">
+        <h2 style={{ paddingLeft: "48%" }}>Year</h2>
+        <div className="img-container">
+          <img src={getYearPic(props.company)} />
+        </div>
+      </div>
+      <div className="statisticProg">
+        <h2 style={{ paddingLeft: "46%" }}>Programme</h2>
+        <div className="img-container">
+          <img src={getProgPic(props.company)} />
+        </div>
+      </div>
+    </div>
+  );
 };
-
 
 export default CompanyStatView;
